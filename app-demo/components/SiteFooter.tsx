@@ -11,17 +11,17 @@ export default function SiteFooter() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold-500 font-display text-lg text-wood-700">
               Y
             </span>
-            <span className="font-display text-lg font-semibold text-ivory">Y Viện Toplink</span>
+            <span className="font-display text-xl font-black text-ivory">Y Viện Toplink</span>
           </div>
-          <p className="mt-4 text-sm leading-relaxed text-cream/70">
+          <p className="mt-4 text-base leading-relaxed text-cream/70">
             Y Viện Dưỡng Thân – Tỉnh Thức. Đông y dưỡng sinh kết hợp lý liệu trị liệu và công nghệ cao,
             chăm sóc cá nhân hóa.
           </p>
         </div>
 
         <div>
-          <h4 className="font-display text-base font-semibold text-gold-400">Khám phá</h4>
-          <ul className="mt-4 space-y-2 text-sm">
+          <h4 className="font-display text-xl font-bold text-gold-300">Khám phá</h4>
+          <ul className="mt-4 space-y-2 text-base">
             {[
               ["/dich-vu", "Dịch vụ"],
               ["/quy-trinh-tri-lieu", "Quy trình trị liệu"],
@@ -30,7 +30,7 @@ export default function SiteFooter() {
               ["/tin-tuc", "Tin tức"],
             ].map(([href, label]) => (
               <li key={href}>
-                <Link href={href} className="text-cream/70 transition-colors hover:text-gold-400">
+                <Link href={href} className="text-cream/70 transition-colors hover:text-gold-300">
                   {label}
                 </Link>
               </li>
@@ -39,11 +39,11 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="font-display text-base font-semibold text-gold-400">Hệ thống cơ sở</h4>
-          <ul className="mt-4 space-y-3 text-sm text-cream/70">
+          <h4 className="font-display text-xl font-bold text-gold-300">Hệ thống cơ sở</h4>
+          <ul className="mt-4 space-y-3 text-base text-cream/70">
             {BRANCHES.map((b) => (
               <li key={b.slug} className="flex gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-500" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />
                 <span>{b.address}</span>
               </li>
             ))}
@@ -51,22 +51,22 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="font-display text-base font-semibold text-gold-400">Liên hệ</h4>
-          <ul className="mt-4 space-y-3 text-sm text-cream/70">
+          <h4 className="font-display text-xl font-bold text-gold-300">Liên hệ</h4>
+          <ul className="mt-4 space-y-3 text-base text-cream/70">
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-gold-500" />
-              <a href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`} className="hover:text-gold-400">
+              <Phone className="h-4 w-4 text-gold-300" />
+              <a href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`} className="hover:text-gold-300">
                 {CONTACT.hotline}
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-gold-500" />
+              <Clock className="h-4 w-4 text-gold-300" />
               08:00 – 21:00 hằng ngày
             </li>
           </ul>
           <Link
             href="/dat-lich"
-            className="mt-5 inline-block rounded-full bg-gold-500 px-5 py-2 text-sm font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+            className="mt-5 inline-block rounded-sm bg-gold-500 px-6 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
           >
             Đặt lịch trải nghiệm
           </Link>
@@ -74,7 +74,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="border-t border-cream/15">
-        <div className="mx-auto max-w-6xl px-4 py-5 text-center text-xs text-cream/50 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 py-5 text-center text-sm text-cream/50 sm:px-6">
           © {new Date().getFullYear()} Y Viện Toplink · Bản demo giao diện · Các liệu trình hỗ trợ chăm sóc
           sức khỏe, không thay thế tư vấn y khoa chuyên môn.
         </div>

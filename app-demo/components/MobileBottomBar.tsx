@@ -15,9 +15,9 @@ export default function MobileBottomBar() {
       <div className="grid grid-cols-4">
         {items.map(({ label, icon: Icon, href, external }) => {
           const inner = (
-            <span className="flex flex-col items-center gap-0.5 py-2.5 text-clay-700">
-              <Icon className="h-5 w-5" />
-              <span className="text-[11px] font-medium">{label}</span>
+            <span className="flex flex-col items-center gap-0.5 py-3 text-crimson-600">
+              <Icon className="h-6 w-6" />
+              <span className="text-xs font-medium">{label}</span>
             </span>
           );
           return external ? (

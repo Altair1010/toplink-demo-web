@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Playfair_Display } from "next/font/google";
+import { Be_Vietnam_Pro, Playfair_Display, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -14,8 +14,15 @@ const beVietnam = Be_Vietnam_Pro({
 
 const playfair = Playfair_Display({
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800", "900"],
   variable: "--font-display-google",
+  display: "swap",
+});
+
+const dancing = Dancing_Script({
+  subsets: ["latin", "vietnamese"],
+  weight: ["500", "600", "700"],
+  variable: "--font-dancing",
   display: "swap",
 });
 
@@ -27,7 +34,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${playfair.variable}`}>
+    <html lang="vi" className={`${beVietnam.variable} ${playfair.variable} ${dancing.variable}`}>
       <body className="bg-paper min-h-screen">
         <SiteHeader />
         <main className="pb-20 lg:pb-0">{children}</main>

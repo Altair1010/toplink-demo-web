@@ -11,3 +11,8 @@ build
 /presentation/
 /Z-NeededUpdate/
 /skills-lock.json
+/.claude/
+/.codegraph/
+/.mcp.json
+/CLAUDE.md
+/bootstrap-project.ps1

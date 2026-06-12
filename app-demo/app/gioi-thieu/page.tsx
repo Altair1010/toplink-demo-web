@@ -14,51 +14,51 @@ export default function AboutPage() {
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <div className="rounded-2xl border border-sand bg-white/60 p-7 shadow-sm">
+        <div className="rounded-md border border-sand bg-white/60 p-8 shadow-sm">
           <Target className="h-8 w-8 text-gold-600" />
-          <h3 className="mt-4 font-display text-xl font-semibold text-clay-700">Sứ mệnh</h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          <h3 className="mt-4 font-display text-2xl font-black text-crimson-600">Sứ mệnh</h3>
+          <p className="mt-2 text-lg leading-relaxed text-ink-soft">
             Giúp mỗi người được lắng nghe cơ thể, phục hồi năng lượng và tìm lại sự cân bằng thân – tâm – trí giữa
             nhịp sống hiện đại.
           </p>
         </div>
-        <div className="rounded-2xl border border-sand bg-white/60 p-7 shadow-sm">
+        <div className="rounded-md border border-sand bg-white/60 p-8 shadow-sm">
           <Eye className="h-8 w-8 text-gold-600" />
-          <h3 className="mt-4 font-display text-xl font-semibold text-clay-700">Tầm nhìn</h3>
-          <p className="mt-2 text-sm leading-relaxed text-ink-soft">
+          <h3 className="mt-4 font-display text-2xl font-black text-crimson-600">Tầm nhìn</h3>
+          <p className="mt-2 text-lg leading-relaxed text-ink-soft">
             Trở thành hệ thống Y Viện dưỡng sinh được tin cậy, lan tỏa lối sống chăm sóc sức khỏe chủ động.
           </p>
         </div>
       </div>
 
-      <div className="mt-10 rounded-3xl bg-gradient-to-br from-clay-700 to-wood-700 p-8 text-ivory sm:p-12">
-        <Leaf className="h-10 w-10 text-gold-400" />
-        <h2 className="mt-4 font-display text-2xl font-semibold sm:text-3xl">Triết lý dưỡng sinh</h2>
-        <p className="mt-3 max-w-2xl leading-relaxed text-cream/85">
+      <div className="mt-10 rounded-lg bg-gradient-to-br from-crimson-600 to-wood-700 p-8 text-ivory sm:p-12">
+        <Leaf className="h-10 w-10 text-gold-300" />
+        <h2 className="mt-4 font-display text-3xl font-black text-gold-200 sm:text-4xl">Triết lý dưỡng sinh</h2>
+        <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
           Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh tại. Mỗi liệu
           trình tại Toplink bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.
         </p>
       </div>
 
       <div className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-clay-700">Giá trị cốt lõi</h2>
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
+        <h2 className="font-display text-3xl font-black text-crimson-600">Giá trị cốt lõi</h2>
+        <div className="mt-5 grid gap-6 sm:grid-cols-3">
           {[
             { icon: Heart, t: "Tận tâm", d: "Chăm sóc bằng sự thấu hiểu và tôn trọng." },
             { icon: Leaf, t: "Tự nhiên", d: "Ưu tiên liệu pháp dưỡng sinh an toàn." },
             { icon: Target, t: "Chuyên môn", d: "Kỹ thuật viên được đào tạo bài bản." },
           ].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-2xl border border-sand bg-white/60 p-6">
-              <Icon className="h-7 w-7 text-clay-700" />
-              <h3 className="mt-3 font-display text-lg font-semibold text-clay-700">{t}</h3>
-              <p className="mt-1 text-sm text-ink-soft">{d}</p>
+            <div key={t} className="rounded-md border border-sand bg-white/60 p-8">
+              <Icon className="h-7 w-7 text-crimson-600" />
+              <h3 className="mt-3 font-display text-xl font-black text-crimson-600">{t}</h3>
+              <p className="mt-1 text-base text-ink-soft">{d}</p>
             </div>
           ))}
         </div>
       </div>
 
       <div className="mt-12 text-center">
-        <Link href="/dat-lich" className="inline-block rounded-full bg-gold-500 px-7 py-3 text-sm font-semibold text-wood-700 hover:bg-gold-400">
+        <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-lg font-semibold text-wood-700 hover:bg-gold-400">
           Đặt lịch trải nghiệm
         </Link>
       </div>

@@ -9,7 +9,7 @@ export default function BookingPage() {
       <div className="text-center">
         <SectionHeader center eyebrow="Đặt lịch trải nghiệm" title="Chỉ 3 bước để được chăm sóc" desc="Toplink sẽ gọi lại xác nhận. Chị/anh chưa cần tạo tài khoản." />
       </div>
-      <div className="mt-10">
+      <div className="mt-12">
         <BookingStepper />
       </div>
     </div>

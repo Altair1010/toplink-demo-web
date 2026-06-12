@@ -3,34 +3,75 @@
 /* ============================================================
    Y VIỆN TOPLINK — DESIGN TOKENS
    Tinh thần: sang trọng, tĩnh tại, dưỡng sinh, ấm áp, đáng tin
-   Palette: đỏ trầm · vàng kim · be · nâu gỗ · trắng ngà · ngọc trầm
+   Palette (theo nhatlieuyvien.vn): đỏ son trầm sâu · vàng kim · nâu gỗ ·
+   be ngà · than chì — đậm, no màu, đậm chất phương Đông / Đông y.
+   Bo góc: vuông vức, ít cong (sharp/formal). Chữ lớn cho người cao tuổi.
    ============================================================ */
 @theme {
+  /* ---- Surfaces (warm ivory / cream / sand / mist) ---- */
   --color-ivory: #fbf7f0;
-  --color-cream: #f3ebdd;
-  --color-sand: #e7dac4;
+  --color-cream: #ede7d3;
+  --color-sand: #d0c2a7;
+  --color-mist: #e6e5d7;
 
-  --color-clay-50: #faf3f2;
-  --color-clay-100: #f1dcd9;
-  --color-clay-600: #8b2f2a;
-  --color-clay-700: #722420;
-  --color-clay-800: #5a1b18;
+  /* ---- Crimson — deep saturated brand red (#95131f anchor) ---- */
+  --color-crimson-50: #fdf2f1;
+  --color-crimson-100: #f9dcd9;
+  --color-crimson-200: #efb0aa;
+  --color-crimson-300: #e07f76;
+  --color-crimson-400: #c44438;
+  --color-crimson-500: #a51a23;
+  --color-crimson-600: #95131f; /* PRIMARY */
+  --color-crimson-700: #7a0f18;
+  --color-crimson-800: #5c0a11;
 
-  --color-gold-400: #d4af37;
-  --color-gold-500: #c19a2e;
-  --color-gold-600: #a07f1f;
+  /* ---- Bright accent red (high-emphasis only, dùng tiết chế) ---- */
+  --color-accent-red: #c70002;
+  --color-accent-red-dark: #b20000;
 
-  --color-wood-500: #6b4f3a;
-  --color-wood-700: #4a3526;
+  /* ---- Gold — heritage gold / vàng kim ---- */
+  --color-gold-200: #fff1c1;
+  --color-gold-300: #fdd79a;
+  --color-gold-400: #e6c067;
+  --color-gold-500: #c8a02e; /* primary gold */
+  --color-gold-600: #9c7a1c;
+  --color-gold-700: #715616;
 
-  --color-jade-500: #3a6b5f;
-  --color-jade-600: #2e5648;
+  /* ---- Wood — nâu gỗ trầm ---- */
+  --color-wood-400: #6e4632;
+  --color-wood-500: #502c1e; /* secondary */
+  --color-wood-700: #3a1f15;
 
-  --color-ink: #2b2420;
+  /* ---- Jade — ngọc trầm (điểm nhấn nhẹ, đã làm sâu hơn) ---- */
+  --color-jade-500: #2f5d50;
+  --color-jade-600: #244a3f;
+
+  /* ---- Ink / text (than chì #313131) ---- */
+  --color-ink: #313131;
   --color-ink-soft: #5c534c;
+  --color-ink-mute: #7a726a;
 
+  /* ---- Migration aliases: existing clay-* classes resolve to crimson ---- */
+  --color-clay-50: #fdf2f1;
+  --color-clay-100: #f9dcd9;
+  --color-clay-600: #a51a23;
+  --color-clay-700: #95131f;
+  --color-clay-800: #7a0f18;
+
+  /* ---- Fonts ---- */
   --font-display: var(--font-display-google), "Times New Roman", serif;
   --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  --font-script: var(--font-dancing), "Brush Script MT", cursive;
+
+  /* ---- Rounded — SHARP / FORMAL (vuông vức) ---- */
+  --radius-sm: 4px; /* buttons */
+  --radius-md: 8px; /* cards */
+  --radius-lg: 12px; /* hero / large panels */
+  --radius-xl: 16px;
+
+  /* ---- Type scale helpers ---- */
+  --text-body-lg: 1.25rem; /* 20px */
+  --text-body-md: 1.125rem; /* 18px */
 }
 
 html {
@@ -41,7 +82,26 @@ body {
   background-color: var(--color-ivory);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  /* Chữ lớn cho người cao tuổi: nền 18px / line-height thoáng */
+  font-size: 1.125rem;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading-font {
+  font-family: var(--font-display);
+}
+
+/* Decorative Vietnamese script accent (eyebrows, hero flourish, slogans only) */
+.font-script {
+  font-family: var(--font-script);
+  font-weight: 700;
 }
 
 /* Subtle entrance animations (tiết chế) */
@@ -65,9 +125,19 @@ body {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
-/* Thin decorative gold rule */
+/* Respect reduced-motion preferences (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Decorative gold rule (thicker, 2px) used under headings */
 .gold-rule {
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
     to right,
     transparent,
@@ -76,10 +146,18 @@ body {
   );
 }
 
-/* Warm paper texture feel via layered gradients */
+/* Gold "seal/stamp" ring motif — chấm triện vàng phương Đông */
+.seal {
+  border: 2px solid var(--color-gold-500);
+  border-radius: 9999px;
+  color: var(--color-gold-300);
+  background: rgba(149, 19, 31, 0.35);
+}
+
+/* Warm paper texture feel via layered gradients (deepened crimson + gold) */
 .bg-paper {
   background-color: var(--color-ivory);
   background-image:
-    radial-gradient(at 100% 0%, rgba(193, 154, 46, 0.06) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, rgba(139, 47, 42, 0.05) 0px, transparent 50%);
+    radial-gradient(at 100% 0%, rgba(200, 160, 46, 0.09) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(149, 19, 31, 0.08) 0px, transparent 50%);
 }

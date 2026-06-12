@@ -14,15 +14,15 @@ export default function NewsPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {POSTS.map((post) => (
-          <article key={post.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-sand bg-white/70 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-            <div className="aspect-[16/9] bg-gradient-to-br from-wood-500/25 to-clay-700/25">
-              <div className="flex h-full items-center justify-center text-xs text-ink-soft/60">Ảnh bài viết</div>
+          <article key={post.slug} className="group flex flex-col overflow-hidden rounded-md border border-sand bg-white/70 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
+            <div className="aspect-[16/9] bg-gradient-to-br from-wood-500/25 to-crimson-600/25">
+              <div className="flex h-full items-center justify-center text-sm text-ink-soft/60">Ảnh bài viết</div>
             </div>
-            <div className="flex flex-1 flex-col p-5">
-              <span className="text-xs font-semibold uppercase tracking-wide text-gold-600">{post.cat}</span>
-              <h3 className="mt-2 font-display text-lg font-semibold text-clay-700 group-hover:text-clay-800">{post.title}</h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-soft">{post.excerpt}</p>
-              <span className="mt-4 text-sm font-semibold text-gold-600">Đọc tiếp →</span>
+            <div className="flex flex-1 flex-col p-8">
+              <span className="text-sm font-semibold uppercase tracking-wide text-gold-700">{post.cat}</span>
+              <h3 className="mt-2 font-display text-xl font-bold text-crimson-600 group-hover:text-crimson-700">{post.title}</h3>
+              <p className="mt-2 flex-1 text-base leading-relaxed text-ink-soft">{post.excerpt}</p>
+              <span className="mt-4 rounded-sm text-base font-semibold text-gold-700">Đọc tiếp →</span>
             </div>
           </article>
         ))}
