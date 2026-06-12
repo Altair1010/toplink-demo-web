@@ -28,15 +28,15 @@ export default function BookingStepper() {
 
   if (submitted) {
     return (
-      <div className="animate-fade-up mx-auto max-w-xl rounded-lg border border-sand bg-white/70 p-8 text-center shadow-sm sm:p-12">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-jade-500/15 text-jade-600">
+      <div className="animate-fade-up mx-auto max-w-xl rounded-lg border border-sand bg-cream p-8 text-center shadow-sm sm:p-12">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-jade-600 text-ivory">
           <PartyPopper className="h-8 w-8" />
         </div>
         <h2 className="mt-6 font-display text-3xl font-black text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
           Toplink đã nhận yêu cầu đặt lịch và sẽ liên hệ xác nhận trong thời gian sớm nhất.
         </p>
-        <div className="mt-6 rounded-md bg-cream/60 p-4 text-left text-base text-ink-soft">
+        <div className="mt-6 rounded-md border border-sand bg-ivory p-4 text-left text-base text-ink-soft">
           <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "—"}</p>
           <p><span className="font-medium text-ink">Điện thoại:</span> {form.phone || "—"}</p>
           <p>
@@ -82,7 +82,7 @@ export default function BookingStepper() {
         ))}
       </ol>
 
-      <div className="rounded-lg border border-sand bg-white/70 p-8 shadow-sm sm:p-8">
+      <div className="rounded-lg border border-sand bg-cream p-8 shadow-sm sm:p-8">
         {/* STEP 1 */}
         {step === 0 && (
           <div className="animate-fade-up">
@@ -93,11 +93,10 @@ export default function BookingStepper() {
                 <button
                   key={n.key}
                   onClick={() => setNeed(n.key)}
-                  className={`rounded-md border px-3 py-3.5 text-base font-medium transition-all ${
+                  className={`rounded-md border px-3 py-3.5 text-center text-base font-medium transition-all ${
                     need === n.key ? "border-crimson-600 bg-crimson-600 text-gold-200" : "border-sand bg-ivory hover:border-gold-400"
                   }`}
                 >
-                  <span className="mr-1" aria-hidden>{n.emoji}</span>
                   {n.label}
                 </button>
               ))}
@@ -117,7 +116,7 @@ export default function BookingStepper() {
                 setService(null);
               }}
               className={`mt-5 flex w-full items-center gap-3 rounded-md border px-4 py-3.5 text-left transition-all ${
-                letAdvise ? "border-gold-500 bg-gold-500/10" : "border-dashed border-gold-400 bg-gold-500/5 hover:bg-gold-500/10"
+                letAdvise ? "border-gold-500 bg-gold-200" : "border-dashed border-gold-500 bg-ivory hover:bg-gold-200"
               }`}
             >
               <Sparkles className="h-5 w-5 text-gold-600" />

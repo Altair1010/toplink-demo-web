@@ -15,8 +15,8 @@ export default function ProductsPage() {
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {PRODUCTS.map((p) => (
-          <div key={p.slug} className="flex flex-col rounded-md border border-sand bg-white/70 p-8 shadow-sm">
-            <div className="aspect-square overflow-hidden rounded-md bg-gradient-to-br from-cream to-sand">
+          <div key={p.slug} className="flex flex-col rounded-md border border-sand bg-cream p-8 shadow-sm">
+            <div className="aspect-square overflow-hidden rounded-md border border-sand bg-mist">
               <div className="flex h-full items-center justify-center text-sm text-ink-soft/60">Ảnh sản phẩm</div>
             </div>
             <span className="mt-4 text-sm font-semibold uppercase tracking-wide text-gold-700">{p.group}</span>
@@ -27,7 +27,7 @@ export default function ProductsPage() {
             </div>
             <a
               href={CONTACT.zalo}
-              className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-400 px-6 py-3 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-500/10"
+              className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-200"
             >
               <MessageCircle className="h-4 w-4" /> Tư vấn qua Zalo
             </a>

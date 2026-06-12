@@ -193,22 +193,58 @@ export const SPACES = [
   {
     floor: "Tầng 1 – Tĩnh",
     desc: "Tiếp khách, lễ tân, check-in, tủ dược liệu. Không gian mở đầu hành trình tĩnh tại.",
-    tone: "from-clay-700 to-clay-600",
+    tone: "bg-crimson-800",
   },
   {
     floor: "Tầng 2 – Thông",
     desc: "Gội dưỡng sinh, trị liệu, ngâm chân. Khơi thông khí huyết và giải tỏa căng mỏi.",
-    tone: "from-wood-700 to-wood-500",
+    tone: "bg-wood-500",
   },
   {
     floor: "Tầng 3 – Dưỡng",
     desc: "Xông, ngâm bồn, thư giãn phục hồi. Nuôi dưỡng cơ thể trong sự ấm áp.",
-    tone: "from-jade-600 to-jade-500",
+    tone: "bg-jade-600",
   },
   {
     floor: "Tầng 4 – Tỉnh",
     desc: "Trà, thiền, cộng đồng, chia sẻ sức khỏe. Tỉnh thức và kết nối.",
-    tone: "from-gold-600 to-gold-500",
+    tone: "bg-crimson-600",
+  },
+];
+
+// ---- Công nghệ & thiết bị chăm sóc sức khỏe ----
+
+export interface Technology {
+  name: string;
+  effect: string;
+  benefit: string;
+  forWhom: string;
+}
+
+export const TECHNOLOGIES: Technology[] = [
+  {
+    name: "Nhiệt trị liệu thảo dược",
+    effect: "Làm ấm sâu, kích thích lưu thông khí huyết.",
+    benefit: "Giảm cảm giác nặng mỏi, thư giãn cơ sau ngày dài.",
+    forWhom: "Người hay lạnh, tuần hoàn kém, căng cơ.",
+  },
+  {
+    name: "Xông hơi & ngâm bồn dược liệu",
+    effect: "Giãn nở lỗ chân lông, hỗ trợ đào thải, làm mềm cơ.",
+    benefit: "Cơ thể nhẹ nhõm, hơi thở sâu, dễ ngủ hơn.",
+    forWhom: "Người mệt mỏi, căng thẳng kéo dài.",
+  },
+  {
+    name: "Trị liệu cơ sâu thủ công",
+    effect: "Day ấn theo kinh lạc bởi kỹ thuật viên được đào tạo.",
+    benefit: "Giải tỏa vùng cổ vai gáy – lưng eo căng cứng.",
+    forWhom: "Dân văn phòng, người ngồi nhiều.",
+  },
+  {
+    name: "Liệu pháp nóng – lạnh phục hồi",
+    effect: "Luân phiên nhiệt có kiểm soát, đánh thức năng lượng.",
+    benefit: "Tỉnh táo, sảng khoái, cơ thể như được tái khởi động.",
+    forWhom: "Người cần phục hồi nhanh, vận động viên nghiệp dư.",
   },
 ];
 

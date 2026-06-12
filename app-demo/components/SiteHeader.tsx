@@ -19,50 +19,49 @@ export default function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-sand/70 bg-ivory/85 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-crimson-600 font-display text-lg text-gold-400">
+    <header className="sticky top-0 z-50 border-b border-sand bg-ivory">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-crimson-600 font-display text-2xl text-gold-400">
             Y
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-xl font-black text-crimson-600">Y Viện Toplink</span>
-            <span className="block text-xs uppercase tracking-[0.2em] text-ink-soft">Dưỡng thân · Tỉnh thức</span>
+            <span className="block whitespace-nowrap font-display text-2xl font-bold text-crimson-600">Y Viện Toplink</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="text-base font-medium text-ink-soft transition-colors hover:text-crimson-600"
+              className="whitespace-nowrap text-sm font-bold uppercase tracking-wide text-ink-soft transition-colors hover:text-crimson-600"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <a
             href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`}
-            className="hidden items-center gap-1.5 text-base font-semibold text-crimson-600 sm:flex"
+            className="hidden items-center gap-1.5 whitespace-nowrap text-base font-bold text-crimson-600 sm:flex"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4 shrink-0" />
             {CONTACT.hotline}
           </a>
           <Link
             href="/dat-lich"
-            className="rounded-sm bg-crimson-600 px-5 py-3 text-base font-semibold text-gold-200 shadow-sm transition-colors hover:bg-crimson-700"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-sm bg-crimson-600 px-6 py-3 text-base font-bold uppercase tracking-wide text-gold-200 shadow-sm transition-colors hover:bg-crimson-700"
           >
             Đặt lịch
           </Link>
           <button
             aria-label="Mở menu"
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-crimson-600 lg:hidden"
+            className="flex h-10 w-10 items-center justify-center rounded-full text-crimson-600 xl:hidden"
           >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>

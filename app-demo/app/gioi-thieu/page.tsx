@@ -14,7 +14,7 @@ export default function AboutPage() {
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <div className="rounded-md border border-sand bg-white/60 p-8 shadow-sm">
+        <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
           <Target className="h-8 w-8 text-gold-600" />
           <h3 className="mt-4 font-display text-2xl font-black text-crimson-600">Sứ mệnh</h3>
           <p className="mt-2 text-lg leading-relaxed text-ink-soft">
@@ -22,7 +22,7 @@ export default function AboutPage() {
             nhịp sống hiện đại.
           </p>
         </div>
-        <div className="rounded-md border border-sand bg-white/60 p-8 shadow-sm">
+        <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
           <Eye className="h-8 w-8 text-gold-600" />
           <h3 className="mt-4 font-display text-2xl font-black text-crimson-600">Tầm nhìn</h3>
           <p className="mt-2 text-lg leading-relaxed text-ink-soft">
@@ -31,9 +31,9 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="mt-10 rounded-lg bg-gradient-to-br from-crimson-600 to-wood-700 p-8 text-ivory sm:p-12">
+      <div className="on-dark mt-10 frame-gold bg-crimson-800 p-8 text-ivory sm:p-12">
         <Leaf className="h-10 w-10 text-gold-300" />
-        <h2 className="mt-4 font-display text-3xl font-black text-gold-200 sm:text-4xl">Triết lý dưỡng sinh</h2>
+        <h2 className="mt-4 font-display text-4xl text-gold-200 sm:text-5xl">Triết lý <span className="emph emph-light">dưỡng sinh</span></h2>
         <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
           Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh tại. Mỗi liệu
           trình tại Toplink bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.
@@ -48,7 +48,7 @@ export default function AboutPage() {
             { icon: Leaf, t: "Tự nhiên", d: "Ưu tiên liệu pháp dưỡng sinh an toàn." },
             { icon: Target, t: "Chuyên môn", d: "Kỹ thuật viên được đào tạo bài bản." },
           ].map(({ icon: Icon, t, d }) => (
-            <div key={t} className="rounded-md border border-sand bg-white/60 p-8">
+            <div key={t} className="rounded-md border border-sand bg-cream p-8">
               <Icon className="h-7 w-7 text-crimson-600" />
               <h3 className="mt-3 font-display text-xl font-black text-crimson-600">{t}</h3>
               <p className="mt-1 text-base text-ink-soft">{d}</p>

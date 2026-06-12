@@ -11,31 +11,29 @@ export default function NeedSelector() {
   const activeNeed = NEEDS.find((n) => n.key === active);
 
   return (
-    <div className="rounded-lg border border-sand bg-white/60 p-8 shadow-sm sm:p-12">
-      <h2 className="text-center font-display text-3xl font-black text-crimson-600 sm:text-4xl">
-        Hôm nay cơ thể chị/anh đang cần gì?
+    <div className="rounded-lg border border-sand bg-cream p-8 shadow-sm sm:p-12">
+      <h2 className="text-center font-display text-4xl text-crimson-600 sm:text-5xl">
+        Hôm nay cơ thể chị/anh đang <span className="emph">cần gì</span>?
       </h2>
-      <p className="mt-2 text-center text-lg text-ink-soft">Chọn một nhu cầu, Toplink sẽ gợi ý liệu trình phù hợp.</p>
 
       <div className="mt-7 flex flex-wrap justify-center gap-2.5">
         {NEEDS.map((need) => (
           <button
             key={need.key}
             onClick={() => setActive(need.key)}
-            className={`flex items-center gap-2 rounded-md border px-5 py-3 text-base font-medium transition-all ${
+            className={`rounded-md border px-5 py-3 text-center text-base font-medium transition-all ${
               active === need.key
                 ? "border-crimson-600 bg-crimson-600 text-gold-200 shadow-sm"
                 : "border-sand bg-ivory text-ink hover:border-gold-400"
             }`}
           >
-            <span aria-hidden>{need.emoji}</span>
             {need.label}
           </button>
         ))}
       </div>
 
       {active && (
-        <div className="animate-fade-up mt-8 rounded-md bg-cream/60 p-6 sm:p-6">
+        <div className="animate-fade-up mt-8 rounded-md border border-sand bg-ivory p-6">
           <p className="text-base text-ink-soft">
             Gợi ý cho nhu cầu <span className="font-semibold text-crimson-600">{activeNeed?.label}</span>:
           </p>
@@ -44,7 +42,7 @@ export default function NeedSelector() {
               <Link
                 key={s.slug}
                 href={`/dich-vu/${s.slug}`}
-                className="group rounded-md border border-sand bg-white p-4 transition-colors hover:border-gold-400"
+                className="group rounded-md border border-sand bg-cream p-4 transition-colors hover:border-gold-500"
               >
                 <h4 className="font-display text-lg font-semibold text-crimson-600">{s.name}</h4>
                 <p className="mt-1 text-sm text-ink-soft">{s.duration} · từ {s.priceFrom}</p>

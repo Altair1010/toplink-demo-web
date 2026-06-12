@@ -14,8 +14,8 @@ export default function NewsPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {POSTS.map((post) => (
-          <article key={post.slug} className="group flex flex-col overflow-hidden rounded-md border border-sand bg-white/70 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md">
-            <div className="aspect-[16/9] bg-gradient-to-br from-wood-500/25 to-crimson-600/25">
+          <article key={post.slug} className="group flex flex-col overflow-hidden rounded-md border border-sand bg-cream shadow-sm transition-all hover:-translate-y-1 hover:border-gold-500 hover:shadow-md">
+            <div className="aspect-[16/9] border-b border-sand bg-mist">
               <div className="flex h-full items-center justify-center text-sm text-ink-soft/60">Ảnh bài viết</div>
             </div>
             <div className="flex flex-1 flex-col p-8">

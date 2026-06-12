@@ -23,7 +23,7 @@ export default function ProcessPage() {
             <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-crimson-600 font-display text-3xl font-black text-gold-500">
               {i + 1}
             </span>
-            <div className="rounded-md border border-sand bg-white/60 p-8 shadow-sm">
+            <div className="flex-1 rounded-md border border-sand bg-cream p-8 shadow-sm">
               <h3 className="font-display text-xl font-black text-crimson-600">{step.title}</h3>
               <p className="mt-2 text-lg leading-relaxed text-ink-soft">{step.desc}</p>
             </div>

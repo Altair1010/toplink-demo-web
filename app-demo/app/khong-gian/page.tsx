@@ -17,7 +17,7 @@ export default function SpacePage() {
       <div className="mt-12 space-y-10">
         {SPACES.map((sp, i) => (
           <div key={sp.floor} className={`grid items-center gap-6 lg:grid-cols-2 ${i % 2 ? "lg:[direction:rtl]" : ""}`}>
-            <div className={`aspect-[4/3] overflow-hidden rounded-lg bg-gradient-to-br ${sp.tone} shadow-lg [direction:ltr]`}>
+            <div className={`aspect-[4/3] overflow-hidden frame-gold ${sp.tone} [direction:ltr]`}>
               <div className="flex h-full items-center justify-center text-ivory/70">Ảnh / video không gian</div>
             </div>
             <div className="[direction:ltr]">

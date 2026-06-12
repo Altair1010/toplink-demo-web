@@ -11,7 +11,7 @@ export default function MobileBottomBar() {
   ];
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-sand bg-ivory/95 backdrop-blur-md lg:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-sand bg-ivory lg:hidden">
       <div className="grid grid-cols-4">
         {items.map(({ label, icon: Icon, href, external }) => {
           const inner = (

@@ -8,7 +8,7 @@ export default function FaqAccordion() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-sand rounded-md border border-sand bg-white/60">
+    <div className="mx-auto max-w-3xl divide-y divide-sand rounded-md border border-sand bg-cream">
       {FAQS.map((faq, i) => (
         <div key={i}>
           <button

@@ -21,11 +21,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
       <div className="mt-6 grid gap-8 lg:grid-cols-3">
         {/* Main */}
         <div className="lg:col-span-2">
-          <span className="rounded-sm bg-gold-500/15 px-3 py-1 text-sm font-semibold text-gold-700">{service.levelLabel}</span>
-          <h1 className="mt-4 font-display text-5xl font-black text-crimson-600">{service.name}</h1>
+          <span className="rounded-sm bg-gold-500 px-3 py-1 text-sm font-semibold text-wood-700">{service.levelLabel}</span>
+          <h1 className="mt-4 font-display text-5xl leading-tight text-crimson-600 sm:text-6xl">{service.name}</h1>
           <p className="mt-3 text-lg leading-relaxed text-ink-soft">{service.short}</p>
 
-          <div className="mt-8 aspect-[16/9] overflow-hidden rounded-lg bg-gradient-to-br from-wood-500/30 to-crimson-600/30">
+          <div className="mt-8 aspect-[16/9] overflow-hidden border border-sand bg-cream">
             <div className="flex h-full items-center justify-center text-ink-soft/60">Ảnh thật dịch vụ</div>
           </div>
 
@@ -63,10 +63,10 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           </Block>
 
           <Block title="Cảm giác sau buổi trị liệu">
-            <p className="rounded-md bg-cream/60 p-8 text-lg italic leading-relaxed text-ink">“{service.feeling}”</p>
+            <p className="border-l-2 border-gold-500 bg-cream p-8 font-display text-2xl italic leading-snug text-ink">“{service.feeling}”</p>
           </Block>
 
-          <p className="mt-8 rounded-md border border-sand bg-white/50 p-8 text-base leading-relaxed text-ink-soft">
+          <p className="mt-8 rounded-md border border-sand bg-cream p-8 text-base leading-relaxed text-ink-soft">
             Lưu ý: Liệu trình hỗ trợ thư giãn, lưu thông khí huyết và cải thiện cảm giác căng mỏi, góp phần cân bằng
             thân – tâm – trí. Không thay thế tư vấn y khoa chuyên môn.
           </p>
@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
         {/* Sticky sidebar */}
         <aside className="lg:col-span-1">
-          <div className="lg:sticky lg:top-24 rounded-md border border-sand bg-white/80 p-8 shadow-sm">
+          <div className="lg:sticky lg:top-24 rounded-md border border-sand bg-cream p-8 shadow-sm">
             <h3 className="font-display text-xl font-black text-crimson-600">{service.name}</h3>
             <dl className="mt-4 space-y-3 text-base">
               <div className="flex items-center justify-between">
@@ -94,7 +94,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </Link>
             <a
               href={CONTACT.zalo}
-              className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-400 px-7 py-3.5 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-500/10"
+              className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-200"
             >
               <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
             </a>
