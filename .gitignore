@@ -1,0 +1,13 @@
+node_modules
+.env
+.env.local
+dist
+build
+.next
+.DS_Store
+
+# Internal-only — keep the public repo limited to the web demo
+/.agents/
+/presentation/
+/Z-NeededUpdate/
+/skills-lock.json

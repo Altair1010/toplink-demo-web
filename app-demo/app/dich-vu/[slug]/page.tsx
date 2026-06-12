@@ -1,0 +1,117 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Clock, Check, AlertTriangle, MessageCircle, ArrowLeft } from "lucide-react";
+import { SERVICES, CONTACT } from "@/data/content";
+
+export function generateStaticParams() {
+  return SERVICES.map((s) => ({ slug: s.slug }));
+}
+
+export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = SERVICES.find((s) => s.slug === slug);
+  if (!service) notFound();
+
+  return (
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
+      <Link href="/dich-vu" className="inline-flex items-center gap-1.5 text-sm font-medium text-ink-soft hover:text-clay-700">
+        <ArrowLeft className="h-4 w-4" /> Tất cả dịch vụ
+      </Link>
+
+      <div className="mt-6 grid gap-8 lg:grid-cols-3">
+        {/* Main */}
+        <div className="lg:col-span-2">
+          <span className="rounded-full bg-gold-500/15 px-3 py-1 text-xs font-semibold text-gold-600">{service.levelLabel}</span>
+          <h1 className="mt-4 font-display text-4xl font-semibold text-clay-700">{service.name}</h1>
+          <p className="mt-3 text-lg leading-relaxed text-ink-soft">{service.short}</p>
+
+          <div className="mt-8 aspect-[16/9] overflow-hidden rounded-2xl bg-gradient-to-br from-wood-500/30 to-clay-700/30">
+            <div className="flex h-full items-center justify-center text-ink-soft/60">Ảnh thật dịch vụ</div>
+          </div>
+
+          <Block title="Ai nên dùng" icon={<Check className="h-5 w-5 text-jade-600" />}>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {service.suitableFor.map((x) => (
+                <li key={x} className="flex items-start gap-2 text-sm text-ink">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-jade-500" /> {x}
+                </li>
+              ))}
+            </ul>
+          </Block>
+
+          <Block title="Cần thận trọng" icon={<AlertTriangle className="h-5 w-5 text-clay-700" />}>
+            <ul className="grid gap-2 sm:grid-cols-2">
+              {service.cautions.map((x) => (
+                <li key={x} className="flex items-start gap-2 text-sm text-ink">
+                  <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-clay-600" /> {x}
+                </li>
+              ))}
+            </ul>
+          </Block>
+
+          <Block title="Quy trình buổi trị liệu">
+            <ol className="space-y-3">
+              {service.steps.map((step, i) => (
+                <li key={i} className="flex gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-clay-700 text-sm font-semibold text-ivory">
+                    {i + 1}
+                  </span>
+                  <span className="pt-0.5 text-sm text-ink">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </Block>
+
+          <Block title="Cảm giác sau buổi trị liệu">
+            <p className="rounded-xl bg-cream/60 p-4 text-sm italic leading-relaxed text-ink">“{service.feeling}”</p>
+          </Block>
+
+          <p className="mt-8 rounded-xl border border-sand bg-white/50 p-4 text-xs leading-relaxed text-ink-soft">
+            Lưu ý: Liệu trình hỗ trợ thư giãn, lưu thông khí huyết và cải thiện cảm giác căng mỏi, góp phần cân bằng
+            thân – tâm – trí. Không thay thế tư vấn y khoa chuyên môn.
+          </p>
+        </div>
+
+        {/* Sticky sidebar */}
+        <aside className="lg:col-span-1">
+          <div className="lg:sticky lg:top-24 rounded-2xl border border-sand bg-white/80 p-6 shadow-sm">
+            <h3 className="font-display text-lg font-semibold text-clay-700">{service.name}</h3>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div className="flex items-center justify-between">
+                <dt className="flex items-center gap-1.5 text-ink-soft"><Clock className="h-4 w-4" /> Thời lượng</dt>
+                <dd className="font-medium text-ink">{service.duration}</dd>
+              </div>
+              <div className="flex items-center justify-between">
+                <dt className="text-ink-soft">Giá từ</dt>
+                <dd className="font-semibold text-clay-700">{service.priceFrom}</dd>
+              </div>
+            </dl>
+            <Link
+              href={`/dat-lich?need=${service.needs[0]}`}
+              className="mt-5 block rounded-full bg-clay-700 px-5 py-3 text-center text-sm font-semibold text-ivory transition-colors hover:bg-clay-800"
+            >
+              Đặt lịch dịch vụ này
+            </Link>
+            <a
+              href={CONTACT.zalo}
+              className="mt-3 flex items-center justify-center gap-2 rounded-full border border-gold-400 px-5 py-3 text-sm font-semibold text-gold-600 transition-colors hover:bg-gold-500/10"
+            >
+              <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  );
+}
+
+function Block({ title, icon, children }: { title: string; icon?: React.ReactNode; children: React.ReactNode }) {
+  return (
+    <div className="mt-8">
+      <h2 className="flex items-center gap-2 font-display text-xl font-semibold text-clay-700">
+        {icon} {title}
+      </h2>
+      <div className="mt-4">{children}</div>
+    </div>
+  );
+}
