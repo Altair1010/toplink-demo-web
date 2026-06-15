@@ -7,25 +7,26 @@
    Palette: đỏ dược liệu · đỏ sơn mài · vàng kim tiết chế · kem giấy cổ ·
    nâu gỗ trầm · mực tàu. Màu PHẲNG — không gradient, không blend.
    Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
-   Heading: Cormorant Garamond · Body: Be Vietnam Pro.
+   Heading: Playfair Display · Body: Be Vietnam Pro.
    ============================================================ */
 @theme {
   /* ---- Surfaces (kem giấy cổ / ngọc trắng / cát / sương) ---- */
   --color-ivory: #fffcf7;   /* ngọc trắng — nền chính */
-  --color-cream: #fff4df;   /* kem giấy sắc thuốc — section/card ấm */
+  --color-cream: #f6f4df;   /* kem giấy sắc thuốc — khớp nhatlieuyvien.vn */
   --color-sand: #e7d6b4;    /* cát — viền/đường kẻ nhạt */
-  --color-mist: #efe9da;    /* sương — nền phụ */
+  --color-mist: #e6e5d7;    /* sương — nền phụ (kem #E6E5D7) */
+  --color-paper-light: #f1f1f1; /* chữ sáng trên nền tối */
 
-  /* ---- Crimson — đỏ dược liệu (#8F1418 anchor) ---- */
+  /* ---- Crimson — đỏ dược liệu (#95131F anchor — khớp nhatlieuyvien.vn) ---- */
   --color-crimson-50: #fbf0ef;
   --color-crimson-100: #f5d9d6;
   --color-crimson-200: #e6a9a3;
   --color-crimson-300: #d2756c;
-  --color-crimson-400: #b53a37;
-  --color-crimson-500: #a01820;
-  --color-crimson-600: #8f1418; /* PRIMARY — đỏ dược liệu */
-  --color-crimson-700: #71101a; /* đỏ rượu sâu */
-  --color-crimson-800: #5f0c10; /* đỏ sơn mài — nền cao cấp */
+  --color-crimson-400: #981c1f;
+  --color-crimson-500: #992022;
+  --color-crimson-600: #95131f; /* PRIMARY — đỏ dược liệu */
+  --color-crimson-700: #7e0a15; /* đỏ sơn mài sâu */
+  --color-crimson-800: #6a0511; /* nền tối cao cấp */
 
   /* ---- Bright accent red (chỉ 1 điểm nhấn cao nhất, vd hotline) ---- */
   --color-accent-red: #c70002;
@@ -50,18 +51,18 @@
 
   /* ---- Ink / text (mực tàu #1A1410) ---- */
   --color-ink: #1a1410;
-  --color-ink-soft: #574c43;
+  --color-ink-soft: #636363; /* xám body — khớp nhatlieuyvien.vn */
   --color-ink-mute: #7a6f64;
 
   /* ---- Migration aliases: clay-* cũ map sang crimson ---- */
   --color-clay-50: #fbf0ef;
   --color-clay-100: #f5d9d6;
-  --color-clay-600: #a01820;
-  --color-clay-700: #8f1418;
-  --color-clay-800: #71101a;
+  --color-clay-600: #992022;
+  --color-clay-700: #95131f;
+  --color-clay-800: #7e0a15;
 
   /* ---- Fonts ---- */
-  --font-display: var(--font-display-google), "Cormorant Garamond", "Times New Roman", serif;
+  --font-display: var(--font-display-google), "Playfair Display", "Times New Roman", serif;
   --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
   --font-script: var(--font-dancing), "Brush Script MT", cursive;
 
@@ -100,7 +101,7 @@ h6,
   font-family: var(--font-display);
 }
 
-/* Cormorant là serif thanh — heading cần đậm hơn để giữ uy lực */
+/* Playfair Display là serif tương phản cao — heading giữ uy lực, chữ to */
 h1, h2 {
   letter-spacing: -0.01em;
 }
@@ -144,8 +145,140 @@ h1, h2 {
 .delay-3 { animation-delay: 0.3s; }
 .delay-4 { animation-delay: 0.4s; }
 
+/* ── MOTION KIT (preview) — reveal-on-scroll · Ken Burns · hover lift ──
+   Triết lý: "ấn tượng bằng sự tĩnh tại" — easing chậm 0.6–1.2s,
+   chỉ animate transform/opacity (GPU), không cinematic/techno. */
+
+/* Reveal khi cuộn tới: trượt nhẹ 24px + mờ → rõ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ken Burns: ảnh zoom/pan rất chậm — cảm giác "video tĩnh" cao cấp */
+@keyframes ken-burns {
+  from {
+    transform: scale(1.06) translate(0, 0);
+  }
+  to {
+    transform: scale(1.18) translate(-1.5%, -1.5%);
+  }
+}
+.ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Thẻ dược liệu: nhấc nhẹ khi hover, ảnh bên trong zoom chậm */
+.lift {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 44px -20px rgba(95, 12, 16, 0.5);
+}
+.zoom-media {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover .zoom-media {
+  transform: scale(1.08);
+}
+
+/* ── DROPBOX SLIDE-IN: khối trôi vào theo hướng khi cuộn ──
+   easing đặc trưng cubic-bezier(0.15,0.5,0.05,1) ~0.6s, có stagger */
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-down {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.15, 0.5, 0.05, 1),
+    transform 0.6s cubic-bezier(0.15, 0.5, 0.05, 1);
+  will-change: opacity, transform;
+}
+.reveal-left { transform: translateX(-64px); }
+.reveal-right { transform: translateX(64px); }
+.reveal-down { transform: translateY(-48px); }
+.reveal-up { transform: translateY(48px); }
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-up.is-visible,
+.reveal-down.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── BOOK-OPEN (Autodesk Popular products): bìa sách lật 3D ── */
+.book {
+  perspective: 1600px;
+}
+.book-inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.book-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+}
+.book.is-open .book-cover,
+.book:hover .book-cover,
+.book:focus-within .book-cover {
+  transform: rotateY(-158deg);
+}
+
+/* ── MARQUEE (Vibrasonic): dải chữ chạy ngang liên tục ── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  overflow: hidden;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ticker var(--marquee-speed, 40s) linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up {
+    animation: none;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up,
+  .reveal-down {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ken-burns,
+  .zoom-media,
+  .book-cover {
+    animation: none;
+    transition: none;
+  }
+  .book .book-cover {
+    transform: rotateY(-158deg); /* mở sẵn để lộ nội dung */
+  }
+  .marquee-track {
     animation: none;
   }
   html {

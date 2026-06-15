@@ -1,10 +1,21 @@
 import Link from "next/link";
 import { MessageCircle, ArrowRight, Leaf, HeartHandshake, Sparkles, ShieldCheck, Flame, Droplets, Hand, Snowflake } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import ServiceCard from "@/components/ServiceCard";
+import BookCard from "@/components/BookCard";
+import Marquee from "@/components/Marquee";
+import Reveal from "@/components/Reveal";
 import NeedSelector from "@/components/NeedSelector";
 import FaqAccordion from "@/components/FaqAccordion";
 import { SERVICES, PROCESS_STEPS, SPACES, REVIEWS, TECHNOLOGIES, CONTACT, STATS } from "@/data/content";
+
+const SLOGANS = [
+  "Dưỡng thân từ gốc",
+  "Phục hồi từ tâm",
+  "Đông y dưỡng sinh",
+  "Khí huyết điều hòa",
+  "Thân · Tâm · Trí",
+  "Lắng nghe cơ thể",
+];
 
 const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 
@@ -57,6 +68,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* MARQUEE — dải khẩu hiệu chạy ngang (kỹ thuật Vibrasonic) */}
+      <Marquee items={SLOGANS} className="on-dark bg-crimson-700 py-4 text-gold-300" />
+
       {/* NEED SELECTOR */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <NeedSelector />
@@ -77,14 +91,16 @@ export default function HomePage() {
             { icon: HeartHandshake, title: "Cá nhân hóa", desc: "Liệu trình theo thể trạng và nhu cầu riêng." },
             { icon: Sparkles, title: "Công nghệ cao", desc: "Kết hợp thiết bị hiện đại nâng hiệu quả phục hồi." },
             { icon: ShieldCheck, title: "An toàn, minh bạch", desc: "Ngôn ngữ trung thực, không cam kết quá lời." },
-          ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="bg-ivory p-8 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-crimson-600 text-gold-300">
-                <Icon className="h-6 w-6" />
+          ].map(({ icon: Icon, title, desc }, i) => (
+            <Reveal key={title} from={i % 2 === 0 ? "left" : "right"} delay={i * 100} className="bg-ivory">
+              <div className="h-full p-8 text-center">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-crimson-600 text-gold-300">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-4 font-display text-2xl text-crimson-600">{title}</h3>
+                <p className="mt-2 text-base text-ink-soft">{desc}</p>
               </div>
-              <h3 className="mt-4 font-display text-2xl text-crimson-600">{title}</h3>
-              <p className="mt-2 text-base text-ink-soft">{desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -110,8 +126,25 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((s) => (
-            <ServiceCard key={s.slug} service={s} />
+          {featured.map((s, i) => (
+            <Reveal key={s.slug} from="up" delay={i * 120}>
+              <BookCard service={s} />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* KHÔNG GIAN — khối trôi vào khi cuộn (kỹ thuật Dropbox) */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng – một hành trình" emphasis="một hành trình" desc="Tĩnh · Thông · Dưỡng · Tỉnh — mỗi tầng là một trạng thái cơ thể được chăm sóc." />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {SPACES.map((sp, i) => (
+            <Reveal key={sp.floor} from="up" delay={i * 120}>
+              <div className={`on-dark h-full border border-gold-700 ${sp.tone} p-8 text-ivory`}>
+                <h3 className="font-display text-2xl text-gold-200">{sp.floor}</h3>
+                <p className="mt-2 text-base leading-relaxed text-ivory/85">{sp.desc}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -177,19 +210,6 @@ export default function HomePage() {
               Xem đầy đủ quy trình <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
-      </section>
-
-      {/* SPACE */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng – một hành trình" emphasis="một hành trình" desc="Tĩnh · Thông · Dưỡng · Tỉnh — mỗi tầng là một trạng thái cơ thể được chăm sóc." />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {SPACES.map((sp) => (
-            <div key={sp.floor} className={`on-dark border border-gold-700 ${sp.tone} p-8 text-ivory`}>
-              <h3 className="font-display text-2xl text-gold-200">{sp.floor}</h3>
-              <p className="mt-2 text-base leading-relaxed text-ivory/85">{sp.desc}</p>
-            </div>
-          ))}
         </div>
       </section>
 
