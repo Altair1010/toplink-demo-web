@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Check, ArrowLeft, ArrowRight, Sparkles, PartyPopper } from "lucide-react";
-import { NEEDS, SERVICES, BRANCHES } from "@/data/content";
+import { Check, ArrowLeft, ArrowRight, Sparkles, PartyPopper, MessageCircle } from "lucide-react";
+import { NEEDS, SERVICES, BRANCHES, CONTACT } from "@/data/content";
 
 const STEPS = ["Chọn nhu cầu", "Chọn dịch vụ", "Thông tin liên hệ"];
 
@@ -34,7 +34,7 @@ export default function BookingStepper() {
         </div>
         <h2 className="mt-6 font-display text-3xl font-black text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
-          Toplink đã nhận yêu cầu đặt lịch và sẽ liên hệ xác nhận trong thời gian sớm nhất.
+          Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
         </p>
         <div className="mt-6 rounded-md border border-sand bg-ivory p-4 text-left text-base text-ink-soft">
           <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "—"}</p>
@@ -48,9 +48,17 @@ export default function BookingStepper() {
             {letAdvise ? "Để Toplink tư vấn" : SERVICES.find((s) => s.slug === service)?.name ?? "—"}
           </p>
         </div>
-        <Link href="/" className="mt-7 inline-block rounded-sm bg-crimson-600 px-7 py-3 text-base font-semibold text-gold-200 hover:bg-crimson-700">
-          Về trang chủ
-        </Link>
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <a
+            href={CONTACT.zalo}
+            className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3 text-base font-semibold text-wood-700 hover:bg-gold-400"
+          >
+            <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
+          </a>
+          <Link href="/" className="inline-block rounded-sm border border-crimson-600 px-7 py-3 text-base font-semibold text-crimson-600 hover:bg-crimson-50">
+            Về trang chủ
+          </Link>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, MessageCircle, Facebook } from "lucide-react";
 import { CONTACT, BRANCHES } from "@/data/content";
 
 export default function SiteFooter() {
@@ -27,6 +27,8 @@ export default function SiteFooter() {
               ["/quy-trinh-tri-lieu", "Quy trình trị liệu"],
               ["/khong-gian", "Không gian Y Viện"],
               ["/san-pham", "Sản phẩm"],
+              ["/dao-tao", "Đào tạo"],
+              ["/nhuong-quyen", "Nhượng quyền"],
               ["/tin-tuc", "Tin tức"],
             ].map(([href, label]) => (
               <li key={href}>
@@ -60,8 +62,20 @@ export default function SiteFooter() {
               </a>
             </li>
             <li className="flex items-center gap-2">
+              <MessageCircle className="h-4 w-4 text-gold-300" />
+              <a href={CONTACT.zalo} className="hover:text-gold-300">Nhắn Zalo tư vấn</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="h-4 w-4 text-gold-300" />
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold-300">{CONTACT.email}</a>
+            </li>
+            <li className="flex items-center gap-2">
+              <Facebook className="h-4 w-4 text-gold-300" />
+              <a href={CONTACT.facebook} className="hover:text-gold-300">Fanpage Facebook</a>
+            </li>
+            <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-gold-300" />
-              08:00 – 21:00 hằng ngày
+              {CONTACT.hours}
             </li>
           </ul>
           <Link

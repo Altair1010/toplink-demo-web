@@ -1,8 +1,14 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import BrandVisual from "@/components/BrandVisual";
 import { SPACES } from "@/data/content";
 
-export const metadata = { title: "Không gian Y Viện — Y Viện Toplink" };
+export const metadata = {
+  title: "Không gian Y Viện — Y Viện Toplink",
+  description: "Bốn tầng Tĩnh · Thông · Dưỡng · Tỉnh — hành trình đưa cơ thể từ căng thẳng về cân bằng tại Y Viện Toplink.",
+};
+
+const SPACE_VARIANTS = ["crimson", "wood", "jade", "crimson"] as const;
 
 export default function SpacePage() {
   return (
@@ -17,8 +23,8 @@ export default function SpacePage() {
       <div className="mt-12 space-y-10">
         {SPACES.map((sp, i) => (
           <div key={sp.floor} className={`grid items-center gap-6 lg:grid-cols-2 ${i % 2 ? "lg:[direction:rtl]" : ""}`}>
-            <div className={`aspect-[4/3] overflow-hidden frame-gold ${sp.tone} [direction:ltr]`}>
-              <div className="flex h-full items-center justify-center text-ivory/70">Ảnh / video không gian</div>
+            <div className="aspect-[4/3] overflow-hidden frame-gold [direction:ltr]">
+              <BrandVisual variant={SPACE_VARIANTS[i % SPACE_VARIANTS.length]} label={sp.floor} />
             </div>
             <div className="[direction:ltr]">
               <h2 className="font-display text-3xl font-black text-crimson-600 sm:text-4xl">{sp.floor}</h2>

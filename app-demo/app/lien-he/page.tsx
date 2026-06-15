@@ -37,6 +37,15 @@ export default function ContactPage() {
                 <Navigation className="h-5 w-5" /> Chỉ đường
               </a>
             </div>
+            <div className="mt-5 overflow-hidden rounded-md border border-sand">
+              <iframe
+                title={`Bản đồ ${b.name}`}
+                src={`https://maps.google.com/maps?q=${encodeURIComponent(b.address)}&output=embed`}
+                className="h-56 w-full"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
         ))}
       </div>

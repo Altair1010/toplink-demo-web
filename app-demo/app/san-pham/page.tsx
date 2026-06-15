@@ -1,8 +1,12 @@
 import { MessageCircle } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import BrandVisual from "@/components/BrandVisual";
 import { PRODUCTS, CONTACT } from "@/data/content";
 
-export const metadata = { title: "Sản phẩm — Y Viện Toplink" };
+export const metadata = {
+  title: "Sản phẩm — Y Viện Toplink",
+  description: "Thảo dược, máy sức khỏe và sản phẩm hỗ trợ dưỡng sinh tại nhà từ Y Viện Toplink.",
+};
 
 export default function ProductsPage() {
   return (
@@ -16,8 +20,8 @@ export default function ProductsPage() {
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {PRODUCTS.map((p) => (
           <div key={p.slug} className="flex flex-col rounded-md border border-sand bg-cream p-8 shadow-sm">
-            <div className="aspect-square overflow-hidden rounded-md border border-sand bg-mist">
-              <div className="flex h-full items-center justify-center text-sm text-ink-soft/60">Ảnh sản phẩm</div>
+            <div className="aspect-square overflow-hidden rounded-md border border-sand">
+              <BrandVisual variant="cream" label={p.group} />
             </div>
             <span className="mt-4 text-sm font-semibold uppercase tracking-wide text-gold-700">{p.group}</span>
             <h3 className="mt-1 font-display text-xl font-black text-crimson-600">{p.name}</h3>

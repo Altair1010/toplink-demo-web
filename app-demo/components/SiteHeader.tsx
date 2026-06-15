@@ -11,6 +11,8 @@ const NAV = [
   { href: "/quy-trinh-tri-lieu", label: "Quy trình" },
   { href: "/khong-gian", label: "Không gian" },
   { href: "/san-pham", label: "Sản phẩm" },
+  { href: "/dao-tao", label: "Đào tạo" },
+  { href: "/nhuong-quyen", label: "Nhượng quyền" },
   { href: "/tin-tuc", label: "Tin tức" },
   { href: "/lien-he", label: "Liên hệ" },
 ];
@@ -30,7 +32,7 @@ export default function SiteHeader() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-4 xl:flex">
+        <nav className="hidden items-center gap-3 xl:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}

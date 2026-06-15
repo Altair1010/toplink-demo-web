@@ -1,8 +1,13 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import { Leaf, Target, Eye, Heart } from "lucide-react";
+import { Leaf, Target, Eye, Heart, UserRound } from "lucide-react";
+import { TEAM } from "@/data/content";
 
-export const metadata = { title: "Giới thiệu — Y Viện Toplink" };
+export const metadata = {
+  title: "Giới thiệu — Y Viện Toplink",
+  description:
+    "Y Viện Toplink — Dưỡng Thân, Tỉnh Thức. Sứ mệnh, triết lý dưỡng sinh và đội ngũ chuyên viên chăm sóc sức khỏe cá nhân hóa.",
+};
 
 export default function AboutPage() {
   return (
@@ -52,6 +57,26 @@ export default function AboutPage() {
               <Icon className="h-7 w-7 text-crimson-600" />
               <h3 className="mt-3 font-display text-xl font-black text-crimson-600">{t}</h3>
               <p className="mt-1 text-base text-ink-soft">{d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-14">
+        <h2 className="font-display text-3xl font-black text-crimson-600">Đội ngũ chuyên viên</h2>
+        <p className="mt-2 text-lg text-ink-soft">Lương y và kỹ thuật viên được đào tạo bài bản, đồng hành cùng chị/anh trên hành trình dưỡng thân.</p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          {TEAM.map((m) => (
+            <div key={m.name} className="flex gap-4 rounded-md border border-sand bg-cream p-6 shadow-sm">
+              <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-gold-300">
+                <UserRound className="h-7 w-7" />
+              </span>
+              <div>
+                <h3 className="font-display text-xl font-bold text-crimson-600">{m.name}</h3>
+                <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">{m.title}</p>
+                <p className="mt-2 text-base text-ink">{m.expertise}</p>
+                <p className="mt-1 text-base text-ink-soft">{m.experience}</p>
+              </div>
             </div>
           ))}
         </div>

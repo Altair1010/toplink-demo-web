@@ -1,7 +1,12 @@
+import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import BrandVisual from "@/components/BrandVisual";
 import { POSTS } from "@/data/content";
 
-export const metadata = { title: "Tin tức — Y Viện Toplink" };
+export const metadata = {
+  title: "Tin tức — Y Viện Toplink",
+  description: "Kiến thức sức khỏe và dưỡng sinh Đông y giúp chị/anh chăm sóc cơ thể chủ động mỗi ngày.",
+};
 
 export default function NewsPage() {
   return (
@@ -14,9 +19,13 @@ export default function NewsPage() {
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         {POSTS.map((post) => (
-          <article key={post.slug} className="group flex flex-col overflow-hidden rounded-md border border-sand bg-cream shadow-sm transition-all hover:-translate-y-1 hover:border-gold-500 hover:shadow-md">
-            <div className="aspect-[16/9] border-b border-sand bg-mist">
-              <div className="flex h-full items-center justify-center text-sm text-ink-soft/60">Ảnh bài viết</div>
+          <Link
+            key={post.slug}
+            href={`/tin-tuc/${post.slug}`}
+            className="group flex flex-col overflow-hidden rounded-md border border-sand bg-cream shadow-sm transition-all hover:-translate-y-1 hover:border-gold-500 hover:shadow-md"
+          >
+            <div className="aspect-[16/9] border-b border-sand">
+              <BrandVisual variant="cream" label={post.cat} />
             </div>
             <div className="flex flex-1 flex-col p-8">
               <span className="text-sm font-semibold uppercase tracking-wide text-gold-700">{post.cat}</span>
@@ -24,7 +33,7 @@ export default function NewsPage() {
               <p className="mt-2 flex-1 text-base leading-relaxed text-ink-soft">{post.excerpt}</p>
               <span className="mt-4 rounded-sm text-base font-semibold text-gold-700">Đọc tiếp →</span>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </div>

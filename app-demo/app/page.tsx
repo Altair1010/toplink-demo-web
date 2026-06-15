@@ -4,7 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import ServiceCard from "@/components/ServiceCard";
 import NeedSelector from "@/components/NeedSelector";
 import FaqAccordion from "@/components/FaqAccordion";
-import { SERVICES, PROCESS_STEPS, SPACES, REVIEWS, TECHNOLOGIES, CONTACT } from "@/data/content";
+import { SERVICES, PROCESS_STEPS, SPACES, REVIEWS, TECHNOLOGIES, CONTACT, STATS } from "@/data/content";
 
 const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 
@@ -50,7 +50,7 @@ export default function HomePage() {
                 <span className="seal flex h-16 w-16 items-center justify-center font-display text-3xl text-gold-300">Y</span>
                 <Leaf className="h-12 w-12 text-gold-300" />
                 <p className="font-display text-2xl text-ivory">Không gian Y Viện</p>
-                <p className="text-sm text-cream/55">Ảnh thật sẽ được cập nhật tại đây</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-gold-300/80">Dưỡng thân · Tỉnh thức</p>
               </div>
             </div>
           </div>
@@ -84,6 +84,18 @@ export default function HomePage() {
               </div>
               <h3 className="mt-4 font-display text-2xl text-crimson-600">{title}</h3>
               <p className="mt-2 text-base text-ink-soft">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SỐ LIỆU / NIỀM TIN — dải cam kết chất lượng (không phóng đại) */}
+      <section className="on-dark bg-crimson-800 py-12">
+        <div className="mx-auto grid max-w-6xl gap-px overflow-hidden border border-gold-700 bg-gold-700 px-0 sm:grid-cols-2 lg:grid-cols-4">
+          {STATS.map((s) => (
+            <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
+              <div className="font-display text-4xl font-bold text-gold-300 sm:text-5xl">{s.value}</div>
+              <p className="mt-2 text-base leading-snug text-cream/85">{s.label}</p>
             </div>
           ))}
         </div>

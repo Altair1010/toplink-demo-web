@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, Check, AlertTriangle, MessageCircle, ArrowLeft } from "lucide-react";
+import BrandVisual from "@/components/BrandVisual";
 import { SERVICES, CONTACT } from "@/data/content";
 
 export function generateStaticParams() {
@@ -25,8 +26,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <h1 className="mt-4 font-display text-5xl leading-tight text-crimson-600 sm:text-6xl">{service.name}</h1>
           <p className="mt-3 text-lg leading-relaxed text-ink-soft">{service.short}</p>
 
-          <div className="mt-8 aspect-[16/9] overflow-hidden border border-sand bg-cream">
-            <div className="flex h-full items-center justify-center text-ink-soft/60">Ảnh thật dịch vụ</div>
+          <div className="mt-8 aspect-[16/9] overflow-hidden frame-gold">
+            <BrandVisual variant="crimson" label={service.name} />
           </div>
 
           <Block title="Ai nên dùng" icon={<Check className="h-5 w-5 text-jade-600" />}>
