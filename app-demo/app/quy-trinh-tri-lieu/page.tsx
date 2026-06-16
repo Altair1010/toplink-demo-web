@@ -1,8 +1,9 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
+import Reveal from "@/components/Reveal";
 import { PROCESS_STEPS } from "@/data/content";
 
-export const metadata = { title: "Quy trình trị liệu — Y Viện Toplink" };
+export const metadata = { title: "Quy trình trị liệu · Y Viện Toplink" };
 
 export default function ProcessPage() {
   return (
@@ -20,13 +21,13 @@ export default function ProcessPage() {
             {i < PROCESS_STEPS.length - 1 && (
               <span className="absolute left-[1.4rem] top-12 h-[calc(100%-2rem)] w-px bg-sand" aria-hidden />
             )}
-            <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-crimson-600 font-display text-3xl font-black text-gold-500">
+            <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-crimson-600 text-3xl font-black text-gold-500">
               {i + 1}
             </span>
-            <div className="flex-1 rounded-md border border-sand bg-cream p-8 shadow-sm">
-              <h3 className="font-display text-xl font-black text-crimson-600">{step.title}</h3>
+            <Reveal from="right" delay={i * 90} className="flex-1 rounded-md border border-sand bg-cream p-8 shadow-sm">
+              <h3 className="text-xl font-black text-crimson-600">{step.title}</h3>
               <p className="mt-2 text-lg leading-relaxed text-ink-soft">{step.desc}</p>
-            </div>
+            </Reveal>
           </li>
         ))}
       </ol>

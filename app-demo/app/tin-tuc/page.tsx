@@ -1,10 +1,9 @@
-import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import BrandVisual from "@/components/BrandVisual";
+import BlogIndex from "@/components/BlogIndex";
 import { POSTS } from "@/data/content";
 
 export const metadata = {
-  title: "Tin tức — Y Viện Toplink",
+  title: "Tin tức · Y Viện Toplink",
   description: "Kiến thức sức khỏe và dưỡng sinh Đông y giúp chị/anh chăm sóc cơ thể chủ động mỗi ngày.",
 };
 
@@ -16,26 +15,7 @@ export default function NewsPage() {
         title="Kiến thức sức khỏe & dưỡng sinh"
         desc="Những bài viết giúp chị/anh chăm sóc cơ thể chủ động mỗi ngày."
       />
-
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
-        {POSTS.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/tin-tuc/${post.slug}`}
-            className="group flex flex-col overflow-hidden rounded-md border border-sand bg-cream shadow-sm transition-all hover:-translate-y-1 hover:border-gold-500 hover:shadow-md"
-          >
-            <div className="aspect-[16/9] border-b border-sand">
-              <BrandVisual variant="cream" label={post.cat} />
-            </div>
-            <div className="flex flex-1 flex-col p-8">
-              <span className="text-sm font-semibold uppercase tracking-wide text-gold-700">{post.cat}</span>
-              <h3 className="mt-2 font-display text-xl font-bold text-crimson-600 group-hover:text-crimson-700">{post.title}</h3>
-              <p className="mt-2 flex-1 text-base leading-relaxed text-ink-soft">{post.excerpt}</p>
-              <span className="mt-4 rounded-sm text-base font-semibold text-gold-700">Đọc tiếp →</span>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <BlogIndex posts={POSTS} />
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import SectionHeader from "@/components/SectionHeader";
-import ServiceCard from "@/components/ServiceCard";
+import BookCard from "@/components/BookCard";
+import Reveal from "@/components/Reveal";
 import { SERVICES, LEVELS } from "@/data/content";
 
-export const metadata = { title: "Dịch vụ — Y Viện Toplink" };
+export const metadata = { title: "Dịch vụ · Y Viện Toplink" };
 
 export default function ServicesPage() {
   return (
@@ -10,7 +11,7 @@ export default function ServicesPage() {
       <SectionHeader
         eyebrow="Dịch vụ"
         title="Các liệu trình tại Y Viện Toplink"
-        desc="Từ chăm sóc nhẹ nhàng mỗi ngày đến liệu trình chuyên sâu cá nhân hóa Thân – Tâm – Trí."
+        desc="Từ chăm sóc nhẹ nhàng mỗi ngày đến liệu trình chuyên sâu cá nhân hóa Thân · Tâm · Trí."
       />
 
       {LEVELS.map((level) => {
@@ -18,12 +19,14 @@ export default function ServicesPage() {
         return (
           <section key={level.key} className="mt-12">
             <div className="flex items-baseline gap-3">
-              <h2 className="font-display text-3xl font-black text-crimson-600">{level.label}</h2>
+              <h2 className="text-3xl font-black text-crimson-600">{level.label}</h2>
               <span className="text-base text-ink-soft">{level.desc}</span>
             </div>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((s) => (
-                <ServiceCard key={s.slug} service={s} />
+              {items.map((s, i) => (
+                <Reveal key={s.slug} from="up" delay={i * 90}>
+                  <BookCard service={s} />
+                </Reveal>
               ))}
             </div>
           </section>

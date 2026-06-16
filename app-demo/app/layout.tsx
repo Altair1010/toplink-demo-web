@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Playfair_Display, Dancing_Script } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Sans } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -13,25 +13,17 @@ const beVietnam = Be_Vietnam_Pro({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const notoSans = Noto_Sans({
   subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700", "800"],
-  style: ["normal", "italic"],
-  variable: "--font-display-google",
-  display: "swap",
-});
-
-const dancing = Dancing_Script({
-  subsets: ["latin", "vietnamese"],
-  weight: ["500", "600", "700"],
-  variable: "--font-dancing",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-noto-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://altair1010.github.io/toplink-demo-web"),
   title: {
-    default: "Y Viện Toplink — Dưỡng Thân · Tỉnh Thức",
+    default: "Y Viện Toplink · Dưỡng Thân · Tỉnh Thức",
     template: "%s",
   },
   description:
@@ -48,9 +40,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "vi_VN",
     siteName: "Y Viện Toplink",
-    title: "Y Viện Toplink — Dưỡng Thân · Tỉnh Thức",
+    title: "Y Viện Toplink · Dưỡng Thân · Tỉnh Thức",
     description:
-      "Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao — chăm sóc sức khỏe cá nhân hóa tại Y Viện Toplink.",
+      "Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao, chăm sóc sức khỏe cá nhân hóa tại Y Viện Toplink.",
   },
 };
 
@@ -59,7 +51,7 @@ const JSON_LD = {
   "@type": "HealthAndBeautyBusiness",
   name: "Y Viện Toplink",
   description:
-    "Y Viện dưỡng thân – tỉnh thức: Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao.",
+    "Y Viện dưỡng thân · tỉnh thức: Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao.",
   telephone: CONTACT.hotline,
   email: CONTACT.email,
   url: "https://altair1010.github.io/toplink-demo-web",
@@ -74,7 +66,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${playfair.variable} ${dancing.variable}`}>
+    <html lang="vi" className={`${beVietnam.variable} ${notoSans.variable}`}>
       <body className="bg-paper min-h-screen">
         <script
           type="application/ld+json"

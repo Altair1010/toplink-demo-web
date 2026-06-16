@@ -1,7 +1,7 @@
 import BookingStepper from "@/components/BookingStepper";
 import SectionHeader from "@/components/SectionHeader";
 
-export const metadata = { title: "Đặt lịch — Y Viện Toplink" };
+export const metadata = { title: "Đặt lịch · Y Viện Toplink" };
 
 export default function BookingPage() {
   return (

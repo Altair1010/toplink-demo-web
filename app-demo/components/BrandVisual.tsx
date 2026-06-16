@@ -1,5 +1,7 @@
-// Visual on-brand thay cho ảnh thật (chưa có ảnh). Inline SVG nên không phụ thuộc
-// basePath, không cần file nhị phân. Họa tiết: triện vàng + mây lành Đông phương.
+import Img from "@/components/Img";
+
+// Visual on-brand: nếu có `src` thì hiển thị ảnh thật (next/image, tự thêm basePath),
+// phủ overlay họa tiết mây nhẹ giữ chất Đông y. Không có src thì fallback SVG triện.
 type Variant = "crimson" | "wood" | "cream" | "jade";
 
 const BG: Record<Variant, string> = {
@@ -13,15 +15,33 @@ export default function BrandVisual({
   label,
   variant = "crimson",
   className = "",
+  src,
 }: {
   label?: string;
   variant?: Variant;
   className?: string;
+  /** Đường dẫn ảnh thật trong /public, vd "/images/spaces/tang-1-tinh.jpg" */
+  src?: string;
 }) {
   const onLight = variant === "cream";
   const ink = onLight ? "text-crimson-600" : "text-ivory";
   const sub = onLight ? "text-ink-soft" : "text-cream/60";
   const stroke = onLight ? "#a9802c" : "#f3d27a";
+
+  if (src) {
+    return (
+      <div className={`relative isolate h-full w-full overflow-hidden ${className}`} role="img" aria-label={label ?? "Hình ảnh Y Viện Toplink"}>
+        <Img src={src} alt={label ?? "Hình ảnh Y Viện Toplink"} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+        {/* lớp phủ mỏng giữ chữ/đường nét đọc rõ, tông đông y */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-crimson-800/35 to-transparent" aria-hidden />
+        {label && (
+          <span className="absolute bottom-3 left-4 right-4 text-base font-semibold uppercase tracking-wide text-ivory drop-shadow">
+            {label}
+          </span>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div

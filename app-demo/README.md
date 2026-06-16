@@ -7,7 +7,7 @@ Demo website tương tác cho **Y Viện Toplink** (Y Viện Dưỡng Thân – 
 - Next.js 15 (App Router) + TypeScript
 - Tailwind CSS v4
 - lucide-react icons
-- Font: Be Vietnam Pro (body) + Playfair Display (heading)
+- Font: Noto Sans (body) + Be Vietnam Pro IN HOA (heading)
 
 ## Chạy trên localhost
 ```bash

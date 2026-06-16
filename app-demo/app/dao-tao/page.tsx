@@ -2,10 +2,11 @@ import Link from "next/link";
 import { GraduationCap, Check, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import BrandVisual from "@/components/BrandVisual";
+import Reveal from "@/components/Reveal";
 import { TRAINING, CONTACT } from "@/data/content";
 
 export const metadata = {
-  title: "Đào tạo KTV — Y Viện Toplink",
+  title: "Đào tạo KTV · Y Viện Toplink",
   description:
     "Đào tạo kỹ thuật viên trị liệu Đông y dưỡng sinh bài bản tại Y Viện Toplink: lộ trình từ nền tảng đến thực hành và chứng nhận.",
 };
@@ -22,11 +23,11 @@ export default function TrainingPage() {
 
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
         <div className="aspect-[4/3] overflow-hidden frame-gold">
-          <BrandVisual variant="wood" label="Học viện đào tạo" />
+          <BrandVisual variant="wood" src="/images/training/training-1.jpg" label="Học viện đào tạo" />
         </div>
         <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
           <GraduationCap className="h-9 w-9 text-gold-600" />
-          <h2 className="mt-4 font-display text-3xl font-black text-crimson-600">Quyền lợi học viên</h2>
+          <h2 className="mt-4 text-3xl font-black text-crimson-600">Quyền lợi học viên</h2>
           <ul className="mt-5 space-y-3">
             {TRAINING.benefits.map((b) => (
               <li key={b} className="flex items-start gap-2.5 text-lg text-ink">
@@ -37,14 +38,16 @@ export default function TrainingPage() {
         </div>
       </div>
 
-      <h2 className="mt-14 font-display text-3xl font-black text-crimson-600">Lộ trình đào tạo</h2>
+      <h2 className="mt-14 text-3xl font-black text-crimson-600">Lộ trình đào tạo</h2>
       <div className="mt-6 grid gap-px overflow-hidden border border-sand bg-sand sm:grid-cols-2 lg:grid-cols-4">
         {TRAINING.roadmap.map((step, i) => (
-          <div key={step.title} className="bg-ivory p-7">
-            <span className="font-display text-4xl text-gold-600">0{i + 1}</span>
-            <h3 className="mt-2 font-display text-xl text-crimson-600">{step.title}</h3>
-            <p className="mt-1 text-base text-ink-soft">{step.desc}</p>
-          </div>
+          <Reveal key={step.title} from="up" delay={i * 120} className="bg-ivory">
+            <div className="h-full p-7">
+              <span className="text-4xl text-gold-600">0{i + 1}</span>
+              <h3 className="mt-2 text-xl text-crimson-600">{step.title}</h3>
+              <p className="mt-1 text-base text-ink-soft">{step.desc}</p>
+            </div>
+          </Reveal>
         ))}
       </div>
 

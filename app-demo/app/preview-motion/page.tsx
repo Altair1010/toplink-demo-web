@@ -3,7 +3,7 @@ import { ArrowRight, Leaf } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 /**
- * TRANG PREVIEW CHUYỂN ĐỘNG (tạm) — để duyệt cảm giác motion trước khi áp vào trang chính.
+ * TRANG PREVIEW CHUYỂN ĐỘNG (tạm), để duyệt cảm giác motion trước khi áp vào trang chính.
  * Công thức: video hero (Ken Burns fallback) + reveal-on-scroll + hover tinh tế.
  */
 
@@ -14,17 +14,17 @@ const HERO_POSTER =
 const HERBS = [
   {
     name: "Đương Quy",
-    desc: "Bổ huyết, điều kinh — nền tảng nhiều bài thuốc dưỡng sinh.",
+    desc: "Bổ huyết, điều kinh, nền tảng nhiều bài thuốc dưỡng sinh.",
     img: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=900&q=70",
   },
   {
     name: "Gừng Sao",
-    desc: "Ôn trung, tán hàn — làm ấm tỳ vị, hỗ trợ tuần hoàn.",
+    desc: "Ôn trung, tán hàn, làm ấm tỳ vị, hỗ trợ tuần hoàn.",
     img: "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=900&q=70",
   },
   {
     name: "Hoa Cúc & Trà Dưỡng",
-    desc: "Thanh nhiệt, an thần — dịu mắt, dễ ngủ, thư giãn tâm trí.",
+    desc: "Thanh nhiệt, an thần, dịu mắt, dễ ngủ, thư giãn tâm trí.",
     img: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=900&q=70",
   },
 ];
@@ -35,7 +35,7 @@ export default function PreviewMotionPage() {
       {/* ── HERO: slot video + Ken Burns poster + lớp phủ đỏ sơn mài ── */}
       <section className="relative isolate overflow-hidden on-dark">
         <div className="absolute inset-0 -z-10">
-          {/* Lớp nền ảnh Ken Burns (luôn hiển thị — fallback khi video chưa có) */}
+          {/* Lớp nền ảnh Ken Burns (luôn hiển thị, fallback khi video chưa có) */}
           <div
             className="ken-burns absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${HERO_POSTER})` }}
@@ -52,7 +52,7 @@ export default function PreviewMotionPage() {
           >
             <source src="/toplink-demo-web/media/hero-herbs.mp4" type="video/mp4" />
           </video>
-          {/* Lớp phủ phẳng giữ chữ luôn đọc rõ — đúng tông sơn mài, không gradient */}
+          {/* Lớp phủ phẳng giữ chữ luôn đọc rõ, đúng tông sơn mài, không gradient */}
           <div className="absolute inset-0 bg-crimson-800/78" />
         </div>
 
@@ -68,7 +68,7 @@ export default function PreviewMotionPage() {
               </span>
             </h1>
             <p className="animate-fade-up delay-2 mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
-              Không gian Đông y cao cấp — trị liệu thủ công, dưỡng liệu tự nhiên và
+              Không gian Đông y cao cấp, trị liệu thủ công, dưỡng liệu tự nhiên và
               công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
             </p>
             <div className="animate-fade-up delay-3 mt-9 flex flex-wrap gap-3">

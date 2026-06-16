@@ -37,15 +37,15 @@ export default function BookingStepper() {
           Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
         </p>
         <div className="mt-6 rounded-md border border-sand bg-ivory p-4 text-left text-base text-ink-soft">
-          <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "—"}</p>
-          <p><span className="font-medium text-ink">Điện thoại:</span> {form.phone || "—"}</p>
+          <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "Chưa nhập"}</p>
+          <p><span className="font-medium text-ink">Điện thoại:</span> {form.phone || "Chưa nhập"}</p>
           <p>
             <span className="font-medium text-ink">Nhu cầu:</span>{" "}
             {NEEDS.find((n) => n.key === need)?.label ?? "Để Toplink tư vấn"}
           </p>
           <p>
             <span className="font-medium text-ink">Dịch vụ:</span>{" "}
-            {letAdvise ? "Để Toplink tư vấn" : SERVICES.find((s) => s.slug === service)?.name ?? "—"}
+            {letAdvise ? "Để Toplink tư vấn" : SERVICES.find((s) => s.slug === service)?.name ?? "Chưa chọn"}
           </p>
         </div>
         <div className="mt-7 flex flex-wrap justify-center gap-3">

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 export type NavItem = { href: string; label: string };
@@ -13,10 +13,19 @@ const LINK =
 /**
  * Một mục nav desktop: link đơn hoặc nhóm có dropdown.
  * Hiện panel bằng CSS (group-hover + group-focus-within) — robust, không phụ
- * thuộc timing JS. State `open` chỉ phục vụ touch tap (thiết bị không hover).
+ * thuộc timing JS. State `open` phục vụ touch tap (thiết bị không hover).
+ * FIX: khi rời chuột, đóng panel VÀ bỏ focus — nếu không, click chuột sẽ
+ * focus button khiến group-focus-within ghim panel mở tới khi click ra ngoài.
  */
 export default function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  const close = () => {
+    setOpen(false);
+    const active = document.activeElement as HTMLElement | null;
+    if (active && ref.current?.contains(active)) active.blur();
+  };
 
   if (!group.children?.length) {
     return (
@@ -28,13 +37,11 @@ export default function NavDropdown({ group }: { group: NavGroup }) {
 
   return (
     <div
+      ref={ref}
       className="group relative"
-      onMouseLeave={() => setOpen(false)}
+      onMouseLeave={close}
       onKeyDown={(e) => {
-        if (e.key === "Escape") {
-          setOpen(false);
-          (e.currentTarget.querySelector("button") as HTMLButtonElement | null)?.blur();
-        }
+        if (e.key === "Escape") close();
       }}
     >
       <button

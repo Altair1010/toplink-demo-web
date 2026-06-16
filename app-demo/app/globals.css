@@ -7,7 +7,7 @@
    Palette: đỏ dược liệu · đỏ sơn mài · vàng kim tiết chế · kem giấy cổ ·
    nâu gỗ trầm · mực tàu. Màu PHẲNG — không gradient, không blend.
    Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
-   Heading: Playfair Display · Body: Be Vietnam Pro.
+   Heading: Be Vietnam Pro IN HOA (sans) · Body: Noto Sans.
    ============================================================ */
 @theme {
   /* ---- Surfaces (kem giấy cổ / ngọc trắng / cát / sương) ---- */
@@ -61,10 +61,9 @@
   --color-clay-700: #95131f;
   --color-clay-800: #7e0a15;
 
-  /* ---- Fonts ---- */
-  --font-display: var(--font-display-google), "Playfair Display", "Times New Roman", serif;
-  --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
-  --font-script: var(--font-dancing), "Brush Script MT", cursive;
+  /* ---- Fonts — sans toàn bộ (bỏ serif) ---- */
+  --font-display: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-noto-sans), var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
 
   /* ---- Bo góc — SHARP / FORMAL (vuông vức) ---- */
   --radius-sm: 2px;  /* buttons */
@@ -99,29 +98,25 @@ h5,
 h6,
 .heading-font {
   font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.18;
 }
 
-/* Playfair Display là serif tương phản cao — heading giữ uy lực, chữ to */
-h1, h2 {
-  letter-spacing: -0.01em;
-}
-
-/* Nhấn từ khóa trong headline: ITALIC CÙNG HỌ CHỮ (kỹ thuật taste),
-   tô vàng kim — không đổi sang font khác. */
+/* Nhấn từ khóa trong headline: BOLD + VIỀN CHỮ MẢNH tương phản
+   (không italic, không tô vàng) — giữ cùng họ chữ, chỉ tăng độ nổi. */
 .emph {
-  font-style: italic;
-  color: var(--color-gold-600);
-  font-weight: 600;
+  font-weight: 800;
+  color: inherit;
+  -webkit-text-stroke: 0.7px var(--color-crimson-700);
+  text-stroke: 0.7px var(--color-crimson-700);
 }
 .on-dark .emph,
 .emph-light {
-  color: var(--color-gold-300);
-}
-
-/* Decorative Vietnamese script accent (slogan/flourish — dùng rất ít) */
-.font-script {
-  font-family: var(--font-script);
-  font-weight: 700;
+  color: inherit;
+  -webkit-text-stroke: 0.7px var(--color-gold-500);
+  text-stroke: 0.7px var(--color-gold-500);
 }
 
 /* Subtle entrance animations (tiết chế) */
@@ -232,11 +227,30 @@ h1, h2 {
   transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: transform;
 }
+/* mép gáy + glow vàng nhẹ (ánh sáng tri thức) ở cạnh phải bìa */
+.book-cover {
+  box-shadow: 2px 0 8px -2px rgba(0, 0, 0, 0.35);
+}
 .book.is-open .book-cover,
 .book:hover .book-cover,
 .book:focus-within .book-cover {
-  transform: rotateY(-158deg);
+  transform: rotateY(-26deg); /* chỉ mở HÉ */
+  box-shadow: 10px 0 22px -6px rgba(216, 170, 75, 0.45), 2px 0 8px -2px rgba(0, 0, 0, 0.4);
 }
+
+/* ── LÁ THẢO DƯỢC trôi nhẹ (chất Đông y) — đi kèm hiệu ứng hội tụ ── */
+@keyframes leaf-float {
+  0% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(-6deg); }
+}
+.leaf-float {
+  animation: leaf-float 9s ease-in-out infinite;
+  will-change: transform;
+}
+.leaf-delay-1 { animation-delay: 1.2s; }
+.leaf-delay-2 { animation-delay: 2.4s; }
+.leaf-delay-3 { animation-delay: 3.6s; }
 
 /* ── MARQUEE (Vibrasonic): dải chữ chạy ngang liên tục ── */
 @keyframes ticker {
@@ -276,9 +290,12 @@ h1, h2 {
     transition: none;
   }
   .book .book-cover {
-    transform: rotateY(-158deg); /* mở sẵn để lộ nội dung */
+    transform: rotateY(-26deg); /* mở hé sẵn để lộ nội dung */
   }
   .marquee-track {
+    animation: none;
+  }
+  .leaf-float {
     animation: none;
   }
   html {
@@ -297,6 +314,30 @@ h1, h2 {
   border: 1px solid var(--color-gold-500);
   box-shadow: inset 0 0 0 4px var(--color-ivory), inset 0 0 0 5px var(--color-gold-500);
 }
+
+/* Khối callout họa tiết đông y — viền đôi + 4 góc hoa văn (dùng cho khối
+   nhấn mạnh ĐỨNG RIÊNG, IN HOA). Không dùng cho nhấn từ khóa inline. */
+.frame-herb {
+  position: relative;
+  border: 1.5px solid var(--color-gold-500);
+  box-shadow: inset 0 0 0 5px var(--color-ivory), inset 0 0 0 6px var(--color-gold-500);
+}
+.frame-herb.on-dark,
+.on-dark.frame-herb {
+  box-shadow: inset 0 0 0 5px var(--color-crimson-800), inset 0 0 0 6px var(--color-gold-500);
+}
+.frame-herb::before,
+.frame-herb::after {
+  content: "❀";
+  position: absolute;
+  top: 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-gold-500);
+  pointer-events: none;
+}
+.frame-herb::before { left: 0.7rem; }
+.frame-herb::after { right: 0.7rem; }
 
 /* "Triện/dấu son" — vòng vàng phương Đông, nền phẳng */
 .seal {

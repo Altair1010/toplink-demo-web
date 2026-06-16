@@ -23,11 +23,11 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Main */}
         <div className="lg:col-span-2">
           <span className="rounded-sm bg-gold-500 px-3 py-1 text-sm font-semibold text-wood-700">{service.levelLabel}</span>
-          <h1 className="mt-4 font-display text-5xl leading-tight text-crimson-600 sm:text-6xl">{service.name}</h1>
+          <h1 className="mt-4 text-balance font-display text-3xl leading-tight text-crimson-600 sm:text-4xl">{service.name}</h1>
           <p className="mt-3 text-lg leading-relaxed text-ink-soft">{service.short}</p>
 
           <div className="mt-8 aspect-[16/9] overflow-hidden frame-gold">
-            <BrandVisual variant="crimson" label={service.name} />
+            <BrandVisual variant="crimson" src={service.image ?? "/images/spaces/tang-2-treatment.jpg"} label={service.name} />
           </div>
 
           <Block title="Ai nên dùng" icon={<Check className="h-5 w-5 text-jade-600" />}>
@@ -69,7 +69,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
           <p className="mt-8 rounded-md border border-sand bg-cream p-8 text-base leading-relaxed text-ink-soft">
             Lưu ý: Liệu trình hỗ trợ thư giãn, lưu thông khí huyết và cải thiện cảm giác căng mỏi, góp phần cân bằng
-            thân – tâm – trí. Không thay thế tư vấn y khoa chuyên môn.
+            thân · tâm · trí. Không thay thế tư vấn y khoa chuyên môn.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const dynamic = "force-static";
-export const alt = "Y Viện Toplink — Dưỡng Thân · Tỉnh Thức";
+export const alt = "Y Viện Toplink · Dưỡng Thân · Tỉnh Thức";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
