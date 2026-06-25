@@ -120,17 +120,17 @@ export default function YVienSpaceExperience() {
             className="lg:flex lg:h-full lg:items-center lg:justify-center"
             style={{ willChange: "transform, opacity" }}
           >
-            <article className="grid w-full overflow-hidden rounded-md border border-gold-700 bg-crimson-800 shadow-soft lg:max-w-5xl lg:grid-cols-2">
-              <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto">
+            <article className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 shadow-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}>
+              <div className="img-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
                 {/* TODO: thay bằng ảnh thật từng tầng của Y Viện */}
-                <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/70 to-transparent lg:bg-gradient-to-r" aria-hidden />
+                <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 1024px) 100vw, 45vw" className="img-grade object-cover" />
               </div>
               <div className="flex flex-col justify-center p-8 text-ivory sm:p-10">
-                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-300">
-                  0{i + 1} / 0{N}
-                </span>
-                <h3 className="mt-3 font-display text-3xl text-gold-200 sm:text-4xl">{sp.floor}</h3>
+                <div className="flex items-baseline gap-2 text-gold-300">
+                  <span className="font-serif-display text-6xl leading-none text-gold-400">0{i + 1}</span>
+                  <span className="text-base font-semibold uppercase tracking-[0.2em] text-gold-300/70">/ 0{N}</span>
+                </div>
+                <h3 className="mt-4 font-serif-display text-2xl text-gold-200 sm:text-3xl">{sp.floor}</h3>
                 <p className="mt-4 text-lg leading-relaxed text-cream/85">{sp.desc}</p>
               </div>
             </article>

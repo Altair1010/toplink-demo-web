@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Noto_Sans } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Sans, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -19,6 +19,16 @@ const notoSans = Noto_Sans({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-noto-sans",
+  display: "swap",
+});
+
+// Serif Á Đông — CHỈ dùng cho "statement" lớn (hero H1, tên tầng, quote review).
+// Có chữ thường + nét thanh đậm tương phản → chất thư tịch, nghi lễ.
+const notoSerif = Noto_Serif_Display({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-noto-serif",
   display: "swap",
 });
 
@@ -68,7 +78,7 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${notoSans.variable}`}>
+    <html lang="vi" className={`${beVietnam.variable} ${notoSans.variable} ${notoSerif.variable}`}>
       <body className="bg-paper min-h-screen">
         <script
           type="application/ld+json"

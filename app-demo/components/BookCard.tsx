@@ -18,24 +18,24 @@ const LEVEL_COLORS: Record<string, string> = {
 
 const INNER_FALLBACK = "/images/spaces/tang-2-treatment.jpg";
 
-export default function BookCard({ service }: { service: Service }) {
+export default function BookCard({ service, featured }: { service: Service; featured?: boolean }) {
   return (
     <Link href={`/dich-vu/${service.slug}`} className="book group block h-full focus:outline-none">
-      <div className="book-inner h-full min-h-[24rem] overflow-hidden rounded-md">
+      <div className={`book-inner h-full overflow-hidden rounded-2xl ${featured ? "min-h-[30rem]" : "min-h-[24rem]"}`}>
         {/* PAGE — ảnh "trang sách" lộ qua khe bìa khi mở hé */}
-        <div className="absolute inset-0 rounded-md border border-gold-700/60 bg-crimson-900">
+        <div className="img-overlay absolute inset-0 rounded-2xl border border-gold-700/60 bg-crimson-900">
           <Img
             src={service.image ?? INNER_FALLBACK}
             alt=""
             fill
             sizes="(max-width: 768px) 100vw, 33vw"
-            className="object-cover opacity-90"
+            className="img-grade object-cover opacity-90"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-crimson-800/20 to-crimson-800/60" aria-hidden />
         </div>
 
         {/* COVER — bìa sách, mở hé khi hover/focus */}
-        <div className="book-cover on-dark flex h-full flex-col rounded-md border border-gold-700 bg-crimson-800 p-7 text-ivory">
+        <div className="book-cover on-dark flex h-full flex-col rounded-2xl border border-gold-700 bg-crimson-800 p-7 text-ivory">
           <div className="flex items-center justify-between">
             <span className={`rounded-sm px-3 py-1 text-sm font-semibold ${LEVEL_COLORS[service.level]}`}>
               {service.levelLabel}

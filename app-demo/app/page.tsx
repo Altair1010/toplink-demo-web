@@ -28,18 +28,18 @@ const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 export default function HomePage() {
   return (
     <>
-      {/* ===== 1 · HERO — ảnh người thật + CTA Zalo nổi bật ===== */}
+      {/* ===== 1 · HERO — cinematic ritual: H1 serif lớn + grid 5/7 + ảnh bo mềm ===== */}
       <section className="on-dark bg-crimson-800">
-        <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div className="mx-auto grid min-h-[88svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[5fr_7fr]">
           <div className="animate-fade-up text-ivory">
             <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
               Y Viện Dưỡng Thân · Tỉnh Thức
             </span>
-            <h1 className="mt-6 text-balance font-display text-4xl leading-[1.1] sm:text-5xl">
+            <h1 className="mt-7 text-balance font-serif-display text-[length:var(--text-hero)] leading-[1.02]">
               Dưỡng thân bằng Đông y,
               <span className="block">tìm lại sự <span className="emph">nhẹ nhõm</span></span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
+            <p className="mt-7 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
               Trị liệu dưỡng sinh, thảo dược và không gian tĩnh tại, để anh/chị được chăm sóc đúng cách,
               an toàn và thư thái hơn.
             </p>
@@ -62,18 +62,18 @@ export default function HomePage() {
           </div>
 
           <div className="animate-fade-up delay-2">
-            <div className="relative aspect-[4/5] overflow-hidden frame-gold bg-crimson-700">
-              {/* TODO: thay HERO_IMAGE bằng ảnh thật KTV/khách trải nghiệm của Y Viện */}
+            <div className="img-overlay relative h-[min(72vh,760px)] overflow-hidden rounded-3xl frame-gold bg-crimson-700">
+              {/* TODO: thay bằng <video> nền 6-10s (rót thảo dược, khăn nóng, khách bước vào)
+                  khi có tư liệu thật — giữ nguyên khung này, chỉ đổi <Img> → <video poster>. */}
               <Img
                 src={HERO_IMAGE.src}
                 alt={HERO_IMAGE.alt}
                 fill
                 priority
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 58vw"
+                className="img-grade object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/70 via-crimson-900/10 to-transparent" aria-hidden />
-              <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-8 text-center text-ivory">
+              <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-2 p-8 text-center text-ivory">
                 <span className="seal flex h-14 w-14 items-center justify-center text-2xl text-gold-300">Y</span>
                 <p className="text-2xl text-ivory">Được chăm sóc bởi người thật</p>
                 <p className="text-sm uppercase tracking-[0.2em] text-gold-300">Kỹ thuật viên · Chuyên viên</p>
@@ -84,7 +84,7 @@ export default function HomePage() {
       </section>
 
       {/* MARQUEE khẩu hiệu */}
-      <Marquee items={SLOGANS} className="on-dark bg-crimson-700 py-4 text-gold-300" />
+      <Marquee items={SLOGANS} className="on-dark bg-crimson-700 py-4 text-gold-300/75" />
 
       {/* ===== 2 · VỀ Y VIỆN — sticky converge scene: khối trượt & HỘI TỤ về giữa
            theo nhịp cuộn (cơ chế học từ opening brand.dropbox.com) ===== */}
@@ -101,9 +101,9 @@ export default function HomePage() {
                 className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[minmax(0,240px)_1fr]"
               >
                 <ConvergeBlock from={flip ? "right" : "left"} index={i} className={flip ? "lg:order-2" : ""}>
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-md frame-gold bg-cream">
+                  <div className="img-overlay relative aspect-[4/3] overflow-hidden rounded-2xl frame-gold bg-cream">
                     {/* TODO: thay bằng ảnh người thật của Y Viện */}
-                    <Img src={b.image} alt={b.alt} fill sizes="(max-width: 1024px) 240px, 100vw" className="object-cover" />
+                    <Img src={b.image} alt={b.alt} fill sizes="(max-width: 1024px) 240px, 100vw" className="img-grade object-cover" />
                   </div>
                 </ConvergeBlock>
                 <ConvergeBlock from={flip ? "left" : "right"} index={i}>
@@ -163,13 +163,13 @@ export default function HomePage() {
 
       {/* ===== 3 · KHÔNG GIAN — 4 tầng (Breath & Flow: sticky-pin spatial journey,
            nguyên lý chắt lọc từ MyWebLab "ExpandingCards / DNA Digitale") ===== */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="section-pad-lg mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Cuộn để đi qua từng tầng — mỗi tầng là một trạng thái cơ thể được chăm sóc." />
         <YVienSpaceExperience />
       </section>
 
       {/* ===== 4 · QUY TRÌNH TRỊ LIỆU — 4 bước (kỹ thuật MyWebLab Il Metodo) ===== */}
-      <section className="bg-cream py-16">
+      <section className="section-pad-lg bg-cream">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeader center eyebrow="Quy trình trị liệu" title="Bốn bước chăm sóc bài bản" emphasis="bài bản" desc="Một hành trình rõ ràng, tôn trọng cơ thể anh/chị ở mỗi bước." />
           <HealingProcessMotion />
@@ -231,16 +231,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 6 · CẢM NHẬN KHÁCH HÀNG ===== */}
-      <section className="bg-cream py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      {/* ===== 6 · CẢM NHẬN KHÁCH HÀNG — wall rộng ===== */}
+      <section className="section-pad bg-cream">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <SectionHeader center eyebrow="Cảm nhận khách hàng" title="Những chia sẻ thật" emphasis="thật" desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng." />
           <ReviewWall />
         </div>
       </section>
 
-      {/* ===== 7 · FAQ ===== */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      {/* ===== 7 · FAQ — khối hẹp, tĩnh ===== */}
+      <section className="section-pad mx-auto container-narrow px-4 sm:px-6">
         <SectionHeader center eyebrow="Câu hỏi thường gặp" title="Có thể anh/chị đang thắc mắc" emphasis="thắc mắc" />
         <div className="mt-10">
           <FaqAccordion />
@@ -249,7 +249,7 @@ export default function HomePage() {
 
       {/* ===== 8 · CTA CUỐI TRANG ===== */}
       <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
-        <div className="on-dark frame-gold bg-crimson-600 px-6 py-14 text-center text-ivory sm:px-12">
+        <div className="cta-glow on-dark frame-gold px-6 py-16 text-center text-ivory sm:px-12">
           <h2 className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
             Bạn đã chăm sóc mọi người cả ngày rồi, hãy dành 90 phút để <span className="emph">yêu thương chính mình</span> nhé.
           </h2>

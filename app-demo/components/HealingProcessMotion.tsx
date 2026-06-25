@@ -112,7 +112,7 @@ export default function HealingProcessMotion() {
                   className={`relative ml-14 rounded-md border p-7 transition-all duration-500 lg:ml-0 ${
                     isActive
                       ? "-translate-y-1 border-gold-500 bg-crimson-600 text-ivory shadow-soft"
-                      : "border-sand bg-ivory text-ink lg:opacity-60"
+                      : "border-sand bg-ivory text-ink lg:opacity-45"
                   } ${flip ? "" : "lg:text-left"}`}
                 >
                   <div className={`flex items-center gap-4 ${flip ? "" : "lg:flex-row-reverse"}`}>
@@ -123,7 +123,7 @@ export default function HealingProcessMotion() {
                     >
                       <Icon className="h-7 w-7" />
                     </span>
-                    <span className={`font-display text-4xl ${isActive ? "text-gold-300" : "text-gold-600"}`}>
+                    <span className={`font-serif-display text-5xl leading-none ${isActive ? "text-gold-300" : "text-gold-600"}`}>
                       0{i + 1}
                     </span>
                   </div>
