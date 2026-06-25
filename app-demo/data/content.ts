@@ -181,15 +181,35 @@ export const NEEDS: Need[] = [
   { key: "tu-van", label: "Tư vấn liệu trình", emoji: "💬" },
 ];
 
-export const PROCESS_STEPS = [
-  { title: "Tiếp nhận tình trạng", desc: "Lắng nghe và ghi nhận tình trạng cơ thể của chị/anh." },
-  { title: "Lắng nghe nhu cầu", desc: "Hiểu cơ thể đang cần gì để gợi ý đúng hướng." },
-  { title: "Tư vấn liệu trình", desc: "Đề xuất liệu trình phù hợp, minh bạch và an toàn." },
-  { title: "Làm ấm cơ thể", desc: "Xông, ngâm thảo dược giúp cơ thể sẵn sàng trị liệu." },
-  { title: "Trị liệu chính", desc: "Thực hiện trị liệu bởi kỹ thuật viên được đào tạo bài bản." },
-  { title: "Thư giãn phục hồi", desc: "Nghỉ ngơi, dưỡng và cân bằng sau trị liệu." },
-  { title: "Dặn dò sau trị liệu", desc: "Hướng dẫn chăm sóc và vận động tại nhà." },
-  { title: "Hẹn lịch chăm sóc", desc: "Lên kế hoạch chăm sóc định kỳ phù hợp." },
+// Quy trình trị liệu — đúng 4 bước (theo master prompt). `icon` là tên lucide,
+// được map sang component trong PROCESS_ICONS ở nơi sử dụng.
+export interface ProcessStep {
+  title: string;
+  desc: string;
+  icon: "ClipboardList" | "MessagesSquare" | "Hand" | "HeartPulse";
+}
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    title: "Tiếp nhận",
+    desc: "Lắng nghe tình trạng cơ thể, thói quen sinh hoạt và nhu cầu chăm sóc của anh/chị.",
+    icon: "ClipboardList",
+  },
+  {
+    title: "Tư vấn",
+    desc: "Kỹ thuật viên/bác sĩ định hướng liệu trình phù hợp theo thể trạng và vùng cần chăm sóc.",
+    icon: "MessagesSquare",
+  },
+  {
+    title: "Trị liệu",
+    desc: "Dưỡng sinh, bấm huyệt, đả thông, ngâm/xông hoặc liệu pháp phù hợp trong không gian thư giãn.",
+    icon: "Hand",
+  },
+  {
+    title: "Theo dõi",
+    desc: "Ghi nhận cảm nhận sau buổi trị liệu và tư vấn nhịp chăm sóc tiếp theo.",
+    icon: "HeartPulse",
+  },
 ];
 
 export const SPACES = [
@@ -255,40 +275,91 @@ export const TECHNOLOGIES: Technology[] = [
   },
 ];
 
-export const REVIEWS = [
+// Cảm nhận khách hàng — 3 dạng có thể thay bằng dữ liệu thật về sau.
+// Nội dung trung tính, KHÔNG dùng tên giả cụ thể, KHÔNG phóng đại.
+// TODO: thay bằng ảnh/video feedback thật của khách hàng (Zalo/Facebook).
+export type ReviewType = "image" | "video" | "quote";
+export interface Review {
+  type: ReviewType;
+  text: string;
+  /** Ảnh chụp feedback (dạng image) — placeholder, dễ thay sau. */
+  image?: string;
+  /** Poster cho card video 9:16 (dạng video) — placeholder. */
+  poster?: string;
+}
+
+export const REVIEWS: Review[] = [
   {
-    name: "Chị Lan Hương",
-    role: "Khách hàng thân thiết",
-    text: "Không gian rất tĩnh và sạch. Sau buổi trị liệu cổ vai gáy mình ngủ ngon hơn hẳn.",
+    type: "image",
+    text: "Sau buổi trị liệu, vùng cổ vai gáy nhẹ hơn, ngủ dễ hơn.",
+    // TODO: thay bằng ảnh chụp tin nhắn cảm nhận thật của khách.
+    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=600&q=80",
   },
   {
-    name: "Anh Minh Đức",
-    role: "Nhân viên văn phòng",
-    text: "Mình hay mỏi lưng vì ngồi nhiều. Liệu trình lưng eo ở đây làm rất kỹ và đúng nhu cầu.",
+    type: "video",
+    text: "Không gian yên, kỹ thuật viên làm cẩn thận.",
+    // TODO: thay bằng video dọc 9:16 khách hàng chia sẻ (chèn poster + nguồn video thật).
+    poster: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
   },
   {
-    name: "Cô Thanh Mai",
-    role: "Dưỡng sinh định kỳ",
-    text: "Mỗi tuần mình đến gội đầu dưỡng sinh, cảm giác như được chăm sóc thật sự chứ không vội vàng.",
+    type: "quote",
+    text: "Tôi thích phần tư vấn trước khi làm liệu trình.",
   },
 ];
 
+// Ảnh người thật cho Hero và section "Về Y Viện" (placeholder Unsplash).
+// TODO: thay bằng ảnh thật của Y Viện — kỹ thuật viên trị liệu, khách trải nghiệm, tư vấn.
+export const HERO_IMAGE = {
+  src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=900&q=80",
+  alt: "Khách hàng được kỹ thuật viên trị liệu thư giãn tại Y Viện Toplink",
+};
+
+export interface AboutBlock {
+  lead: string;
+  body: string;
+  image: string;
+  alt: string;
+}
+
+export const ABOUT_BLOCKS: AboutBlock[] = [
+  {
+    lead: "Không chỉ là một buổi massage.",
+    body: "Là quá trình lắng nghe cơ thể.",
+    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
+    alt: "Kỹ thuật viên trị liệu vùng vai cho khách hàng",
+  },
+  {
+    lead: "Không chỉ là kỹ thuật.",
+    body: "Là bàn tay được đào tạo, làm đủ chậm để cơ thể kịp thả lỏng.",
+    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80",
+    alt: "Bàn tay kỹ thuật viên thao tác trị liệu nhẹ nhàng",
+  },
+  {
+    lead: "Không chỉ là không gian đẹp.",
+    body: "Là nơi anh/chị được tạm dừng, thở sâu và quay về chăm sóc chính mình.",
+    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
+    alt: "Khách hàng thư giãn, thở sâu trong không gian tĩnh tại",
+  },
+];
+
+// FAQ — 4 câu bắt buộc (theo master prompt). Trả lời theo hướng tư vấn an toàn,
+// KHÔNG khẳng định điều trị khỏi bệnh, KHÔNG hứa y khoa quá mức.
 export const FAQS = [
   {
-    q: "Tôi chưa biết chọn dịch vụ nào thì sao?",
-    a: "Chị/anh chỉ cần chọn nhu cầu chính hoặc bấm “Để Toplink tư vấn”. Chuyên viên sẽ gọi lại và gợi ý liệu trình phù hợp với thể trạng.",
+    q: "Tôi bị thoát vị có làm được không?",
+    a: "Tùy mức độ và tình trạng hiện tại. Anh/chị nên trao đổi trước với chuyên viên để được tư vấn vùng có thể chăm sóc, lực tác động phù hợp và các thao tác cần tránh.",
   },
   {
-    q: "Trị liệu ở Toplink có thay thế khám chữa bệnh không?",
-    a: "Các liệu trình tại Y Viện Toplink hỗ trợ thư giãn, lưu thông khí huyết và cân bằng thân · tâm · trí, không thay thế tư vấn y khoa chuyên môn.",
+    q: "Phụ nữ sau sinh có phù hợp không?",
+    a: "Có thể phù hợp với nhiều mẹ sau sinh, nhưng cần xem thời điểm sau sinh, thể trạng, sinh thường hay sinh mổ và tình trạng sức khỏe hiện tại. Y Viện sẽ tư vấn liệu trình nhẹ nhàng, phù hợp từng người.",
   },
   {
-    q: "Lần đầu đến cần chuẩn bị gì?",
-    a: "Chị/anh chỉ cần đến đúng giờ hẹn, mặc thoải mái. Mọi vật dụng trị liệu Y Viện đều chuẩn bị sẵn.",
+    q: "Người lớn tuổi có thể trải nghiệm không?",
+    a: "Có. Người lớn tuổi thường cần nhịp trị liệu chậm, lực vừa phải và theo dõi phản ứng cơ thể kỹ hơn. Trước khi làm, chuyên viên sẽ tiếp nhận thông tin sức khỏe để điều chỉnh phù hợp.",
   },
   {
-    q: "Có thể đặt lịch theo gói định kỳ không?",
-    a: "Có. Toplink có các gói liệu trình theo buổi, giúp chăm sóc đều đặn với chi phí ưu đãi hơn.",
+    q: "Bao lâu nên dưỡng sinh một lần?",
+    a: "Tùy thể trạng và mục tiêu chăm sóc. Với nhu cầu thư giãn, duy trì sức khỏe, có thể tham khảo nhịp 1–2 lần/tuần hoặc theo tư vấn sau buổi trải nghiệm đầu tiên.",
   },
 ];
 
@@ -362,7 +433,7 @@ export const POSTS: Post[] = [
     title: "Một buổi trị liệu tại Y Viện diễn ra thế nào?",
     cat: "Quy trình trị liệu",
     date: "2026-04-30",
-    excerpt: "Hành trình 8 bước từ lúc tiếp nhận đến khi hẹn lịch chăm sóc tiếp theo.",
+    excerpt: "Hành trình 4 bước: tiếp nhận, tư vấn, trị liệu và theo dõi sau buổi.",
     image: "/images/blog/blog-3.jpg",
     readTime: "6 phút đọc",
     author: "Đội ngũ Y Viện Toplink",

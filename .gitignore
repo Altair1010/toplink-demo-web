@@ -16,3 +16,9 @@ build
 /.mcp.json
 /CLAUDE.md
 /bootstrap-project.ps1
+
+# Công cụ extract token (clone riêng) & artifact kiểm thử — không đưa vào demo
+/dembrandt/
+/.playwright-mcp/
+/home-desktop.jpeg
+/CLAUDE.docx

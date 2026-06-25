@@ -74,7 +74,15 @@
   /* ---- Type scale helpers ---- */
   --text-body-lg: 1.25rem;  /* 20px */
   --text-body-md: 1.125rem; /* 18px */
+
+  /* ---- Shadow mềm & nông (học từ Dropbox/MyWebLab: shadow nhẹ, sâu vừa) ----
+     Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
+  --shadow-soft: 0 10px 30px -12px rgba(106, 5, 17, 0.25);
+  --shadow-zalo: 0 12px 28px -8px rgba(0, 104, 254, 0.45);
 }
+
+/* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
+.shadow-soft { box-shadow: var(--shadow-soft); }
 
 html {
   scroll-behavior: smooth;
@@ -270,9 +278,24 @@ h6,
   animation-play-state: paused;
 }
 
+/* ── ZALO PULSE: vòng nhịp rất nhẹ quanh nút, mời gọi không lòe loẹt ── */
+@keyframes zalo-pulse {
+  0% { box-shadow: var(--shadow-zalo), 0 0 0 0 rgba(0, 104, 254, 0.5); }
+  70% { box-shadow: var(--shadow-zalo), 0 0 0 14px rgba(0, 104, 254, 0); }
+  100% { box-shadow: var(--shadow-zalo), 0 0 0 0 rgba(0, 104, 254, 0); }
+}
+.zalo-pulse {
+  animation: zalo-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: box-shadow;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up {
     animation: none;
+  }
+  .zalo-pulse {
+    animation: none;
+    box-shadow: var(--shadow-zalo);
   }
   .reveal,
   .reveal-left,

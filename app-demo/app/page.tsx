@@ -2,12 +2,15 @@ import Link from "next/link";
 import Img from "@/components/Img";
 import { MessageCircle, ArrowRight, Leaf, HeartHandshake, Sparkles, ShieldCheck, Flame, Droplets, Hand, Snowflake } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
-import BookCard from "@/components/BookCard";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import NeedSelector from "@/components/NeedSelector";
 import FaqAccordion from "@/components/FaqAccordion";
-import { SERVICES, PROCESS_STEPS, SPACES, REVIEWS, TECHNOLOGIES, CONTACT, STATS } from "@/data/content";
+import ProcessStepper from "@/components/ProcessStepper";
+import ServiceFilterGrid from "@/components/ServiceFilterGrid";
+import ReviewWall from "@/components/ReviewWall";
+import { ConvergeItem } from "@/components/ConvergeOnScroll";
+import { SPACES, TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
   "Dưỡng thân từ gốc",
@@ -21,11 +24,9 @@ const SLOGANS = [
 const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 
 export default function HomePage() {
-  const featured = SERVICES.filter((s) => ["goi-dau-duong-sinh", "tri-lieu-co-vai-gay", "lieu-trinh-than-tam-tri"].includes(s.slug));
-
   return (
     <>
-      {/* HERO, khối đỏ sơn mài phẳng, viền vàng triện, chữ editorial */}
+      {/* ===== 1 · HERO — ảnh người thật + CTA Zalo nổi bật ===== */}
       <section className="on-dark bg-crimson-800">
         <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div className="animate-fade-up text-ivory">
@@ -33,34 +34,37 @@ export default function HomePage() {
               Y Viện Dưỡng Thân · Tỉnh Thức
             </span>
             <h1 className="mt-6 text-balance font-display text-4xl leading-[1.1] sm:text-5xl">
-              Dưỡng thân từ gốc,
-              <span className="block">phục hồi từ <span className="emph">tâm</span></span>
+              Dưỡng thân bằng Đông y,
+              <span className="block">tìm lại sự <span className="emph">nhẹ nhõm</span></span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
-              Không gian chăm sóc sức khỏe Đông y cao cấp, kết hợp trị liệu thủ công, dưỡng liệu tự nhiên và
-              công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
+              Trị liệu dưỡng sinh, thảo dược và không gian tĩnh tại, để anh/chị được chăm sóc đúng cách,
+              an toàn và thư thái hơn.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/dat-lich"
+              <a
+                href={CONTACT.zalo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
               >
-                Đặt lịch tư vấn <ArrowRight className="h-4 w-4" />
-              </Link>
+                <MessageCircle className="h-5 w-5" /> Inbox Zalo để được tư vấn
+              </a>
               <Link
-                href="/dich-vu"
+                href="/khong-gian"
                 className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
               >
-                Xem liệu trình
+                Khám phá không gian <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
 
           <div className="animate-fade-up delay-2">
             <div className="relative aspect-[4/5] overflow-hidden frame-gold bg-crimson-700">
+              {/* TODO: thay HERO_IMAGE bằng ảnh thật KTV/khách trải nghiệm của Y Viện */}
               <Img
-                src="/images/spaces/tang-1-tinh.jpg"
-                alt="Không gian Y Viện Toplink"
+                src={HERO_IMAGE.src}
+                alt={HERO_IMAGE.alt}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -69,19 +73,43 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/70 via-crimson-900/10 to-transparent" aria-hidden />
               <div className="absolute inset-x-0 bottom-0 flex flex-col items-center gap-2 p-8 text-center text-ivory">
                 <span className="seal flex h-14 w-14 items-center justify-center text-2xl text-gold-300">Y</span>
-                <p className="text-2xl text-ivory">Không gian Y Viện</p>
-                <p className="text-sm uppercase tracking-[0.2em] text-gold-300">Dưỡng thân · Tỉnh thức</p>
+                <p className="text-2xl text-ivory">Được chăm sóc bởi người thật</p>
+                <p className="text-sm uppercase tracking-[0.2em] text-gold-300">Kỹ thuật viên · Chuyên viên</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* MARQUEE, dải khẩu hiệu chạy ngang (kỹ thuật Vibrasonic) */}
+      {/* MARQUEE khẩu hiệu */}
       <Marquee items={SLOGANS} className="on-dark bg-crimson-700 py-4 text-gold-300" />
 
+      {/* ===== 2 · VỀ Y VIỆN — khối trôi vào giữa khi cuộn (kỹ thuật Dropbox) ===== */}
+      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+        <SectionHeader center eyebrow="Về Y Viện" title="Chăm sóc bắt đầu từ lắng nghe" emphasis="lắng nghe" />
+        <div className="mt-14 space-y-16 sm:space-y-20">
+          {ABOUT_BLOCKS.map((b, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <div key={i} className="grid items-center gap-8 lg:grid-cols-2">
+                <ConvergeItem from={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-md frame-gold bg-cream">
+                    {/* TODO: thay bằng ảnh người thật của Y Viện */}
+                    <Img src={b.image} alt={b.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  </div>
+                </ConvergeItem>
+                <ConvergeItem from={flip ? "left" : "right"}>
+                  <p className="font-display text-3xl leading-tight text-crimson-600 sm:text-4xl">{b.lead}</p>
+                  <p className="mt-3 text-xl leading-relaxed text-ink-soft">{b.body}</p>
+                </ConvergeItem>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* NEED SELECTOR */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
         <NeedSelector />
       </section>
 
@@ -92,7 +120,6 @@ export default function HomePage() {
           eyebrow="Vì sao chọn Toplink"
           title="Lắng nghe cơ thể, chăm sóc từ gốc"
           emphasis="từ gốc"
-          desc="Toplink không vội vàng. Mỗi buổi trị liệu bắt đầu từ việc hiểu cơ thể chị/anh đang cần gì."
         />
         <div className="mt-10 grid gap-px overflow-hidden border border-sand bg-sand sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -114,7 +141,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SỐ LIỆU / NIỀM TIN, dải cam kết chất lượng (không phóng đại) */}
+      {/* SỐ LIỆU / NIỀM TIN */}
       <section className="on-dark bg-crimson-800 py-12">
         <div className="mx-auto grid max-w-6xl gap-px overflow-hidden border border-gold-700 bg-gold-700 px-0 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
@@ -126,24 +153,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FEATURED SERVICES */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeader eyebrow="Dịch vụ nổi bật" title="Liệu trình được yêu thích" emphasis="yêu thích" />
-          <Link href="/dich-vu" className="flex items-center gap-1.5 text-base font-semibold text-gold-700 hover:text-crimson-600">
-            Xem tất cả dịch vụ <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((s, i) => (
-            <Reveal key={s.slug} from="up" delay={i * 120}>
-              <BookCard service={s} />
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* KHÔNG GIAN, khối trôi vào khi cuộn (kỹ thuật Dropbox) */}
+      {/* ===== 3 · KHÔNG GIAN — 4 tầng ===== */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Tĩnh · Thông · Dưỡng · Tỉnh, mỗi tầng là một trạng thái cơ thể được chăm sóc." />
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -164,7 +174,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CÔNG NGHỆ & THIẾT BỊ, khối nâu gỗ phẳng */}
+      {/* ===== 4 · QUY TRÌNH TRỊ LIỆU — 4 bước (kỹ thuật MyWebLab Il Metodo) ===== */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeader center eyebrow="Quy trình trị liệu" title="Bốn bước chăm sóc bài bản" emphasis="bài bản" desc="Một hành trình rõ ràng, tôn trọng cơ thể anh/chị ở mỗi bước." />
+          <ProcessStepper />
+          <div className="mt-8 text-center">
+            <Link href="/quy-trinh-tri-lieu" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
+              Xem chi tiết quy trình <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CÔNG NGHỆ & THIẾT BỊ */}
       <section className="on-dark bg-wood-700 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeader
@@ -173,7 +196,6 @@ export default function HomePage() {
             eyebrow="Công nghệ & thiết bị"
             title="Đông y kết hợp công nghệ hiện đại"
             emphasis="công nghệ"
-            desc="Không nói chung chung. Mỗi công nghệ được giải thích theo tác động lên cơ thể và lợi ích cảm nhận."
           />
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {TECHNOLOGIES.map((t, i) => {
@@ -207,68 +229,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="bg-cream py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeader center eyebrow="Quy trình trị liệu" title="8 bước chăm sóc bài bản" emphasis="bài bản" desc="Mỗi hành trình tại Y Viện đều có quy trình rõ ràng, từ tiếp nhận đến hẹn lịch chăm sóc tiếp theo." />
-          <div className="mt-10 grid gap-px overflow-hidden border border-sand bg-sand sm:grid-cols-2 lg:grid-cols-4">
-            {PROCESS_STEPS.slice(0, 4).map((step, i) => (
-              <div key={i} className="bg-ivory p-7">
-                <span className="font-display text-4xl text-gold-600">0{i + 1}</span>
-                <h4 className="mt-2 font-display text-xl text-crimson-600">{step.title}</h4>
-                <p className="mt-1 text-base text-ink-soft">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 text-center">
-            <Link href="/quy-trinh-tri-lieu" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
-              Xem đầy đủ quy trình <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* REVIEWS */}
-      <section className="bg-cream py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <SectionHeader center eyebrow="Cảm nhận khách hàng" title="Những chia sẻ thật" emphasis="thật" />
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {REVIEWS.map((r) => (
-              <figure key={r.name} className="border border-sand bg-ivory p-8">
-                <div className="text-gold-600">★★★★★</div>
-                <blockquote className="mt-3 font-display text-2xl italic leading-snug text-ink">“{r.text}”</blockquote>
-                <figcaption className="mt-4 text-base">
-                  <span className="font-semibold text-crimson-600">{r.name}</span>
-                  <span className="block text-sm text-ink-soft">{r.role}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
+      {/* ===== 5 · SẢN PHẨM & DỊCH VỤ — card grid có filter (kỹ thuật Autodesk) ===== */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionHeader center eyebrow="Câu hỏi thường gặp" title="Có thể chị/anh đang thắc mắc" emphasis="thắc mắc" />
+        <SectionHeader center eyebrow="Sản phẩm & Dịch vụ" title="Liệu trình theo nhu cầu của anh/chị" emphasis="nhu cầu" desc="Chọn nhóm phù hợp để xem nhanh các liệu trình tương ứng." />
+        <div className="mt-10">
+          <ServiceFilterGrid />
+        </div>
+      </section>
+
+      {/* ===== 6 · CẢM NHẬN KHÁCH HÀNG ===== */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <SectionHeader center eyebrow="Cảm nhận khách hàng" title="Những chia sẻ thật" emphasis="thật" desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng." />
+          <ReviewWall />
+        </div>
+      </section>
+
+      {/* ===== 7 · FAQ ===== */}
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+        <SectionHeader center eyebrow="Câu hỏi thường gặp" title="Có thể anh/chị đang thắc mắc" emphasis="thắc mắc" />
         <div className="mt-10">
           <FaqAccordion />
         </div>
       </section>
 
-      {/* CTA, khối đỏ dược liệu phẳng */}
+      {/* ===== 8 · CTA CUỐI TRANG ===== */}
       <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
         <div className="on-dark frame-gold bg-crimson-600 px-6 py-14 text-center text-ivory sm:px-12">
-          <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-            Hôm nay, hãy để cơ thể được <span className="emph">nghỉ ngơi</span>
+          <h2 className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
+            Bạn đã chăm sóc mọi người cả ngày rồi, hãy dành 90 phút để <span className="emph">yêu thương chính mình</span> nhé.
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg text-cream/85">Đặt lịch trải nghiệm tại Y Viện Toplink, hoặc nhắn Zalo để được tư vấn liệu trình phù hợp.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/dat-lich" className="rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400">
-              Đặt lịch trị liệu
-            </Link>
-            <a href={CONTACT.zalo} className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700">
-              <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
+            <a
+              href={CONTACT.zalo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+            >
+              <MessageCircle className="h-5 w-5" /> Inbox Zalo để được tư vấn
             </a>
+            <Link
+              href="/dich-vu"
+              className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+            >
+              Xem liệu trình phù hợp <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>

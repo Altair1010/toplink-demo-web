@@ -33,9 +33,11 @@ export default function ProductsPage() {
               </div>
               <a
                 href={CONTACT.zalo}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-base font-semibold text-gold-600 transition-colors hover:bg-gold-200"
               >
-                <MessageCircle className="h-4 w-4" /> Tư vấn qua Zalo
+                <MessageCircle className="h-4 w-4" /> Tư vấn liệu trình
               </a>
             </div>
           </Reveal>
