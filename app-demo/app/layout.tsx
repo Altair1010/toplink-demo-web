@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingZalo from "@/components/FloatingZalo";
+import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { CONTACT, BRANCHES } from "@/data/content";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -74,7 +75,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
         <SiteHeader />
-        <main className="pb-20 lg:pb-0">{children}</main>
+        <SmoothScrollProvider>
+          <main className="pb-20 lg:pb-0">{children}</main>
+        </SmoothScrollProvider>
         <SiteFooter />
         <FloatingZalo />
         <MobileBottomBar />

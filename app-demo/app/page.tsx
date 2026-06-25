@@ -9,7 +9,10 @@ import FaqAccordion from "@/components/FaqAccordion";
 import ProcessStepper from "@/components/ProcessStepper";
 import ServiceFilterGrid from "@/components/ServiceFilterGrid";
 import ReviewWall from "@/components/ReviewWall";
-import { ConvergeItem } from "@/components/ConvergeOnScroll";
+import ScrollConvergeScene from "@/components/motion/ScrollConvergeScene";
+import ConvergeBlock from "@/components/motion/ConvergeBlock";
+import StickyRevealScene from "@/components/motion/StickyRevealScene";
+import MotionImageCard from "@/components/motion/MotionImageCard";
 import { SPACES, TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
@@ -84,29 +87,35 @@ export default function HomePage() {
       {/* MARQUEE khẩu hiệu */}
       <Marquee items={SLOGANS} className="on-dark bg-crimson-700 py-4 text-gold-300" />
 
-      {/* ===== 2 · VỀ Y VIỆN — khối trôi vào giữa khi cuộn (kỹ thuật Dropbox) ===== */}
-      <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
+      {/* ===== 2 · VỀ Y VIỆN — sticky converge scene: khối trượt & HỘI TỤ về giữa
+           theo nhịp cuộn (cơ chế học từ opening brand.dropbox.com) ===== */}
+      <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
         <SectionHeader center eyebrow="Về Y Viện" title="Chăm sóc bắt đầu từ lắng nghe" emphasis="lắng nghe" />
-        <div className="mt-14 space-y-16 sm:space-y-20">
+      </section>
+      <ScrollConvergeScene className="mx-auto max-w-6xl px-4 sm:px-6" stageClassName="py-12">
+        <div className="mx-auto w-full max-w-4xl space-y-8 sm:space-y-10">
           {ABOUT_BLOCKS.map((b, i) => {
             const flip = i % 2 === 1;
             return (
-              <div key={i} className="grid items-center gap-8 lg:grid-cols-2">
-                <ConvergeItem from={flip ? "right" : "left"} className={flip ? "lg:order-2" : ""}>
+              <div
+                key={i}
+                className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[minmax(0,240px)_1fr]"
+              >
+                <ConvergeBlock from={flip ? "right" : "left"} index={i} className={flip ? "lg:order-2" : ""}>
                   <div className="relative aspect-[4/3] overflow-hidden rounded-md frame-gold bg-cream">
                     {/* TODO: thay bằng ảnh người thật của Y Viện */}
-                    <Img src={b.image} alt={b.alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                    <Img src={b.image} alt={b.alt} fill sizes="(max-width: 1024px) 240px, 100vw" className="object-cover" />
                   </div>
-                </ConvergeItem>
-                <ConvergeItem from={flip ? "left" : "right"}>
+                </ConvergeBlock>
+                <ConvergeBlock from={flip ? "left" : "right"} index={i}>
                   <p className="font-display text-3xl leading-tight text-crimson-600 sm:text-4xl">{b.lead}</p>
                   <p className="mt-3 text-xl leading-relaxed text-ink-soft">{b.body}</p>
-                </ConvergeItem>
+                </ConvergeBlock>
               </div>
             );
           })}
         </div>
-      </section>
+      </ScrollConvergeScene>
 
       {/* NEED SELECTOR */}
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
@@ -156,22 +165,26 @@ export default function HomePage() {
       {/* ===== 3 · KHÔNG GIAN — 4 tầng ===== */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
         <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Tĩnh · Thông · Dưỡng · Tỉnh, mỗi tầng là một trạng thái cơ thể được chăm sóc." />
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <StickyRevealScene className="mt-10">
           {SPACES.map((sp, i) => (
-            <Reveal key={sp.floor} from="up" delay={i * 120}>
-              <div className="lift group h-full overflow-hidden rounded-md border border-gold-700">
-                <div className="relative aspect-[3/4] overflow-hidden">
-                  <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 768px) 100vw, 25vw" className="zoom-media object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/85 via-crimson-900/20 to-transparent" aria-hidden />
-                  <div className="absolute inset-x-0 bottom-0 p-5 text-ivory">
-                    <h3 className="text-2xl text-gold-200">{sp.floor}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-ivory/85">{sp.desc}</p>
-                  </div>
+            <MotionImageCard
+              key={sp.floor}
+              index={i}
+              className="lift group h-full overflow-hidden rounded-md border border-gold-700"
+            >
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <div data-parallax className="absolute inset-0 scale-110">
+                  <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/85 via-crimson-900/20 to-transparent" aria-hidden />
+                <div className="absolute inset-x-0 bottom-0 p-5 text-ivory">
+                  <h3 className="text-2xl text-gold-200">{sp.floor}</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-ivory/85">{sp.desc}</p>
                 </div>
               </div>
-            </Reveal>
+            </MotionImageCard>
           ))}
-        </div>
+        </StickyRevealScene>
       </section>
 
       {/* ===== 4 · QUY TRÌNH TRỊ LIỆU — 4 bước (kỹ thuật MyWebLab Il Metodo) ===== */}

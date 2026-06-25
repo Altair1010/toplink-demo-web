@@ -1,0 +1,48 @@
+/* ============================================================
+   MOTION SYSTEM — base + tích hợp Lenis + reduced-motion guard.
+   Cảm hứng cơ chế từ brand.dropbox.com (KHÔNG copy màu/asset).
+   Mọi motion JS chỉ chạm transform/opacity; CSS ở đây lo trạng thái nền
+   để no-JS/SSR vẫn đọc được nội dung (chống layout shift / flash).
+   ============================================================ */
+
+/* Lenis: tắt smooth-scroll gốc của trình duyệt để Lenis điều khiển mượt. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* Scene converge: chỉ cao (tạo không gian cho pin/scrub) khi desktop + cho phép
+   chuyển động. Mobile/tablet/reduced-motion → cao tự nhiên, không khoảng trống. */
+.converge-scene {
+  min-height: auto;
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .converge-scene {
+    min-height: var(--scene-h, 220vh);
+  }
+}
+
+/* Khối motion: mặc định HIỂN THỊ ĐẦY ĐỦ (no-JS/SSR an toàn). JS sẽ ghi đè
+   trạng thái khởi đầu trước khi paint khi motion được phép. */
+[data-converge-block],
+[data-motion-card] {
+  opacity: 1;
+}
+
+/* Tôn trọng người dùng: tắt mọi chuyển động hệ motion. */
+@media (prefers-reduced-motion: reduce) {
+  [data-converge-block],
+  [data-motion-card] {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+}
