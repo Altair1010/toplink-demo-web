@@ -74,4 +74,10 @@ export const cssEasings = {
   ritual: "cubic-bezier(0.16, 1, 0.3, 1)",
   /** easing đặc trưng kiểu slide-in (đã có trong globals). */
   slide: "cubic-bezier(0.15, 0.5, 0.05, 1)",
+  /**
+   * Spring rời rạc bằng linear() (kỹ thuật motion.dev): mô phỏng lò xo nhẹ cho
+   * hover card/nút — "nảy" tinh tế rồi ổn định, KHÔNG cần runtime JS.
+   */
+  springSoft:
+    "linear(0, 0.006, 0.025, 0.101, 0.27, 0.504, 0.737, 0.914, 1.012, 1.04, 1.027, 1.006, 0.997, 0.998, 1)",
 } as const;

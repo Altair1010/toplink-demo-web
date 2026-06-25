@@ -1,7 +1,8 @@
 import Link from "next/link";
 import BrandVisual from "@/components/BrandVisual";
 import SectionHeader from "@/components/SectionHeader";
-import { ConvergeItem, LeafField } from "@/components/ConvergeOnScroll";
+import { ConvergeItem } from "@/components/ConvergeOnScroll";
+import WindLeafField from "@/components/motion/WindLeafField";
 import { SPACES } from "@/data/content";
 
 export const metadata = {
@@ -12,7 +13,7 @@ export const metadata = {
 export default function SpacePage() {
   return (
     <div className="relative overflow-hidden">
-      <LeafField />
+      <WindLeafField preset="ambient" />
       <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6">
         <SectionHeader
           center

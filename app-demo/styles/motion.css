@@ -57,6 +57,17 @@ html.lenis body {
   }
 }
 
+/* SplitText reveal: mỗi dòng là 1 hộp che (overflow hidden) để chữ trượt lên clip gọn. */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+/* Track cuộn ngang "Không gian 4 tầng": stage pin, các panel xếp ngang (KHÔNG chồng). */
+.floor-track {
+  will-change: transform;
+}
+
 /* Tôn trọng người dùng: tắt mọi chuyển động hệ motion. */
 @media (prefers-reduced-motion: reduce) {
   [data-converge-block],
