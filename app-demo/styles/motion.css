@@ -35,10 +35,34 @@ html.lenis body {
   opacity: 1;
 }
 
+/* ── BREATH & FLOW ──
+   Hook cho 2 section mới: base-state HIỂN THỊ ĐẦY ĐỦ (no-JS/SSR an toàn);
+   JS (GSAP) sẽ ghi đè trạng thái khởi đầu trước paint khi motion được phép. */
+[data-breath-reveal],
+[data-floor-panel] {
+  opacity: 1;
+}
+[data-breath-reveal] {
+  will-change: transform, opacity;
+}
+
+/* Khung sticky-stack "Không gian 4 tầng": chỉ cao (tạo không gian pin) khi
+   desktop + cho phép chuyển động; mobile/reduced-motion → cao tự nhiên. */
+.floor-scene {
+  min-height: auto;
+}
+@media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+  .floor-scene {
+    min-height: var(--floor-scene-h, 320vh);
+  }
+}
+
 /* Tôn trọng người dùng: tắt mọi chuyển động hệ motion. */
 @media (prefers-reduced-motion: reduce) {
   [data-converge-block],
-  [data-motion-card] {
+  [data-motion-card],
+  [data-breath-reveal],
+  [data-floor-panel] {
     transform: none !important;
     opacity: 1 !important;
   }

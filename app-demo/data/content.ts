@@ -214,26 +214,26 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 export const SPACES = [
   {
-    floor: "Tầng 1 · Tĩnh",
-    desc: "Tiếp khách, lễ tân, check-in, tủ dược liệu. Không gian mở đầu hành trình tĩnh tại.",
+    floor: "Tầng 1 · Đón tiếp & dược liệu",
+    desc: "Không gian tiếp nhận, tư vấn ban đầu và trưng bày dược liệu — mở đầu hành trình tĩnh tại.",
     tone: "bg-crimson-800",
     image: "/images/spaces/tang-1-tinh.jpg",
   },
   {
-    floor: "Tầng 2 · Thông",
-    desc: "Gội dưỡng sinh, trị liệu, ngâm chân. Khơi thông khí huyết và giải tỏa căng mỏi.",
+    floor: "Tầng 2 · Trị liệu chuyên sâu",
+    desc: "Phòng trị liệu, gội đầu dưỡng sinh, ngâm chân và chăm sóc vùng cổ vai gáy.",
     tone: "bg-wood-500",
     image: "/images/spaces/tang-2-thong.jpg",
   },
   {
-    floor: "Tầng 3 · Dưỡng",
-    desc: "Xông, ngâm bồn, thư giãn phục hồi. Nuôi dưỡng cơ thể trong sự ấm áp.",
+    floor: "Tầng 3 · Dưỡng sinh, xông, ngâm",
+    desc: "Không gian xông hơi, xông đá muối, ngâm thảo dược và phục hồi năng lượng.",
     tone: "bg-jade-600",
     image: "/images/spaces/tang-3-duong.jpg",
   },
   {
-    floor: "Tầng 4 · Tỉnh",
-    desc: "Trà, thiền, cộng đồng, chia sẻ sức khỏe. Tỉnh thức và kết nối.",
+    floor: "Tầng 4 · Trà thiền & tỉnh thức",
+    desc: "Nơi nghỉ lại sau trị liệu, uống trà, lắng tâm và kết nối cộng đồng.",
     tone: "bg-crimson-600",
     image: "/images/spaces/tang-4-tinh.jpg",
   },

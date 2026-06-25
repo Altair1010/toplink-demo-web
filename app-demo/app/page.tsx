@@ -6,14 +6,13 @@ import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
 import NeedSelector from "@/components/NeedSelector";
 import FaqAccordion from "@/components/FaqAccordion";
-import ProcessStepper from "@/components/ProcessStepper";
+import HealingProcessMotion from "@/components/HealingProcessMotion";
+import YVienSpaceExperience from "@/components/YVienSpaceExperience";
 import ServiceFilterGrid from "@/components/ServiceFilterGrid";
 import ReviewWall from "@/components/ReviewWall";
 import ScrollConvergeScene from "@/components/motion/ScrollConvergeScene";
 import ConvergeBlock from "@/components/motion/ConvergeBlock";
-import StickyRevealScene from "@/components/motion/StickyRevealScene";
-import MotionImageCard from "@/components/motion/MotionImageCard";
-import { SPACES, TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
+import { TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
   "Dưỡng thân từ gốc",
@@ -162,36 +161,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 3 · KHÔNG GIAN — 4 tầng ===== */}
+      {/* ===== 3 · KHÔNG GIAN — 4 tầng (Breath & Flow: sticky-pin spatial journey,
+           nguyên lý chắt lọc từ MyWebLab "ExpandingCards / DNA Digitale") ===== */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Tĩnh · Thông · Dưỡng · Tỉnh, mỗi tầng là một trạng thái cơ thể được chăm sóc." />
-        <StickyRevealScene className="mt-10">
-          {SPACES.map((sp, i) => (
-            <MotionImageCard
-              key={sp.floor}
-              index={i}
-              className="lift group h-full overflow-hidden rounded-md border border-gold-700"
-            >
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <div data-parallax className="absolute inset-0 scale-110">
-                  <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-crimson-900/85 via-crimson-900/20 to-transparent" aria-hidden />
-                <div className="absolute inset-x-0 bottom-0 p-5 text-ivory">
-                  <h3 className="text-2xl text-gold-200">{sp.floor}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-ivory/85">{sp.desc}</p>
-                </div>
-              </div>
-            </MotionImageCard>
-          ))}
-        </StickyRevealScene>
+        <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Cuộn để đi qua từng tầng — mỗi tầng là một trạng thái cơ thể được chăm sóc." />
+        <YVienSpaceExperience />
       </section>
 
       {/* ===== 4 · QUY TRÌNH TRỊ LIỆU — 4 bước (kỹ thuật MyWebLab Il Metodo) ===== */}
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <SectionHeader center eyebrow="Quy trình trị liệu" title="Bốn bước chăm sóc bài bản" emphasis="bài bản" desc="Một hành trình rõ ràng, tôn trọng cơ thể anh/chị ở mỗi bước." />
-          <ProcessStepper />
+          <HealingProcessMotion />
           <div className="mt-8 text-center">
             <Link href="/quy-trinh-tri-lieu" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
               Xem chi tiết quy trình <ArrowRight className="h-4 w-4" />

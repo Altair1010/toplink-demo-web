@@ -11,12 +11,16 @@ lib/motion/easings.ts           # gsapEasings / cssEasings
 lib/motion/scrollTrigger.ts     # registerMotion() — đăng ký plugin 1 lần, guard SSR
 hooks/useReducedMotion.ts       # boolean reactive, SSR-safe
 components/motion/SmoothScrollProvider.tsx   # Lenis ↔ gsap.ticker ↔ ScrollTrigger
-components/motion/ScrollConvergeScene.tsx    # sticky stage + context phát progress
+components/motion/ScrollConvergeScene.tsx    # sticky stage + context phát progress (section "Về Y Viện")
 components/motion/ConvergeBlock.tsx          # khối trượt → hội tụ về giữa
-components/motion/StickyRevealScene.tsx      # lưới cho card scroll-driven
-components/motion/MotionImageCard.tsx        # card reveal + parallax ảnh
+components/motion/MotionReveal.tsx           # [Breath & Flow] reveal mềm GSAP
+components/motion/ScrollProgress.tsx         # [Breath & Flow] mạch dẫn tự vẽ trong section
+components/HealingProcessMotion.tsx          # [Breath & Flow] Quy trình trị liệu 4 bước
+components/YVienSpaceExperience.tsx          # [Breath & Flow] Không gian 4 tầng (sticky deck)
 styles/motion.css               # base/no-JS + Lenis + reduced-motion (import vào globals.css)
 ```
+> Lưu ý: `StickyRevealScene.tsx` + `MotionImageCard.tsx` (bản 4 tầng cũ) ĐÃ thay bằng
+> `YVienSpaceExperience`; `ProcessStepper.tsx` đã thay bằng `HealingProcessMotion`.
 
 ## motionConfig (tập trung)
 ```ts
@@ -61,3 +65,40 @@ PIN_MIN_WIDTH: 1024   // < lg → không pin, reveal tĩnh
 
 ## Breakpoint nghiệm thu
 375 · 768 · 1024 · 1440 px (pin/scrub chỉ ≥ 1024).
+
+---
+
+# BREATH & FLOW (mở rộng — cảm hứng MyWebLab)
+
+Hệ con cho 2 section mới (Quy trình trị liệu + Không gian Y Viện). Nguyên lý chắt lọc
+từ `myweblab.it` (xem `myweblab-motion-patterns.md`): expo-out, scroll-driven, chỉ
+transform/opacity; nhưng **chậm hơn, biên độ nhỏ hơn, có nhịp thở**.
+
+## Tokens
+CSS (`globals.css` @theme): `--motion-fast/medium/slow` = 180/420/760ms ·
+`--ease-soft` = `cubic-bezier(0.22,1,0.36,1)` · `--ease-ritual` = `cubic-bezier(0.16,1,0.3,1)`
+(học từ MyWebLab) · `--reveal-distance` = 32px · `--section-parallax-depth` = 80px.
+GSAP (`lib/motion/config.ts` → `breathFlow`): bản giây + easing `power4.out` + khối `stack`.
+Easing đặt tên: `easings.ts` (`gsapEasings.ritual`, `cssEasings.ritual`).
+
+## Hợp đồng component
+- **`<MotionReveal from index as?>`**: GSAP fromTo (trượt `--reveal-distance` + fade),
+  easing ritual, stagger theo `index`. Khác `Reveal.tsx` (IO, dùng toàn site) — bản này
+  riêng cho 2 section. Reduced-motion → return sớm (hiện tĩnh).
+- **`<ScrollProgress orientation>`**: tìm `[data-progress-scope]` gần nhất, fill `scaleY/scaleX`
+  0→1 (scrub) theo tiến độ section — "mạch dẫn tự vẽ".
+- **`<HealingProcessMotion>`**: 4 bước (`PROCESS_STEPS`). Desktop: line dọc trung tâm
+  (`ScrollProgress`) + bước xen kẽ trái/phải, node trên line. Active = **1 ScrollTrigger map
+  `progress → round(progress*(n-1))`** (bền mọi tốc độ cuộn, bước cuối luôn sáng) + hover override.
+  Mobile: vertical stepper, line bên trái.
+- **`<YVienSpaceExperience>`**: 4 tầng (`SPACES`). Desktop (≥lg + motion): pin stage, panel
+  xếp lớp (absolute), nội suy `y/scale/opacity/z` theo progress — tầng active vào center
+  (scale 1, rõ, z cao), tầng trước lùi **lên** & mờ, tầng sau chờ **dưới** & mờ. Ghi bằng
+  `gsap.quickSetter`. Mobile/reduced → không pin, panel ở luồng thường + reveal nhẹ.
+
+## Đã kiểm chứng (Playwright)
+- Build static export PASS, console 0 error.
+- Desktop: deck đổi tầng theo progress (tầng 1→4 active, các tầng khác lùi/mờ); progress line
+  fill 0→1; active step chạy tới "Theo dõi".
+- Mobile (375): không pin (`.floor-scene` min-height auto), panel static stack, reveal đủ.
+- Reduced-motion: guard `matchMedia` (JS return sớm) + `@media` ép `transform:none;opacity:1`.

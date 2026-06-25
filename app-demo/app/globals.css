@@ -80,6 +80,17 @@
      Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
   --shadow-soft: 0 10px 30px -12px rgba(106, 5, 17, 0.25);
   --shadow-zalo: 0 12px 28px -8px rgba(0, 104, 254, 0.45);
+
+  /* ---- MOTION SYSTEM "BREATH & FLOW" ----
+     Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
+     nhưng chậm – sâu – có nhịp thở. Bản giây cho GSAP nằm ở lib/motion/config.ts. */
+  --motion-fast: 180ms;
+  --motion-medium: 420ms;
+  --motion-slow: 760ms;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);   /* hover / vi tương tác */
+  --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1);  /* reveal trị liệu (học MyWebLab) */
+  --reveal-distance: 32px;        /* biên độ trượt khi reveal — nhỏ, điềm tĩnh */
+  --section-parallax-depth: 80px; /* chiều sâu khi tầng/khối lùi về sau */
 }
 
 /* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */

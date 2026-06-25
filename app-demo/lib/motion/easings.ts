@@ -7,6 +7,9 @@
 export const gsapEasings = {
   /** Vào mượt, ra chậm — chủ đạo, cảm giác thả lỏng. */
   soft: "power3.out",
+  /** Nhịp "trị liệu": vào nhanh, hãm RẤT mượt ở cuối (expo-out). Tương đương
+   *  cubic-bezier(0.16,1,0.3,1) — nguyên lý học từ MyWebLab cho Breath & Flow. */
+  ritual: "power4.out",
   /** Đối xứng, dùng cho parallax qua lại. */
   inOut: "power2.inOut",
   /** Gần tuyến tính, dùng khi scrub theo scroll. */
@@ -17,6 +20,8 @@ export const gsapEasings = {
 export const cssEasings = {
   /** cubic-bezier mềm đã dùng xuyên suốt dự án. */
   soft: "cubic-bezier(0.22, 1, 0.36, 1)",
+  /** Nhịp "trị liệu" (Breath & Flow) — khớp var(--ease-ritual) trong globals. */
+  ritual: "cubic-bezier(0.16, 1, 0.3, 1)",
   /** easing đặc trưng kiểu slide-in (đã có trong globals). */
   slide: "cubic-bezier(0.15, 0.5, 0.05, 1)",
 } as const;

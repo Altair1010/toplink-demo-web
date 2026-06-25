@@ -36,6 +36,41 @@ export const motionConfig = {
   revealWindow: 0.55,
 } as const;
 
+/**
+ * BREATH & FLOW — hệ motion riêng cho 2 section mới (Quy trình trị liệu + Không gian).
+ * Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
+ * nhưng CHẬM hơn, biên độ nhỏ hơn, có nhịp thở — chất trị liệu Đông y.
+ * Durations ở đây tính bằng GIÂY (cho GSAP); bản CSS (ms) nằm trong globals.css.
+ */
+export const breathFlow = {
+  /** Thời lượng (giây) — khớp --motion-fast/medium/slow trong globals.css. */
+  fast: 0.18,
+  medium: 0.42,
+  slow: 0.76,
+  /** Easing GSAP "trị liệu" (xem gsapEasings.ritual). */
+  ease: "power4.out",
+  /** Biên độ reveal (px) — nhỏ, điềm tĩnh. Khớp --reveal-distance. */
+  revealDistance: 32,
+  /** Độ trễ nhịp giữa các phần tử (giây). */
+  stagger: 0.12,
+
+  /** Sticky-stack "Không gian 4 tầng". */
+  stack: {
+    /** Tầng inactive lùi sau bao nhiêu (px) để tạo chiều sâu. Khớp --section-parallax-depth. */
+    recedeDistance: 80,
+    inactiveScale: 0.9,
+    inactiveOpacity: 0.35,
+    activeScale: 1,
+    activeOpacity: 1,
+    /** Cửa sổ progress mỗi tầng "đứng giữa" trước khi nhường tầng sau. */
+    holdWindow: 0.18,
+    /** Chiều cao scene (vh) cho mỗi tầng — đủ không gian chuyển tầng. */
+    perFloorVh: 70,
+  },
+} as const;
+
+export type BreathFlow = typeof breathFlow;
+
 /** Breakpoint nghiệm thu responsive (px). */
 export const breakpoints = {
   sm: 375,
