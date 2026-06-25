@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import Img from "@/components/Img";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
+import { registerEases } from "@/lib/motion/easings";
 import { motionConfig, breathFlow, PIN_MIN_WIDTH } from "@/lib/motion/config";
 import { SPACES } from "@/data/content";
 
@@ -57,9 +58,10 @@ export default function YVienSpaceExperience() {
       // Mỗi panel chồng tuyệt đối lên stage; JS nội suy transform/opacity.
       gsap.set(panels, { position: "absolute", inset: 0 });
 
+      registerEases(); // CustomEase "floorRitual" có trước parseEase
       const recede = breathFlow.stack.recedeDistance;
       const { activeScale, inactiveScale, activeOpacity, inactiveOpacity } = breathFlow.stack;
-      const ease = gsap.parseEase(breathFlow.ease);
+      const ease = gsap.parseEase(breathFlow.stack.ease);
 
       const setters = panels.map((p) => ({
         y: gsap.quickSetter(p, "y", "px") as (v: number) => void,

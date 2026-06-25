@@ -47,3 +47,44 @@ Engine: GSAP + ScrollTrigger + Lenis. Đặc tả: `toplink-motion-system.md`.
 - Thay ảnh Unsplash trong `ABOUT_BLOCKS`/`SPACES` (`data/content.ts`) bằng **ảnh người thật**
   của Y Viện (TODO đã đánh dấu trong `page.tsx`).
 - Tinh chỉnh cảm giác bằng `lib/motion/config.ts` (scrub/stagger/convergeDistance…), không sửa component.
+
+---
+
+# PHASE 2 — Converging Ritual Motion System (deep crawl upgrade)
+
+### Pattern học từ Dropbox (deep crawl `--slow`)
+- Durations ≈ `0.001s` ×396 ⇒ motion chạy bằng **scroll-progress + Lottie/JS**, không CSS-transition.
+- **Bộ easing ease-out** lặp nhiều: `(0.4,0,0.2,1)` ×106, button `(0.5,0,0.2,1)`, `(0.2,0,0.3,1)`.
+- Motion theo context (nav/button/media/link), keyframe `drawIn`, bo góc khía, shadow mềm nông.
+- Chi tiết: `dropbox-opening-motion-audit.md §9`.
+
+### Cách đã chuyển hóa sang Y Viện
+- Kéo nhịp ease-out **chậm & mềm hơn** (chất trị liệu), đăng ký bằng **GSAP CustomEase**
+  (miễn phí 3.11+) để dùng THẬT trong scroll — không còn `power3.out` chung chung:
+  - `convergeRitual` `cubic-bezier(0.32,0,0.16,1)` → khối *Về Y Viện*.
+  - `floorRitual` `cubic-bezier(0.22,0,0.18,1)` → deck *Không gian*.
+- KHÔNG mượn keyframe `drawIn`, motif bo góc, màu/font/asset/text Dropbox.
+
+### Component đã tạo / sửa (Phase 2)
+- **Sửa** `lib/motion/easings.ts`: thêm `registerEases()` (CustomEase, idempotent, client-only)
+  + curve `convergeRitual`/`floorRitual` + doc nhịp Dropbox.
+- **Sửa** `lib/motion/config.ts`: `motionConfig.ease='convergeRitual'`, `breathFlow.stack.ease='floorRitual'`.
+- **Sửa** `components/motion/ConvergeBlock.tsx` + `components/YVienSpaceExperience.tsx`:
+  gọi `registerEases()` trước `parseEase`; deck đọc `breathFlow.stack.ease`.
+- **Tạo** `app/motion-lab/page.tsx`: route `/motion-lab` (noindex) cô lập converge + floors.
+
+### Motion config đã dùng
+`scrub 0.8` · converge ease `convergeRitual` · deck ease `floorRitual` · `convergeDistance 160` ·
+`stagger 0.12` · `revealWindow 0.55` · `sceneHeightVh 220` · deck `perFloorVh 70` · `PIN_MIN_WIDTH 1024`.
+
+### Cách test (đã verify)
+- **Desktop 1440**: scene pin (1980px), 4 khối hội tụ có stagger (opacity 1→0.885, translateY biến thiên),
+  console 0 warning ⇒ CustomEase resolve thật.
+- **Mobile 375**: scene 616px (no-pin), blocks opacity 1, panel `position:static`.
+- **Reduced-motion**: chung nhánh `!canPin` + CSS `!important` ép tĩnh + Lenis không init.
+- **Build**: static export PASS (31 trang gồm `/motion-lab`), TypeScript PASS. Chi tiết: `motion-qa-checklist.md`.
+
+### TODO tiếp theo
+- Thay ảnh thật Y Viện (`ABOUT_BLOCKS`/`SPACES`).
+- Cảm quan thủ công: bật OS reduced-motion + cuộn thật trên thiết bị để duyệt "chất chậm/mềm".
+- (Tùy chọn) Cân nhắc tách `floor indicator` thành `ScrollProgressRail` nếu cần tái dùng ở section khác.

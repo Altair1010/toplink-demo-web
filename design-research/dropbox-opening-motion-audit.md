@@ -61,3 +61,42 @@
   trượt từ nhiều hướng, hội tụ giữa) và *Không gian Y Viện* (4 tầng scroll-driven cards).
 - Motion **chậm hơn, mềm hơn** (chất trị liệu), tôn trọng `prefers-reduced-motion`,
   có fallback no-JS. Chi tiết hệ thống: `toplink-motion-system.md`.
+
+---
+
+## 9. DEEP CRAWL (dembrandt `--slow`) — dữ liệu motion mới
+> Lần cào sâu (3× timeout, hydration SPA kỹ hơn) trích thêm khối `motion` mà bản
+> nhanh không có. JSON: `dembrandt/output/brand.dropbox.com/*_v0.20.0.json` (key `motion`).
+
+### 9.1 Phát hiện cốt lõi
+- **Durations ≈ `0.001s` × 396 lần**: Dropbox **không** tạo cảm giác bằng CSS-transition.
+  Motion của họ chạy bằng **scroll-progress + Lottie/JS** → xác nhận hướng tiếp cận
+  **scrub-driven converge** (không phải transition bật/tắt) là đúng bản chất.
+- **Bộ easing lặp nhiều nhất** (đây mới là thứ ĐÁNG học — đường cong là toán học,
+  không phải tài sản nhận diện):
+
+  | cubic-bezier | Số lần | Tính chất |
+  |---|---|---|
+  | `(0.4, 0, 0.2, 1)` | 106 | "standard" — vào/ra mượt cân bằng |
+  | `ease-in-out` | 36 | nav (opacity/transform/bg) |
+  | `(0.5, 0, 0, 1)` | 4 | ease-out **rất gắt**, snap về cuối |
+  | `(0.2, 0, 0.3, 1)` | 4 | vào chậm, hãm êm |
+  | `(0.5, 0, 0.2, 1)` | 3 | **button** — ease-out mạnh "đặt rồi dừng" |
+  | `(0.4, 0.2, 0.2, 1)` · `(0.2, 0.1, 0, 1)` | 2–3 | biến thể |
+
+- **Motion theo context**: `nav` → ease-in-out `[opacity, transform, background-color]`;
+  `button` → `cubic-bezier(0.5,0,0.2,1)`; `media` → ease `[opacity]`; `link` → ease
+  `[color, border-radius, padding]`.
+- **Keyframe `drawIn`**: logo Lottie vẽ nét (SVG path draw-in) — họ "vẽ" thương hiệu,
+  không fade thô.
+- **Bo góc khía bất đối xứng**: `0px 8px 0px 0px` / `0px 0px 0px 8px` — motif "tab/notch".
+- Shadow vẫn **mềm & nông**: `rgba(0,0,0,0.1) 0 16px 32px`.
+
+### 9.2 Đã chuyển hóa (xem `easings.ts`)
+- Kéo nhịp ease-out của Dropbox **chậm & mềm hơn** cho chất trị liệu, đăng ký bằng
+  **GSAP CustomEase** (miễn phí từ 3.11) để dùng THẬT trong converge/scroll:
+  - `convergeRitual` = `cubic-bezier(0.32, 0, 0.16, 1)` — học `(0.4,0,0.2,1)`+`(0.5,0,0.2,1)`,
+    hãm cực mềm ở cuối ("đặt nhẹ vào chỗ") cho khối *Về Y Viện*.
+  - `floorRitual` = `cubic-bezier(0.22, 0, 0.18, 1)` — học `(0.2,0,0.3,1)`, vào chậm hơn,
+    cho chuyển tầng *Không gian*.
+- **KHÔNG** mượn: keyframe `drawIn`, motif bo góc khía, màu/font/asset Dropbox.

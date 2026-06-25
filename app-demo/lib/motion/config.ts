@@ -9,8 +9,9 @@
 export const motionConfig = {
   /** Độ trễ scrub của ScrollTrigger (giây). Cao hơn = mượt/“dính” hơn. */
   scrub: 0.8,
-  /** Easing chủ đạo cho tween GSAP rời rạc. */
-  ease: "power3.out",
+  /** Easing khối HỘI TỤ. CustomEase học từ nhịp ease-out của Dropbox (xem
+   *  easings.ts → convergeRitual). Cần registerEases() trước khi parseEase. */
+  ease: "convergeRitual",
   duration: 1.2,
 
   /** Khoảng trượt ban đầu của khối trước khi hội tụ (px). */
@@ -56,6 +57,8 @@ export const breathFlow = {
 
   /** Sticky-stack "Không gian 4 tầng". */
   stack: {
+    /** Easing chuyển tầng — CustomEase học từ Dropbox (easings.ts → floorRitual). */
+    ease: "floorRitual",
     /** Tầng inactive lùi sau bao nhiêu (px) để tạo chiều sâu. Khớp --section-parallax-depth. */
     recedeDistance: 80,
     inactiveScale: 0.9,

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { gsap } from "@/lib/motion/scrollTrigger";
+import { registerEases } from "@/lib/motion/easings";
 import { motionConfig } from "@/lib/motion/config";
 import { useConvergeScene } from "./ScrollConvergeScene";
 
@@ -36,6 +37,7 @@ export default function ConvergeBlock({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    registerEases(); // đảm bảo CustomEase "convergeRitual" có trước parseEase
 
     const off: Record<From, [number, number]> = {
       left: [-dist, 0],
