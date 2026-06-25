@@ -12,6 +12,9 @@ import ServiceFilterGrid from "@/components/ServiceFilterGrid";
 import ReviewWall from "@/components/ReviewWall";
 import ScrollConvergeScene from "@/components/motion/ScrollConvergeScene";
 import ConvergeBlock from "@/components/motion/ConvergeBlock";
+import WindLeafField from "@/components/motion/WindLeafField";
+import StatCounter from "@/components/motion/StatCounter";
+import SplitReveal from "@/components/motion/SplitReveal";
 import { TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
@@ -29,8 +32,9 @@ export default function HomePage() {
   return (
     <>
       {/* ===== 1 · HERO — cinematic ritual: H1 serif lớn + grid 5/7 + ảnh bo mềm ===== */}
-      <section className="on-dark bg-crimson-800">
-        <div className="mx-auto grid min-h-[88svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[5fr_7fr]">
+      <section className="on-dark relative overflow-hidden bg-crimson-800">
+        <WindLeafField preset="hero" />
+        <div className="relative z-10 mx-auto grid min-h-[88svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[5fr_7fr]">
           <div className="animate-fade-up text-ivory">
             <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
               Y Viện Dưỡng Thân · Tỉnh Thức
@@ -154,7 +158,7 @@ export default function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-px overflow-hidden border border-gold-700 bg-gold-700 px-0 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
-              <div className="font-display text-4xl font-bold text-gold-300 sm:text-5xl">{s.value}</div>
+              <StatCounter value={s.value} className="font-display text-4xl font-bold text-gold-300 sm:text-5xl" />
               <p className="mt-2 text-base leading-snug text-cream/85">{s.label}</p>
             </div>
           ))}
@@ -250,9 +254,9 @@ export default function HomePage() {
       {/* ===== 8 · CTA CUỐI TRANG ===== */}
       <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
         <div className="cta-glow on-dark frame-gold px-6 py-16 text-center text-ivory sm:px-12">
-          <h2 className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
+          <SplitReveal as="h2" className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
             Bạn đã chăm sóc mọi người cả ngày rồi, hãy dành 90 phút để <span className="emph">yêu thương chính mình</span> nhé.
-          </h2>
+          </SplitReveal>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href={CONTACT.zalo}

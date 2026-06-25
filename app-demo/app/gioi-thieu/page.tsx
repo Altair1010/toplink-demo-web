@@ -2,7 +2,9 @@ import Link from "next/link";
 import Img from "@/components/Img";
 import SectionHeader from "@/components/SectionHeader";
 import { Leaf, Target, Eye, Heart } from "lucide-react";
-import { ConvergeItem, LeafField } from "@/components/ConvergeOnScroll";
+import { ConvergeItem } from "@/components/ConvergeOnScroll";
+import WindLeafField from "@/components/motion/WindLeafField";
+import SplitReveal from "@/components/motion/SplitReveal";
 import { TEAM } from "@/data/content";
 
 export const metadata = {
@@ -20,7 +22,7 @@ const HERO_IMAGES = [
 export default function AboutPage() {
   return (
     <div className="relative overflow-hidden">
-      <LeafField />
+      <WindLeafField preset="ambient" />
       <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6">
         <SectionHeader
           eyebrow="Giới thiệu"
@@ -64,7 +66,7 @@ export default function AboutPage() {
 
         <div className="on-dark mt-10 frame-gold bg-crimson-800 p-8 text-ivory sm:p-12">
           <Leaf className="h-10 w-10 text-gold-300" />
-          <h2 className="mt-4 text-4xl text-gold-200 sm:text-5xl">Triết lý <span className="emph emph-light">dưỡng sinh</span></h2>
+          <SplitReveal as="h2" className="mt-4 text-4xl text-gold-200 sm:text-5xl">Triết lý <span className="emph emph-light">dưỡng sinh</span></SplitReveal>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
             Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh tại. Mỗi liệu
             trình tại Toplink bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.

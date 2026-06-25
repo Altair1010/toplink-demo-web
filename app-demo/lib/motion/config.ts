@@ -70,7 +70,42 @@ export const breathFlow = {
     /** Chiều cao scene (vh) cho mỗi tầng — đủ không gian chuyển tầng. */
     perFloorVh: 70,
   },
+
+  /** "Không gian 4 tầng" — CUỘN NGANG điện ảnh (pin + track ngang, KHÔNG chồng ảnh). */
+  horizontal: {
+    /** Easing chuyển tầng (CustomEase floorRitual). */
+    ease: "floorRitual",
+    /** Độ trễ scrub — cao hơn = trượt "dính" mượt. */
+    scrub: 1,
+    /** Chiều cuộn dọc đổi sang mỗi tầng (vh). N × giá trị này = tổng cao scene. */
+    perPanelVh: 85,
+    /** Parallax ảnh trong panel (px) — ảnh trôi ngược nhẹ tạo chiều sâu. */
+    parallaxInner: 64,
+    /** Có snap về từng tầng không (mượt nhưng vẫn dừng đúng tầng). */
+    snap: true,
+  },
 } as const;
+
+/**
+ * WIND — hệ "gió cuốn lá trà" (Three.js GPU particles). Lá thật (PNG cắt nền) do người
+ * dùng cấp ở /public/images/leaves; rỗng → fallback texture lá vẽ bằng canvas.
+ * Chỉ animate trên GPU; tắt khi reduced-motion / không WebGL.
+ */
+export const wind = {
+  /** Ảnh lá thật. Thêm path PNG nền-trong vào đây khi có asset. */
+  leaves: [] as string[],
+  /** Cấu hình theo "điểm đặt": hero (mạnh) vs section nền (nhẹ). */
+  presets: {
+    hero: { count: 30, speed: 0.45, sizeRange: [26, 60] as [number, number], opacity: 0.9 },
+    ambient: { count: 16, speed: 0.35, sizeRange: [20, 44] as [number, number], opacity: 0.55 },
+  },
+  /** Gió theo vận tốc cuộn: nhân lực gió khi người dùng cuộn (gió "kéo" lá). */
+  scrollGust: 0.001,
+  /** Giới hạn devicePixelRatio để nhẹ máy. */
+  maxDpr: 1.75,
+} as const;
+
+export type WindPreset = keyof typeof wind.presets;
 
 export type BreathFlow = typeof breathFlow;
 
