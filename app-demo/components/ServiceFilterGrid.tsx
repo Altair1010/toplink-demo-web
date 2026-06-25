@@ -12,9 +12,16 @@ import { SERVICES, LEVELS, type ServiceLevel } from "@/data/content";
  */
 type Filter = "all" | ServiceLevel;
 
+// 3 liệu trình chủ lực — đưa lên đầu để "chỉ đường" cho khách (kiểu Popular products).
+const FEATURED_SLUGS = ["tri-lieu-co-vai-gay", "duong-sinh-khi-huyet", "lieu-trinh-than-tam-tri"];
+
 export default function ServiceFilterGrid() {
   const [filter, setFilter] = useState<Filter>("all");
   const list = filter === "all" ? SERVICES : SERVICES.filter((s) => s.level === filter);
+
+  const featured = FEATURED_SLUGS.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(
+    (s): s is (typeof SERVICES)[number] => Boolean(s)
+  );
 
   const chips: { key: Filter; label: string }[] = [
     { key: "all", label: "Tất cả" },
@@ -23,6 +30,20 @@ export default function ServiceFilterGrid() {
 
   return (
     <div>
+      {/* Liệu trình được chọn nhiều — 3 card lớn nổi bật */}
+      <div className="mb-12">
+        <p className="text-center font-display text-base font-bold uppercase tracking-[0.14em] text-crimson-600">
+          Liệu trình được chọn nhiều
+        </p>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {featured.map((s, i) => (
+            <Reveal key={s.slug} from="up" delay={i * 100}>
+              <BookCard service={s} featured />
+            </Reveal>
+          ))}
+        </div>
+      </div>
+
       <div className="flex flex-wrap justify-center gap-2.5">
         {chips.map((c) => (
           <button

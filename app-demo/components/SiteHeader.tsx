@@ -28,8 +28,13 @@ const NAV: NavGroup[] = [
       { href: "/nhuong-quyen", label: "Nhượng quyền" },
     ],
   },
-  { label: "Tin tức", href: "/tin-tuc" },
-  { label: "Liên hệ", href: "/lien-he" },
+  {
+    label: "Tin tức & Liên hệ",
+    children: [
+      { href: "/tin-tuc", label: "Tin tức" },
+      { href: "/lien-he", label: "Liên hệ" },
+    ],
+  },
 ];
 
 export default function SiteHeader() {

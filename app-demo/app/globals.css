@@ -62,19 +62,29 @@
   --color-clay-700: #95131f;
   --color-clay-800: #7e0a15;
 
-  /* ---- Fonts — sans toàn bộ (bỏ serif) ---- */
+  /* ---- Fonts ---- */
   --font-display: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
   --font-sans: var(--font-noto-sans), var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  /* Serif Á Đông — CHỈ cho statement lớn (hero H1, tên tầng, quote). Có chữ thường. */
+  --font-serif: var(--font-noto-serif), "Times New Roman", Georgia, serif;
 
-  /* ---- Bo góc — SHARP / FORMAL (vuông vức) ---- */
+  /* ---- Bo góc — sharp cho nút/badge, bo vừa cho ảnh/card lớn ---- */
   --radius-sm: 2px;  /* buttons */
   --radius-md: 4px;  /* cards */
   --radius-lg: 6px;  /* hero / panel lớn */
   --radius-xl: 8px;
+  --radius-2xl: 16px; /* card ảnh lớn */
+  --radius-3xl: 24px; /* hero / panel không gian */
 
   /* ---- Type scale helpers ---- */
   --text-body-lg: 1.25rem;  /* 20px */
   --text-body-md: 1.125rem; /* 18px */
+  --text-hero: clamp(2.5rem, 6vw, 5.5rem);     /* H1 hero serif */
+  --text-statement: clamp(1.875rem, 4vw, 3rem); /* tên tầng / quote lớn */
+
+  /* ---- Width & section spacing rhythm (tránh "đều tay") ---- */
+  --container-narrow: 760px; /* intro quote / FAQ — hẹp, tĩnh */
+  --container-wide: 1280px;
 
   /* ---- Shadow mềm & nông (học từ Dropbox/MyWebLab: shadow nhẹ, sâu vừa) ----
      Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
@@ -95,6 +105,38 @@
 
 /* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
 .shadow-soft { box-shadow: var(--shadow-soft); }
+
+/* ── TYPOGRAPHY: statement serif (KHÔNG uppercase — để lộ chữ thường thư tịch) ── */
+.font-serif-display {
+  font-family: var(--font-serif);
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.04;
+}
+
+/* ── WIDTH & SECTION SPACING RHYTHM ── */
+.container-narrow { max-width: var(--container-narrow); }
+.section-pad { padding-block: clamp(4rem, 9vw, 7rem); }
+.section-pad-lg { padding-block: clamp(5.5rem, 12vw, 11rem); } /* trụ cột */
+
+/* ── ART DIRECTION: grading + overlay thống nhất cho MỌI ảnh placeholder ──
+   Kéo ảnh Unsplash trắng-xanh và render đỏ-vàng về một tông trầm ấm chung. */
+.img-grade { filter: saturate(0.92) contrast(1.04) brightness(0.97); }
+.img-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(43, 22, 14, 0.06), rgba(43, 22, 14, 0.3));
+}
+
+/* ── CTA cuối trang: ánh sáng vàng radial trên nền đỏ tối ── */
+.cta-glow {
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(216, 170, 75, 0.18), transparent 70%),
+    var(--color-crimson-600);
+}
 
 html {
   scroll-behavior: smooth;
