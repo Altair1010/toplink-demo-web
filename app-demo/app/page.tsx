@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Img from "@/components/Img";
-import { MessageCircle, ArrowRight, Leaf, HeartHandshake, Sparkles, ShieldCheck, Flame, Droplets, Hand, Snowflake } from "lucide-react";
+import { MessageCircle, ArrowRight, Leaf, HeartHandshake, Sparkles, ShieldCheck, Flame, Droplets, Hand, Snowflake, CalendarPlus } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import Marquee from "@/components/Marquee";
 import Reveal from "@/components/Reveal";
@@ -15,6 +15,7 @@ import ConvergeBlock from "@/components/motion/ConvergeBlock";
 import WindLeafField from "@/components/motion/WindLeafField";
 import StatCounter from "@/components/motion/StatCounter";
 import SplitReveal from "@/components/motion/SplitReveal";
+import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
@@ -30,7 +31,7 @@ const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 
 export default function HomePage() {
   return (
-    <>
+    <SmoothScrollProvider>
       {/* ===== 1 · HERO — cinematic ritual: H1 serif lớn + grid 5/7 + ảnh bo mềm ===== */}
       <section className="on-dark relative overflow-hidden bg-crimson-800">
         <WindLeafField preset="hero" />
@@ -47,18 +48,24 @@ export default function HomePage() {
               Trị liệu dưỡng sinh, thảo dược và không gian tĩnh tại, để anh/chị được chăm sóc đúng cách,
               an toàn và thư thái hơn.
             </p>
-            <div className="mt-9 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Link
+                href="/dat-lich"
+                className="btn-press flex items-center gap-2 rounded-sm bg-gold-500 px-8 py-4 text-lg font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
+              >
+                <CalendarPlus className="h-5 w-5" /> Đặt lịch ngay
+              </Link>
               <a
                 href={CONTACT.zalo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+                className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-4 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
               >
-                <MessageCircle className="h-5 w-5" /> Inbox Zalo để được tư vấn
+                <MessageCircle className="h-5 w-5" /> Tư vấn qua Zalo
               </a>
               <Link
                 href="/khong-gian"
-                className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+                className="flex items-center gap-1.5 px-2 py-4 text-base font-semibold text-gold-200 underline-offset-4 transition-colors hover:text-gold-300 hover:underline"
               >
                 Khám phá không gian <ArrowRight className="h-4 w-4" />
               </Link>
@@ -129,7 +136,7 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <SectionHeader
           center
-          eyebrow="Vì sao chọn Toplink"
+          eyebrow="Vì sao chọn Y Viện"
           title="Lắng nghe cơ thể, chăm sóc từ gốc"
           emphasis="từ gốc"
         />
@@ -257,24 +264,30 @@ export default function HomePage() {
           <SplitReveal as="h2" className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
             Bạn đã chăm sóc mọi người cả ngày rồi, hãy dành 90 phút để <span className="emph">yêu thương chính mình</span> nhé.
           </SplitReveal>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/dat-lich"
+              className="flex items-center gap-2 rounded-sm bg-gold-500 px-8 py-4 text-lg font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
+            >
+              <CalendarPlus className="h-5 w-5" /> Đặt lịch ngay
+            </Link>
             <a
               href={CONTACT.zalo}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+              className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-4 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
             >
-              <MessageCircle className="h-5 w-5" /> Inbox Zalo để được tư vấn
+              <MessageCircle className="h-5 w-5" /> Tư vấn qua Zalo
             </a>
             <Link
               href="/dich-vu"
-              className="flex items-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+              className="flex items-center gap-1.5 px-2 py-4 text-base font-semibold text-gold-200 underline-offset-4 transition-colors hover:text-gold-300 hover:underline"
             >
               Xem liệu trình phù hợp <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
       </section>
-    </>
+    </SmoothScrollProvider>
   );
 }

@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = POSTS.find((p) => p.slug === slug);
   return {
-    title: post ? `${post.title} · Y Viện Toplink` : "Tin tức · Y Viện Toplink",
+    title: post ? post.title : "Tin tức",
     description: post?.excerpt,
   };
 }

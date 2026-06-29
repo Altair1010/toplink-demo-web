@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { asset } from "@/lib/asset";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { wind, type WindPreset } from "@/lib/motion/config";
 
 /**
@@ -25,7 +26,7 @@ export default function WindLeafField({
   useEffect(() => {
     const host = hostRef.current;
     if (!host) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (prefersReducedMotion()) return;
 
     let disposed = false;
     let cleanup: (() => void) | undefined;

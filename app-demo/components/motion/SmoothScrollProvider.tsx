@@ -3,6 +3,7 @@
 import { useEffect, type ReactNode } from "react";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Smooth-scroll cao cấp bằng Lenis, đồng bộ với GSAP ScrollTrigger.
@@ -17,12 +18,18 @@ export default function SmoothScrollProvider({ children }: { children: ReactNode
   useEffect(() => {
     registerMotion();
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion()) {
       return; // tôn trọng người dùng: không hijack scroll
     }
 
+    // CHỈ bật Lenis trên desktop có chuột (pointer:fine). Trên mobile/cảm ứng, dùng
+    // native scroll để tránh Lenis (smooth) tranh quyền với snap GSAP → hết giật.
+    if (!window.matchMedia("(min-width: 1024px) and (pointer: fine)").matches) {
+      return;
+    }
+
     const lenis = new Lenis({
-      duration: 1.1, // cuộn chậm, mềm — chất trị liệu
+      duration: 0.9, // cuộn mềm nhưng khớp nhịp scrub GSAP hơn (giảm lệch)
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });

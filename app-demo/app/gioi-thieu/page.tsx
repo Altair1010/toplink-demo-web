@@ -5,10 +5,11 @@ import { Leaf, Target, Eye, Heart } from "lucide-react";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import WindLeafField from "@/components/motion/WindLeafField";
 import SplitReveal from "@/components/motion/SplitReveal";
+import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { TEAM } from "@/data/content";
 
 export const metadata = {
-  title: "Giới thiệu · Y Viện Toplink",
+  title: "Giới thiệu",
   description:
     "Y Viện Toplink · Dưỡng Thân, Tỉnh Thức. Sứ mệnh, triết lý dưỡng sinh và đội ngũ chuyên viên chăm sóc sức khỏe cá nhân hóa.",
 };
@@ -21,13 +22,14 @@ const HERO_IMAGES = [
 
 export default function AboutPage() {
   return (
+    <SmoothScrollProvider>
     <div className="relative overflow-hidden">
       <WindLeafField preset="ambient" />
       <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6">
         <SectionHeader
           eyebrow="Giới thiệu"
           title="Y Viện Dưỡng Thân · Tỉnh Thức"
-          desc="Toplink kết hợp Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao để chăm sóc sức khỏe một cách cá nhân hóa và có chiều sâu."
+          desc="Y Viện Toplink kết hợp Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao để chăm sóc sức khỏe một cách cá nhân hóa và có chiều sâu."
         />
 
         {/* HERO converge — ba khối không gian trôi về giữa khi cuộn (kỹ thuật Dropbox) */}
@@ -69,7 +71,7 @@ export default function AboutPage() {
           <SplitReveal as="h2" className="mt-4 text-4xl text-gold-200 sm:text-5xl">Triết lý <span className="emph emph-light">dưỡng sinh</span></SplitReveal>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
             Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh tại. Mỗi liệu
-            trình tại Toplink bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.
+            trình tại Y Viện bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.
           </p>
         </div>
 
@@ -117,5 +119,6 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
+    </SmoothScrollProvider>
   );
 }

@@ -4,6 +4,7 @@ import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 import { gsap, ScrollTrigger, registerAdvanced } from "@/lib/motion/scrollTrigger";
 import { registerEases } from "@/lib/motion/easings";
 import { breathFlow } from "@/lib/motion/config";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Reveal chữ theo DÒNG bằng GSAP SplitText (kỹ thuật gsap.com): mỗi dòng trượt lên +
@@ -30,7 +31,7 @@ export default function SplitReveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (prefersReducedMotion()) return;
 
     let split: { revert: () => void } | undefined;
     let st: ScrollTrigger | undefined;

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Hiệu ứng mở đầu kiểu brand.dropbox.com: khi cuộn tới, các khối TRƯỢT VỀ GIỮA
@@ -15,7 +16,7 @@ function useConverge(from: "left" | "right" | "up" | "down", dist: number) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion()) {
       setP(1);
       return;
     }
@@ -70,8 +71,8 @@ export function ConvergeItem({
       ref={ref}
       className={className}
       style={{
-        transform: `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(0.84 + 0.16 * p).toFixed(3)})`,
-        opacity: 0.25 + 0.75 * p,
+        transform: `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(0.92 + 0.08 * p).toFixed(3)})`,
+        opacity: 0.6 + 0.4 * p,
         willChange: "transform, opacity",
       }}
     >

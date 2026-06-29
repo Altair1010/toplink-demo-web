@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { motionConfig } from "@/lib/motion/config";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * SCROLL PROGRESS — đường/thanh "tự vẽ" theo nhịp cuộn TRONG PHẠM VI một section
@@ -34,7 +35,7 @@ export default function ScrollProgress({
       const scope = track.closest<HTMLElement>("[data-progress-scope]") ?? track.parentElement;
       if (!scope) return;
 
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      if (prefersReducedMotion()) {
         gsap.set(fill, { scaleX: vertical ? 1 : 1, scaleY: 1 });
         return;
       }

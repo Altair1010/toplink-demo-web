@@ -440,7 +440,7 @@ export const POSTS: Post[] = [
     body: [
       "Tại Y Viện Toplink, mỗi buổi trị liệu đều đi theo một quy trình bài bản để chị/anh cảm thấy an tâm và được chăm sóc đúng nhu cầu, không vội vàng.",
       "Bắt đầu bằng việc tiếp nhận và lắng nghe tình trạng cơ thể. Chuyên viên sẽ trò chuyện để hiểu vùng đang căng mỏi, thói quen sinh hoạt và mong muốn của chị/anh.",
-      "Tiếp đến là tư vấn liệu trình phù hợp, minh bạch về thời lượng và chi phí. Nếu chưa biết chọn gì, chị/anh hoàn toàn có thể để Toplink đề xuất.",
+      "Tiếp đến là tư vấn liệu trình phù hợp, minh bạch về thời lượng và chi phí. Nếu chưa biết chọn gì, chị/anh hoàn toàn có thể để Y Viện đề xuất.",
       "Trước khi trị liệu chính, cơ thể được làm ấm bằng xông hoặc ngâm thảo dược để cơ giãn ra và sẵn sàng. Phần trị liệu chính được thực hiện bởi kỹ thuật viên được đào tạo bài bản.",
       "Sau trị liệu là thời gian thư giãn phục hồi, dưỡng và cân bằng. Chuyên viên sẽ dặn dò cách chăm sóc, vận động nhẹ tại nhà và gợi ý lịch chăm sóc định kỳ phù hợp.",
       "Toàn bộ hành trình hướng tới một mục tiêu: để cơ thể được lắng nghe và chăm sóc đúng cách, cân bằng thân · tâm · trí.",
@@ -511,7 +511,9 @@ export const STATS: { value: string; label: string }[] = [
   { value: "100%", label: "Kỹ thuật viên được đào tạo bài bản" },
   { value: "8+", label: "Liệu trình dưỡng sinh & trị liệu" },
   { value: "4 tầng", label: "Không gian Tĩnh · Thông · Dưỡng · Tỉnh" },
-  { value: "An toàn", label: "Liệu pháp tự nhiên, minh bạch" },
+  // TODO(user): xác nhận con số thật (số năm kinh nghiệm / lượt khách) — giữ "đếm được",
+  // không phóng đại. Tạm dùng số năm đồng hành để thay claim "An toàn" thiếu sức nặng.
+  { value: "10+", label: "Năm đồng hành cùng sức khỏe người Việt" },
 ];
 
 // ---- Đội ngũ chuyên viên / kỹ thuật viên ----
@@ -557,11 +559,11 @@ export const TEAM: TeamMember[] = [
 // ---- Nội dung trang Đào tạo ----
 export const TRAINING = {
   intro:
-    "Toplink đào tạo kỹ thuật viên trị liệu Đông y dưỡng sinh bài bản, từ nền tảng lý thuyết khí huyết, kinh lạc đến thực hành trị liệu an toàn và chăm sóc khách hàng.",
+    "Y Viện Toplink đào tạo kỹ thuật viên trị liệu Đông y dưỡng sinh bài bản, từ nền tảng lý thuyết khí huyết, kinh lạc đến thực hành trị liệu an toàn và chăm sóc khách hàng.",
   benefits: [
     "Lộ trình từ cơ bản đến chuyên sâu, học đi đôi với thực hành.",
     "Giảng dạy bởi lương y và chuyên viên giàu kinh nghiệm.",
-    "Cấp chứng nhận hoàn thành và cơ hội làm việc tại hệ thống Toplink.",
+    "Cấp chứng nhận hoàn thành và cơ hội làm việc tại hệ thống Y Viện Toplink.",
     "Thực hành trên thiết bị và quy trình chuẩn của Y Viện.",
   ],
   roadmap: [
@@ -575,7 +577,7 @@ export const TRAINING = {
 // ---- Nội dung trang Nhượng quyền / Hợp tác ----
 export const FRANCHISE = {
   intro:
-    "Hợp tác cùng Toplink để mang mô hình Y Viện dưỡng sinh · tỉnh thức đến gần hơn với cộng đồng, với sự hỗ trợ trọn gói từ vận hành đến chuyên môn.",
+    "Hợp tác cùng Y Viện Toplink để mang mô hình Y Viện dưỡng sinh · tỉnh thức đến gần hơn với cộng đồng, với sự hỗ trợ trọn gói từ vận hành đến chuyên môn.",
   supports: [
     { title: "Set-up & vận hành", desc: "Tư vấn thiết kế không gian, quy trình vận hành chuẩn Y Viện." },
     { title: "Đào tạo đội ngũ", desc: "Đào tạo kỹ thuật viên và chuyên viên chăm sóc bài bản." },

@@ -3,15 +3,17 @@ import BrandVisual from "@/components/BrandVisual";
 import SectionHeader from "@/components/SectionHeader";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import WindLeafField from "@/components/motion/WindLeafField";
+import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { SPACES } from "@/data/content";
 
 export const metadata = {
-  title: "Không gian Y Viện · Y Viện Toplink",
+  title: "Không gian Y Viện",
   description: "Bốn tầng Tĩnh · Thông · Dưỡng · Tỉnh, hành trình đưa cơ thể từ căng thẳng về cân bằng tại Y Viện Toplink.",
 };
 
 export default function SpacePage() {
   return (
+    <SmoothScrollProvider>
     <div className="relative overflow-hidden">
       <WindLeafField preset="ambient" />
       <div className="relative mx-auto max-w-6xl px-4 py-14 sm:px-6">
@@ -55,5 +57,6 @@ export default function SpacePage() {
         </div>
       </div>
     </div>
+    </SmoothScrollProvider>
   );
 }

@@ -12,9 +12,11 @@ export default function FaqAccordion() {
       {FAQS.map((faq, i) => (
         <div key={i}>
           <button
+            id={`faq-trigger-${i}`}
             onClick={() => setOpen(open === i ? null : i)}
             className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left sm:px-6"
             aria-expanded={open === i}
+            aria-controls={`faq-panel-${i}`}
           >
             <span className="text-lg font-medium text-ink">{faq.q}</span>
             {open === i ? (
@@ -24,7 +26,14 @@ export default function FaqAccordion() {
             )}
           </button>
           {open === i && (
-            <p className="animate-fade-up px-6 pb-5 text-base leading-relaxed text-ink-soft sm:px-6">{faq.a}</p>
+            <p
+              id={`faq-panel-${i}`}
+              role="region"
+              aria-labelledby={`faq-trigger-${i}`}
+              className="animate-fade-up px-6 pb-5 text-base leading-relaxed text-ink-soft sm:px-6"
+            >
+              {faq.a}
+            </p>
           )}
         </div>
       ))}

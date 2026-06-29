@@ -10,6 +10,7 @@ import {
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { motionConfig, PIN_MIN_WIDTH } from "@/lib/motion/config";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * SCROLL CONVERGE SCENE — “sân khấu” sticky kiểu opening brand.dropbox.com.
@@ -67,7 +68,7 @@ export default function ScrollConvergeScene({
   useGSAP(
     () => {
       registerMotion();
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduced = prefersReducedMotion();
       const canPin = !reduced && window.innerWidth >= PIN_MIN_WIDTH;
 
       if (!canPin) {
