@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { ClipboardList, MessagesSquare, Hand, HeartPulse, type LucideIcon } from "lucide-react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { breathFlow } from "@/lib/motion/config";
 import { PROCESS_STEPS, type ProcessStep } from "@/data/content";
 import ScrollProgress from "@/components/motion/ScrollProgress";
@@ -34,7 +35,7 @@ export default function HealingProcessMotion() {
   useGSAP(
     () => {
       registerMotion();
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduced = prefersReducedMotion();
       const items = itemRefs.current.filter(Boolean) as HTMLLIElement[];
       if (reduced || !items.length) return;
 
@@ -64,7 +65,8 @@ export default function HealingProcessMotion() {
         end: "bottom 65%",
         onUpdate: (self) => {
           const idx = Math.min(n - 1, Math.round(self.progress * (n - 1)));
-          setActive(idx);
+          // Guard: chỉ setState khi index ĐỔI tầng — tránh re-render React mỗi tick cuộn.
+          setActive((prev) => (prev === idx ? prev : idx));
         },
       });
       triggers.push(journey);

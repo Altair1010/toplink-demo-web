@@ -15,19 +15,20 @@ export const motionConfig = {
   duration: 1.2,
 
   /** Khoảng trượt ban đầu của khối trước khi hội tụ (px). */
-  convergeDistance: 160,
+  convergeDistance: 96,
   /** Parallax phụ rất nhẹ để tạo chiều sâu (px). */
   parallaxDistance: 48,
 
   /** Trạng thái “chưa hội tụ”. */
-  inactiveScale: 0.94,
-  inactiveOpacity: 0.35,
+  inactiveScale: 0.96,
+  /** Đủ rõ để ĐỌC ĐƯỢC khi chưa hội tụ (≥ ~4.5:1) — tránh chữ hồng nhạt mờ (fail WCAG). */
+  inactiveOpacity: 0.72,
   /** Trạng thái “đã hội tụ về giữa”. */
   activeScale: 1,
   activeOpacity: 1,
 
-  /** Chiều cao scene converge (vh) — đủ không gian cho motion diễn ra. */
-  sceneHeightVh: 220,
+  /** Chiều cao scene converge (vh) — vừa đủ cho motion, tránh khoảng trắng thừa. */
+  sceneHeightVh: 150,
   /** Pin có chừa khoảng trống không (true để layout không nhảy). */
   pinSpacing: true,
   /** Độ lệch nhịp giữa các block trong cùng một scene (theo progress 0–1). */
@@ -61,8 +62,8 @@ export const breathFlow = {
     ease: "floorRitual",
     /** Tầng inactive lùi sau bao nhiêu (px) để tạo chiều sâu. Khớp --section-parallax-depth. */
     recedeDistance: 80,
-    inactiveScale: 0.9,
-    inactiveOpacity: 0.35,
+    inactiveScale: 0.94,
+    inactiveOpacity: 0.72,
     activeScale: 1,
     activeOpacity: 1,
     /** Cửa sổ progress mỗi tầng "đứng giữa" trước khi nhường tầng sau. */
@@ -78,7 +79,7 @@ export const breathFlow = {
     /** Độ trễ scrub — cao hơn = trượt "dính" mượt. */
     scrub: 1,
     /** Chiều cuộn dọc đổi sang mỗi tầng (vh). N × giá trị này = tổng cao scene. */
-    perPanelVh: 85,
+    perPanelVh: 70,
     /** Parallax ảnh trong panel (px) — ảnh trôi ngược nhẹ tạo chiều sâu. */
     parallaxInner: 64,
     /** Có snap về từng tầng không (mượt nhưng vẫn dừng đúng tầng). */

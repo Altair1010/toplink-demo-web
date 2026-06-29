@@ -52,8 +52,8 @@
 
   /* ---- Ink / text (mực tàu #1A1410) ---- */
   --color-ink: #1a1410;
-  --color-ink-soft: #636363; /* xám body — khớp nhatlieuyvien.vn */
-  --color-ink-mute: #7a6f64;
+  --color-ink-soft: #4a4a4a; /* xám body — đậm hơn để đạt ≥4.5:1 trên kem/ivory (WCAG AA) */
+  --color-ink-mute: #6a6057;
 
   /* ---- Migration aliases: clay-* cũ map sang crimson ---- */
   --color-clay-50: #fbf0ef;
@@ -64,7 +64,7 @@
 
   /* ---- Fonts ---- */
   --font-display: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
-  --font-sans: var(--font-noto-sans), var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
   /* Serif Á Đông — CHỈ cho statement lớn (hero H1, tên tầng, quote). Có chữ thường. */
   --font-serif: var(--font-noto-serif), "Times New Roman", Georgia, serif;
 
@@ -105,6 +105,26 @@
 
 /* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
 .shadow-soft { box-shadow: var(--shadow-soft); }
+
+/* Skip-to-content: ẩn ngoài màn hình, hiện rõ khi nhận focus bằng bàn phím (Tab). */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  transform: translateY(-150%);
+  background: var(--color-crimson-600);
+  color: var(--color-gold-200);
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  transition: transform 150ms ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
 
 /* ── TYPOGRAPHY: statement serif (KHÔNG uppercase — để lộ chữ thường thư tịch) ── */
 .font-serif-display {
@@ -160,10 +180,18 @@ h5,
 h6,
 .heading-font {
   font-family: var(--font-display);
-  text-transform: uppercase;
+  /* KHÔNG uppercase toàn cục: IN HOA tiếng Việt có dấu làm chậm tốc độ đọc,
+     đặc biệt với nhóm khách lớn tuổi. Uppercase chỉ áp riêng qua .label-caps. */
   font-weight: 800;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
   line-height: 1.18;
+}
+
+/* Chỉ uppercase cho eyebrow / nhãn nav ngắn (ít dấu, vai trò trang trí). */
+.label-caps,
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 /* Nhấn từ khóa trong headline: BOLD + VIỀN CHỮ MẢNH tương phản
@@ -231,6 +259,30 @@ h6,
 .ken-burns {
   animation: ken-burns 20s ease-in-out infinite alternate;
   will-change: transform;
+}
+
+/* Focus-visible NHẤT QUÁN toàn site — chỉ hiện khi điều hướng bằng bàn phím (không
+   bật khi click chuột). Component có focus-visible riêng (class Tailwind) sẽ tự ghi đè. */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[role="menuitem"]:focus-visible {
+  outline: 3px solid var(--color-crimson-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.on-dark a:focus-visible,
+.on-dark button:focus-visible {
+  outline-color: var(--color-gold-400);
+}
+
+/* Micro-interaction: CTA nhấn xuống nhẹ khi bấm — phản hồi tactile, điềm tĩnh. */
+.btn-press {
+  transition: transform 120ms ease, background-color 0.2s ease;
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.99);
 }
 
 /* Thẻ dược liệu: nhấc nhẹ khi hover, ảnh bên trong zoom chậm */
@@ -328,7 +380,8 @@ h6,
   animation: ticker var(--marquee-speed, 40s) linear infinite;
   will-change: transform;
 }
-.marquee:hover .marquee-track {
+.marquee:hover .marquee-track,
+.marquee.is-paused .marquee-track {
   animation-play-state: paused;
 }
 

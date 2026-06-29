@@ -3,7 +3,7 @@ import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/Reveal";
 import { PROCESS_STEPS } from "@/data/content";
 
-export const metadata = { title: "Quy trình trị liệu · Y Viện Toplink" };
+export const metadata = { title: "Quy trình trị liệu" };
 
 export default function ProcessPage() {
   return (
@@ -12,7 +12,7 @@ export default function ProcessPage() {
         center
         eyebrow="Quy trình trị liệu"
         title="Một hành trình chăm sóc bài bản"
-        desc="Toplink làm việc có quy trình, minh bạch và tôn trọng cơ thể của chị/anh ở mỗi bước."
+        desc="Y Viện làm việc có quy trình, minh bạch và tôn trọng cơ thể của chị/anh ở mỗi bước."
       />
 
       <ol className="mt-12 space-y-2">

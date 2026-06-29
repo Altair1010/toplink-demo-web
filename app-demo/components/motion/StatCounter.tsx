@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Số liệu "đếm lên" khi cuộn tới (kỹ thuật reveal-on-view). Tách phần SỐ ở đầu chuỗi để
@@ -15,7 +16,7 @@ export default function StatCounter({ value, className = "" }: { value: string; 
   useEffect(() => {
     const el = ref.current;
     if (!el || !m) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (prefersReducedMotion()) return;
     registerMotion();
 
     const [, prefix, numStr, suffix] = m;

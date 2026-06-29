@@ -5,6 +5,7 @@ import BookCard from "@/components/BookCard";
 import Reveal from "@/components/Reveal";
 import { gsap, registerAdvanced } from "@/lib/motion/scrollTrigger";
 import { SERVICES, LEVELS, type ServiceLevel } from "@/data/content";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Lưới Sản phẩm & Dịch vụ có filter theo nhóm. Khi đổi nhóm, các card TÁI BỐ TRÍ mượt
@@ -47,6 +48,7 @@ export default function ServiceFilterGrid() {
       ease: "power3.inOut",
       absolute: true,
       scale: true,
+      prune: true, // bỏ card KHÔNG đổi vị trí khỏi tween → nhẹ hơn, stagger sạch hơn
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onEnter: (els: any) =>
         gsap.fromTo(els, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }),
@@ -58,7 +60,7 @@ export default function ServiceFilterGrid() {
 
   const changeFilter = (key: Filter) => {
     const Flip = flipRef.current;
-    const reduced = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduced = typeof window !== "undefined" && prefersReducedMotion();
     if (Flip && gridRef.current && !reduced) {
       stateRef.current = Flip.getState(gridRef.current.querySelectorAll("[data-flip-id]"));
     }

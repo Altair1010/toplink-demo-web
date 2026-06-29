@@ -3,7 +3,7 @@ import BookCard from "@/components/BookCard";
 import Reveal from "@/components/Reveal";
 import { SERVICES, LEVELS } from "@/data/content";
 
-export const metadata = { title: "Dịch vụ · Y Viện Toplink" };
+export const metadata = { title: "Dịch vụ" };
 
 export default function ServicesPage() {
   return (

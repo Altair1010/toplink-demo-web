@@ -20,11 +20,26 @@ const LINK =
 export default function NavDropdown({ group }: { group: NavGroup }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  const btnRef = useRef<HTMLButtonElement>(null);
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  const close = () => {
+  const close = (focusBtn = false) => {
     setOpen(false);
+    if (focusBtn) {
+      btnRef.current?.focus();
+      return;
+    }
     const active = document.activeElement as HTMLElement | null;
     if (active && ref.current?.contains(active)) active.blur();
+  };
+
+  // Mở panel rồi đưa focus tới item theo index (đợi render bằng requestAnimationFrame).
+  const openAndFocus = (index: number) => {
+    setOpen(true);
+    requestAnimationFrame(() => {
+      const items = itemRefs.current.filter(Boolean) as HTMLAnchorElement[];
+      if (items.length) items[Math.max(0, Math.min(index, items.length - 1))]?.focus();
+    });
   };
 
   if (!group.children?.length) {
@@ -35,20 +50,51 @@ export default function NavDropdown({ group }: { group: NavGroup }) {
     );
   }
 
+  const count = group.children.length;
+
+  const onButtonKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowDown" || e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openAndFocus(0);
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      openAndFocus(count - 1);
+    } else if (e.key === "Escape") {
+      close(true);
+    }
+  };
+
+  const onItemKeyDown = (e: React.KeyboardEvent, i: number) => {
+    const items = itemRefs.current.filter(Boolean) as HTMLAnchorElement[];
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      items[(i + 1) % count]?.focus();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      items[(i - 1 + count) % count]?.focus();
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      items[0]?.focus();
+    } else if (e.key === "End") {
+      e.preventDefault();
+      items[count - 1]?.focus();
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      close(true);
+    } else if (e.key === "Tab") {
+      close();
+    }
+  };
+
   return (
-    <div
-      ref={ref}
-      className="group relative"
-      onMouseLeave={close}
-      onKeyDown={(e) => {
-        if (e.key === "Escape") close();
-      }}
-    >
+    <div ref={ref} className="group relative" onMouseLeave={() => close()}>
       <button
+        ref={btnRef}
         type="button"
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
+        onKeyDown={onButtonKeyDown}
         className={`${LINK} flex items-center gap-1`}
       >
         {group.label}
@@ -57,16 +103,21 @@ export default function NavDropdown({ group }: { group: NavGroup }) {
 
       <div
         role="menu"
+        aria-label={group.label}
         className={`invisible absolute left-0 top-full z-50 min-w-[15rem] translate-y-1 rounded-md border border-sand bg-ivory py-2 opacity-0 shadow-lg transition-all duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 ${
           open ? "visible translate-y-0 opacity-100" : ""
         }`}
       >
-        {group.children.map((c) => (
+        {group.children.map((c, i) => (
           <Link
             key={c.href}
             href={c.href}
             role="menuitem"
+            ref={(el) => {
+              itemRefs.current[i] = el;
+            }}
             onClick={() => setOpen(false)}
+            onKeyDown={(e) => onItemKeyDown(e, i)}
             className="block px-4 py-2.5 text-base font-semibold text-ink-soft transition-colors hover:bg-cream hover:text-crimson-600"
           >
             {c.label}

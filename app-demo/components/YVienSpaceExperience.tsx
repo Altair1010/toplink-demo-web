@@ -5,6 +5,7 @@ import { useGSAP } from "@gsap/react";
 import Img from "@/components/Img";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { registerEases } from "@/lib/motion/easings";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { breathFlow, PIN_MIN_WIDTH } from "@/lib/motion/config";
 import { SPACES } from "@/data/content";
 
@@ -30,7 +31,7 @@ export default function YVienSpaceExperience() {
     () => {
       registerMotion();
       registerEases();
-      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const reduced = prefersReducedMotion();
       const canPin = !reduced && window.innerWidth >= PIN_MIN_WIDTH;
       const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
       const track = trackRef.current;
@@ -119,7 +120,7 @@ export default function YVienSpaceExperience() {
     <div
       ref={sceneRef}
       className="floor-scene"
-      style={{ ["--floor-scene-h" as string]: `${N * 85}vh` }}
+      style={{ ["--floor-scene-h" as string]: `${N * breathFlow.horizontal.perPanelVh}vh` }}
     >
       <div ref={stageRef} className="relative lg:h-screen lg:overflow-hidden">
         <div
@@ -134,7 +135,6 @@ export default function YVienSpaceExperience() {
               }}
               data-floor-panel
               className="shrink-0 lg:flex lg:h-full lg:items-center lg:justify-center lg:px-10"
-              style={{ willChange: "transform, opacity" }}
             >
               <article className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 shadow-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}>
                 <div className="img-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">

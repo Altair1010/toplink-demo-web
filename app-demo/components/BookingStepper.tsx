@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Check, ArrowLeft, ArrowRight, Sparkles, PartyPopper, MessageCircle } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, Sparkles, PartyPopper, MessageCircle, Loader2 } from "lucide-react";
 import { NEEDS, SERVICES, BRANCHES, CONTACT } from "@/data/content";
+import { GFORM, isBookingConfigured, isValidPhone } from "@/lib/booking";
 
 const STEPS = ["Chọn nhu cầu", "Chọn dịch vụ", "Thông tin liên hệ"];
 
@@ -13,7 +14,46 @@ export default function BookingStepper() {
   const [service, setService] = useState<string | null>(null);
   const [letAdvise, setLetAdvise] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [phoneError, setPhoneError] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", datetime: "", branch: BRANCHES[0].slug, note: "" });
+  const formElRef = useRef<HTMLFormElement>(null);
+  const doneRef = useRef(false);
+
+  // Gửi yêu cầu: nạp dữ liệu vào iframe ẩn (POST sang Google Form). Vì response là
+  // CORS-opaque nên dùng iframe.onLoad (điều hướng thứ 2) hoặc timeout làm tín hiệu xong.
+  const handleSubmit = () => {
+    if (!form.name || !form.phone) return;
+    if (!isValidPhone(form.phone)) {
+      setPhoneError("Số điện thoại chưa đúng (10 số, bắt đầu bằng 0).");
+      return;
+    }
+    setPhoneError(null);
+    setSubmitting(true);
+    doneRef.current = false;
+
+    const finish = () => {
+      if (doneRef.current) return;
+      doneRef.current = true;
+      setSubmitting(false);
+      setSubmitted(true);
+    };
+
+    // Chưa cấu hình Google Form thật → vẫn báo thành công (tránh nút chết khi demo).
+    if (!isBookingConfigured()) {
+      setTimeout(finish, 600);
+      return;
+    }
+    // Fallback nếu iframe onLoad không bắn (bị chặn): chốt thành công sau 1.2s.
+    setTimeout(finish, 1200);
+    formElRef.current?.submit();
+  };
+
+  const serviceLabel = letAdvise
+    ? "Để Y Viện Toplink tư vấn"
+    : SERVICES.find((s) => s.slug === service)?.name ?? "Chưa chọn";
+  const needLabel = NEEDS.find((n) => n.key === need)?.label ?? "Để Y Viện Toplink tư vấn";
+  const branchName = BRANCHES.find((b) => b.slug === form.branch)?.name ?? form.branch;
 
   // Read the optional ?need= query param on the client (static export can't read it server-side).
   useEffect(() => {
@@ -34,18 +74,16 @@ export default function BookingStepper() {
         </div>
         <h2 className="mt-6 font-display text-3xl font-black text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
-          Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
+          Y Viện Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
         </p>
         <div className="mt-6 rounded-md border border-sand bg-ivory p-4 text-left text-base text-ink-soft">
           <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "Chưa nhập"}</p>
           <p><span className="font-medium text-ink">Điện thoại:</span> {form.phone || "Chưa nhập"}</p>
           <p>
-            <span className="font-medium text-ink">Nhu cầu:</span>{" "}
-            {NEEDS.find((n) => n.key === need)?.label ?? "Để Toplink tư vấn"}
+            <span className="font-medium text-ink">Nhu cầu:</span> {needLabel}
           </p>
           <p>
-            <span className="font-medium text-ink">Dịch vụ:</span>{" "}
-            {letAdvise ? "Để Toplink tư vấn" : SERVICES.find((s) => s.slug === service)?.name ?? "Chưa chọn"}
+            <span className="font-medium text-ink">Dịch vụ:</span> {serviceLabel}
           </p>
         </div>
         <div className="mt-7 flex flex-wrap justify-center gap-3">
@@ -95,7 +133,7 @@ export default function BookingStepper() {
         {step === 0 && (
           <div className="animate-fade-up">
             <h2 className="font-display text-3xl font-bold text-crimson-600">Cơ thể chị/anh đang cần gì?</h2>
-            <p className="mt-1 text-base text-ink-soft">Chọn nhu cầu chính để Toplink gợi ý đúng hướng.</p>
+            <p className="mt-1 text-base text-ink-soft">Chọn nhu cầu chính để Y Viện gợi ý đúng hướng.</p>
             <div className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {NEEDS.map((n) => (
                 <button
@@ -116,7 +154,7 @@ export default function BookingStepper() {
         {step === 1 && (
           <div className="animate-fade-up">
             <h2 className="font-display text-3xl font-bold text-crimson-600">Chọn dịch vụ phù hợp</h2>
-            <p className="mt-1 text-base text-ink-soft">Hoặc để Toplink tư vấn liệu trình cho chị/anh.</p>
+            <p className="mt-1 text-base text-ink-soft">Hoặc để Y Viện tư vấn liệu trình cho chị/anh.</p>
 
             <button
               onClick={() => {
@@ -130,7 +168,7 @@ export default function BookingStepper() {
               <Sparkles className="h-5 w-5 text-gold-600" />
               <span>
                 <span className="block text-base font-semibold text-crimson-600">Tôi chưa biết chọn dịch vụ nào</span>
-                <span className="block text-sm text-ink-soft">Toplink sẽ gọi lại tư vấn liệu trình phù hợp.</span>
+                <span className="block text-sm text-ink-soft">Y Viện sẽ gọi lại tư vấn liệu trình phù hợp.</span>
               </span>
             </button>
 
@@ -161,7 +199,7 @@ export default function BookingStepper() {
         {step === 2 && (
           <div className="animate-fade-up space-y-4">
             <h2 className="font-display text-3xl font-bold text-crimson-600">Thông tin liên hệ</h2>
-            <p className="text-base text-ink-soft">Toplink sẽ gọi lại xác nhận lịch hẹn cho chị/anh.</p>
+            <p className="text-base text-ink-soft">Y Viện sẽ gọi lại xác nhận lịch hẹn cho chị/anh.</p>
 
             <Field label="Họ tên">
               <input
@@ -174,11 +212,21 @@ export default function BookingStepper() {
             <Field label="Số điện thoại">
               <input
                 value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                onChange={(e) => {
+                  setForm({ ...form, phone: e.target.value });
+                  if (phoneError) setPhoneError(null);
+                }}
                 placeholder="09xx xxx xxx"
                 inputMode="tel"
+                aria-invalid={!!phoneError}
+                aria-describedby={phoneError ? "phone-error" : undefined}
                 className="input"
               />
+              {phoneError && (
+                <span id="phone-error" className="mt-1.5 block text-sm font-medium text-crimson-600">
+                  {phoneError}
+                </span>
+              )}
             </Field>
             <Field label="Ngày/giờ mong muốn">
               <input
@@ -228,21 +276,44 @@ export default function BookingStepper() {
             <button
               onClick={() => setStep(step + 1)}
               disabled={(step === 0 && !need) || (step === 1 && !service && !letAdvise)}
-              className="flex items-center gap-1.5 rounded-sm bg-crimson-600 px-7 py-3 text-base font-semibold text-gold-200 transition-colors hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-press flex items-center gap-1.5 rounded-sm bg-crimson-600 px-7 py-3 text-base font-semibold text-gold-200 transition-colors hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Tiếp tục <ArrowRight className="h-4 w-4" />
             </button>
           ) : (
             <button
-              onClick={() => setSubmitted(true)}
-              disabled={!form.name || !form.phone}
-              className="flex items-center gap-1.5 rounded-sm bg-gold-500 px-7 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
+              onClick={handleSubmit}
+              disabled={!form.name || !form.phone || submitting}
+              className="btn-press flex items-center gap-1.5 rounded-sm bg-gold-500 px-7 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Gửi yêu cầu đặt lịch
+              {submitting ? (
+                <><Loader2 className="h-4 w-4 animate-spin" /> Đang gửi…</>
+              ) : (
+                "Gửi yêu cầu đặt lịch"
+              )}
             </button>
           )}
         </div>
       </div>
+
+      {/* Đích POST ẩn cho Google Form (static-export friendly). */}
+      <iframe name="gform_sink" title="gform_sink" className="hidden" aria-hidden tabIndex={-1} />
+      <form
+        ref={formElRef}
+        action={GFORM.action}
+        method="POST"
+        target="gform_sink"
+        className="hidden"
+        aria-hidden
+      >
+        <input type="hidden" name={GFORM.fields.name} value={form.name} readOnly />
+        <input type="hidden" name={GFORM.fields.phone} value={form.phone} readOnly />
+        <input type="hidden" name={GFORM.fields.datetime} value={form.datetime} readOnly />
+        <input type="hidden" name={GFORM.fields.branch} value={branchName} readOnly />
+        <input type="hidden" name={GFORM.fields.need} value={needLabel} readOnly />
+        <input type="hidden" name={GFORM.fields.service} value={serviceLabel} readOnly />
+        <input type="hidden" name={GFORM.fields.note} value={form.note} readOnly />
+      </form>
 
       <style jsx>{`
         :global(.input) {
@@ -255,9 +326,11 @@ export default function BookingStepper() {
           color: var(--color-ink);
           outline: none;
         }
-        :global(.input:focus) {
-          border-color: #c8a02e;
-          box-shadow: 0 0 0 3px rgba(200, 160, 46, 0.2);
+        :global(.input:focus-visible) {
+          border-color: var(--color-crimson-600);
+          box-shadow: 0 0 0 3px var(--color-crimson-600);
+          outline: 2px solid transparent;
+          outline-offset: 2px;
         }
       `}</style>
     </div>

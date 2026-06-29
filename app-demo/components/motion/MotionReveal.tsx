@@ -4,6 +4,7 @@ import { useRef, type ReactNode } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { breathFlow } from "@/lib/motion/config";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * MOTION REVEAL — reveal-on-scroll của hệ "Breath & Flow" (GSAP + ScrollTrigger).
@@ -36,7 +37,7 @@ export default function MotionReveal({
       registerMotion();
       const el = ref.current;
       if (!el) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (prefersReducedMotion()) return;
 
       const d = breathFlow.revealDistance;
       const offset: Record<From, { x?: number; y?: number }> = {

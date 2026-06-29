@@ -1,33 +1,27 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Noto_Sans, Noto_Serif_Display } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Serif_Display } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingZalo from "@/components/FloatingZalo";
-import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { CONTACT, BRANCHES } from "@/data/content";
 
+// Be Vietnam Pro — DÙNG CHUNG cho cả heading (display) lẫn body (giảm còn 1 sans
+// family thay vì 2). Bỏ weight 300 ít dùng để cắt số file font preload (FOUT/CLS).
 const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-be-vietnam",
   display: "swap",
 });
 
-const notoSans = Noto_Sans({
-  subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-noto-sans",
-  display: "swap",
-});
-
 // Serif Á Đông — CHỈ dùng cho "statement" lớn (hero H1, tên tầng, quote review).
-// Có chữ thường + nét thanh đậm tương phản → chất thư tịch, nghi lễ.
+// Có chữ thường + nét thanh đậm tương phản → chất thư tịch, nghi lễ. Bỏ italic để
+// giảm file font (statement không dùng nghiêng).
 const notoSerif = Noto_Serif_Display({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500"],
-  style: ["normal", "italic"],
   variable: "--font-noto-serif",
   display: "swap",
 });
@@ -36,7 +30,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://altair1010.github.io/toplink-demo-web"),
   title: {
     default: "Y Viện Toplink · Dưỡng Thân · Tỉnh Thức",
-    template: "%s",
+    template: "%s · Y Viện Toplink",
   },
   description:
     "Không gian chăm sóc sức khỏe kết hợp Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao. Đặt lịch trải nghiệm tại Y Viện Toplink.",
@@ -78,16 +72,18 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${notoSans.variable} ${notoSerif.variable}`}>
+    <html lang="vi" className={`${beVietnam.variable} ${notoSerif.variable}`}>
       <body className="bg-paper min-h-screen">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
+        <a href="#main" className="skip-link">Bỏ qua, tới nội dung chính</a>
         <SiteHeader />
-        <SmoothScrollProvider>
-          <main className="pb-20 lg:pb-0">{children}</main>
-        </SmoothScrollProvider>
+        {/* Lenis smooth-scroll KHÔNG đặt ở đây nữa: nó được bọc riêng trong từng trang
+            cần motion (/, /gioi-thieu, /khong-gian, /motion-lab) để trang tĩnh không
+            phải tải GSAP/Lenis (giảm initial JS). */}
+        <main id="main" className="pb-20 lg:pb-0">{children}</main>
         <SiteFooter />
         <FloatingZalo />
         <MobileBottomBar />
