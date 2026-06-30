@@ -52,7 +52,7 @@ export default function TrainingPage() {
       </div>
 
       <div className="on-dark mt-12 flex flex-col items-center gap-4 frame-gold bg-crimson-800 p-8 text-center text-ivory sm:p-12">
-        <h2 className="font-display text-4xl text-gold-200">Quan tâm khóa <span className="emph emph-light">đào tạo</span>?</h2>
+        <h2 className="font-display text-3xl text-gold-200">Quan tâm khóa <span className="emph emph-light">đào tạo</span>?</h2>
         <p className="max-w-xl text-lg text-cream/85">Để lại thông tin hoặc nhắn Zalo, đội ngũ Y Viện sẽ tư vấn lộ trình và lịch khai giảng phù hợp.</p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link href="/dat-lich" className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400">

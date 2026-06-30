@@ -41,7 +41,7 @@ export default function SpacePage() {
                   dist={200 - i * 16}
                   className={imgFromLeft ? "" : "lg:order-1"}
                 >
-                  <h2 className="text-3xl font-black text-crimson-600 sm:text-4xl">{sp.floor}</h2>
+                  <h2 className="text-3xl font-black text-crimson-600">{sp.floor}</h2>
                   <div className="gold-rule mt-4 w-20" />
                   <p className="mt-4 text-lg leading-relaxed text-ink-soft">{sp.desc}</p>
                   <Link

@@ -261,7 +261,7 @@ export default function HomePage() {
       {/* ===== 8 · CTA CUỐI TRANG ===== */}
       <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
         <div className="cta-glow on-dark frame-gold px-6 py-16 text-center text-ivory sm:px-12">
-          <SplitReveal as="h2" className="mx-auto max-w-2xl font-display text-3xl leading-tight sm:text-4xl">
+          <SplitReveal as="h2" className="mx-auto max-w-2xl font-display text-3xl leading-tight">
             Bạn đã chăm sóc mọi người cả ngày rồi, hãy dành 90 phút để <span className="emph">yêu thương chính mình</span> nhé.
           </SplitReveal>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

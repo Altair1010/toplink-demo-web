@@ -52,7 +52,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
               <span className="rounded-sm bg-crimson-600 px-3 py-1 text-xs font-bold uppercase tracking-wide text-gold-200">{featured.cat}</span>
               <span className="text-sm font-bold uppercase tracking-[0.15em] text-gold-600">Bài nổi bật</span>
             </div>
-            <h2 className="mt-4 text-3xl leading-tight text-crimson-600 sm:text-4xl">{featured.title}</h2>
+            <h2 className="mt-4 text-2xl leading-tight text-crimson-600 sm:text-3xl">{featured.title}</h2>
             <p className="mt-3 text-lg leading-relaxed text-ink-soft">{featured.excerpt}</p>
             <div className="mt-5 flex items-center gap-4 text-sm text-ink-mute">
               <span className="flex items-center gap-1.5"><CalendarDays className="h-4 w-4" /> {fmtDate(featured.date)}</span>
