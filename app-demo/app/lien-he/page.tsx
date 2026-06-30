@@ -51,7 +51,7 @@ export default function ContactPage() {
 
         {/* CỘT PHẢI — Tư vấn nhanh */}
         <div className="on-dark flex h-full flex-col items-center justify-center gap-4 frame-herb bg-crimson-800 p-10 text-center text-gold-200">
-          <h2 className="text-4xl text-gold-200">Cần tư vấn <span className="emph emph-light">nhanh</span>?</h2>
+          <h2 className="text-3xl text-gold-200">Cần tư vấn <span className="emph emph-light">nhanh</span>?</h2>
           <p className="text-lg text-cream/85">Nhắn Zalo, đội ngũ Y Viện sẽ phản hồi trong giờ làm việc.</p>
           <div className="mt-2 flex w-full max-w-xs flex-col gap-3">
             <a href={CONTACT.zalo} className="flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-7 py-4 text-base font-semibold text-wood-700 hover:bg-gold-400">

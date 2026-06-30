@@ -8,7 +8,7 @@
    Palette: đỏ dược liệu · đỏ sơn mài · vàng kim tiết chế · kem giấy cổ ·
    nâu gỗ trầm · mực tàu. Màu PHẲNG — không gradient, không blend.
    Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
-   Heading: Be Vietnam Pro IN HOA (sans) · Body: Noto Sans.
+   Heading: Noto Serif (serif, SemiBold 600 — Bộ 1 "Cổ phương") · Body: Be Vietnam Pro.
    ============================================================ */
 @theme {
   /* ---- Surfaces (kem giấy cổ / ngọc trắng / cát / sương) ---- */
@@ -63,9 +63,10 @@
   --color-clay-800: #7e0a15;
 
   /* ---- Fonts ---- */
-  --font-display: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  /* Heading (Bộ 1 "Cổ phương"): serif Noto Serif. Body giữ Be Vietnam Pro (--font-sans). */
+  --font-display: var(--font-noto-serif), "Times New Roman", Georgia, serif;
   --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
-  /* Serif Á Đông — CHỈ cho statement lớn (hero H1, tên tầng, quote). Có chữ thường. */
+  /* Serif Á Đông — dùng cho statement lớn (hero H1, tên tầng, quote). Có chữ thường. */
   --font-serif: var(--font-noto-serif), "Times New Roman", Georgia, serif;
 
   /* ---- Bo góc — sharp cho nút/badge, bo vừa cho ảnh/card lớn ---- */
@@ -79,8 +80,8 @@
   /* ---- Type scale helpers ---- */
   --text-body-lg: 1.25rem;  /* 20px */
   --text-body-md: 1.125rem; /* 18px */
-  --text-hero: clamp(2.5rem, 6vw, 5.5rem);     /* H1 hero serif */
-  --text-statement: clamp(1.875rem, 4vw, 3rem); /* tên tầng / quote lớn */
+  --text-hero: clamp(2.25rem, 4.5vw, 2.75rem);  /* H1 hero serif — Bộ 1: 36→44px */
+  --text-statement: clamp(1.75rem, 3vw, 2rem);  /* tên tầng / quote — Bộ 1: 28→32px */
 
   /* ---- Width & section spacing rhythm (tránh "đều tay") ---- */
   --container-narrow: 760px; /* intro quote / FAQ — hẹp, tĩnh */
@@ -130,9 +131,9 @@
 .font-serif-display {
   font-family: var(--font-serif);
   text-transform: none;
-  font-weight: 500;
+  font-weight: 600; /* Bộ 1: hero/statement SemiBold */
   letter-spacing: -0.01em;
-  line-height: 1.04;
+  line-height: 1.12; /* cỡ nhỏ hơn (Bộ 1) → giãn dòng để dấu thanh không chạm dòng trên */
 }
 
 /* ── WIDTH & SECTION SPACING RHYTHM ── */
@@ -181,10 +182,11 @@ h6,
 .heading-font {
   font-family: var(--font-display);
   /* KHÔNG uppercase toàn cục: IN HOA tiếng Việt có dấu làm chậm tốc độ đọc,
-     đặc biệt với nhóm khách lớn tuổi. Uppercase chỉ áp riêng qua .label-caps. */
-  font-weight: 800;
-  letter-spacing: 0.005em;
-  line-height: 1.18;
+     đặc biệt với nhóm khách lớn tuổi. Uppercase chỉ áp riêng qua .label-caps.
+     Serif SemiBold 600 (Bộ 1): line-height thoáng hơn để dấu thanh không chạm dòng trên. */
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.22;
 }
 
 /* Chỉ uppercase cho eyebrow / nhãn nav ngắn (ít dấu, vai trò trang trí). */
@@ -197,7 +199,7 @@ h6,
 /* Nhấn từ khóa trong headline: BOLD + VIỀN CHỮ MẢNH tương phản
    (không italic, không tô vàng) — giữ cùng họ chữ, chỉ tăng độ nổi. */
 .emph {
-  font-weight: 800;
+  font-weight: 700;
   color: inherit;
   -webkit-text-stroke: 0.7px var(--color-crimson-700);
   text-stroke: 0.7px var(--color-crimson-700);

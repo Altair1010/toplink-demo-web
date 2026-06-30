@@ -12,7 +12,7 @@ export default function NeedSelector() {
 
   return (
     <div className="rounded-lg border border-sand bg-cream p-8 shadow-sm sm:p-12">
-      <h2 className="text-center font-display text-4xl text-crimson-600 sm:text-5xl">
+      <h2 className="text-center font-display text-3xl text-crimson-600">
         Hôm nay cơ thể chị/anh đang <span className="emph">cần gì</span>?
       </h2>
 

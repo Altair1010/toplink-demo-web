@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Noto_Serif_Display } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Serif } from "next/font/google";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -16,12 +16,12 @@ const beVietnam = Be_Vietnam_Pro({
   display: "swap",
 });
 
-// Serif Á Đông — CHỈ dùng cho "statement" lớn (hero H1, tên tầng, quote review).
-// Có chữ thường + nét thanh đậm tương phản → chất thư tịch, nghi lễ. Bỏ italic để
-// giảm file font (statement không dùng nghiêng).
-const notoSerif = Noto_Serif_Display({
+// Serif Á Đông (Bộ 1 "Cổ phương") — font HEADING chính toàn site + statement lớn.
+// Noto Serif (regular, KHÔNG Display): tương phản nét vừa phải → dấu tiếng Việt rõ ở
+// MỌI cỡ heading kể cả H4–H6 nhỏ, hợp người lớn tuổi. SemiBold 600 cho H1–H2.
+const notoSerif = Noto_Serif({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-noto-serif",
   display: "swap",
 });

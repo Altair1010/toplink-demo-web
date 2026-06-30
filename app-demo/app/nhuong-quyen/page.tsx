@@ -40,7 +40,7 @@ export default function FranchisePage() {
       </div>
 
       <div className="on-dark mt-12 flex flex-col items-center gap-4 frame-gold bg-wood-700 p-8 text-center text-ivory sm:p-12">
-        <h2 className="font-display text-4xl text-gold-200">Trở thành <span className="emph emph-light">đối tác</span> Y Viện Toplink</h2>
+        <h2 className="font-display text-3xl text-gold-200">Trở thành <span className="emph emph-light">đối tác</span> Y Viện Toplink</h2>
         <p className="max-w-xl text-lg text-cream/85">Liên hệ để nhận hồ sơ hợp tác và trao đổi chi tiết về mô hình, chi phí và lộ trình triển khai.</p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link href="/dat-lich" className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400">

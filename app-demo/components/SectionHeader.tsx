@@ -24,7 +24,7 @@ export default function SectionHeader({
           {eyebrow}
         </span>
       )}
-      <h2 className={`mt-2 text-balance font-display text-2xl leading-tight sm:text-3xl lg:text-4xl ${dark ? "text-gold-200" : "text-crimson-600"}`}>
+      <h2 className={`mt-2 text-balance font-display text-2xl leading-tight sm:text-3xl ${dark ? "text-gold-200" : "text-crimson-600"}`}>
         {renderEmphasis(title, emphasis, dark)}
       </h2>
       {desc && <p className={`mt-3 max-w-3xl text-lg leading-relaxed ${dark ? "text-cream/80" : "text-ink-soft"}`}>{desc}</p>}
