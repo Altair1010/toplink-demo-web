@@ -20,7 +20,7 @@ export default function SectionHeader({
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow && (
-        <span className={`block font-display text-base font-bold uppercase tracking-[0.14em] sm:text-lg ${dark ? "text-gold-400" : "text-crimson-600"}`}>
+        <span className={`block font-display text-base font-extrabold uppercase tracking-[0.14em] sm:text-lg ${dark ? "text-gold-400" : "text-crimson-600"}`}>
           {eyebrow}
         </span>
       )}

@@ -276,7 +276,7 @@ export default function BookingStepper() {
             <button
               onClick={() => setStep(step + 1)}
               disabled={(step === 0 && !need) || (step === 1 && !service && !letAdvise)}
-              className="btn-press flex items-center gap-1.5 rounded-sm bg-crimson-600 px-7 py-3 text-base font-semibold text-gold-200 transition-colors hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-press flex items-center gap-1.5 rounded-sm bg-crimson-600 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-gold-200 transition-colors hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Tiếp tục <ArrowRight className="h-4 w-4" />
             </button>
@@ -284,7 +284,7 @@ export default function BookingStepper() {
             <button
               onClick={handleSubmit}
               disabled={!form.name || !form.phone || submitting}
-              className="btn-press flex items-center gap-1.5 rounded-sm bg-gold-500 px-7 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-press flex items-center gap-1.5 rounded-sm bg-gold-500 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 transition-colors hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? (
                 <><Loader2 className="h-4 w-4 animate-spin" /> Đang gửi…</>

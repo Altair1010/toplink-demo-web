@@ -80,7 +80,7 @@ export default function SiteFooter() {
           </ul>
           <Link
             href="/dat-lich"
-            className="mt-5 inline-block rounded-sm bg-gold-500 px-6 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+            className="mt-5 inline-block rounded-sm bg-gold-500 px-[1.8rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 transition-colors hover:bg-gold-400"
           >
             Đặt lịch trải nghiệm
           </Link>

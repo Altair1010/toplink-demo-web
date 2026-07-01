@@ -17,7 +17,7 @@ type Filter = "all" | ServiceLevel;
 // 3 liệu trình chủ lực — đưa lên đầu để "chỉ đường" cho khách (kiểu Popular products).
 const FEATURED_SLUGS = ["tri-lieu-co-vai-gay", "duong-sinh-khi-huyet", "lieu-trinh-than-tam-tri"];
 
-export default function ServiceFilterGrid() {
+export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOnly?: boolean }) {
   const [filter, setFilter] = useState<Filter>("all");
   const list = filter === "all" ? SERVICES : SERVICES.filter((s) => s.level === filter);
 
@@ -79,10 +79,12 @@ export default function ServiceFilterGrid() {
   return (
     <div>
       {/* Liệu trình được chọn nhiều — 3 card lớn nổi bật */}
-      <div className="mb-12">
-        <p className="text-center font-display text-base font-bold uppercase tracking-[0.14em] text-crimson-600">
-          Liệu trình được chọn nhiều
-        </p>
+      <div className={featuredOnly ? "" : "mb-12"}>
+        {!featuredOnly && (
+          <p className="text-center font-display text-base font-extrabold uppercase tracking-[0.14em] text-crimson-600">
+            Liệu trình được chọn nhiều
+          </p>
+        )}
         <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((s, i) => (
             <Reveal key={s.slug} from="up" delay={i * 100}>
@@ -92,6 +94,8 @@ export default function ServiceFilterGrid() {
         </div>
       </div>
 
+      {!featuredOnly && (
+        <>
       <div className="flex flex-wrap justify-center gap-2.5">
         {chips.map((c) => (
           <button
@@ -116,6 +120,8 @@ export default function ServiceFilterGrid() {
           </div>
         ))}
       </div>
+        </>
+      )}
     </div>
   );
 }

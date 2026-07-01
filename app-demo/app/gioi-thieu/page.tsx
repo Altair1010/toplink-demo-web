@@ -113,7 +113,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-lg font-semibold uppercase tracking-wide text-wood-700 hover:bg-gold-400">
+          <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-[2.1rem] py-[1.05rem] text-[1.35rem] font-semibold uppercase tracking-wide text-wood-700 hover:bg-gold-400">
             Đặt lịch trải nghiệm
           </Link>
         </div>
