@@ -21,7 +21,7 @@ const beVietnam = Be_Vietnam_Pro({
 // MỌI cỡ heading kể cả H4–H6 nhỏ, hợp người lớn tuổi. SemiBold 600 cho H1–H2.
 const notoSerif = Noto_Serif({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   variable: "--font-noto-serif",
   display: "swap",
 });

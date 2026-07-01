@@ -46,7 +46,7 @@ export default function SpacePage() {
                   <p className="mt-4 text-lg leading-relaxed text-ink-soft">{sp.desc}</p>
                   <Link
                     href="/dat-lich"
-                    className="mt-6 inline-block rounded-sm border border-crimson-600 px-7 py-3.5 text-base font-semibold uppercase tracking-wide text-crimson-600 transition-colors hover:bg-crimson-600 hover:text-ivory"
+                    className="mt-6 inline-block rounded-sm border border-crimson-600 px-[2.1rem] py-[1.05rem] text-[1.2rem] font-semibold uppercase tracking-wide text-crimson-600 transition-colors hover:bg-crimson-600 hover:text-ivory"
                   >
                     Đặt lịch trải nghiệm
                   </Link>

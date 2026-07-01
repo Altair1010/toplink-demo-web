@@ -40,9 +40,9 @@ export default function HomePage() {
             <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
               Y Viện Dưỡng Thân · Tỉnh Thức
             </span>
-            <h1 className="mt-7 text-balance font-serif-display text-[length:var(--text-hero)] leading-[1.02]">
-              Dưỡng thân bằng Đông y,
-              <span className="block">tìm lại sự <span className="emph">nhẹ nhõm</span></span>
+            <h1 className="mt-7 text-balance font-serif-display uppercase text-[length:var(--text-hero)] leading-[1.02]">
+              Dưỡng thân từ gốc,
+              <span className="block">phục hồi <span className="emph">từ tâm</span></span>
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-relaxed text-cream/85 sm:text-xl">
               Trị liệu dưỡng sinh, thảo dược và không gian tĩnh tại, để anh/chị được chăm sóc đúng cách,
@@ -51,9 +51,9 @@ export default function HomePage() {
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link
                 href="/dat-lich"
-                className="btn-press flex items-center gap-2 rounded-sm bg-gold-500 px-8 py-4 text-lg font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
+                className="btn-press flex items-center gap-2 rounded-sm bg-gold-500 px-[2.4rem] py-[1.2rem] text-[1.35rem] font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
               >
-                <CalendarPlus className="h-5 w-5" /> Đặt lịch ngay
+                <CalendarPlus className="h-6 w-6" /> Đặt lịch ngay
               </Link>
               <a
                 href={CONTACT.zalo}
@@ -84,6 +84,8 @@ export default function HomePage() {
                 sizes="(max-width: 1024px) 100vw, 58vw"
                 className="img-grade object-cover"
               />
+              {/* Lớp tối chuyển sắc: đậm ở mép dưới, mờ dần lên hết vùng caption → làm nổi chữ */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] h-2/5 bg-gradient-to-t from-black/75 via-black/45 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center gap-2 p-8 text-center text-ivory">
                 <span className="seal flex h-14 w-14 items-center justify-center text-2xl text-gold-300">Y</span>
                 <p className="text-2xl text-ivory">Được chăm sóc bởi người thật</p>
@@ -100,7 +102,7 @@ export default function HomePage() {
       {/* ===== 2 · VỀ Y VIỆN — sticky converge scene: khối trượt & HỘI TỤ về giữa
            theo nhịp cuộn (cơ chế học từ opening brand.dropbox.com) ===== */}
       <section className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
-        <SectionHeader center eyebrow="Về Y Viện" title="Chăm sóc bắt đầu từ lắng nghe" emphasis="lắng nghe" />
+        <SectionHeader center eyebrow="Hành trình chăm sóc" title="Chăm sóc bắt đầu từ lắng nghe" emphasis="lắng nghe" />
       </section>
       <ScrollConvergeScene className="mx-auto max-w-6xl px-4 sm:px-6" stageClassName="py-12">
         <div className="mx-auto w-full max-w-4xl space-y-8 sm:space-y-10">
@@ -126,6 +128,11 @@ export default function HomePage() {
           })}
         </div>
       </ScrollConvergeScene>
+      <div className="mx-auto max-w-6xl px-4 pt-10 text-center sm:px-6">
+        <Link href="/gioi-thieu" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
+          Tìm hiểu thêm về Y Viện <ArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
 
       {/* NEED SELECTOR */}
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
@@ -162,6 +169,9 @@ export default function HomePage() {
 
       {/* SỐ LIỆU / NIỀM TIN */}
       <section className="on-dark bg-crimson-800 py-12">
+        <div className="mx-auto mb-10 max-w-6xl px-4 sm:px-6">
+          <SectionHeader center dark eyebrow="Vì sao được tin tưởng" title="Những con số nói lên sự tận tâm" emphasis="tận tâm" />
+        </div>
         <div className="mx-auto grid max-w-6xl gap-px overflow-hidden border border-gold-700 bg-gold-700 px-0 sm:grid-cols-2 lg:grid-cols-4">
           {STATS.map((s) => (
             <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
@@ -177,6 +187,11 @@ export default function HomePage() {
       <section className="section-pad-lg mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeader center eyebrow="Không gian Y Viện" title="Bốn tầng · một hành trình" emphasis="một hành trình" desc="Cuộn để đi qua từng tầng — mỗi tầng là một trạng thái cơ thể được chăm sóc." />
         <YVienSpaceExperience />
+        <div className="mt-8 text-center">
+          <Link href="/khong-gian" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
+            Xem đầy đủ 4 tầng <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </section>
 
       {/* ===== 4 · QUY TRÌNH TRỊ LIỆU — 4 bước (kỹ thuật MyWebLab Il Metodo) ===== */}
@@ -236,9 +251,14 @@ export default function HomePage() {
 
       {/* ===== 5 · SẢN PHẨM & DỊCH VỤ — card grid có filter (kỹ thuật Autodesk) ===== */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-        <SectionHeader center eyebrow="Sản phẩm & Dịch vụ" title="Liệu trình theo nhu cầu của anh/chị" emphasis="nhu cầu" desc="Chọn nhóm phù hợp để xem nhanh các liệu trình tương ứng." />
+        <SectionHeader center eyebrow="Liệu trình nổi bật" title="Liệu trình được chọn cho anh/chị" emphasis="anh/chị" desc="Vài liệu trình được yêu thích nhất — xem toàn bộ danh mục ở trang Dịch vụ." />
         <div className="mt-10">
-          <ServiceFilterGrid />
+          <ServiceFilterGrid featuredOnly />
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/dich-vu" className="inline-flex items-center gap-1.5 text-base font-semibold text-crimson-600 hover:text-crimson-700">
+            Xem tất cả liệu trình <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </section>
 
@@ -267,9 +287,9 @@ export default function HomePage() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/dat-lich"
-              className="flex items-center gap-2 rounded-sm bg-gold-500 px-8 py-4 text-lg font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
+              className="flex items-center gap-2 rounded-sm bg-gold-500 px-[2.4rem] py-[1.2rem] text-[1.35rem] font-bold text-wood-700 shadow-[var(--shadow-soft)] transition-colors hover:bg-gold-400"
             >
-              <CalendarPlus className="h-5 w-5" /> Đặt lịch ngay
+              <CalendarPlus className="h-6 w-6" /> Đặt lịch ngay
             </Link>
             <a
               href={CONTACT.zalo}

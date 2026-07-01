@@ -51,7 +51,7 @@ export default function NeedSelector() {
           </div>
           <Link
             href={`/dat-lich?need=${active}`}
-            className="mt-5 inline-flex items-center gap-2 rounded-sm bg-gold-500 px-6 py-3 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+            className="mt-5 inline-flex items-center gap-2 rounded-sm bg-gold-500 px-[1.8rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 transition-colors hover:bg-gold-400"
           >
             Đặt lịch với nhu cầu này <ArrowRight className="h-4 w-4" />
           </Link>

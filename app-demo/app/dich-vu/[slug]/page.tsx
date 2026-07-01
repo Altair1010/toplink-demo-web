@@ -89,7 +89,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             </dl>
             <Link
               href={`/dat-lich?need=${service.needs[0]}`}
-              className="mt-5 block rounded-sm bg-crimson-600 px-7 py-3.5 text-center text-base font-semibold text-gold-200 transition-colors hover:bg-crimson-700"
+              className="mt-5 block rounded-sm bg-crimson-600 px-[2.1rem] py-[1.05rem] text-center text-[1.2rem] font-semibold text-gold-200 transition-colors hover:bg-crimson-700"
             >
               Đặt lịch dịch vụ này
             </Link>

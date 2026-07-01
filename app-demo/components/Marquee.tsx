@@ -29,7 +29,7 @@ export default function Marquee({
     >
       {items.map((text, i) => (
         <li key={i} className="flex items-center gap-10 whitespace-nowrap">
-          <span className="font-display text-xl tracking-wide sm:text-2xl">{text}</span>
+          <span className="font-sans font-bold uppercase text-xl tracking-wide sm:text-2xl">{text}</span>
           <span className="text-gold-400/70" aria-hidden>
             {separator}
           </span>
