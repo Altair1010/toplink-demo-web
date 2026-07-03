@@ -1,5 +1,6 @@
 import Img from "@/components/Img";
 import { Play, Quote, ImageIcon, BadgeCheck } from "lucide-react";
+import Spotlight from "@/components/effects/Spotlight";
 import { REVIEWS } from "@/data/content";
 
 /**
@@ -19,7 +20,8 @@ export default function ReviewWall() {
       <div className="grid gap-6 lg:grid-cols-12">
         {/* VIDEO lớn — chiếm phần lớn chiều ngang */}
         {video && (
-          <figure className={`lift overflow-hidden lg:col-span-7 ${GLASS}`}>
+          <figure className={`lift relative overflow-hidden lg:col-span-7 ${GLASS}`}>
+            <Spotlight />
             {/* TODO: thay bằng <video> với nguồn thật + poster. */}
             <div className="img-overlay relative aspect-video w-full overflow-hidden bg-crimson-900">
               {video.poster && (
@@ -41,7 +43,8 @@ export default function ReviewWall() {
         {/* Cột phải: ảnh feedback + quote */}
         <div className="grid gap-6 lg:col-span-5">
           {image && (
-            <figure className={`lift overflow-hidden ${GLASS}`}>
+            <figure className={`lift relative overflow-hidden ${GLASS}`}>
+              <Spotlight radius={180} />
               <div className="img-overlay relative aspect-[16/10] overflow-hidden bg-cream">
                 {image.image && (
                   <Img src={image.image} alt="Ảnh cảm nhận khách hàng (placeholder)" fill sizes="(max-width:1024px) 100vw, 40vw" className="img-grade object-cover" />
@@ -55,7 +58,8 @@ export default function ReviewWall() {
           )}
 
           {quote && (
-            <figure className="flex flex-1 flex-col justify-center rounded-2xl border border-gold-500/40 bg-crimson-600 p-8 text-ivory shadow-soft">
+            <figure className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-gold-500/40 bg-crimson-600 p-8 text-ivory shadow-soft">
+              <Spotlight radius={200} />
               <Quote className="h-8 w-8 text-gold-300" aria-hidden />
               <blockquote className="mt-4 font-serif-display text-[length:var(--text-statement)] leading-snug">
                 “{quote.text}”

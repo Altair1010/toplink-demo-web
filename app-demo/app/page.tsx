@@ -34,6 +34,16 @@ export default function HomePage() {
     <SmoothScrollProvider>
       {/* ===== 1 · HERO — cinematic ritual: H1 serif lớn + grid 5/7 + ảnh bo mềm ===== */}
       <section className="on-dark relative overflow-hidden bg-crimson-800">
+        {/* Nền gradient chiều sâu: quầng vàng champagne góc trên-trái → tối dần mép dưới.
+            CSS thuần (0 JS), nằm dưới lá & nội dung → KHÔNG ảnh hưởng LCP của H1/ảnh. */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(120% 85% at 15% -10%, rgba(216,170,75,0.14), transparent 55%), linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.28))",
+          }}
+        />
         <WindLeafField preset="hero" />
         <div className="relative z-10 mx-auto grid min-h-[88svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[5fr_7fr]">
           <div className="animate-fade-up text-ivory">

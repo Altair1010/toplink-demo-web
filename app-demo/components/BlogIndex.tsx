@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import Img from "@/components/Img";
+import ImgFade from "@/components/ImgFade";
 import { ArrowRight, Clock, CalendarDays } from "lucide-react";
 import type { Post } from "@/data/content";
 
@@ -45,7 +45,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
           className="lift group mt-8 grid overflow-hidden rounded-lg border border-sand bg-cream shadow-sm lg:grid-cols-2"
         >
           <div className="relative aspect-[16/10] overflow-hidden lg:aspect-auto">
-            <Img src={featured.image} alt={featured.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="zoom-media object-cover" priority />
+            <ImgFade src={featured.image} alt={featured.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="zoom-media object-cover" priority />
           </div>
           <div className="flex flex-col justify-center p-8 sm:p-10">
             <div className="flex items-center gap-3">
@@ -73,7 +73,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
             className="lift group flex flex-col overflow-hidden rounded-md border border-sand bg-cream shadow-sm"
           >
             <div className="relative aspect-[16/9] overflow-hidden border-b border-sand">
-              <Img src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="zoom-media object-cover" />
+              <ImgFade src={post.image} alt={post.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="zoom-media object-cover" />
             </div>
             <div className="flex flex-1 flex-col p-7">
               <span className="text-xs font-bold uppercase tracking-[0.15em] text-gold-600">{post.cat}</span>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
+import { breathFlow } from "@/lib/motion/config";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
@@ -26,14 +27,22 @@ export default function StatCounter({ value, className = "" }: { value: string; 
 
     const tween = gsap.to(obj, {
       n: target,
-      duration: 1.4,
-      ease: "power2.out",
+      duration: 1.6,
+      ease: breathFlow.ease, // "trị liệu" power4.out — chậm dần mềm hơn power2
       paused: true,
       onUpdate: () => {
         el.textContent = `${prefix}${obj.n.toLocaleString("vi-VN", {
           minimumFractionDigits: decimals,
           maximumFractionDigits: decimals,
         })}${suffix}`;
+      },
+      onComplete: () => {
+        // Settle nhẹ khi số chốt: nhấc lên 6% rồi hạ về — nhịp "thở", chỉ transform (GPU).
+        gsap.fromTo(
+          el,
+          { yPercent: 6, opacity: 0.9 },
+          { yPercent: 0, opacity: 1, duration: breathFlow.medium, ease: breathFlow.ease }
+        );
       },
     });
 

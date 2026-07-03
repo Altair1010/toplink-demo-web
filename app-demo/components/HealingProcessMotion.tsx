@@ -102,7 +102,9 @@ export default function HealingProcessMotion() {
               {/* Node trên mạch dẫn */}
               <span
                 className={`absolute top-7 left-[1.625rem] z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 transition-all duration-500 lg:left-1/2 lg:block ${
-                  isActive ? "scale-125 border-gold-400 bg-gold-500" : "border-sand bg-ivory"
+                  isActive
+                    ? "scale-125 border-gold-400 bg-gold-500 shadow-[0_0_0_6px_rgba(216,170,75,0.18)]"
+                    : "border-sand bg-ivory"
                 }`}
                 aria-hidden
               />

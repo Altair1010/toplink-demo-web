@@ -5,6 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingZalo from "@/components/FloatingZalo";
+import { Toaster } from "@/components/ui/sonner";
 import { CONTACT, BRANCHES } from "@/data/content";
 
 // Be Vietnam Pro — DÙNG CHUNG cho cả heading (display) lẫn body (giảm còn 1 sans
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteFooter />
         <FloatingZalo />
         <MobileBottomBar />
+        <Toaster position="top-center" richColors={false} />
       </body>
     </html>
   );

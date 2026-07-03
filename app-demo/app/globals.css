@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tw-animate-css"; /* enter/exit CSS cho shadcn (dialog/dropdown/accordion) — data-state, không đụng GSAP */
 @import "../styles/motion.css";
 
 /* ============================================================
@@ -102,6 +103,62 @@
   --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1);  /* reveal trị liệu (học MyWebLab) */
   --reveal-distance: 32px;        /* biên độ trượt khi reveal — nhỏ, điềm tĩnh */
   --section-parallax-depth: 80px; /* chiều sâu khi tầng/khối lùi về sau */
+}
+
+/* ============================================================
+   shadcn/ui — SEMANTIC TOKENS map vào brand Y viện
+   Component shadcn dùng bg-primary/text-foreground/border… đọc các biến này.
+   CHỦ Ý: KHÔNG remap --radius-* (giữ nguyên bo góc sắc của site).
+   ============================================================ */
+:root {
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
+  --card: var(--color-ivory);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-ivory);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-crimson-600);           /* #95131F */
+  --primary-foreground: var(--color-ivory);
+  /* State-scale primary (đỏ dược liệu) — dùng token đậm dần sẵn có, không opacity mờ */
+  --primary-hover: var(--color-crimson-700);     /* #7E0A15 — hover đậm hơn */
+  --primary-active: var(--color-crimson-800);    /* #6A0511 — nhấn/giữ */
+  --primary-disabled: var(--color-crimson-200);  /* #E6A9A3 — vô hiệu, vẫn thấy sắc đỏ */
+  --secondary: var(--color-cream);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-mist);
+  --muted-foreground: var(--color-ink-soft);
+  --accent: var(--color-gold-500);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-accent-red);
+  --destructive-foreground: var(--color-ivory);
+  --border: var(--color-sand);
+  --input: var(--color-sand);
+  --ring: var(--color-crimson-600);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-disabled: var(--primary-disabled);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
 /* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
@@ -375,6 +432,9 @@ summary:focus-visible,
 }
 .marquee {
   overflow: hidden;
+  /* Fade mềm 2 mép (thay vì cắt cứng) — dải chữ "trôi vào/ra" điềm tĩnh. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
 }
 .marquee-track {
   display: flex;

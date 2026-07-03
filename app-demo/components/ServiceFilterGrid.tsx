@@ -76,6 +76,23 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
     ...LEVELS.map((l) => ({ key: l.key as Filter, label: l.label })),
   ];
 
+  // Pill active TRƯỢT giữa các chip: đo vị trí chip active → set toạ độ, CSS transition
+  // lo phần trượt (không cần engine animation). Reduced-motion → không transition.
+  const chipRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const [ind, setInd] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const activeIndex = chips.findIndex((c) => c.key === filter);
+
+  useLayoutEffect(() => {
+    const measure = () => {
+      const btn = chipRefs.current[activeIndex];
+      if (!btn) return;
+      setInd({ left: btn.offsetLeft, top: btn.offsetTop, width: btn.offsetWidth, height: btn.offsetHeight });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [activeIndex]);
+
   return (
     <div>
       {/* Liệu trình được chọn nhiều — 3 card lớn nổi bật */}
@@ -96,15 +113,25 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
 
       {!featuredOnly && (
         <>
-      <div className="flex flex-wrap justify-center gap-2.5">
-        {chips.map((c) => (
+      <div className="relative flex flex-wrap justify-center gap-2.5">
+        {ind && (
+          <span
+            aria-hidden
+            className="shadow-soft pointer-events-none absolute rounded-md bg-crimson-600 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+            style={{ left: ind.left, top: ind.top, width: ind.width, height: ind.height }}
+          />
+        )}
+        {chips.map((c, i) => (
           <button
             key={c.key}
+            ref={(el) => {
+              chipRefs.current[i] = el;
+            }}
             onClick={() => changeFilter(c.key)}
             aria-pressed={filter === c.key}
-            className={`rounded-md border px-5 py-2.5 text-base font-medium transition-all ${
+            className={`relative z-10 rounded-md border px-5 py-2.5 text-base font-medium transition-colors ${
               filter === c.key
-                ? "border-crimson-600 bg-crimson-600 text-gold-200 shadow-soft"
+                ? "border-crimson-600 text-gold-200"
                 : "border-sand bg-ivory text-ink hover:border-gold-400"
             }`}
           >
