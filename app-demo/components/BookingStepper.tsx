@@ -2,9 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Check, ArrowLeft, ArrowRight, Sparkles, PartyPopper, MessageCircle, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+import { Check, ArrowLeft, ArrowRight, Sparkles, MessageCircle, Loader2 } from "lucide-react";
+import { gsap, registerMotion, registerAdvanced } from "@/lib/motion/scrollTrigger";
+import { breathFlow } from "@/lib/motion/config";
+import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { NEEDS, SERVICES, BRANCHES, CONTACT } from "@/data/content";
 import { GFORM, isBookingConfigured, isValidPhone } from "@/lib/booking";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
+// Cỡ input đồng bộ với thiết kế site (thoải mái cho người lớn tuổi, dấu TV rõ):
+// nền ivory nổi trên card cream, chữ 17px, bo 4px, viền sand, focus ring crimson (token --ring).
+const INPUT_CLS =
+  "h-auto rounded-md border-sand bg-ivory px-4 py-3 text-[1.0625rem] text-ink";
 
 const STEPS = ["Chọn nhu cầu", "Chọn dịch vụ", "Thông tin liên hệ"];
 
@@ -26,6 +45,9 @@ export default function BookingStepper() {
     if (!form.name || !form.phone) return;
     if (!isValidPhone(form.phone)) {
       setPhoneError("Số điện thoại chưa đúng (10 số, bắt đầu bằng 0).");
+      toast.error("Số điện thoại chưa đúng", {
+        description: "Vui lòng nhập 10 số, bắt đầu bằng 0.",
+      });
       return;
     }
     setPhoneError(null);
@@ -37,6 +59,9 @@ export default function BookingStepper() {
       doneRef.current = true;
       setSubmitting(false);
       setSubmitted(true);
+      toast.success("Đã nhận yêu cầu đặt lịch 🌿", {
+        description: "Y Viện Toplink sẽ gọi lại xác nhận trong thời gian sớm nhất.",
+      });
     };
 
     // Chưa cấu hình Google Form thật → vẫn báo thành công (tránh nút chết khi demo).
@@ -69,9 +94,7 @@ export default function BookingStepper() {
   if (submitted) {
     return (
       <div className="animate-fade-up mx-auto max-w-xl rounded-lg border border-sand bg-cream p-8 text-center shadow-sm sm:p-12">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-jade-600 text-ivory">
-          <PartyPopper className="h-8 w-8" />
-        </div>
+        <SealStamp />
         <h2 className="mt-6 font-display text-3xl font-black text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
           Y Viện Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
@@ -121,9 +144,7 @@ export default function BookingStepper() {
               </span>
               <span className="mt-1.5 hidden text-sm text-ink-soft sm:block">{label}</span>
             </div>
-            {i < STEPS.length - 1 && (
-              <span className={`mx-2 h-0.5 flex-1 ${i < step ? "bg-jade-500" : "bg-sand"}`} />
-            )}
+            {i < STEPS.length - 1 && <StepConnector active={i < step} />}
           </li>
         ))}
       </ol>
@@ -202,15 +223,15 @@ export default function BookingStepper() {
             <p className="text-base text-ink-soft">Y Viện sẽ gọi lại xác nhận lịch hẹn cho chị/anh.</p>
 
             <Field label="Họ tên">
-              <input
+              <Input
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Nguyễn Văn A"
-                className="input"
+                className={INPUT_CLS}
               />
             </Field>
             <Field label="Số điện thoại">
-              <input
+              <Input
                 value={form.phone}
                 onChange={(e) => {
                   setForm({ ...form, phone: e.target.value });
@@ -220,7 +241,7 @@ export default function BookingStepper() {
                 inputMode="tel"
                 aria-invalid={!!phoneError}
                 aria-describedby={phoneError ? "phone-error" : undefined}
-                className="input"
+                className={INPUT_CLS}
               />
               {phoneError && (
                 <span id="phone-error" className="mt-1.5 block text-sm font-medium text-crimson-600">
@@ -229,31 +250,34 @@ export default function BookingStepper() {
               )}
             </Field>
             <Field label="Ngày/giờ mong muốn">
-              <input
+              <Input
                 type="datetime-local"
                 value={form.datetime}
                 onChange={(e) => setForm({ ...form, datetime: e.target.value })}
-                className="input"
+                className={INPUT_CLS}
               />
             </Field>
             <Field label="Cơ sở muốn đến">
-              <select
-                value={form.branch}
-                onChange={(e) => setForm({ ...form, branch: e.target.value })}
-                className="input"
-              >
-                {BRANCHES.map((b) => (
-                  <option key={b.slug} value={b.slug}>{b.name}</option>
-                ))}
-              </select>
+              <Select value={form.branch} onValueChange={(v) => setForm({ ...form, branch: v })}>
+                <SelectTrigger className={`w-full ${INPUT_CLS}`}>
+                  <SelectValue placeholder="Chọn cơ sở" />
+                </SelectTrigger>
+                <SelectContent className="border-sand bg-ivory">
+                  {BRANCHES.map((b) => (
+                    <SelectItem key={b.slug} value={b.slug} className="text-[1.0625rem] text-ink focus:bg-cream focus:text-crimson-600">
+                      {b.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </Field>
             <Field label="Ghi chú thêm (nếu có)">
-              <textarea
+              <Textarea
                 value={form.note}
                 onChange={(e) => setForm({ ...form, note: e.target.value })}
                 rows={3}
                 placeholder="Mô tả tình trạng cơ thể hiện tại..."
-                className="input resize-none"
+                className={`resize-none ${INPUT_CLS}`}
               />
             </Field>
           </div>
@@ -262,36 +286,37 @@ export default function BookingStepper() {
         {/* Nav buttons */}
         <div className="mt-7 flex items-center justify-between">
           {step > 0 ? (
-            <button
+            <Button
+              variant="ghost"
               onClick={() => setStep(step - 1)}
-              className="flex items-center gap-1.5 rounded-sm px-7 py-3 text-base font-medium text-ink-soft hover:text-crimson-600"
+              className="h-auto gap-1.5 rounded-sm px-7 py-3 text-base font-medium text-ink-soft hover:bg-transparent hover:text-crimson-600"
             >
               <ArrowLeft className="h-4 w-4" /> Quay lại
-            </button>
+            </Button>
           ) : (
             <span />
           )}
 
           {step < 2 ? (
-            <button
+            <Button
               onClick={() => setStep(step + 1)}
               disabled={(step === 0 && !need) || (step === 1 && !service && !letAdvise)}
-              className="btn-press flex items-center gap-1.5 rounded-sm bg-crimson-600 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-gold-200 transition-colors hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-press h-auto gap-1.5 rounded-sm bg-crimson-600 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-gold-200 hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Tiếp tục <ArrowRight className="h-4 w-4" />
-            </button>
+            </Button>
           ) : (
-            <button
+            <Button
               onClick={handleSubmit}
               disabled={!form.name || !form.phone || submitting}
-              className="btn-press flex items-center gap-1.5 rounded-sm bg-gold-500 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 transition-colors hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
+              className="btn-press h-auto gap-1.5 rounded-sm bg-gold-500 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? (
                 <><Loader2 className="h-4 w-4 animate-spin" /> Đang gửi…</>
               ) : (
                 "Gửi yêu cầu đặt lịch"
               )}
-            </button>
+            </Button>
           )}
         </div>
       </div>
@@ -314,25 +339,6 @@ export default function BookingStepper() {
         <input type="hidden" name={GFORM.fields.service} value={serviceLabel} readOnly />
         <input type="hidden" name={GFORM.fields.note} value={form.note} readOnly />
       </form>
-
-      <style jsx>{`
-        :global(.input) {
-          width: 100%;
-          border-radius: 4px;
-          border: 1px solid var(--color-sand);
-          background: var(--color-ivory);
-          padding: 0.8rem 1rem;
-          font-size: 1.0625rem;
-          color: var(--color-ink);
-          outline: none;
-        }
-        :global(.input:focus-visible) {
-          border-color: var(--color-crimson-600);
-          box-shadow: 0 0 0 3px var(--color-crimson-600);
-          outline: 2px solid transparent;
-          outline-offset: 2px;
-        }
-      `}</style>
     </div>
   );
 }
@@ -343,5 +349,83 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
       <span className="mb-1.5 block text-base font-medium text-ink">{label}</span>
       {children}
     </label>
+  );
+}
+
+/**
+ * Đường nối giữa các bước — VẼ dần bằng GSAP DrawSVG khi bước hoàn tất (cảm giác "mở
+ * cuộn thư"). Track sand tĩnh + overlay jade vẽ theo `active`. Reduced-motion → hiện/ẩn tức thì.
+ */
+function StepConnector({ active }: { active: boolean }) {
+  const lineRef = useRef<SVGLineElement>(null);
+
+  useEffect(() => {
+    const el = lineRef.current;
+    if (!el) return;
+    if (prefersReducedMotion()) {
+      el.style.opacity = active ? "1" : "0";
+      return;
+    }
+    let cancelled = false;
+    (async () => {
+      await registerAdvanced();
+      if (cancelled || !el) return;
+      el.style.opacity = "1";
+      gsap.to(el, {
+        drawSVG: active ? "0% 100%" : "0% 0%",
+        duration: 0.55,
+        ease: breathFlow.ease,
+      });
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [active]);
+
+  return (
+    <span className="mx-2 h-0.5 flex-1">
+      <svg width="100%" height="2" preserveAspectRatio="none" className="block h-full w-full" aria-hidden>
+        <line x1="0" y1="1" x2="100%" y2="1" stroke="var(--color-sand)" strokeWidth="2" />
+        <line
+          ref={lineRef}
+          x1="0"
+          y1="1"
+          x2="100%"
+          y2="1"
+          stroke="var(--color-jade-500)"
+          strokeWidth="2"
+          style={{ opacity: 0 }}
+        />
+      </svg>
+    </span>
+  );
+}
+
+/**
+ * Con triện đỏ "đóng dấu" khi đặt lịch thành công — stamp-in (scale + xoay nhẹ, overshoot
+ * back.out như ép dấu). Reduced-motion → hiện tĩnh. Thay biểu tượng party generic.
+ */
+function SealStamp() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || prefersReducedMotion()) return;
+    registerMotion();
+    gsap.fromTo(
+      el,
+      { scale: 1.8, rotate: -10, opacity: 0 },
+      { scale: 1, rotate: 0, opacity: 1, duration: 0.5, ease: "back.out(2)" }
+    );
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="shadow-soft mx-auto flex h-16 w-16 items-center justify-center rounded-sm border-2 border-gold-400 bg-crimson-600 font-display text-3xl font-bold text-gold-200"
+      aria-hidden
+    >
+      Y
+    </div>
   );
 }

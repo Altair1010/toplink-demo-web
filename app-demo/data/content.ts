@@ -380,6 +380,8 @@ export const PRODUCTS = [
   { slug: "may-massage-co", name: "Máy massage cổ vai gáy", group: "Máy sức khỏe", priceFrom: "890.000đ", desc: "Thư giãn vùng cổ vai.", image: "/images/products/may-massage-co.jpg" },
 ];
 
+export type Product = (typeof PRODUCTS)[number];
+
 export interface Post {
   slug: string;
   title: string;
