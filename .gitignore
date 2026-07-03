@@ -22,3 +22,13 @@ build
 /.playwright-mcp/
 /home-desktop.jpeg
 /CLAUDE.docx
+
+# Ảnh reference chụp màn hình ở ROOT (asset app nằm trong app-demo/public, không phải đây)
+/*.jpeg
+/*.jpg
+/*.png
+
+# Hệ agent nội bộ & script setup (giữ repo public gọn cho web demo)
+/.trellis/
+/AGENTS.md
+/setup-claude-agent-system.ps1

@@ -7,3 +7,6 @@
 .env*.local
 .vercel
 next-env.d.ts
+
+# TS incremental build artifact (tái sinh mỗi lần build)
+*.tsbuildinfo
