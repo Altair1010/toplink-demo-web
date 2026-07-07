@@ -52,7 +52,7 @@ export default function BodySignalInterface({
                   className={`rounded-sm border px-5 py-2.5 text-base font-medium transition-colors ${
                     on
                       ? "border-crimson-600 bg-crimson-600 text-ivory"
-                      : "border-sand bg-ivory text-ink hover:border-crimson-300 hover:text-crimson-600"
+                      : "border-gold-500 bg-ivory text-ink hover:border-crimson-400 hover:text-crimson-600"
                   }`}
                 >
                   {sym.label}

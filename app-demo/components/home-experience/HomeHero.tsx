@@ -37,18 +37,20 @@ export default function HomeHero() {
       />
       <AmbientLeaves />
 
-      {/* Nội dung căn giữa (ngang + dọc) */}
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center px-4 py-10 text-center sm:px-6 sm:py-12">
-        <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
-          Y Viện Dưỡng Thân · Tỉnh Thức
-        </span>
-        <h1 className="animate-fade-up mt-4 font-display text-xl font-semibold uppercase leading-snug tracking-wide text-ivory">
-          Dưỡng thân từ gốc, phục hồi từ tâm
-        </h1>
-        <p className="animate-fade-up delay-1 mt-5 max-w-2xl text-center text-xl leading-relaxed text-cream/90 sm:text-justify sm:[text-align-last:center]">
-          Không gian chăm sóc sức khỏe Đông y cao cấp, kết hợp trị liệu thủ công, dưỡng liệu tự nhiên
-          và công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
-        </p>
+      {/* Nội dung — dồn về NỬA TRÁI (vùng đỏ thuần, đọc rõ), căn giữa dọc */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-12">
+        <div className="flex flex-col items-center text-center lg:w-[52%] lg:pr-6">
+          <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
+            Y Viện Dưỡng Thân · Tỉnh Thức
+          </span>
+          <h1 className="animate-fade-up mt-4 font-display text-xl font-semibold uppercase leading-snug tracking-wide text-ivory">
+            Dưỡng thân từ gốc, phục hồi từ tâm
+          </h1>
+          <p className="animate-fade-up delay-1 mt-5 max-w-lg text-center text-xl leading-relaxed text-cream/90 sm:text-justify sm:[text-align-last:center]">
+            Không gian chăm sóc sức khỏe Đông y cao cấp, kết hợp trị liệu thủ công, dưỡng liệu tự
+            nhiên và công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
+          </p>
+        </div>
       </div>
     </section>
   );
