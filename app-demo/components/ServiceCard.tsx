@@ -15,7 +15,9 @@ export default function ServiceCard({ service }: { service: Service }) {
       className="group flex flex-col rounded-md border border-sand bg-cream p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-gold-500 hover:shadow-md"
     >
       <div className="flex items-center justify-between">
-        <span className={`rounded-sm px-3 py-1 text-sm font-semibold ${LEVEL_COLORS[service.level]}`}>
+        <span
+          className={`rounded-sm px-3 py-1 text-sm font-semibold ${LEVEL_COLORS[service.level]}`}
+        >
           {service.levelLabel}
         </span>
         <span className="flex items-center gap-1 text-sm text-ink-soft">

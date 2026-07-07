@@ -20,7 +20,10 @@ export default function ProcessPage() {
       </div>
 
       <div className="mt-10 text-center">
-        <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400">
+        <Link
+          href="/dat-lich"
+          className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+        >
           Bắt đầu hành trình của chị/anh
         </Link>
       </div>

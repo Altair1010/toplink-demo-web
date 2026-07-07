@@ -20,7 +20,10 @@ export default function ContactPage() {
   const branch = BRANCHES[0];
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       <SectionHeader
         eyebrow="Liên hệ"
         title="Cơ sở Y Viện Toplink"
@@ -33,21 +36,29 @@ export default function ContactPage() {
           <h3 className="text-2xl font-semibold text-crimson-600">{branch.name}</h3>
           <ul className="mt-4 space-y-3 text-base text-ink">
             <li className="flex items-start gap-2">
-              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" /> {branch.address}
+              <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold-700" /> {branch.address}
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="h-5 w-5 text-gold-600" />
-              <a href={`tel:${branch.phone.replace(/\s/g, "")}`} className="hover:text-crimson-600">{branch.phone}</a>
+              <Phone className="h-5 w-5 text-gold-700" />
+              <a href={`tel:${branch.phone.replace(/\s/g, "")}`} className="hover:text-crimson-600">
+                {branch.phone}
+              </a>
             </li>
             <li className="flex items-center gap-2">
-              <Clock className="h-5 w-5 text-gold-600" /> {branch.hours}
+              <Clock className="h-5 w-5 text-gold-700" /> {branch.hours}
             </li>
           </ul>
           <div className="mt-6 flex flex-wrap gap-2.5">
-            <a href={`tel:${branch.phone.replace(/\s/g, "")}`} className="flex items-center gap-1.5 rounded-sm bg-crimson-600 px-6 py-3 text-base font-semibold text-gold-200 hover:bg-crimson-700">
+            <a
+              href={`tel:${branch.phone.replace(/\s/g, "")}`}
+              className="flex items-center gap-1.5 rounded-sm bg-crimson-600 px-6 py-3 text-base font-semibold text-gold-200 hover:bg-crimson-700"
+            >
               <Phone className="h-5 w-5" /> Gọi ngay
             </a>
-            <a href={`https://maps.google.com/?q=${encodeURIComponent(branch.address)}`} className="flex items-center gap-1.5 rounded-sm border border-crimson-600 px-6 py-3 text-base font-semibold text-crimson-600 hover:bg-crimson-50">
+            <a
+              href={`https://maps.google.com/?q=${encodeURIComponent(branch.address)}`}
+              className="flex items-center gap-1.5 rounded-sm border border-crimson-600 px-6 py-3 text-base font-semibold text-crimson-600 hover:bg-crimson-50"
+            >
               <Navigation className="h-5 w-5" /> Chỉ đường
             </a>
           </div>
@@ -64,13 +75,23 @@ export default function ContactPage() {
 
         {/* CỘT PHẢI — Tư vấn nhanh */}
         <div className="on-dark flex h-full flex-col items-center justify-center gap-4 frame-herb bg-crimson-800 p-10 text-center text-gold-200">
-          <h2 className="text-3xl text-gold-200">Cần tư vấn <span className="emph emph-light">nhanh</span>?</h2>
-          <p className="text-lg text-cream/85">Nhắn Zalo, đội ngũ Y Viện sẽ phản hồi trong giờ làm việc.</p>
+          <h2 className="text-3xl text-gold-200">
+            Cần tư vấn <span className="emph emph-light">nhanh</span>?
+          </h2>
+          <p className="text-lg text-cream/85">
+            Nhắn Zalo, đội ngũ Y Viện sẽ phản hồi trong giờ làm việc.
+          </p>
           <div className="mt-2 flex w-full max-w-xs flex-col gap-3">
-            <a href={CONTACT.zalo} className="flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-7 py-4 text-base font-semibold text-wood-700 hover:bg-gold-400">
+            <a
+              href={CONTACT.zalo}
+              className="flex items-center justify-center gap-2 rounded-sm bg-gold-500 px-7 py-4 text-base font-semibold text-wood-700 hover:bg-gold-400"
+            >
               <MessageCircle className="h-5 w-5" /> Nhắn Zalo tư vấn
             </a>
-            <a href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`} className="rounded-sm border border-gold-500 px-7 py-4 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700">
+            <a
+              href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`}
+              className="rounded-sm border border-gold-500 px-7 py-4 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+            >
               Gọi {CONTACT.hotline}
             </a>
           </div>
@@ -79,7 +100,12 @@ export default function ContactPage() {
 
       {/* FAQ — di cư từ homepage (đại cách tân: câu hỏi thường gặp gắn với liên hệ) */}
       <div className="mx-auto mt-16 container-narrow">
-        <SectionHeader center eyebrow="Câu hỏi thường gặp" title="Có thể anh/chị đang thắc mắc" emphasis="thắc mắc" />
+        <SectionHeader
+          center
+          eyebrow="Câu hỏi thường gặp"
+          title="Có thể anh/chị đang thắc mắc"
+          emphasis="thắc mắc"
+        />
         <div className="mt-10">
           <FaqAccordion />
         </div>

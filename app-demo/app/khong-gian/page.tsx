@@ -8,7 +8,8 @@ import { SPACES } from "@/data/content";
 
 export const metadata = {
   title: "Không gian Y Viện",
-  description: "Bốn tầng Tĩnh · Thông · Dưỡng · Tỉnh, hành trình đưa cơ thể từ căng thẳng về cân bằng tại Y Viện Toplink.",
+  description:
+    "Bốn tầng Tĩnh · Thông · Dưỡng · Tỉnh, hành trình đưa cơ thể từ căng thẳng về cân bằng tại Y Viện Toplink.",
 };
 
 export default function SpacePage() {

@@ -35,13 +35,27 @@ export default function BodyMap({ activeRegions }: { activeRegions: BodyRegionKe
       </g>
       <g id="region-tam-tri" data-active={isOn("tam-tri")} className="body-region">
         {/* vầng quanh đầu — thần trí */}
-        <circle cx="100" cy="46" r="34" stroke="var(--color-gold-500)" strokeWidth="2" strokeDasharray="4 7" fill="none" />
+        <circle
+          cx="100"
+          cy="46"
+          r="34"
+          stroke="var(--color-gold-500)"
+          strokeWidth="2"
+          strokeDasharray="4 7"
+          fill="none"
+        />
       </g>
       <g id="region-co-vai-gay" data-active={isOn("co-vai-gay")} className="body-region">
-        <path d="M72 88 C88 78 112 78 128 88 L126 112 C110 102 90 102 74 112 Z" fill="var(--color-crimson-400)" />
+        <path
+          d="M72 88 C88 78 112 78 128 88 L126 112 C110 102 90 102 74 112 Z"
+          fill="var(--color-crimson-400)"
+        />
       </g>
       <g id="region-lung-eo" data-active={isOn("lung-eo")} className="body-region">
-        <path d="M74 150 C90 142 110 142 126 150 L126 200 C110 208 90 208 74 200 Z" fill="var(--color-crimson-400)" />
+        <path
+          d="M74 150 C90 142 110 142 126 150 L126 200 C110 208 90 208 74 200 Z"
+          fill="var(--color-crimson-400)"
+        />
       </g>
       <g id="region-tay-chan" data-active={isOn("tay-chan")} className="body-region">
         <circle cx="48" cy="236" r="10" fill="var(--color-crimson-400)" />

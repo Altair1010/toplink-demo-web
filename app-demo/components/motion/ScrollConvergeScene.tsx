@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useRef,
-  type ReactNode,
-} from "react";
+import { createContext, useCallback, useContext, useRef, type ReactNode } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { motionConfig, PIN_MIN_WIDTH } from "@/lib/motion/config";
@@ -89,7 +83,7 @@ export default function ScrollConvergeScene({
 
       return () => st.kill();
     },
-    { scope: sceneRef, dependencies: [] }
+    { scope: sceneRef, dependencies: [] },
   );
 
   return (

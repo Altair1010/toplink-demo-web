@@ -24,7 +24,7 @@ export default function ImgFade({ src, className, ...rest }: ImageProps) {
         className={cn(
           "transition-opacity duration-500 motion-reduce:transition-none",
           loaded ? "opacity-100" : "opacity-0",
-          className
+          className,
         )}
         {...rest}
       />

@@ -42,13 +42,17 @@ export default function MotionLabPage() {
 
       {/* 1 · CONVERGE SCENE — 4 khối, 4 hướng, hội tụ về giữa */}
       <section className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="font-display text-2xl text-crimson-600">1 · ScrollConvergeScene + ConvergeBlock</h2>
+        <h2 className="font-display text-2xl text-crimson-600">
+          1 · ScrollConvergeScene + ConvergeBlock
+        </h2>
       </section>
       <ScrollConvergeScene className="mx-auto max-w-6xl px-4 sm:px-6" stageClassName="py-12">
         <div className="mx-auto grid w-full max-w-3xl gap-6">
           {LAB_BLOCKS.map((b, i) => (
             <ConvergeBlock key={b.from} from={b.from} index={i}>
-              <div className={`rounded-md p-10 text-center font-display text-2xl shadow-soft ${b.tone}`}>
+              <div
+                className={`rounded-md p-10 text-center font-display text-2xl shadow-soft ${b.tone}`}
+              >
                 {b.label}
               </div>
             </ConvergeBlock>
@@ -58,7 +62,9 @@ export default function MotionLabPage() {
 
       {/* 2 · SPATIAL FLOORS — deck 4 tầng */}
       <section className="mx-auto max-w-6xl px-4 pt-8 sm:px-6">
-        <h2 className="font-display text-2xl text-crimson-600">2 · YVienSpaceExperience (deck 4 tầng)</h2>
+        <h2 className="font-display text-2xl text-crimson-600">
+          2 · YVienSpaceExperience (deck 4 tầng)
+        </h2>
       </section>
       <section className="mx-auto max-w-6xl px-4 pb-24 sm:px-6">
         <YVienSpaceExperience />

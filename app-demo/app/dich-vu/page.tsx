@@ -31,17 +31,31 @@ export default function ServicesPage() {
           <table className="w-full min-w-[560px] border-collapse bg-ivory text-left">
             <thead>
               <tr className="bg-cream text-sm uppercase tracking-wide text-ink-soft">
-                <th scope="col" className="px-5 py-4 font-semibold">Liệu trình</th>
-                <th scope="col" className="px-5 py-4 font-semibold">Thời lượng</th>
-                <th scope="col" className="px-5 py-4 font-semibold">Giá từ</th>
-                <th scope="col" className="px-5 py-4 font-semibold sr-only">Đặt lịch</th>
+                <th scope="col" className="px-5 py-4 font-semibold">
+                  Liệu trình
+                </th>
+                <th scope="col" className="px-5 py-4 font-semibold">
+                  Thời lượng
+                </th>
+                <th scope="col" className="px-5 py-4 font-semibold">
+                  Giá từ
+                </th>
+                <th scope="col" className="px-5 py-4 font-semibold sr-only">
+                  Đặt lịch
+                </th>
               </tr>
             </thead>
             <tbody>
               {SERVICES.map((s) => (
-                <tr key={s.slug} className="border-t border-sand transition-colors hover:bg-cream/60">
+                <tr
+                  key={s.slug}
+                  className="border-t border-sand transition-colors hover:bg-cream/60"
+                >
                   <td className="px-5 py-4">
-                    <Link href={`/dich-vu/${s.slug}`} className="font-semibold text-crimson-600 hover:text-crimson-700">
+                    <Link
+                      href={`/dich-vu/${s.slug}`}
+                      className="font-semibold text-crimson-600 hover:text-crimson-700"
+                    >
                       {s.name}
                     </Link>
                     <span className="mt-0.5 block text-sm text-ink-mute">{s.levelLabel}</span>
@@ -62,7 +76,8 @@ export default function ServicesPage() {
           </table>
         </div>
         <p className="mt-4 text-center text-sm text-ink-mute">
-          Giá có thể thay đổi theo chương trình ưu đãi tại cơ sở. Vui lòng liên hệ để được báo giá chính xác.
+          Giá có thể thay đổi theo chương trình ưu đãi tại cơ sở. Vui lòng liên hệ để được báo giá
+          chính xác.
         </p>
       </section>
     </div>

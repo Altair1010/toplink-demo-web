@@ -89,10 +89,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
         />
-        <a href="#main" className="skip-link">Bỏ qua, tới nội dung chính</a>
+        <a href="#main" className="skip-link">
+          Bỏ qua, tới nội dung chính
+        </a>
         <SiteHeader />
         {/* Native scroll toàn site (scroll-behavior: smooth) — Lenis/Three đã gỡ. */}
-        <main id="main" className="pb-20 lg:pb-0">{children}</main>
+        <main id="main" className="pb-20 lg:pb-0">
+          {children}
+        </main>
         <SiteFooter />
         <FloatingZalo />
         <MobileBottomBar />

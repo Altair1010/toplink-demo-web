@@ -58,7 +58,7 @@ export default function MotionReveal({
           ease: breathFlow.ease,
           delay: index * breathFlow.stagger,
           scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-        }
+        },
       );
 
       return () => {
@@ -67,7 +67,7 @@ export default function MotionReveal({
           .forEach((t) => t.kill());
       };
     },
-    { scope: ref, dependencies: [from, index] }
+    { scope: ref, dependencies: [from, index] },
   );
 
   return (

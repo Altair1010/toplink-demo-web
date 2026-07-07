@@ -14,8 +14,8 @@ export default function SiteFooter() {
             <span className="font-display text-xl font-bold text-ivory">Y Viện Toplink</span>
           </div>
           <p className="mt-4 text-base leading-relaxed text-cream/70">
-            Y Viện Dưỡng Thân · Tỉnh Thức. Đông y dưỡng sinh kết hợp lý liệu trị liệu và công nghệ cao,
-            chăm sóc cá nhân hóa.
+            Y Viện Dưỡng Thân · Tỉnh Thức. Đông y dưỡng sinh kết hợp lý liệu trị liệu và công nghệ
+            cao, chăm sóc cá nhân hóa.
           </p>
         </div>
 
@@ -63,15 +63,21 @@ export default function SiteFooter() {
             </li>
             <li className="flex items-center gap-2">
               <MessageCircle className="h-4 w-4 text-gold-300" />
-              <a href={CONTACT.zalo} className="hover:text-gold-300">Nhắn Zalo tư vấn</a>
+              <a href={CONTACT.zalo} className="hover:text-gold-300">
+                Nhắn Zalo tư vấn
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-gold-300" />
-              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold-300">{CONTACT.email}</a>
+              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold-300">
+                {CONTACT.email}
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Facebook className="h-4 w-4 text-gold-300" />
-              <a href={CONTACT.facebook} className="hover:text-gold-300">Fanpage Facebook</a>
+              <a href={CONTACT.facebook} className="hover:text-gold-300">
+                Fanpage Facebook
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-gold-300" />
@@ -89,8 +95,8 @@ export default function SiteFooter() {
 
       <div className="border-t border-cream/15">
         <div className="mx-auto max-w-6xl px-4 py-5 text-center text-sm text-cream/50 sm:px-6">
-          © {new Date().getFullYear()} Y Viện Toplink · Bản demo giao diện · Các liệu trình hỗ trợ chăm sóc
-          sức khỏe, không thay thế tư vấn y khoa chuyên môn.
+          © {new Date().getFullYear()} Y Viện Toplink · Bản demo giao diện · Các liệu trình hỗ trợ
+          chăm sóc sức khỏe, không thay thế tư vấn y khoa chuyên môn.
         </div>
       </div>
     </footer>

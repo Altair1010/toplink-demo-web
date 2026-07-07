@@ -24,7 +24,9 @@ export default function BodySignalInterface({
     <section className="relative overflow-hidden bg-ivory">
       <div className="mx-auto grid min-h-[88svh] max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[7fr_5fr] lg:py-20">
         <div>
-          <p className="eyebrow text-sm font-semibold text-crimson-600">Y Viện Toplink · Dưỡng Thân · Tỉnh Thức</p>
+          <p className="eyebrow text-sm font-semibold text-crimson-600">
+            Y Viện Toplink · Dưỡng Thân · Tỉnh Thức
+          </p>
           <h1 className="mt-6 max-w-xl text-balance font-serif-display text-[length:var(--text-hero)] text-ink">
             Hôm nay cơ thể đang báo điều gì?
           </h1>
@@ -33,7 +35,11 @@ export default function BodySignalInterface({
           </p>
 
           {/* Chips triệu chứng */}
-          <div className="mt-8 flex max-w-xl flex-wrap gap-2.5" role="group" aria-label="Dấu hiệu cơ thể">
+          <div
+            className="mt-8 flex max-w-xl flex-wrap gap-2.5"
+            role="group"
+            aria-label="Dấu hiệu cơ thể"
+          >
             {SYMPTOMS.map((sym) => {
               const on = selectedKeys.includes(sym.key);
               return (

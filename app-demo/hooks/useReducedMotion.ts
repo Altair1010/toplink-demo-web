@@ -22,5 +22,4 @@ export function useReducedMotion(): boolean {
 
 /** Bản đọc-1-lần (không subscribe) cho code imperatif ngoài React (vd trong effect GSAP). */
 export const prefersReducedMotion = () =>
-  typeof window !== "undefined" &&
-  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;

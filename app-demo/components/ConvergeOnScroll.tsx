@@ -91,7 +91,12 @@ export function HerbLeaf({ className = "" }: { className?: string }) {
         opacity="0.9"
       />
       <path d="M32 8C28 22 26 38 24 50" stroke="#fffcf7" strokeOpacity="0.5" strokeWidth="1.4" />
-      <path d="M30 24c4 1 8 0 11-3M28 34c4 1 9 0 12-4" stroke="#fffcf7" strokeOpacity="0.4" strokeWidth="1.2" />
+      <path
+        d="M30 24c4 1 8 0 11-3M28 34c4 1 9 0 12-4"
+        stroke="#fffcf7"
+        strokeOpacity="0.4"
+        strokeWidth="1.2"
+      />
     </svg>
   );
 }

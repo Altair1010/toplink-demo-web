@@ -52,7 +52,7 @@ export default function HealingProcessMotion() {
             duration: breathFlow.slow,
             ease: breathFlow.ease,
             scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
-          }
+          },
         );
       });
 
@@ -73,7 +73,7 @@ export default function HealingProcessMotion() {
 
       return () => triggers.forEach((t) => t.kill());
     },
-    { scope: rootRef, dependencies: [] }
+    { scope: rootRef, dependencies: [] },
   );
 
   return (
@@ -122,19 +122,27 @@ export default function HealingProcessMotion() {
                   <div className={`flex items-center gap-4 ${flip ? "" : "lg:flex-row-reverse"}`}>
                     <span
                       className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 transition-colors duration-500 ${
-                        isActive ? "border-gold-400 bg-crimson-700 text-gold-300" : "border-gold-500 text-crimson-600"
+                        isActive
+                          ? "border-gold-400 bg-crimson-700 text-gold-300"
+                          : "border-gold-500 text-crimson-600"
                       }`}
                     >
                       <Icon className="h-7 w-7" />
                     </span>
-                    <span className={`font-serif-display text-5xl leading-none ${isActive ? "text-gold-300" : "text-gold-600"}`}>
+                    <span
+                      className={`font-serif-display text-5xl leading-none ${isActive ? "text-gold-300" : "text-gold-600"}`}
+                    >
                       0{i + 1}
                     </span>
                   </div>
-                  <h3 className={`mt-4 font-display text-2xl ${isActive ? "text-ivory" : "text-crimson-600"}`}>
+                  <h3
+                    className={`mt-4 font-display text-2xl ${isActive ? "text-ivory" : "text-crimson-600"}`}
+                  >
                     {step.title}
                   </h3>
-                  <p className={`mt-2 text-base leading-relaxed ${isActive ? "text-cream/90" : "text-ink-soft"}`}>
+                  <p
+                    className={`mt-2 text-base leading-relaxed ${isActive ? "text-cream/90" : "text-ink-soft"}`}
+                  >
                     {step.desc}
                   </p>
                 </div>

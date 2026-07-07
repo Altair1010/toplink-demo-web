@@ -19,7 +19,7 @@ export default function HomeExperience() {
 
   const toggle = (key: string) =>
     setSelectedKeys((prev) =>
-      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key]
+      prev.includes(key) ? prev.filter((k) => k !== key) : [...prev, key],
     );
 
   return (

@@ -23,8 +23,16 @@ export interface Service {
 
 export const LEVELS: { key: ServiceLevel; label: string; desc: string }[] = [
   { key: "co-ban", label: "Dịch vụ cơ bản", desc: "Thư giãn, chăm sóc nhẹ nhàng mỗi ngày" },
-  { key: "nang-cao", label: "Dịch vụ nâng cao", desc: "Trị liệu vùng căng mỏi, dưỡng sinh khí huyết" },
-  { key: "chuyen-sau", label: "Dịch vụ chuyên sâu", desc: "Liệu trình cá nhân hóa Thân · Tâm · Trí" },
+  {
+    key: "nang-cao",
+    label: "Dịch vụ nâng cao",
+    desc: "Trị liệu vùng căng mỏi, dưỡng sinh khí huyết",
+  },
+  {
+    key: "chuyen-sau",
+    label: "Dịch vụ chuyên sâu",
+    desc: "Liệu trình cá nhân hóa Thân · Tâm · Trí",
+  },
 ];
 
 export const SERVICES: Service[] = [
@@ -111,7 +119,12 @@ export const SERVICES: Service[] = [
     priceFrom: "390.000đ",
     suitableFor: ["Đau mỏi lưng do tư thế", "Lái xe đường dài", "Mẹ sau sinh (đã ổn định)"],
     cautions: ["Đau lưng cấp", "Loãng xương nặng"],
-    steps: ["Đánh giá vùng lưng eo", "Làm ấm và giãn cơ", "Trị liệu giải tỏa", "Hướng dẫn vận động nhẹ"],
+    steps: [
+      "Đánh giá vùng lưng eo",
+      "Làm ấm và giãn cơ",
+      "Trị liệu giải tỏa",
+      "Hướng dẫn vận động nhẹ",
+    ],
     feeling: "Lưng mềm hơn, dễ vận động, giảm cảm giác nặng nề.",
     needs: ["lung-eo", "phuc-hoi", "giam-cang-thang"],
   },
@@ -125,7 +138,12 @@ export const SERVICES: Service[] = [
     priceFrom: "450.000đ",
     suitableFor: ["Người hay mệt", "Tuần hoàn kém", "Muốn dưỡng sinh định kỳ"],
     cautions: ["Đang sốt", "Bệnh lý nền cần theo dõi"],
-    steps: ["Bắt mạch, lắng nghe thể trạng", "Làm ấm cơ thể", "Day ấn theo kinh lạc", "Dưỡng và nghỉ ngơi"],
+    steps: [
+      "Bắt mạch, lắng nghe thể trạng",
+      "Làm ấm cơ thể",
+      "Day ấn theo kinh lạc",
+      "Dưỡng và nghỉ ngơi",
+    ],
     feeling: "Cơ thể ấm áp, tràn năng lượng, tinh thần sáng rõ.",
     needs: ["duong-sinh", "phuc-hoi", "tu-van"],
   },
@@ -158,7 +176,12 @@ export const SERVICES: Service[] = [
     priceFrom: "650.000đ",
     suitableFor: ["Người cần phục hồi nhanh", "Vận động viên nghiệp dư"],
     cautions: ["Tim mạch không ổn định", "Huyết áp cao"],
-    steps: ["Đánh giá thể trạng", "Làm nóng cơ thể", "Chuyển lạnh có kiểm soát", "Cân bằng và nghỉ ngơi"],
+    steps: [
+      "Đánh giá thể trạng",
+      "Làm nóng cơ thể",
+      "Chuyển lạnh có kiểm soát",
+      "Cân bằng và nghỉ ngơi",
+    ],
     feeling: "Tỉnh táo, sảng khoái, cơ thể như được tái khởi động.",
     needs: ["phuc-hoi", "duong-sinh"],
   },
@@ -293,13 +316,15 @@ export const REVIEWS: Review[] = [
     type: "image",
     text: "Sau buổi trị liệu, vùng cổ vai gáy nhẹ hơn, ngủ dễ hơn.",
     // TODO: thay bằng ảnh chụp tin nhắn cảm nhận thật của khách.
-    image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=600&q=80",
+    image:
+      "https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=600&q=80",
   },
   {
     type: "video",
     text: "Không gian yên, kỹ thuật viên làm cẩn thận.",
     // TODO: thay bằng video dọc 9:16 khách hàng chia sẻ (chèn poster + nguồn video thật).
-    poster: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+    poster:
+      "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
   },
   {
     type: "quote",
@@ -325,19 +350,22 @@ export const ABOUT_BLOCKS: AboutBlock[] = [
   {
     lead: "Không chỉ là một buổi massage.",
     body: "Là quá trình lắng nghe cơ thể.",
-    image: "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80",
     alt: "Kỹ thuật viên trị liệu vùng vai cho khách hàng",
   },
   {
     lead: "Không chỉ là kỹ thuật.",
     body: "Là bàn tay được đào tạo, làm đủ chậm để cơ thể kịp thả lỏng.",
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=800&q=80",
     alt: "Bàn tay kỹ thuật viên thao tác trị liệu nhẹ nhàng",
   },
   {
     lead: "Không chỉ là không gian đẹp.",
     body: "Là nơi anh/chị được tạm dừng, thở sâu và quay về chăm sóc chính mình.",
-    image: "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
+    image:
+      "https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80",
     alt: "Khách hàng thư giãn, thở sâu trong không gian tĩnh tại",
   },
 ];
@@ -374,10 +402,38 @@ export const BRANCHES = [
 ];
 
 export const PRODUCTS = [
-  { slug: "tra-duong-sinh", name: "Trà dưỡng sinh thảo mộc", group: "Thảo dược", priceFrom: "120.000đ", desc: "Hỗ trợ thư giãn, dễ ngủ.", image: "/images/products/tra-duong-sinh.jpg" },
-  { slug: "tui-chuom-thao-duoc", name: "Túi chườm thảo dược", group: "Hỗ trợ tại nhà", priceFrom: "180.000đ", desc: "Chườm ấm vùng cổ vai gáy.", image: "/images/products/tui-chuom-thao-duoc.jpg" },
-  { slug: "goi-ngam-chan", name: "Gói ngâm chân thảo dược", group: "Thảo dược", priceFrom: "150.000đ", desc: "Ngâm chân ấm tại nhà.", image: "/images/products/goi-ngam-chan.jpg" },
-  { slug: "may-massage-co", name: "Máy massage cổ vai gáy", group: "Máy sức khỏe", priceFrom: "890.000đ", desc: "Thư giãn vùng cổ vai.", image: "/images/products/may-massage-co.jpg" },
+  {
+    slug: "tra-duong-sinh",
+    name: "Trà dưỡng sinh thảo mộc",
+    group: "Thảo dược",
+    priceFrom: "120.000đ",
+    desc: "Hỗ trợ thư giãn, dễ ngủ.",
+    image: "/images/products/tra-duong-sinh.jpg",
+  },
+  {
+    slug: "tui-chuom-thao-duoc",
+    name: "Túi chườm thảo dược",
+    group: "Hỗ trợ tại nhà",
+    priceFrom: "180.000đ",
+    desc: "Chườm ấm vùng cổ vai gáy.",
+    image: "/images/products/tui-chuom-thao-duoc.jpg",
+  },
+  {
+    slug: "goi-ngam-chan",
+    name: "Gói ngâm chân thảo dược",
+    group: "Thảo dược",
+    priceFrom: "150.000đ",
+    desc: "Ngâm chân ấm tại nhà.",
+    image: "/images/products/goi-ngam-chan.jpg",
+  },
+  {
+    slug: "may-massage-co",
+    name: "Máy massage cổ vai gáy",
+    group: "Máy sức khỏe",
+    priceFrom: "890.000đ",
+    desc: "Thư giãn vùng cổ vai.",
+    image: "/images/products/may-massage-co.jpg",
+  },
 ];
 
 export type Product = (typeof PRODUCTS)[number];
@@ -569,10 +625,22 @@ export const TRAINING = {
     "Thực hành trên thiết bị và quy trình chuẩn của Y Viện.",
   ],
   roadmap: [
-    { title: "Nền tảng dưỡng sinh", desc: "Lý thuyết khí huyết, kinh lạc, thể trạng và nguyên tắc an toàn." },
-    { title: "Kỹ năng trị liệu", desc: "Thực hành day ấn, trị liệu cơ sâu, xông · ngâm thảo dược." },
-    { title: "Chăm sóc khách hàng", desc: "Tiếp nhận, lắng nghe nhu cầu, tư vấn liệu trình phù hợp." },
-    { title: "Thực hành & chứng nhận", desc: "Thực hành có giám sát, đánh giá và cấp chứng nhận hoàn thành." },
+    {
+      title: "Nền tảng dưỡng sinh",
+      desc: "Lý thuyết khí huyết, kinh lạc, thể trạng và nguyên tắc an toàn.",
+    },
+    {
+      title: "Kỹ năng trị liệu",
+      desc: "Thực hành day ấn, trị liệu cơ sâu, xông · ngâm thảo dược.",
+    },
+    {
+      title: "Chăm sóc khách hàng",
+      desc: "Tiếp nhận, lắng nghe nhu cầu, tư vấn liệu trình phù hợp.",
+    },
+    {
+      title: "Thực hành & chứng nhận",
+      desc: "Thực hành có giám sát, đánh giá và cấp chứng nhận hoàn thành.",
+    },
   ],
 };
 
@@ -581,10 +649,16 @@ export const FRANCHISE = {
   intro:
     "Hợp tác cùng Y Viện Toplink để mang mô hình Y Viện dưỡng sinh · tỉnh thức đến gần hơn với cộng đồng, với sự hỗ trợ trọn gói từ vận hành đến chuyên môn.",
   supports: [
-    { title: "Set-up & vận hành", desc: "Tư vấn thiết kế không gian, quy trình vận hành chuẩn Y Viện." },
+    {
+      title: "Set-up & vận hành",
+      desc: "Tư vấn thiết kế không gian, quy trình vận hành chuẩn Y Viện.",
+    },
     { title: "Đào tạo đội ngũ", desc: "Đào tạo kỹ thuật viên và chuyên viên chăm sóc bài bản." },
     { title: "Sản phẩm & dược liệu", desc: "Cung ứng thảo dược, sản phẩm hỗ trợ đạt chuẩn." },
-    { title: "Marketing & thương hiệu", desc: "Đồng bộ bộ nhận diện và hỗ trợ truyền thông địa phương." },
+    {
+      title: "Marketing & thương hiệu",
+      desc: "Đồng bộ bộ nhận diện và hỗ trợ truyền thông địa phương.",
+    },
   ],
 };
 
@@ -611,7 +685,8 @@ export const BODY_STATES: BodyState[] = [
     name: "Tắc",
     essence: "Khí huyết không lưu thông — đau mỏi, nặng người, cứng khớp.",
     signals: ["Cổ vai gáy căng cứng", "Lưng eo đau mỏi", "Đầu nặng, khó xoay người"],
-    careDirection: "Khai thông kinh lạc bằng trị liệu cơ sâu và nhiệt ấm, để khí huyết chảy lại tự nhiên.",
+    careDirection:
+      "Khai thông kinh lạc bằng trị liệu cơ sâu và nhiệt ấm, để khí huyết chảy lại tự nhiên.",
     serviceSlugs: ["tri-lieu-co-vai-gay", "tri-lieu-lung-eo", "goi-dau-duong-sinh"],
   },
   {
@@ -619,7 +694,8 @@ export const BODY_STATES: BodyState[] = [
     name: "Hàn",
     essence: "Cơ thể nhiễm lạnh — tuần hoàn kém, tay chân lạnh, co cứng.",
     signals: ["Lạnh tay chân", "Sợ lạnh, sợ gió", "Cơ co cứng khi trời lạnh"],
-    careDirection: "Làm ấm từ gốc: ngâm thảo dược, xông hơi và nhiệt trị liệu đưa dương khí trở lại.",
+    careDirection:
+      "Làm ấm từ gốc: ngâm thảo dược, xông hơi và nhiệt trị liệu đưa dương khí trở lại.",
     serviceSlugs: ["ngam-chan-thao-duoc", "lieu-trinh-nong-lanh", "xong-hoi-thu-gian"],
   },
   {
@@ -635,7 +711,8 @@ export const BODY_STATES: BodyState[] = [
     name: "Loạn",
     essence: "Thần khí xáo trộn — mất ngủ, căng thẳng, khó thả lỏng.",
     signals: ["Khó vào giấc, ngủ chập chờn", "Đầu óc căng, nghĩ nhiều", "Tim hồi hộp, thở nông"],
-    careDirection: "Đưa thần trí lắng lại: trị liệu Thân · Tâm · Trí trong không gian tĩnh, nhịp chậm.",
+    careDirection:
+      "Đưa thần trí lắng lại: trị liệu Thân · Tâm · Trí trong không gian tĩnh, nhịp chậm.",
     serviceSlugs: ["lieu-trinh-than-tam-tri", "goi-dau-duong-sinh", "xong-hoi-thu-gian"],
   },
 ];
@@ -673,7 +750,8 @@ export const SYMPTOMS: Symptom[] = [
     label: "Cổ vai gáy",
     region: "co-vai-gay",
     states: ["tac"],
-    cause: "Ngồi lâu, căng cơ vùng thang vai, khí huyết lưu thông kém và stress tích tụ dồn lên vai gáy.",
+    cause:
+      "Ngồi lâu, căng cơ vùng thang vai, khí huyết lưu thông kém và stress tích tụ dồn lên vai gáy.",
     suggestion: "Trị liệu cổ vai gáy chuyên sâu giúp khai thông vùng tắc, thả lỏng cơ sâu.",
     serviceSlugs: ["tri-lieu-co-vai-gay", "goi-dau-duong-sinh"],
   },
@@ -691,8 +769,10 @@ export const SYMPTOMS: Symptom[] = [
     label: "Mất ngủ",
     region: "tam-tri",
     states: ["loan"],
-    cause: "Thần khí không yên: nghĩ nhiều, dùng thiết bị khuya, tâm hỏa vượng khiến giấc ngủ chập chờn.",
-    suggestion: "Đưa cơ thể vào nhịp chậm trước giấc: gội đầu dưỡng sinh hoặc liệu trình Thân · Tâm · Trí.",
+    cause:
+      "Thần khí không yên: nghĩ nhiều, dùng thiết bị khuya, tâm hỏa vượng khiến giấc ngủ chập chờn.",
+    suggestion:
+      "Đưa cơ thể vào nhịp chậm trước giấc: gội đầu dưỡng sinh hoặc liệu trình Thân · Tâm · Trí.",
     serviceSlugs: ["lieu-trinh-than-tam-tri", "goi-dau-duong-sinh"],
   },
   {
@@ -708,7 +788,8 @@ export const SYMPTOMS: Symptom[] = [
     label: "Căng thẳng",
     region: "tam-tri",
     states: ["loan"],
-    cause: "Áp lực kéo dài khiến can khí uất, hơi thở nông, cơ thể luôn trong trạng thái phòng thủ.",
+    cause:
+      "Áp lực kéo dài khiến can khí uất, hơi thở nông, cơ thể luôn trong trạng thái phòng thủ.",
     suggestion: "Không gian tĩnh + trị liệu nhịp chậm giúp hệ thần kinh được phép nghỉ.",
   },
   {
@@ -725,7 +806,8 @@ export const SYMPTOMS: Symptom[] = [
     region: "toan-than",
     states: ["hu"],
     cause: "Khí huyết hao tổn lâu ngày, nghỉ ngơi thường không đủ bù — cơ thể mệt từ bên trong.",
-    suggestion: "Bồi dưỡng đều đặn bằng dưỡng sinh khí huyết, tránh trị liệu mạnh khi cơ thể đang hư.",
+    suggestion:
+      "Bồi dưỡng đều đặn bằng dưỡng sinh khí huyết, tránh trị liệu mạnh khi cơ thể đang hư.",
   },
   {
     key: "khi-huyet-kem",
@@ -747,11 +829,23 @@ export interface RitualMoment {
 export const RITUAL_MOMENTS: RitualMoment[] = [
   { key: "buoc-vao", label: "Bước vào", line: "Cửa khép lại, phố xá ở lại phía sau." },
   { key: "ngoi-xuong", label: "Ngồi xuống", line: "Một chén trà ấm, nhịp thở bắt đầu chậm lại." },
-  { key: "lang-nghe", label: "Lắng nghe cơ thể", line: "Chuyên viên hỏi, bắt mạch cảm nhận — cơ thể được lắng nghe trước khi được chạm." },
+  {
+    key: "lang-nghe",
+    label: "Lắng nghe cơ thể",
+    line: "Chuyên viên hỏi, bắt mạch cảm nhận — cơ thể được lắng nghe trước khi được chạm.",
+  },
   { key: "lam-am", label: "Làm ấm", line: "Thảo dược và hơi ấm mở đường cho khí huyết." },
   { key: "khai-thong", label: "Khai thông", line: "Đôi tay trị liệu đi đến đúng vùng đang cần." },
-  { key: "nghi-lai", label: "Nghỉ lại", line: "Không ai giục dậy — cơ thể được phép ở lại trong tĩnh." },
-  { key: "roi-di", label: "Rời đi nhẹ hơn", line: "Vai thả xuống, bước chân ra về nhẹ hơn lúc đến." },
+  {
+    key: "nghi-lai",
+    label: "Nghỉ lại",
+    line: "Không ai giục dậy — cơ thể được phép ở lại trong tĩnh.",
+  },
+  {
+    key: "roi-di",
+    label: "Rời đi nhẹ hơn",
+    line: "Vai thả xuống, bước chân ra về nhẹ hơn lúc đến.",
+  },
 ];
 
 // ---- "Không gian như liệu pháp" — 4 phẩm chất, mỗi phẩm chất 1 câu ----

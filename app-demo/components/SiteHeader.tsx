@@ -63,7 +63,11 @@ export default function SiteHeader() {
       </div>
 
       {open && (
-        <nav id="mobile-nav" className="border-t border-sand/70 bg-ivory lg:hidden" aria-label="Điều hướng chính (mobile)">
+        <nav
+          id="mobile-nav"
+          className="border-t border-sand/70 bg-ivory lg:hidden"
+          aria-label="Điều hướng chính (mobile)"
+        >
           <div className="mx-auto flex max-w-6xl flex-col px-4 py-2">
             {NAV.map((item) => (
               <Link

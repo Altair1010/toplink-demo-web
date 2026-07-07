@@ -26,7 +26,9 @@ export default function Callout({
         {title}
       </h3>
       {children && (
-        <div className={`mt-3 text-base leading-relaxed ${dark ? "text-cream/85" : "text-ink-soft"}`}>
+        <div
+          className={`mt-3 text-base leading-relaxed ${dark ? "text-cream/85" : "text-ink-soft"}`}
+        >
           {children}
         </div>
       )}

@@ -62,8 +62,13 @@ export default function ConvergeBlock({
       const e = ease(Math.max(0, Math.min(1, local)));
       setX(ox * (1 - e));
       setY(oy * (1 - e));
-      setScale(motionConfig.inactiveScale + (motionConfig.activeScale - motionConfig.inactiveScale) * e);
-      setOpacity(motionConfig.inactiveOpacity + (motionConfig.activeOpacity - motionConfig.inactiveOpacity) * e);
+      setScale(
+        motionConfig.inactiveScale + (motionConfig.activeScale - motionConfig.inactiveScale) * e,
+      );
+      setOpacity(
+        motionConfig.inactiveOpacity +
+          (motionConfig.activeOpacity - motionConfig.inactiveOpacity) * e,
+      );
     };
 
     return subscribe(apply);

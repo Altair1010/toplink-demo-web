@@ -17,7 +17,10 @@ export default function SpaceAsTherapy() {
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SPACE_QUALITIES.map((q) => (
-            <div key={q.key} className="frame-gold flex min-h-44 flex-col items-center justify-center p-8 text-center">
+            <div
+              key={q.key}
+              className="frame-gold flex min-h-44 flex-col items-center justify-center p-8 text-center"
+            >
               <span className="font-serif-display text-4xl text-crimson-700">{q.name}</span>
               <p className="mt-3 text-base text-ink-soft">{q.line}</p>
             </div>

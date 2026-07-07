@@ -39,10 +39,15 @@ export default function FourBodyStates({ selected }: { selected: Symptom[] }) {
                   <span className="font-serif-display text-3xl text-ivory">
                     {st.name}
                     {isDominant && (
-                      <span className="ml-2 inline-block h-2.5 w-2.5 rounded-full bg-gold-400 align-middle" title="Trạng thái cơ thể anh/chị có thể đang gặp" />
+                      <span
+                        className="ml-2 inline-block h-2.5 w-2.5 rounded-full bg-gold-400 align-middle"
+                        title="Trạng thái cơ thể anh/chị có thể đang gặp"
+                      />
                     )}
                   </span>
-                  <span aria-hidden className="text-xl text-gold-400">{isOpen ? "−" : "+"}</span>
+                  <span aria-hidden className="text-xl text-gold-400">
+                    {isOpen ? "−" : "+"}
+                  </span>
                 </button>
                 <div className="state-panel">
                   <div>

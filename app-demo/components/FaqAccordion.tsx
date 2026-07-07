@@ -20,7 +20,7 @@ export default function FaqAccordion() {
           >
             <span className="text-lg font-medium text-ink">{faq.q}</span>
             {open === i ? (
-              <Minus className="h-5 w-5 shrink-0 text-gold-600" />
+              <Minus className="h-5 w-5 shrink-0 text-gold-700" />
             ) : (
               <Plus className="h-5 w-5 shrink-0 text-crimson-600" />
             )}

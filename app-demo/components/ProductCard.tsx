@@ -19,7 +19,9 @@ export default function ProductCard({ product: p }: { product: Product }) {
           Y
         </span>
       </div>
-      <span className="mt-4 text-sm font-semibold uppercase tracking-wide text-gold-600">{p.group}</span>
+      <span className="mt-4 text-sm font-semibold uppercase tracking-wide text-gold-700">
+        {p.group}
+      </span>
       <h3 className="mt-1 text-xl font-semibold text-crimson-600">{p.name}</h3>
       <p className="mt-1 flex-1 text-base text-ink-soft">{p.desc}</p>
       <div className="mt-4 flex items-center justify-between">
@@ -29,7 +31,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
         href={CONTACT.zalo}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-base font-semibold text-gold-600 transition-colors hover:bg-gold-200"
+        className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-200"
       >
         <MessageCircle className="h-4 w-4" /> Tư vấn liệu trình
       </a>

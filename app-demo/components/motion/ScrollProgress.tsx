@@ -55,7 +55,7 @@ export default function ScrollProgress({
             end: "bottom 70%",
             scrub: motionConfig.scrub,
           },
-        }
+        },
       );
 
       return () => {
@@ -63,7 +63,7 @@ export default function ScrollProgress({
         tween.kill();
       };
     },
-    { scope: trackRef, dependencies: [vertical] }
+    { scope: trackRef, dependencies: [vertical] },
   );
 
   return (
@@ -74,10 +74,7 @@ export default function ScrollProgress({
         vertical ? "w-px" : "h-px w-full"
       } ${className}`}
     >
-      <div
-        ref={fillRef}
-        className={`bg-gold-500 ${vertical ? "h-full w-px" : "h-px w-full"}`}
-      />
+      <div ref={fillRef} className={`bg-gold-500 ${vertical ? "h-full w-px" : "h-px w-full"}`} />
     </div>
   );
 }

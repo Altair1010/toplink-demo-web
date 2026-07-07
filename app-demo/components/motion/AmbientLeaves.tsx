@@ -29,10 +29,7 @@ export default function AmbientLeaves() {
           fill="none"
         >
           {/* lá đơn giản: phiến + gân giữa */}
-          <path
-            d="M12 2C7 6 4 11 4 15a8 8 0 0 0 16 0c0-4-3-9-8-13Z"
-            fill="var(--color-jade-500)"
-          />
+          <path d="M12 2C7 6 4 11 4 15a8 8 0 0 0 16 0c0-4-3-9-8-13Z" fill="var(--color-jade-500)" />
           <path d="M12 5v14" stroke="var(--color-gold-300)" strokeWidth="0.8" />
         </svg>
       ))}

@@ -30,10 +30,23 @@ export default function BrandVisual({
 
   if (src) {
     return (
-      <div className={`relative isolate h-full w-full overflow-hidden ${className}`} role="img" aria-label={label ?? "Hình ảnh Y Viện Toplink"}>
-        <Img src={src} alt={label ?? "Hình ảnh Y Viện Toplink"} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+      <div
+        className={`relative isolate h-full w-full overflow-hidden ${className}`}
+        role="img"
+        aria-label={label ?? "Hình ảnh Y Viện Toplink"}
+      >
+        <Img
+          src={src}
+          alt={label ?? "Hình ảnh Y Viện Toplink"}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
         {/* lớp phủ mỏng giữ chữ/đường nét đọc rõ, tông đông y */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-crimson-800/35 to-transparent" aria-hidden />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-crimson-800/35 to-transparent"
+          aria-hidden
+        />
         {label && (
           <span className="absolute bottom-3 left-4 right-4 text-base font-semibold uppercase tracking-wide text-ivory drop-shadow">
             {label}
@@ -64,7 +77,7 @@ export default function BrandVisual({
                 <circle cx="0" cy="0" r="8" />
                 <path d="M-20 18 q10 -10 20 0 q10 10 20 0" />
               </g>
-            ))
+            )),
           )}
         </g>
       </svg>

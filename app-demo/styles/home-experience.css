@@ -8,7 +8,8 @@
 /* 1 · BODY REGION GLOW */
 .body-region {
   opacity: 0;
-  transition: opacity var(--motion-medium) var(--ease-soft),
+  transition:
+    opacity var(--motion-medium) var(--ease-soft),
     filter var(--motion-medium) var(--ease-soft);
 }
 .body-region[data-active="true"] {

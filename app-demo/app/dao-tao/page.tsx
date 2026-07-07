@@ -23,10 +23,14 @@ export default function TrainingPage() {
 
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
         <div className="aspect-[4/3] overflow-hidden frame-gold">
-          <BrandVisual variant="wood" src="/images/training/training-1.jpg" label="Học viện đào tạo" />
+          <BrandVisual
+            variant="wood"
+            src="/images/training/training-1.jpg"
+            label="Học viện đào tạo"
+          />
         </div>
         <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
-          <GraduationCap className="h-9 w-9 text-gold-600" />
+          <GraduationCap className="h-9 w-9 text-gold-700" />
           <h2 className="mt-4 text-3xl font-bold text-crimson-600">Quyền lợi học viên</h2>
           <ul className="mt-5 space-y-3">
             {TRAINING.benefits.map((b) => (
@@ -43,7 +47,7 @@ export default function TrainingPage() {
         {TRAINING.roadmap.map((step, i) => (
           <Reveal key={step.title} from="up" delay={i * 120} className="bg-ivory">
             <div className="h-full p-7">
-              <span className="text-4xl text-gold-600">0{i + 1}</span>
+              <span className="text-4xl text-gold-700">0{i + 1}</span>
               <h3 className="mt-2 text-xl text-crimson-600">{step.title}</h3>
               <p className="mt-1 text-base text-ink-soft">{step.desc}</p>
             </div>
@@ -52,13 +56,24 @@ export default function TrainingPage() {
       </div>
 
       <div className="on-dark mt-12 flex flex-col items-center gap-4 frame-gold bg-crimson-800 p-8 text-center text-ivory sm:p-12">
-        <h2 className="font-display text-3xl text-gold-200">Quan tâm khóa <span className="emph emph-light">đào tạo</span>?</h2>
-        <p className="max-w-xl text-lg text-cream/85">Để lại thông tin hoặc nhắn Zalo, đội ngũ Y Viện sẽ tư vấn lộ trình và lịch khai giảng phù hợp.</p>
+        <h2 className="font-display text-3xl text-gold-200">
+          Quan tâm khóa <span className="emph emph-light">đào tạo</span>?
+        </h2>
+        <p className="max-w-xl text-lg text-cream/85">
+          Để lại thông tin hoặc nhắn Zalo, đội ngũ Y Viện sẽ tư vấn lộ trình và lịch khai giảng phù
+          hợp.
+        </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/dat-lich" className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400">
+          <Link
+            href="/dat-lich"
+            className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400"
+          >
             Đăng ký tư vấn <ArrowRight className="h-4 w-4" />
           </Link>
-          <a href={CONTACT.zalo} className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700">
+          <a
+            href={CONTACT.zalo}
+            className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+          >
             Nhắn Zalo
           </a>
         </div>

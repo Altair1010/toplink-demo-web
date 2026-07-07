@@ -10,7 +10,13 @@ import { prefersReducedMotion } from "@/hooks/useReducedMotion";
  * tween 0 → giá trị, giữ nguyên tiền tố/hậu tố ("100%", "8+"). Chuỗi phi số ("An toàn")
  * → hiện tĩnh. Base-state = giá trị thật (SSR/no-JS/reduced-motion an toàn).
  */
-export default function StatCounter({ value, className = "" }: { value: string; className?: string }) {
+export default function StatCounter({
+  value,
+  className = "",
+}: {
+  value: string;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const m = value.match(/^(\D*)(\d[\d.,]*)(.*)$/);
 
@@ -41,7 +47,7 @@ export default function StatCounter({ value, className = "" }: { value: string; 
         gsap.fromTo(
           el,
           { yPercent: 6, opacity: 0.9 },
-          { yPercent: 0, opacity: 1, duration: breathFlow.medium, ease: breathFlow.ease }
+          { yPercent: 0, opacity: 1, duration: breathFlow.medium, ease: breathFlow.ease },
         );
       },
     });

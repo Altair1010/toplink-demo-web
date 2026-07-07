@@ -18,12 +18,17 @@ export default function RitualTimeline() {
             <li key={m.key}>
               <Reveal from="up" delay={Math.min(i, 3) * 80}>
                 <div className="flex items-baseline gap-6">
-                  <span aria-hidden className="w-8 shrink-0 text-right font-serif-display text-sm text-gold-600">
+                  <span
+                    aria-hidden
+                    className="w-8 shrink-0 text-right font-serif-display text-sm text-gold-700"
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
                     <h3 className="font-serif-display text-2xl text-ink">{m.label}</h3>
-                    <p className="measure-lead mt-1.5 text-lg leading-relaxed text-ink-soft">{m.line}</p>
+                    <p className="measure-lead mt-1.5 text-lg leading-relaxed text-ink-soft">
+                      {m.line}
+                    </p>
                   </div>
                 </div>
               </Reveal>

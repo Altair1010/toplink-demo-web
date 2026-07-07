@@ -8,8 +8,7 @@ import Reveal from "@/components/Reveal";
  */
 
 // Ảnh dược liệu (Unsplash, hotlink ổn định). Lúc launch thay bằng ảnh thật của Y Viện.
-const HERO_POSTER =
-  "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=70";
+const HERO_POSTER = "https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=70";
 
 const HERBS = [
   {
@@ -68,8 +67,8 @@ export default function PreviewMotionPage() {
               </span>
             </h1>
             <p className="animate-fade-up delay-2 mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
-              Không gian Đông y cao cấp, trị liệu thủ công, dưỡng liệu tự nhiên và
-              công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
+              Không gian Đông y cao cấp, trị liệu thủ công, dưỡng liệu tự nhiên và công nghệ hiện
+              đại, giúp cơ thể được lắng nghe và cân bằng.
             </p>
             <div className="animate-fade-up delay-3 mt-9 flex flex-wrap gap-3">
               <Link

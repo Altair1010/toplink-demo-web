@@ -42,36 +42,54 @@ export default function AboutPage() {
               className={`aspect-[3/4] overflow-hidden frame-gold ${i === 1 ? "sm:-mt-6" : "sm:mt-6"}`}
             >
               <div className="relative h-full w-full">
-                <Img src={im.src} alt="Không gian Y Viện Toplink" fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
+                <Img
+                  src={im.src}
+                  alt="Không gian Y Viện Toplink"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 33vw"
+                  className="object-cover"
+                />
               </div>
             </ConvergeItem>
           ))}
         </div>
 
         <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <ConvergeItem from="left" dist={180} className="rounded-md border border-sand bg-cream p-8 shadow-sm">
-            <Target className="h-8 w-8 text-gold-600" />
+          <ConvergeItem
+            from="left"
+            dist={180}
+            className="rounded-md border border-sand bg-cream p-8 shadow-sm"
+          >
+            <Target className="h-8 w-8 text-gold-700" />
             <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Sứ mệnh</h3>
             <p className="mt-2 text-lg leading-relaxed text-ink-soft">
-              Giúp mỗi người được lắng nghe cơ thể, phục hồi năng lượng và tìm lại sự cân bằng thân · tâm · trí giữa
-              nhịp sống hiện đại.
+              Giúp mỗi người được lắng nghe cơ thể, phục hồi năng lượng và tìm lại sự cân bằng thân
+              · tâm · trí giữa nhịp sống hiện đại.
             </p>
           </ConvergeItem>
-          <ConvergeItem from="right" dist={180} className="rounded-md border border-sand bg-cream p-8 shadow-sm">
-            <Eye className="h-8 w-8 text-gold-600" />
+          <ConvergeItem
+            from="right"
+            dist={180}
+            className="rounded-md border border-sand bg-cream p-8 shadow-sm"
+          >
+            <Eye className="h-8 w-8 text-gold-700" />
             <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Tầm nhìn</h3>
             <p className="mt-2 text-lg leading-relaxed text-ink-soft">
-              Trở thành hệ thống Y Viện dưỡng sinh được tin cậy, lan tỏa lối sống chăm sóc sức khỏe chủ động.
+              Trở thành hệ thống Y Viện dưỡng sinh được tin cậy, lan tỏa lối sống chăm sóc sức khỏe
+              chủ động.
             </p>
           </ConvergeItem>
         </div>
 
         <div className="on-dark mt-10 frame-gold bg-crimson-800 p-8 text-ivory sm:p-12">
           <Leaf className="h-10 w-10 text-gold-300" />
-          <SplitReveal as="h2" className="mt-4 text-3xl text-gold-200">Triết lý <span className="emph emph-light">dưỡng sinh</span></SplitReveal>
+          <SplitReveal as="h2" className="mt-4 text-3xl text-gold-200">
+            Triết lý <span className="emph emph-light">dưỡng sinh</span>
+          </SplitReveal>
           <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
-            Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh tại. Mỗi liệu
-            trình tại Y Viện bắt đầu từ việc lắng nghe, không vội vàng, không cam kết quá lời.
+            Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh
+            tại. Mỗi liệu trình tại Y Viện bắt đầu từ việc lắng nghe, không vội vàng, không cam kết
+            quá lời.
           </p>
         </div>
 
@@ -94,16 +112,24 @@ export default function AboutPage() {
 
         <div className="mt-14">
           <h2 className="text-3xl font-bold text-crimson-600">Đội ngũ chuyên viên</h2>
-          <p className="mt-2 text-lg text-ink-soft">Lương y và kỹ thuật viên được đào tạo bài bản, đồng hành cùng chị/anh trên hành trình dưỡng thân.</p>
+          <p className="mt-2 text-lg text-ink-soft">
+            Lương y và kỹ thuật viên được đào tạo bài bản, đồng hành cùng chị/anh trên hành trình
+            dưỡng thân.
+          </p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {TEAM.map((m) => (
-              <div key={m.name} className="flex gap-5 rounded-md border border-sand bg-cream p-6 shadow-sm">
+              <div
+                key={m.name}
+                className="flex gap-5 rounded-md border border-sand bg-cream p-6 shadow-sm"
+              >
                 <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-md border border-gold-500/60">
                   <Img src={m.image} alt={m.name} fill sizes="80px" className="object-cover" />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-crimson-600">{m.name}</h3>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-gold-600">{m.title}</p>
+                  <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">
+                    {m.title}
+                  </p>
                   <p className="mt-2 text-base text-ink">{m.expertise}</p>
                   <p className="mt-1 text-base text-ink-soft">{m.experience}</p>
                 </div>
@@ -114,11 +140,20 @@ export default function AboutPage() {
 
         {/* SỐ LIỆU / NIỀM TIN — di cư từ homepage (đại cách tân: home không còn counter) */}
         <div className="on-dark mt-14 bg-crimson-800 py-10">
-          <SectionHeader center dark eyebrow="Vì sao được tin tưởng" title="Những con số nói lên sự tận tâm" emphasis="tận tâm" />
+          <SectionHeader
+            center
+            dark
+            eyebrow="Vì sao được tin tưởng"
+            title="Những con số nói lên sự tận tâm"
+            emphasis="tận tâm"
+          />
           <div className="mx-auto mt-8 grid max-w-5xl gap-px overflow-hidden border border-gold-700 bg-gold-700 sm:grid-cols-2 lg:grid-cols-4">
             {STATS.map((s) => (
               <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
-                <StatCounter value={s.value} className="font-display text-4xl font-bold text-gold-300 sm:text-5xl" />
+                <StatCounter
+                  value={s.value}
+                  className="font-display text-4xl font-bold text-gold-300 sm:text-5xl"
+                />
                 <p className="mt-2 text-base leading-snug text-cream/85">{s.label}</p>
               </div>
             ))}
@@ -127,14 +162,23 @@ export default function AboutPage() {
 
         {/* CẢM NHẬN KHÁCH HÀNG — di cư từ homepage (social proof đặt ở trang giới thiệu) */}
         <div className="mt-14">
-          <SectionHeader center eyebrow="Cảm nhận khách hàng" title="Những chia sẻ thật" emphasis="thật" desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng." />
+          <SectionHeader
+            center
+            eyebrow="Cảm nhận khách hàng"
+            title="Những chia sẻ thật"
+            emphasis="thật"
+            desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng."
+          />
           <div className="mt-8">
             <ReviewWall />
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-[2.1rem] py-[1.05rem] text-[1.35rem] font-semibold uppercase tracking-wide text-wood-700 hover:bg-gold-400">
+          <Link
+            href="/dat-lich"
+            className="inline-block rounded-sm bg-gold-500 px-[2.1rem] py-[1.05rem] text-[1.35rem] font-semibold uppercase tracking-wide text-wood-700 hover:bg-gold-400"
+          >
             Đặt lịch trải nghiệm
           </Link>
         </div>

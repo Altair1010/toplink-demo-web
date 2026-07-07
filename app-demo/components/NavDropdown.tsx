@@ -56,9 +56,7 @@ export default function NavDropdown({ group }: { group: NavGroup }) {
           className={`${LINK} flex items-center gap-1 outline-none`}
         >
           {group.label}
-          <ChevronDown
-            className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`}
-          />
+          <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
         </button>
       </DropdownMenuTrigger>
 

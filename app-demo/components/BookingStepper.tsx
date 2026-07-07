@@ -22,8 +22,7 @@ import {
 
 // Cỡ input đồng bộ với thiết kế site (thoải mái cho người lớn tuổi, dấu TV rõ):
 // nền ivory nổi trên card cream, chữ 17px, bo 4px, viền sand, focus ring crimson (token --ring).
-const INPUT_CLS =
-  "h-auto rounded-md border-sand bg-ivory px-4 py-3 text-[1.0625rem] text-ink";
+const INPUT_CLS = "h-auto rounded-md border-sand bg-ivory px-4 py-3 text-[1.0625rem] text-ink";
 
 const STEPS = ["Chọn nhu cầu", "Chọn dịch vụ", "Thông tin liên hệ"];
 
@@ -35,7 +34,13 @@ export default function BookingStepper() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [phoneError, setPhoneError] = useState<string | null>(null);
-  const [form, setForm] = useState({ name: "", phone: "", datetime: "", branch: BRANCHES[0].slug, note: "" });
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    datetime: "",
+    branch: BRANCHES[0].slug,
+    note: "",
+  });
   const formElRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef(false);
 
@@ -76,7 +81,7 @@ export default function BookingStepper() {
 
   const serviceLabel = letAdvise
     ? "Để Y Viện Toplink tư vấn"
-    : SERVICES.find((s) => s.slug === service)?.name ?? "Chưa chọn";
+    : (SERVICES.find((s) => s.slug === service)?.name ?? "Chưa chọn");
   const needLabel = NEEDS.find((n) => n.key === need)?.label ?? "Để Y Viện Toplink tư vấn";
   const branchName = BRANCHES.find((b) => b.slug === form.branch)?.name ?? form.branch;
 
@@ -97,11 +102,16 @@ export default function BookingStepper() {
         <SealStamp />
         <h2 className="mt-6 font-display text-3xl font-bold text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
-          Y Viện Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
+          Y Viện Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần
+          nhanh hơn, chị/anh có thể nhắn Zalo ngay.
         </p>
         <div className="mt-6 rounded-md border border-sand bg-ivory p-4 text-left text-base text-ink-soft">
-          <p><span className="font-medium text-ink">Họ tên:</span> {form.name || "Chưa nhập"}</p>
-          <p><span className="font-medium text-ink">Điện thoại:</span> {form.phone || "Chưa nhập"}</p>
+          <p>
+            <span className="font-medium text-ink">Họ tên:</span> {form.name || "Chưa nhập"}
+          </p>
+          <p>
+            <span className="font-medium text-ink">Điện thoại:</span> {form.phone || "Chưa nhập"}
+          </p>
           <p>
             <span className="font-medium text-ink">Nhu cầu:</span> {needLabel}
           </p>
@@ -116,7 +126,10 @@ export default function BookingStepper() {
           >
             <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
           </a>
-          <Link href="/" className="inline-block rounded-sm border border-crimson-600 px-7 py-3 text-base font-semibold text-crimson-600 hover:bg-crimson-50">
+          <Link
+            href="/"
+            className="inline-block rounded-sm border border-crimson-600 px-7 py-3 text-base font-semibold text-crimson-600 hover:bg-crimson-50"
+          >
             Về trang chủ
           </Link>
         </div>
@@ -136,8 +149,8 @@ export default function BookingStepper() {
                   i < step
                     ? "bg-jade-500 text-white"
                     : i === step
-                    ? "bg-crimson-600 text-gold-200"
-                    : "bg-sand text-ink-soft"
+                      ? "bg-crimson-600 text-gold-200"
+                      : "bg-sand text-ink-soft"
                 }`}
               >
                 {i < step ? <Check className="h-4 w-4" /> : i + 1}
@@ -153,15 +166,21 @@ export default function BookingStepper() {
         {/* STEP 1 */}
         {step === 0 && (
           <div className="animate-fade-up">
-            <h2 className="font-display text-3xl font-bold text-crimson-600">Cơ thể chị/anh đang cần gì?</h2>
-            <p className="mt-1 text-base text-ink-soft">Chọn nhu cầu chính để Y Viện gợi ý đúng hướng.</p>
+            <h2 className="font-display text-3xl font-bold text-crimson-600">
+              Cơ thể chị/anh đang cần gì?
+            </h2>
+            <p className="mt-1 text-base text-ink-soft">
+              Chọn nhu cầu chính để Y Viện gợi ý đúng hướng.
+            </p>
             <div className="mt-6 grid grid-cols-2 gap-2.5 sm:grid-cols-3">
               {NEEDS.map((n) => (
                 <button
                   key={n.key}
                   onClick={() => setNeed(n.key)}
                   className={`rounded-md border px-3 py-3.5 text-center text-base font-medium transition-all ${
-                    need === n.key ? "border-crimson-600 bg-crimson-600 text-gold-200" : "border-sand bg-ivory hover:border-gold-400"
+                    need === n.key
+                      ? "border-crimson-600 bg-crimson-600 text-gold-200"
+                      : "border-sand bg-ivory hover:border-gold-400"
                   }`}
                 >
                   {n.label}
@@ -174,8 +193,12 @@ export default function BookingStepper() {
         {/* STEP 2 */}
         {step === 1 && (
           <div className="animate-fade-up">
-            <h2 className="font-display text-3xl font-bold text-crimson-600">Chọn dịch vụ phù hợp</h2>
-            <p className="mt-1 text-base text-ink-soft">Hoặc để Y Viện tư vấn liệu trình cho chị/anh.</p>
+            <h2 className="font-display text-3xl font-bold text-crimson-600">
+              Chọn dịch vụ phù hợp
+            </h2>
+            <p className="mt-1 text-base text-ink-soft">
+              Hoặc để Y Viện tư vấn liệu trình cho chị/anh.
+            </p>
 
             <button
               onClick={() => {
@@ -183,13 +206,19 @@ export default function BookingStepper() {
                 setService(null);
               }}
               className={`mt-5 flex w-full items-center gap-3 rounded-md border px-4 py-3.5 text-left transition-all ${
-                letAdvise ? "border-gold-500 bg-gold-200" : "border-dashed border-gold-500 bg-ivory hover:bg-gold-200"
+                letAdvise
+                  ? "border-gold-500 bg-gold-200"
+                  : "border-dashed border-gold-500 bg-ivory hover:bg-gold-200"
               }`}
             >
-              <Sparkles className="h-5 w-5 text-gold-600" />
+              <Sparkles className="h-5 w-5 text-gold-700" />
               <span>
-                <span className="block text-base font-semibold text-crimson-600">Tôi chưa biết chọn dịch vụ nào</span>
-                <span className="block text-sm text-ink-soft">Y Viện sẽ gọi lại tư vấn liệu trình phù hợp.</span>
+                <span className="block text-base font-semibold text-crimson-600">
+                  Tôi chưa biết chọn dịch vụ nào
+                </span>
+                <span className="block text-sm text-ink-soft">
+                  Y Viện sẽ gọi lại tư vấn liệu trình phù hợp.
+                </span>
               </span>
             </button>
 
@@ -202,12 +231,16 @@ export default function BookingStepper() {
                     setLetAdvise(false);
                   }}
                   className={`flex items-center justify-between rounded-md border px-4 py-3.5 text-left transition-all ${
-                    service === s.slug ? "border-crimson-600 bg-crimson-50" : "border-sand bg-ivory hover:border-gold-400"
+                    service === s.slug
+                      ? "border-crimson-600 bg-crimson-50"
+                      : "border-sand bg-ivory hover:border-gold-400"
                   }`}
                 >
                   <span>
                     <span className="block text-base font-medium text-ink">{s.name}</span>
-                    <span className="block text-sm text-ink-soft">{s.duration} · từ {s.priceFrom}</span>
+                    <span className="block text-sm text-ink-soft">
+                      {s.duration} · từ {s.priceFrom}
+                    </span>
                   </span>
                   {service === s.slug && <Check className="h-5 w-5 text-crimson-600" />}
                 </button>
@@ -220,7 +253,9 @@ export default function BookingStepper() {
         {step === 2 && (
           <div className="animate-fade-up space-y-4">
             <h2 className="font-display text-3xl font-bold text-crimson-600">Thông tin liên hệ</h2>
-            <p className="text-base text-ink-soft">Y Viện sẽ gọi lại xác nhận lịch hẹn cho chị/anh.</p>
+            <p className="text-base text-ink-soft">
+              Y Viện sẽ gọi lại xác nhận lịch hẹn cho chị/anh.
+            </p>
 
             <Field label="Họ tên">
               <Input
@@ -244,7 +279,10 @@ export default function BookingStepper() {
                 className={INPUT_CLS}
               />
               {phoneError && (
-                <span id="phone-error" className="mt-1.5 block text-sm font-medium text-crimson-600">
+                <span
+                  id="phone-error"
+                  className="mt-1.5 block text-sm font-medium text-crimson-600"
+                >
                   {phoneError}
                 </span>
               )}
@@ -264,7 +302,11 @@ export default function BookingStepper() {
                 </SelectTrigger>
                 <SelectContent className="border-sand bg-ivory">
                   {BRANCHES.map((b) => (
-                    <SelectItem key={b.slug} value={b.slug} className="text-[1.0625rem] text-ink focus:bg-cream focus:text-crimson-600">
+                    <SelectItem
+                      key={b.slug}
+                      value={b.slug}
+                      className="text-[1.0625rem] text-ink focus:bg-cream focus:text-crimson-600"
+                    >
                       {b.name}
                     </SelectItem>
                   ))}
@@ -312,7 +354,9 @@ export default function BookingStepper() {
               className="btn-press h-auto gap-1.5 rounded-sm bg-gold-500 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
             >
               {submitting ? (
-                <><Loader2 className="h-4 w-4 animate-spin" /> Đang gửi…</>
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" /> Đang gửi…
+                </>
               ) : (
                 "Gửi yêu cầu đặt lịch"
               )}
@@ -384,7 +428,13 @@ function StepConnector({ active }: { active: boolean }) {
 
   return (
     <span className="mx-2 h-0.5 flex-1">
-      <svg width="100%" height="2" preserveAspectRatio="none" className="block h-full w-full" aria-hidden>
+      <svg
+        width="100%"
+        height="2"
+        preserveAspectRatio="none"
+        className="block h-full w-full"
+        aria-hidden
+      >
         <line x1="0" y1="1" x2="100%" y2="1" stroke="var(--color-sand)" strokeWidth="2" />
         <line
           ref={lineRef}
@@ -415,7 +465,7 @@ function SealStamp() {
     gsap.fromTo(
       el,
       { scale: 1.8, rotate: -10, opacity: 0 },
-      { scale: 1, rotate: 0, opacity: 1, duration: 0.5, ease: "back.out(2)" }
+      { scale: 1, rotate: 0, opacity: 1, duration: 0.5, ease: "back.out(2)" },
     );
   }, []);
 

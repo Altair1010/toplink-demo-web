@@ -30,7 +30,9 @@ export default function BodyStatePanel({ selected }: { selected: Symptom[] }) {
         </p>
       )}
       <p className="measure-lead mt-3 text-lg leading-relaxed text-ink">{primary.cause}</p>
-      <p className="measure-lead mt-2 text-lg leading-relaxed text-ink-soft">{primary.suggestion}</p>
+      <p className="measure-lead mt-2 text-lg leading-relaxed text-ink-soft">
+        {primary.suggestion}
+      </p>
       <div className="mt-5 flex flex-wrap gap-3">
         <a
           href={CONTACT.zalo}

@@ -51,9 +51,14 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
       prune: true, // bỏ card KHÔNG đổi vị trí khỏi tween → nhẹ hơn, stagger sạch hơn
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onEnter: (els: any) =>
-        gsap.fromTo(els, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" }),
+        gsap.fromTo(
+          els,
+          { opacity: 0, scale: 0.85 },
+          { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" },
+        ),
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      onLeave: (els: any) => gsap.to(els, { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }),
+      onLeave: (els: any) =>
+        gsap.to(els, { opacity: 0, scale: 0.85, duration: 0.3, ease: "power2.in" }),
     });
     stateRef.current = null;
   }, [filter]);
@@ -68,7 +73,7 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
   };
 
   const featured = FEATURED_SLUGS.map((slug) => SERVICES.find((s) => s.slug === slug)).filter(
-    (s): s is (typeof SERVICES)[number] => Boolean(s)
+    (s): s is (typeof SERVICES)[number] => Boolean(s),
   );
 
   const chips: { key: Filter; label: string }[] = [
@@ -79,14 +84,24 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
   // Pill active TRƯỢT giữa các chip: đo vị trí chip active → set toạ độ, CSS transition
   // lo phần trượt (không cần engine animation). Reduced-motion → không transition.
   const chipRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const [ind, setInd] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
+  const [ind, setInd] = useState<{
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  } | null>(null);
   const activeIndex = chips.findIndex((c) => c.key === filter);
 
   useLayoutEffect(() => {
     const measure = () => {
       const btn = chipRefs.current[activeIndex];
       if (!btn) return;
-      setInd({ left: btn.offsetLeft, top: btn.offsetTop, width: btn.offsetWidth, height: btn.offsetHeight });
+      setInd({
+        left: btn.offsetLeft,
+        top: btn.offsetTop,
+        width: btn.offsetWidth,
+        height: btn.offsetHeight,
+      });
     };
     measure();
     window.addEventListener("resize", measure);
@@ -113,40 +128,40 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
 
       {!featuredOnly && (
         <>
-      <div className="relative flex flex-wrap justify-center gap-2.5">
-        {ind && (
-          <span
-            aria-hidden
-            className="shadow-soft pointer-events-none absolute rounded-md bg-crimson-600 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
-            style={{ left: ind.left, top: ind.top, width: ind.width, height: ind.height }}
-          />
-        )}
-        {chips.map((c, i) => (
-          <button
-            key={c.key}
-            ref={(el) => {
-              chipRefs.current[i] = el;
-            }}
-            onClick={() => changeFilter(c.key)}
-            aria-pressed={filter === c.key}
-            className={`relative z-10 rounded-md border px-5 py-2.5 text-base font-medium transition-colors ${
-              filter === c.key
-                ? "border-crimson-600 text-gold-200"
-                : "border-sand bg-ivory text-ink hover:border-gold-400"
-            }`}
-          >
-            {c.label}
-          </button>
-        ))}
-      </div>
-
-      <div ref={gridRef} className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {list.map((s) => (
-          <div key={s.slug} data-flip-id={s.slug}>
-            <BookCard service={s} />
+          <div className="relative flex flex-wrap justify-center gap-2.5">
+            {ind && (
+              <span
+                aria-hidden
+                className="shadow-soft pointer-events-none absolute rounded-md bg-crimson-600 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+                style={{ left: ind.left, top: ind.top, width: ind.width, height: ind.height }}
+              />
+            )}
+            {chips.map((c, i) => (
+              <button
+                key={c.key}
+                ref={(el) => {
+                  chipRefs.current[i] = el;
+                }}
+                onClick={() => changeFilter(c.key)}
+                aria-pressed={filter === c.key}
+                className={`relative z-10 rounded-md border px-5 py-2.5 text-base font-medium transition-colors ${
+                  filter === c.key
+                    ? "border-crimson-600 text-gold-200"
+                    : "border-sand bg-ivory text-ink hover:border-gold-400"
+                }`}
+              >
+                {c.label}
+              </button>
+            ))}
           </div>
-        ))}
-      </div>
+
+          <div ref={gridRef} className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {list.map((s) => (
+              <div key={s.slug} data-flip-id={s.slug}>
+                <BookCard service={s} />
+              </div>
+            ))}
+          </div>
         </>
       )}
     </div>

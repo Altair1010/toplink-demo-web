@@ -25,7 +25,13 @@ export default function ReviewWall() {
             {/* TODO: thay bằng <video> với nguồn thật + poster. */}
             <div className="img-overlay relative aspect-video w-full overflow-hidden bg-crimson-900">
               {video.poster && (
-                <Img src={video.poster} alt="Video cảm nhận khách hàng (placeholder)" fill sizes="(max-width:1024px) 100vw, 58vw" className="img-grade object-cover" />
+                <Img
+                  src={video.poster}
+                  alt="Video cảm nhận khách hàng (placeholder)"
+                  fill
+                  sizes="(max-width:1024px) 100vw, 58vw"
+                  className="img-grade object-cover"
+                />
               )}
               <div className="absolute inset-0 z-10 flex items-center justify-center">
                 <span className="flex h-20 w-20 items-center justify-center rounded-full bg-ivory/90 text-crimson-600 shadow-soft">
@@ -47,13 +53,21 @@ export default function ReviewWall() {
               <Spotlight radius={180} />
               <div className="img-overlay relative aspect-[16/10] overflow-hidden bg-cream">
                 {image.image && (
-                  <Img src={image.image} alt="Ảnh cảm nhận khách hàng (placeholder)" fill sizes="(max-width:1024px) 100vw, 40vw" className="img-grade object-cover" />
+                  <Img
+                    src={image.image}
+                    alt="Ảnh cảm nhận khách hàng (placeholder)"
+                    fill
+                    sizes="(max-width:1024px) 100vw, 40vw"
+                    className="img-grade object-cover"
+                  />
                 )}
                 <span className="absolute left-4 top-4 z-10 flex items-center gap-1 rounded-sm bg-ivory/90 px-2.5 py-1 text-xs font-semibold text-crimson-600">
                   <ImageIcon className="h-3.5 w-3.5" /> Ảnh chia sẻ
                 </span>
               </div>
-              <figcaption className="p-6 text-base leading-relaxed text-ink">“{image.text}”</figcaption>
+              <figcaption className="p-6 text-base leading-relaxed text-ink">
+                “{image.text}”
+              </figcaption>
             </figure>
           )}
 
@@ -64,7 +78,9 @@ export default function ReviewWall() {
               <blockquote className="mt-4 font-serif-display text-[length:var(--text-statement)] leading-snug">
                 “{quote.text}”
               </blockquote>
-              <figcaption className="mt-4 text-sm uppercase tracking-[0.18em] text-gold-300">Cảm nhận khách hàng</figcaption>
+              <figcaption className="mt-4 text-sm uppercase tracking-[0.18em] text-gold-300">
+                Cảm nhận khách hàng
+              </figcaption>
             </figure>
           )}
         </div>

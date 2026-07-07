@@ -55,9 +55,15 @@ h6 {
 }
 
 /* ── MEASURE: giới hạn chiều dài dòng (Baymard ~50–75 ký tự) ── */
-.measure-body { max-width: 62ch; }
-.measure-lead { max-width: 54ch; }
-.measure-card { max-width: 36ch; }
+.measure-body {
+  max-width: 62ch;
+}
+.measure-lead {
+  max-width: 54ch;
+}
+.measure-card {
+  max-width: 36ch;
+}
 
 /* Nhấn từ khóa trong headline: BOLD + VIỀN CHỮ MẢNH tương phản
    (không italic, không tô vàng) — giữ cùng họ chữ, chỉ tăng độ nổi. */

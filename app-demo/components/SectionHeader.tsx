@@ -20,14 +20,24 @@ export default function SectionHeader({
   return (
     <div className={center ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       {eyebrow && (
-        <span className={`block font-display text-base font-extrabold uppercase tracking-[0.14em] sm:text-lg ${dark ? "text-gold-400" : "text-crimson-600"}`}>
+        <span
+          className={`block font-display text-base font-extrabold uppercase tracking-[0.14em] sm:text-lg ${dark ? "text-gold-400" : "text-crimson-600"}`}
+        >
           {eyebrow}
         </span>
       )}
-      <h2 className={`mt-2 text-balance font-display text-2xl leading-tight sm:text-3xl ${dark ? "text-gold-200" : "text-crimson-600"}`}>
+      <h2
+        className={`mt-2 text-balance font-display text-2xl leading-tight sm:text-3xl ${dark ? "text-gold-200" : "text-crimson-600"}`}
+      >
         {renderEmphasis(title, emphasis, dark)}
       </h2>
-      {desc && <p className={`mt-3 max-w-3xl text-lg leading-relaxed ${dark ? "text-cream/80" : "text-ink-soft"}`}>{desc}</p>}
+      {desc && (
+        <p
+          className={`mt-3 max-w-3xl text-lg leading-relaxed ${dark ? "text-cream/80" : "text-ink-soft"}`}
+        >
+          {desc}
+        </p>
+      )}
       <div className={`gold-rule mt-5 w-28 ${center ? "mx-auto" : ""}`} />
     </div>
   );

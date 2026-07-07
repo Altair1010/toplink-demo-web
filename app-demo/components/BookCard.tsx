@@ -21,7 +21,9 @@ const INNER_FALLBACK = "/images/spaces/tang-2-treatment.jpg";
 export default function BookCard({ service, featured }: { service: Service; featured?: boolean }) {
   return (
     <Link href={`/dich-vu/${service.slug}`} className="book group block h-full focus:outline-none">
-      <div className={`book-inner h-full overflow-hidden rounded-2xl ${featured ? "min-h-[30rem]" : "min-h-[24rem]"}`}>
+      <div
+        className={`book-inner h-full overflow-hidden rounded-2xl ${featured ? "min-h-[30rem]" : "min-h-[24rem]"}`}
+      >
         {/* PAGE — ảnh "trang sách" lộ qua khe bìa khi mở hé */}
         <div className="img-overlay absolute inset-0 rounded-2xl border border-gold-700/60 bg-crimson-900">
           <Img
@@ -31,20 +33,28 @@ export default function BookCard({ service, featured }: { service: Service; feat
             sizes="(max-width: 768px) 100vw, 33vw"
             className="img-grade object-cover opacity-90"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-crimson-800/20 to-crimson-800/60" aria-hidden />
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-crimson-800/20 to-crimson-800/60"
+            aria-hidden
+          />
         </div>
 
         {/* COVER — bìa sách, mở hé khi hover/focus */}
         <div className="book-cover on-dark flex h-full flex-col rounded-2xl border border-gold-700 bg-crimson-800 p-7 text-ivory">
           <div className="flex items-center justify-between">
-            <span className={`rounded-sm px-3 py-1 text-sm font-semibold ${LEVEL_COLORS[service.level]}`}>
+            <span
+              className={`rounded-sm px-3 py-1 text-sm font-semibold ${LEVEL_COLORS[service.level]}`}
+            >
               {service.levelLabel}
             </span>
             <span className="flex items-center gap-1 text-sm text-gold-300/90">
               <Clock className="h-3.5 w-3.5" /> {service.duration}
             </span>
           </div>
-          <span className="seal mt-5 flex h-12 w-12 items-center justify-center text-xl text-gold-300" aria-hidden>
+          <span
+            className="seal mt-5 flex h-12 w-12 items-center justify-center text-xl text-gold-300"
+            aria-hidden
+          >
             Y
           </span>
           <h3 className="mt-4 text-2xl leading-tight text-ivory">{service.name}</h3>

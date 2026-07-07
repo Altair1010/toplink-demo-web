@@ -52,7 +52,7 @@ export default function YVienSpaceExperience() {
               ease: breathFlow.ease,
               delay: (i % 2) * 0.06,
               scrollTrigger: { trigger: p, start: "top 88%", toggleActions: "play none none none" },
-            }
+            },
           );
         });
         return;
@@ -103,7 +103,7 @@ export default function YVienSpaceExperience() {
               end: "right left",
               scrub: true,
             },
-          }
+          },
         );
       });
 
@@ -113,7 +113,7 @@ export default function YVienSpaceExperience() {
         tween.kill();
       };
     },
-    { scope: sceneRef, dependencies: [] }
+    { scope: sceneRef, dependencies: [] },
   );
 
   return (
@@ -136,7 +136,9 @@ export default function YVienSpaceExperience() {
               data-floor-panel
               className="shrink-0 lg:flex lg:h-full lg:items-center lg:justify-center lg:px-10"
             >
-              <article className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 shadow-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}>
+              <article
+                className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 shadow-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}
+              >
                 <div className="img-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
                   <div
                     ref={(el) => {
@@ -145,15 +147,27 @@ export default function YVienSpaceExperience() {
                     className="absolute inset-0 lg:-inset-x-[12%]"
                   >
                     {/* TODO: thay bằng ảnh thật từng tầng của Y Viện */}
-                    <Img src={sp.image} alt={sp.floor} fill sizes="(max-width: 1024px) 100vw, 45vw" className="img-grade object-cover" />
+                    <Img
+                      src={sp.image}
+                      alt={sp.floor}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 45vw"
+                      className="img-grade object-cover"
+                    />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center p-8 text-ivory sm:p-10">
                   <div className="flex items-baseline gap-2 text-gold-300">
-                    <span className="font-serif-display text-6xl leading-none text-gold-400">0{i + 1}</span>
-                    <span className="text-base font-semibold uppercase tracking-[0.2em] text-gold-300/70">/ 0{N}</span>
+                    <span className="font-serif-display text-6xl leading-none text-gold-400">
+                      0{i + 1}
+                    </span>
+                    <span className="text-base font-semibold uppercase tracking-[0.2em] text-gold-300/70">
+                      / 0{N}
+                    </span>
                   </div>
-                  <h3 className="mt-4 font-serif-display text-2xl text-gold-200 sm:text-3xl">{sp.floor}</h3>
+                  <h3 className="mt-4 font-serif-display text-2xl text-gold-200 sm:text-3xl">
+                    {sp.floor}
+                  </h3>
                   <p className="mt-4 text-lg leading-relaxed text-cream/85">{sp.desc}</p>
                 </div>
               </article>

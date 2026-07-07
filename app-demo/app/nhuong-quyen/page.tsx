@@ -35,18 +35,33 @@ export default function FranchisePage() {
           </div>
         </Reveal>
         <Reveal from="right" className="aspect-[4/3] overflow-hidden frame-gold lg:aspect-auto">
-          <BrandVisual variant="crimson" src="/images/partner/partner-1.jpg" label="Không gian Y Viện Toplink" />
+          <BrandVisual
+            variant="crimson"
+            src="/images/partner/partner-1.jpg"
+            label="Không gian Y Viện Toplink"
+          />
         </Reveal>
       </div>
 
       <div className="on-dark mt-12 flex flex-col items-center gap-4 frame-gold bg-wood-700 p-8 text-center text-ivory sm:p-12">
-        <h2 className="font-display text-3xl text-gold-200">Trở thành <span className="emph emph-light">đối tác</span> Y Viện Toplink</h2>
-        <p className="max-w-xl text-lg text-cream/85">Liên hệ để nhận hồ sơ hợp tác và trao đổi chi tiết về mô hình, chi phí và lộ trình triển khai.</p>
+        <h2 className="font-display text-3xl text-gold-200">
+          Trở thành <span className="emph emph-light">đối tác</span> Y Viện Toplink
+        </h2>
+        <p className="max-w-xl text-lg text-cream/85">
+          Liên hệ để nhận hồ sơ hợp tác và trao đổi chi tiết về mô hình, chi phí và lộ trình triển
+          khai.
+        </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href="/dat-lich" className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400">
+          <Link
+            href="/dat-lich"
+            className="flex items-center gap-2 rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 hover:bg-gold-400"
+          >
             Đăng ký hợp tác <ArrowRight className="h-4 w-4" />
           </Link>
-          <a href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`} className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700">
+          <a
+            href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`}
+            className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
+          >
             Gọi {CONTACT.hotline}
           </a>
         </div>
