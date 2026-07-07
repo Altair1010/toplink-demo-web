@@ -5,7 +5,9 @@ import { Leaf, Target, Eye, Heart } from "lucide-react";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import SplitReveal from "@/components/motion/SplitReveal";
-import { TEAM } from "@/data/content";
+import StatCounter from "@/components/motion/StatCounter";
+import ReviewWall from "@/components/ReviewWall";
+import { TEAM, STATS } from "@/data/content";
 
 export const metadata = {
   title: "Giới thiệu",
@@ -107,6 +109,27 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* SỐ LIỆU / NIỀM TIN — di cư từ homepage (đại cách tân: home không còn counter) */}
+        <div className="on-dark mt-14 bg-crimson-800 py-10">
+          <SectionHeader center dark eyebrow="Vì sao được tin tưởng" title="Những con số nói lên sự tận tâm" emphasis="tận tâm" />
+          <div className="mx-auto mt-8 grid max-w-5xl gap-px overflow-hidden border border-gold-700 bg-gold-700 sm:grid-cols-2 lg:grid-cols-4">
+            {STATS.map((s) => (
+              <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
+                <StatCounter value={s.value} className="font-display text-4xl font-bold text-gold-300 sm:text-5xl" />
+                <p className="mt-2 text-base leading-snug text-cream/85">{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CẢM NHẬN KHÁCH HÀNG — di cư từ homepage (social proof đặt ở trang giới thiệu) */}
+        <div className="mt-14">
+          <SectionHeader center eyebrow="Cảm nhận khách hàng" title="Những chia sẻ thật" emphasis="thật" desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng." />
+          <div className="mt-8">
+            <ReviewWall />
           </div>
         </div>
 

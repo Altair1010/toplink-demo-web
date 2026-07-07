@@ -3,6 +3,7 @@ import BrandVisual from "@/components/BrandVisual";
 import SectionHeader from "@/components/SectionHeader";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import AmbientLeaves from "@/components/motion/AmbientLeaves";
+import YVienSpaceExperience from "@/components/YVienSpaceExperience";
 import { SPACES } from "@/data/content";
 
 export const metadata = {
@@ -21,6 +22,11 @@ export default function SpacePage() {
           title="Tĩnh · Thông · Dưỡng · Tỉnh"
           desc="Bốn tầng được thiết kế như một hành trình đưa cơ thể từ trạng thái căng thẳng về sự cân bằng. Cuộn để các khối trôi về trung tâm."
         />
+
+        {/* Deck 4 tầng motion — di cư từ homepage (đại cách tân) */}
+        <div className="mt-12">
+          <YVienSpaceExperience />
+        </div>
 
         <div className="mt-16 space-y-20">
           {SPACES.map((sp, i) => {

@@ -1,13 +1,12 @@
 import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
-import Reveal from "@/components/Reveal";
-import { PROCESS_STEPS } from "@/data/content";
+import HealingProcessMotion from "@/components/HealingProcessMotion";
 
 export const metadata = { title: "Quy trình trị liệu" };
 
 export default function ProcessPage() {
   return (
-    <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
+    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <SectionHeader
         center
         eyebrow="Quy trình trị liệu"
@@ -15,22 +14,10 @@ export default function ProcessPage() {
         desc="Y Viện làm việc có quy trình, minh bạch và tôn trọng cơ thể của chị/anh ở mỗi bước."
       />
 
-      <ol className="mt-12 space-y-2">
-        {PROCESS_STEPS.map((step, i) => (
-          <li key={i} className="relative flex gap-6 pb-8 last:pb-0">
-            {i < PROCESS_STEPS.length - 1 && (
-              <span className="absolute left-[1.7rem] top-14 h-[calc(100%-2rem)] w-px bg-sand" aria-hidden />
-            )}
-            <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-crimson-600 font-display text-2xl text-gold-500">
-              0{i + 1}
-            </span>
-            <Reveal from="right" delay={i * 90} className="flex-1 rounded-md border border-sand bg-cream p-8 shadow-sm">
-              <h3 className="text-xl font-semibold text-crimson-600">{step.title}</h3>
-              <p className="mt-2 text-lg leading-relaxed text-ink-soft">{step.desc}</p>
-            </Reveal>
-          </li>
-        ))}
-      </ol>
+      {/* 4 bước motion — di cư từ homepage (đại cách tân) */}
+      <div className="mt-12">
+        <HealingProcessMotion />
+      </div>
 
       <div className="mt-10 text-center">
         <Link href="/dat-lich" className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400">

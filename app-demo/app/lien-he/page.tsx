@@ -1,5 +1,6 @@
 import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import FaqAccordion from "@/components/FaqAccordion";
 import { BRANCHES, CONTACT } from "@/data/content";
 
 export const metadata = { title: "Liên hệ" };
@@ -61,6 +62,14 @@ export default function ContactPage() {
               Gọi {CONTACT.hotline}
             </a>
           </div>
+        </div>
+      </div>
+
+      {/* FAQ — di cư từ homepage (đại cách tân: câu hỏi thường gặp gắn với liên hệ) */}
+      <div className="mx-auto mt-16 container-narrow">
+        <SectionHeader center eyebrow="Câu hỏi thường gặp" title="Có thể anh/chị đang thắc mắc" emphasis="thắc mắc" />
+        <div className="mt-10">
+          <FaqAccordion />
         </div>
       </div>
     </div>
