@@ -587,3 +587,183 @@ export const FRANCHISE = {
     { title: "Marketing & thương hiệu", desc: "Đồng bộ bộ nhận diện và hỗ trợ truyền thông địa phương." },
   ],
 };
+
+// ============================================================
+// "NGHI THỨC CHẨN THÂN" — data cho homepage trải nghiệm body-first
+// Học thuyết Đông y giản lược thành interface: triệu chứng → trạng thái
+// (Tắc/Hàn/Hư/Loạn) → hướng chăm sóc → liệu trình gợi ý.
+// ============================================================
+
+export type BodyStateKey = "tac" | "han" | "hu" | "loan";
+
+export interface BodyState {
+  key: BodyStateKey;
+  name: string; // Tắc | Hàn | Hư | Loạn
+  essence: string; // 1 câu bản chất
+  signals: string[]; // biểu hiện thường gặp
+  careDirection: string; // hướng chăm sóc ngắn gọn
+  serviceSlugs: string[]; // liệu trình gợi ý, ưu tiên theo thứ tự
+}
+
+export const BODY_STATES: BodyState[] = [
+  {
+    key: "tac",
+    name: "Tắc",
+    essence: "Khí huyết không lưu thông — đau mỏi, nặng người, cứng khớp.",
+    signals: ["Cổ vai gáy căng cứng", "Lưng eo đau mỏi", "Đầu nặng, khó xoay người"],
+    careDirection: "Khai thông kinh lạc bằng trị liệu cơ sâu và nhiệt ấm, để khí huyết chảy lại tự nhiên.",
+    serviceSlugs: ["tri-lieu-co-vai-gay", "tri-lieu-lung-eo", "goi-dau-duong-sinh"],
+  },
+  {
+    key: "han",
+    name: "Hàn",
+    essence: "Cơ thể nhiễm lạnh — tuần hoàn kém, tay chân lạnh, co cứng.",
+    signals: ["Lạnh tay chân", "Sợ lạnh, sợ gió", "Cơ co cứng khi trời lạnh"],
+    careDirection: "Làm ấm từ gốc: ngâm thảo dược, xông hơi và nhiệt trị liệu đưa dương khí trở lại.",
+    serviceSlugs: ["ngam-chan-thao-duoc", "lieu-trinh-nong-lanh", "xong-hoi-thu-gian"],
+  },
+  {
+    key: "hu",
+    name: "Hư",
+    essence: "Khí huyết suy nhược — mệt sâu, thiếu lực, sắc mặt kém.",
+    signals: ["Mệt mỏi kéo dài", "Khí huyết kém, da xanh", "Ngủ dậy vẫn không khỏe"],
+    careDirection: "Bồi dưỡng từ từ: dưỡng sinh khí huyết đều đặn, không dùng kỹ thuật mạnh.",
+    serviceSlugs: ["duong-sinh-khi-huyet", "goi-dau-duong-sinh", "ngam-chan-thao-duoc"],
+  },
+  {
+    key: "loan",
+    name: "Loạn",
+    essence: "Thần khí xáo trộn — mất ngủ, căng thẳng, khó thả lỏng.",
+    signals: ["Khó vào giấc, ngủ chập chờn", "Đầu óc căng, nghĩ nhiều", "Tim hồi hộp, thở nông"],
+    careDirection: "Đưa thần trí lắng lại: trị liệu Thân · Tâm · Trí trong không gian tĩnh, nhịp chậm.",
+    serviceSlugs: ["lieu-trinh-than-tam-tri", "goi-dau-duong-sinh", "xong-hoi-thu-gian"],
+  },
+];
+
+export type BodyRegionKey = "dau" | "co-vai-gay" | "lung-eo" | "tay-chan" | "toan-than" | "tam-tri";
+
+export interface BodyRegion {
+  key: BodyRegionKey;
+  label: string;
+  svgId: string; // id <g> trong BodyMap.tsx để glow
+}
+
+export const BODY_REGIONS: BodyRegion[] = [
+  { key: "dau", label: "Vùng đầu", svgId: "region-dau" },
+  { key: "co-vai-gay", label: "Cổ vai gáy", svgId: "region-co-vai-gay" },
+  { key: "lung-eo", label: "Lưng eo", svgId: "region-lung-eo" },
+  { key: "tay-chan", label: "Tay chân", svgId: "region-tay-chan" },
+  { key: "toan-than", label: "Toàn thân", svgId: "region-toan-than" },
+  { key: "tam-tri", label: "Tâm trí", svgId: "region-tam-tri" },
+];
+
+export interface Symptom {
+  key: string;
+  label: string; // chip hiển thị
+  region: BodyRegionKey; // vùng sáng trên body map
+  states: BodyStateKey[]; // trạng thái liên quan (phần tử đầu = chính)
+  cause: string; // giải thích Đông y ngắn (2–3 ý)
+  suggestion: string; // hướng chăm sóc 1–2 câu
+  serviceSlugs?: string[]; // override gợi ý; thiếu → lấy từ states
+}
+
+export const SYMPTOMS: Symptom[] = [
+  {
+    key: "co-vai-gay",
+    label: "Cổ vai gáy",
+    region: "co-vai-gay",
+    states: ["tac"],
+    cause: "Ngồi lâu, căng cơ vùng thang vai, khí huyết lưu thông kém và stress tích tụ dồn lên vai gáy.",
+    suggestion: "Trị liệu cổ vai gáy chuyên sâu giúp khai thông vùng tắc, thả lỏng cơ sâu.",
+    serviceSlugs: ["tri-lieu-co-vai-gay", "goi-dau-duong-sinh"],
+  },
+  {
+    key: "lung-eo",
+    label: "Lưng eo",
+    region: "lung-eo",
+    states: ["tac"],
+    cause: "Tư thế ngồi/đứng lâu, vùng thắt lưng chịu tải liên tục, kinh lạc vùng lưng bị nghẽn.",
+    suggestion: "Trị liệu lưng eo tác động cơ sâu, kết hợp nhiệt ấm giãn vùng thắt lưng.",
+    serviceSlugs: ["tri-lieu-lung-eo"],
+  },
+  {
+    key: "mat-ngu",
+    label: "Mất ngủ",
+    region: "tam-tri",
+    states: ["loan"],
+    cause: "Thần khí không yên: nghĩ nhiều, dùng thiết bị khuya, tâm hỏa vượng khiến giấc ngủ chập chờn.",
+    suggestion: "Đưa cơ thể vào nhịp chậm trước giấc: gội đầu dưỡng sinh hoặc liệu trình Thân · Tâm · Trí.",
+    serviceSlugs: ["lieu-trinh-than-tam-tri", "goi-dau-duong-sinh"],
+  },
+  {
+    key: "dau-nang",
+    label: "Đầu nặng",
+    region: "dau",
+    states: ["tac", "loan"],
+    cause: "Khí huyết lên vùng đầu kém, vai gáy nghẽn kéo theo đầu nặng, kèm căng thẳng thần trí.",
+    suggestion: "Khai thông vai gáy + thư giãn vùng đầu để máu lên não thông suốt.",
+  },
+  {
+    key: "cang-thang",
+    label: "Căng thẳng",
+    region: "tam-tri",
+    states: ["loan"],
+    cause: "Áp lực kéo dài khiến can khí uất, hơi thở nông, cơ thể luôn trong trạng thái phòng thủ.",
+    suggestion: "Không gian tĩnh + trị liệu nhịp chậm giúp hệ thần kinh được phép nghỉ.",
+  },
+  {
+    key: "lanh-tay-chan",
+    label: "Lạnh tay chân",
+    region: "tay-chan",
+    states: ["han"],
+    cause: "Dương khí suy, tuần hoàn ngoại vi kém — máu ấm không ra được đến đầu ngón tay chân.",
+    suggestion: "Ngâm chân thảo dược và nhiệt trị liệu làm ấm từ gốc, kích hoạt tuần hoàn.",
+  },
+  {
+    key: "met-sau",
+    label: "Mệt sâu",
+    region: "toan-than",
+    states: ["hu"],
+    cause: "Khí huyết hao tổn lâu ngày, nghỉ ngơi thường không đủ bù — cơ thể mệt từ bên trong.",
+    suggestion: "Bồi dưỡng đều đặn bằng dưỡng sinh khí huyết, tránh trị liệu mạnh khi cơ thể đang hư.",
+  },
+  {
+    key: "khi-huyet-kem",
+    label: "Khí huyết kém",
+    region: "toan-than",
+    states: ["hu", "han"],
+    cause: "Da xanh, môi nhạt, hay hoa mắt — khí huyết vừa thiếu vừa lưu thông chậm.",
+    suggestion: "Kết hợp dưỡng sinh khí huyết với làm ấm cơ thể để vừa bổ vừa thông.",
+  },
+];
+
+// ---- "Một ngày ở Y Viện" — timeline cảm giác, không phải quy trình ----
+export interface RitualMoment {
+  key: string;
+  label: string;
+  line: string; // đúng 1 câu
+}
+
+export const RITUAL_MOMENTS: RitualMoment[] = [
+  { key: "buoc-vao", label: "Bước vào", line: "Cửa khép lại, phố xá ở lại phía sau." },
+  { key: "ngoi-xuong", label: "Ngồi xuống", line: "Một chén trà ấm, nhịp thở bắt đầu chậm lại." },
+  { key: "lang-nghe", label: "Lắng nghe cơ thể", line: "Chuyên viên hỏi, bắt mạch cảm nhận — cơ thể được lắng nghe trước khi được chạm." },
+  { key: "lam-am", label: "Làm ấm", line: "Thảo dược và hơi ấm mở đường cho khí huyết." },
+  { key: "khai-thong", label: "Khai thông", line: "Đôi tay trị liệu đi đến đúng vùng đang cần." },
+  { key: "nghi-lai", label: "Nghỉ lại", line: "Không ai giục dậy — cơ thể được phép ở lại trong tĩnh." },
+  { key: "roi-di", label: "Rời đi nhẹ hơn", line: "Vai thả xuống, bước chân ra về nhẹ hơn lúc đến." },
+];
+
+// ---- "Không gian như liệu pháp" — 4 phẩm chất, mỗi phẩm chất 1 câu ----
+export interface SpaceQuality {
+  key: string;
+  name: string; // Tĩnh | Thông | Dưỡng | Tỉnh
+  line: string;
+}
+
+export const SPACE_QUALITIES: SpaceQuality[] = [
+  { key: "tinh", name: "Tĩnh", line: "Giảm nhiễu — để cơ thể hạ xuống." },
+  { key: "thong", name: "Thông", line: "Khai mở — khí huyết chảy lại tự nhiên." },
+  { key: "duong", name: "Dưỡng", line: "Phục hồi — bồi đắp từ bên trong." },
+  { key: "tinh-thuc", name: "Tỉnh", line: "Lắng lại — trở về với chính mình." },
+];
