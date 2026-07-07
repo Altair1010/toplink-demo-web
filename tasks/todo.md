@@ -1,28 +1,34 @@
-# TODO — Hoàn thiện webdemo Y Viện Toplink theo FORM
+# TODO — setup-claude-agent-system.ps1
 
-Nguồn kế hoạch: `C:\Users\MCBAu\.claude\plans\read-f-codex-yvien-hotlink-polished-blanket.md`
+Nguồn plan: `C:\Users\MCBAu\.claude\plans\read-f-codex-yvien-hotlink-humming-hennessy.md`
 
-## Phase 1 — Dữ liệu & nội dung
-- [x] 1. Mở rộng `data/content.ts`: TEAM[], STATS[], body POSTS, CONTACT (email/social), TRAINING & FRANCHISE
-- [x] 2. Rà soát copy theo J (không còn từ cấm)
+## P0 — Skeleton & helpers  ✅ (parse OK, BOM UTF-8)
+- [x] 1. `setup-claude-agent-system.ps1`: param block + Write-Step/Ok/Skip/Fail/Info
+- [x] 2. Helpers: Test-CommandExists, Read-JsonOrEmpty, Write-JsonFile, Add-IfMissing, Write-Template
+- [x] 3. Test-WslAvailable, Invoke-InWsl, Invoke-StepWithCheckpoint (fix/skip/abort + ResumeFrom)
 
-## Phase 2 — Trang & section mới
-- [x] 3. Section "Số liệu/Niềm tin" trên home
-- [x] 4. Trang Đào tạo `/dao-tao`
-- [x] 5. Trang Nhượng quyền `/nhuong-quyen`
-- [x] 6. Chi tiết bài viết `/tin-tuc/[slug]` + generateStaticParams
-- [x] 7. Khối đội ngũ (gioi-thieu)
+## P1 — Foundation files  ✅ (test temp: 7/7 file)
+- [x] 4. Write-FoundationFiles: 7 .md here-string, không overwrite (Write-Template trả $false nếu tồn tại)
+- [x] 5. New-ClaudeDirTree: .claude/{skills,commands,agents,hooks} + .trellis/* + .claude-loop/
 
-## Phase 3 — Điều hướng, chuyển đổi, liên hệ
-- [x] 8. Header/Footer/MobileBar: nav trang mới, footer đầy đủ khối
-- [x] 9. Google Maps nhúng ở lien-he
-- [x] 10. Form đặt lịch: xác nhận + chuyển Zalo
+## P2 — Hooks & settings  ✅ (test: settings hợp lệ, hooks=PreToolUse,PostToolUse,SessionEnd)
+- [x] 6. Hook wrappers: rtk-rewrite.ps1, cbm-discovery.ps1, context-counter.py, session-learner.ps1 (auto wsl-wrap)
+- [x] 7. Write-ProjectSettings: merge hooks + mcpServers + permissions; PostSession→SessionEnd
 
-## Phase 4 — Hình ảnh & SEO
-- [x] 11. BrandVisual thay placeholder + favicon (app/icon.svg) + OG (opengraph-image)
-- [x] 12. SEO metadata từng trang + OpenGraph + JSON-LD LocalBusiness
+## P3 — Global install (pause-on-fail mỗi tool)  ⏸ CHỜ USER CHẠY INTERACTIVE
+- [x] 8. Đã code: Install-Rtk(WSL2), Install-Headroom(pipx), Install-CodebaseMemoryMcp(WSL2)
+- [x] 9. Đã code: token-optimizer-mcp(npm), caveman(PS), loop-tools, plugins
+  - ⏸ Chưa thực thi trên repo thật: cần chạy `.\setup-claude-agent-system.ps1` để pause-on-fail tương tác
 
-## Phase 5 — Build, Preview, Push
-- [x] 13. `npm run build` pass (26 route, static export). Lưu ý: `next lint` lỗi thời ở Next 16 (có sẵn)
-- [x] 14. Preview (dev + 7 screenshot) — CHỜ NGƯỜI DÙNG DUYỆT
-- [ ] 15. Push GitHub (sau khi duyệt) — gỡ ảnh screenshot ở root trước khi commit
+## P4 — Index + compress  ✅ (đã code; trellis init = MANUAL vì interactive)
+- [x] 10. Initialize-Indexes (codebase-memory/codegraph + Push-Location fix) · caveman-compress · trellis nhắc thủ công
+
+## P5 — Validation & summary  ✅ (test temp: 20 OK/3 Skip/0 Fail)
+- [x] 11. Test-Setup (JSON valid + đếm 7 file) · Show-Summary + resume hint
+
+## P6 — Retire bootstrap  ⏸ chạy khi user áp dụng trên repo thật
+- [x] 12. Đã code: bootstrap-project.ps1 → .bak (checkpoint trước khi đụng)
+
+## Lưu ý
+- node.exe pid 22832 (trellis init test cũ) có thể còn treo — đóng thủ công nếu cần (classifier chặn tôi kill).
+- Chạy trên repo THẬT: `.\setup-claude-agent-system.ps1` (mặc định cwd). Tool đã cài (rtk/headroom/codegraph) sẽ [SKIP]; tool chưa có sẽ pause hỏi fix/skip/abort.
