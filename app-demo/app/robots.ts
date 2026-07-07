@@ -1,0 +1,17 @@
+import type { MetadataRoute } from "next";
+
+const BASE = "https://altair1010.github.io/toplink-demo-web";
+
+export const dynamic = "force-static";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      // Sandbox dev-only, không index
+      disallow: ["/motion-lab/", "/preview-motion/"],
+    },
+    sitemap: `${BASE}/sitemap.xml`,
+  };
+}

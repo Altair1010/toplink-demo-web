@@ -2,10 +2,23 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Clock, Check, AlertTriangle, MessageCircle, ArrowLeft } from "lucide-react";
 import BrandVisual from "@/components/BrandVisual";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { SERVICES, CONTACT } from "@/data/content";
+
+const BASE_URL = "https://altair1010.github.io/toplink-demo-web";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const service = SERVICES.find((s) => s.slug === slug);
+  if (!service) return {};
+  return {
+    title: `${service.name} — ${service.duration}, từ ${service.priceFrom}`,
+    description: service.short,
+  };
 }
 
 export default async function ServiceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -13,9 +26,32 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) notFound();
 
+  // Service schema — mỗi liệu trình là một "sản phẩm" rõ ràng với Google
+  const serviceJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.name,
+    description: service.short,
+    url: `${BASE_URL}/dich-vu/${service.slug}/`,
+    provider: { "@type": "HealthAndBeautyBusiness", name: "Y Viện Toplink", url: BASE_URL },
+    offers: {
+      "@type": "Offer",
+      price: service.priceFrom.replace(/[^\d]/g, ""),
+      priceCurrency: "VND",
+    },
+  };
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <Link href="/dich-vu" className="inline-flex items-center gap-1.5 text-base font-medium text-ink-soft hover:text-crimson-600">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+      <Breadcrumbs
+        items={[
+          { href: "/", label: "Trang chủ" },
+          { href: "/dich-vu", label: "Liệu trình" },
+          { href: `/dich-vu/${service.slug}`, label: service.name },
+        ]}
+      />
+      <Link href="/dich-vu" className="mt-4 inline-flex items-center gap-1.5 text-base font-medium text-ink-soft hover:text-crimson-600">
         <ArrowLeft className="h-4 w-4" /> Tất cả dịch vụ
       </Link>
 
