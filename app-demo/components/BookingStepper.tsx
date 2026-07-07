@@ -95,7 +95,7 @@ export default function BookingStepper() {
     return (
       <div className="animate-fade-up mx-auto max-w-xl rounded-lg border border-sand bg-cream p-8 text-center shadow-sm sm:p-12">
         <SealStamp />
-        <h2 className="mt-6 font-display text-3xl font-black text-crimson-600">Cảm ơn chị/anh 🌿</h2>
+        <h2 className="mt-6 font-display text-3xl font-bold text-crimson-600">Cảm ơn chị/anh 🌿</h2>
         <p className="mt-3 text-lg leading-relaxed text-ink-soft">
           Y Viện Toplink đã ghi nhận yêu cầu và sẽ gọi lại xác nhận trong thời gian sớm nhất. Cần nhanh hơn, chị/anh có thể nhắn Zalo ngay.
         </p>

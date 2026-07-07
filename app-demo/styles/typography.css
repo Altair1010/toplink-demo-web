@@ -1,0 +1,75 @@
+/* ============================================================
+   TYPOGRAPHY — quy tắc chữ toàn site
+   Serif = "nghi lễ chính": CHỈ h1, h2, statement, quote lớn.
+   h3 trở xuống + card title = Be Vietnam Pro 600.
+   Nếu mọi câu đều nghi lễ, không còn câu nào quan trọng.
+   ============================================================ */
+
+/* ── H1/H2: serif Noto SemiBold — KHÔNG uppercase (IN HOA tiếng Việt có dấu
+   làm chậm tốc độ đọc, đặc biệt nhóm khách lớn tuổi). ── */
+h1,
+h2,
+.heading-font {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: var(--leading-heading);
+}
+
+/* H1 rất lớn cần nén chữ + dòng sát hơn */
+h1 {
+  letter-spacing: var(--tracking-h1);
+  line-height: var(--leading-tight-hero);
+}
+
+/* ── h3 trở xuống: sans 600 — thoát "nghi lễ hóa" toàn trang ── */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+/* Statement serif (KHÔNG uppercase — để lộ chữ thường thư tịch) */
+.font-serif-display {
+  font-family: var(--font-serif);
+  text-transform: none;
+  font-weight: 600; /* Bộ 1: hero/statement SemiBold */
+  letter-spacing: -0.01em;
+  line-height: 1.12; /* giãn dòng để dấu thanh không chạm dòng trên */
+}
+
+/* Chỉ uppercase cho eyebrow / nhãn nav CỰC NGẮN (ít dấu, vai trò trang trí).
+   Câu tiếng Việt dài: dùng .eyebrow-long (không uppercase). */
+.label-caps,
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+}
+.eyebrow-long {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+/* ── MEASURE: giới hạn chiều dài dòng (Baymard ~50–75 ký tự) ── */
+.measure-body { max-width: 62ch; }
+.measure-lead { max-width: 54ch; }
+.measure-card { max-width: 36ch; }
+
+/* Nhấn từ khóa trong headline: BOLD + VIỀN CHỮ MẢNH tương phản
+   (không italic, không tô vàng) — giữ cùng họ chữ, chỉ tăng độ nổi. */
+.emph {
+  font-weight: 700;
+  color: inherit;
+  -webkit-text-stroke: 0.7px var(--color-crimson-700);
+  text-stroke: 0.7px var(--color-crimson-700);
+}
+.on-dark .emph,
+.emph-light {
+  color: inherit;
+  -webkit-text-stroke: 0.7px var(--color-gold-500);
+  text-stroke: 0.7px var(--color-gold-500);
+}

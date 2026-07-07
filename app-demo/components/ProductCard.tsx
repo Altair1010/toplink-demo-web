@@ -20,7 +20,7 @@ export default function ProductCard({ product: p }: { product: Product }) {
         </span>
       </div>
       <span className="mt-4 text-sm font-semibold uppercase tracking-wide text-gold-600">{p.group}</span>
-      <h3 className="mt-1 text-xl font-black text-crimson-600">{p.name}</h3>
+      <h3 className="mt-1 text-xl font-semibold text-crimson-600">{p.name}</h3>
       <p className="mt-1 flex-1 text-base text-ink-soft">{p.desc}</p>
       <div className="mt-4 flex items-center justify-between">
         <span className="text-base font-semibold text-crimson-600">từ {p.priceFrom}</span>

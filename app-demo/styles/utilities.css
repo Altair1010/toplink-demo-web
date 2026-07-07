@@ -1,0 +1,183 @@
+/* ============================================================
+   MOTION UTILITIES — reveal / hover / keyframe CSS thuần
+   Triết lý: "ấn tượng bằng sự tĩnh tại" — easing chậm 0.6–1.2s,
+   chỉ animate transform/opacity (GPU), không cinematic/techno.
+   ============================================================ */
+
+/* Subtle entrance animations (tiết chế) */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Reveal khi cuộn tới: trượt nhẹ 24px + mờ → rõ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Ken Burns: ảnh zoom/pan rất chậm — cảm giác "video tĩnh" cao cấp */
+@keyframes ken-burns {
+  from {
+    transform: scale(1.06) translate(0, 0);
+  }
+  to {
+    transform: scale(1.18) translate(-1.5%, -1.5%);
+  }
+}
+.ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Micro-interaction: CTA nhấn xuống nhẹ khi bấm — phản hồi tactile, điềm tĩnh. */
+.btn-press {
+  transition: transform 120ms ease, background-color 0.2s ease;
+}
+.btn-press:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+/* Thẻ dược liệu: nhấc nhẹ khi hover, ảnh bên trong zoom chậm */
+.lift {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 44px -20px rgba(95, 12, 16, 0.5);
+}
+.zoom-media {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.lift:hover .zoom-media {
+  transform: scale(1.08);
+}
+
+/* ── DROPBOX SLIDE-IN: khối trôi vào theo hướng khi cuộn ──
+   easing đặc trưng cubic-bezier(0.15,0.5,0.05,1) ~0.6s, có stagger */
+.reveal-left,
+.reveal-right,
+.reveal-up,
+.reveal-down {
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.15, 0.5, 0.05, 1),
+    transform 0.6s cubic-bezier(0.15, 0.5, 0.05, 1);
+  will-change: opacity, transform;
+}
+.reveal-left { transform: translateX(-64px); }
+.reveal-right { transform: translateX(64px); }
+.reveal-down { transform: translateY(-48px); }
+.reveal-up { transform: translateY(48px); }
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-up.is-visible,
+.reveal-down.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── LÁ THẢO DƯỢC trôi nhẹ (chất Đông y) — CSS thuần, thay Three.js ── */
+@keyframes leaf-float {
+  0% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-14px) rotate(6deg); }
+  100% { transform: translateY(0) rotate(-6deg); }
+}
+.leaf-float {
+  animation: leaf-float 9s ease-in-out infinite;
+  will-change: transform;
+}
+.leaf-delay-1 { animation-delay: 1.2s; }
+.leaf-delay-2 { animation-delay: 2.4s; }
+.leaf-delay-3 { animation-delay: 3.6s; }
+
+/* ── MARQUEE (Vibrasonic): dải chữ chạy ngang liên tục ──
+   TODO(P5): xóa cùng Marquee.tsx khi homepage mới bỏ marquee. */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee {
+  overflow: hidden;
+  /* Fade mềm 2 mép (thay vì cắt cứng) — dải chữ "trôi vào/ra" điềm tĩnh. */
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+          mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: ticker var(--marquee-speed, 40s) linear infinite;
+  will-change: transform;
+}
+.marquee:hover .marquee-track,
+.marquee.is-paused .marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── ZALO PULSE: vòng nhịp rất nhẹ quanh nút, mời gọi không lòe loẹt ── */
+@keyframes zalo-pulse {
+  0% { box-shadow: var(--shadow-zalo), 0 0 0 0 rgba(0, 104, 254, 0.5); }
+  70% { box-shadow: var(--shadow-zalo), 0 0 0 14px rgba(0, 104, 254, 0); }
+  100% { box-shadow: var(--shadow-zalo), 0 0 0 0 rgba(0, 104, 254, 0); }
+}
+.zalo-pulse {
+  animation: zalo-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  will-change: box-shadow;
+}
+
+/* ── REDUCED MOTION: tắt toàn bộ animation trang trí ── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+  .zalo-pulse {
+    animation: none;
+    box-shadow: var(--shadow-zalo);
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up,
+  .reveal-down {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ken-burns,
+  .zoom-media,
+  .book-cover {
+    animation: none;
+    transition: none;
+  }
+  .book .book-cover {
+    transform: rotateY(-26deg); /* mở hé sẵn để lộ nội dung */
+  }
+  .leaf-float {
+    animation: none;
+  }
+  .marquee-track {
+    animation: none;
+  }
+}

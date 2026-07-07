@@ -67,7 +67,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-2.5">
           <Link
             href="/dat-lich"
-            className="btn-press inline-flex items-center justify-center whitespace-nowrap rounded-sm bg-crimson-600 px-4 py-2.5 text-sm font-bold uppercase tracking-wide text-gold-200 shadow-sm transition-colors hover:bg-crimson-700 lg:px-5"
+            className="btn-press inline-flex items-center justify-center whitespace-nowrap rounded-sm bg-crimson-600 px-4 py-2.5 text-sm font-semibold uppercase tracking-wide text-gold-200 shadow-sm transition-colors hover:bg-crimson-700 lg:px-5"
           >
             Đặt lịch
           </Link>

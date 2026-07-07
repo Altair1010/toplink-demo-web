@@ -34,7 +34,7 @@ export default function MobileBottomBar() {
       <Link href="/dat-lich" aria-label="Đặt lịch hẹn" className="bg-crimson-600 text-gold-200 active:bg-crimson-700">
         <span className="flex flex-col items-center gap-0.5 py-3">
           <CalendarPlus className="h-6 w-6" />
-          <span className="text-xs font-bold">Đặt lịch</span>
+          <span className="text-xs font-semibold">Đặt lịch</span>
         </span>
       </Link>
 

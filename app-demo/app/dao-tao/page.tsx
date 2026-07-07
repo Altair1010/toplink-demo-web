@@ -27,7 +27,7 @@ export default function TrainingPage() {
         </div>
         <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
           <GraduationCap className="h-9 w-9 text-gold-600" />
-          <h2 className="mt-4 text-3xl font-black text-crimson-600">Quyền lợi học viên</h2>
+          <h2 className="mt-4 text-3xl font-bold text-crimson-600">Quyền lợi học viên</h2>
           <ul className="mt-5 space-y-3">
             {TRAINING.benefits.map((b) => (
               <li key={b} className="flex items-start gap-2.5 text-lg text-ink">
@@ -38,7 +38,7 @@ export default function TrainingPage() {
         </div>
       </div>
 
-      <h2 className="mt-14 text-3xl font-black text-crimson-600">Lộ trình đào tạo</h2>
+      <h2 className="mt-14 text-3xl font-bold text-crimson-600">Lộ trình đào tạo</h2>
       <div className="mt-6 grid gap-px overflow-hidden border border-sand bg-sand sm:grid-cols-2 lg:grid-cols-4">
         {TRAINING.roadmap.map((step, i) => (
           <Reveal key={step.title} from="up" delay={i * 120} className="bg-ivory">

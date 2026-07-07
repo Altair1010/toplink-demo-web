@@ -1,0 +1,105 @@
+/* ============================================================
+   COMPONENT STYLES — khung/triện/frame/CTA/art-direction
+   Style trang trí Đông y đứng riêng, không lẫn vào token/typography.
+   ============================================================ */
+
+/* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
+.shadow-soft { box-shadow: var(--shadow-soft); }
+
+/* ── WIDTH & SECTION SPACING RHYTHM ── */
+.container-narrow { max-width: var(--container-narrow); }
+.section-pad { padding-block: clamp(4rem, 9vw, 7rem); }
+.section-pad-lg { padding-block: clamp(5.5rem, 12vw, 11rem); } /* trụ cột */
+
+/* ── ART DIRECTION: grading + overlay thống nhất cho MỌI ảnh placeholder ──
+   Kéo ảnh Unsplash trắng-xanh và render đỏ-vàng về một tông trầm ấm chung. */
+.img-grade { filter: saturate(0.92) contrast(1.04) brightness(0.97); }
+.img-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(43, 22, 14, 0.06), rgba(43, 22, 14, 0.3));
+}
+
+/* ── CTA cuối trang: ánh sáng vàng radial trên nền đỏ tối ── */
+.cta-glow {
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(216, 170, 75, 0.18), transparent 70%),
+    var(--color-crimson-600);
+}
+
+/* ── BOOK-OPEN (Autodesk Popular products): bìa sách lật 3D ── */
+.book {
+  perspective: 1600px;
+}
+.book-inner {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.book-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: transform;
+  /* mép gáy + glow vàng nhẹ (ánh sáng tri thức) ở cạnh phải bìa */
+  box-shadow: 2px 0 8px -2px rgba(0, 0, 0, 0.35);
+}
+.book.is-open .book-cover,
+.book:hover .book-cover,
+.book:focus-within .book-cover {
+  transform: rotateY(-26deg); /* chỉ mở HÉ */
+  box-shadow: 10px 0 22px -6px rgba(216, 170, 75, 0.45), 2px 0 8px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Đường kẻ vàng kim — SOLID (phẳng, không gradient) */
+.gold-rule {
+  height: 2px;
+  background-color: var(--color-gold-500);
+}
+
+/* Khung triện vuông phương Đông — viền vàng mảnh quanh khối/ảnh */
+.frame-gold {
+  border: 1px solid var(--color-gold-500);
+  box-shadow: inset 0 0 0 4px var(--color-ivory), inset 0 0 0 5px var(--color-gold-500);
+}
+
+/* Khối callout họa tiết đông y — viền đôi + 4 góc hoa văn (dùng cho khối
+   nhấn mạnh ĐỨNG RIÊNG, IN HOA). Không dùng cho nhấn từ khóa inline. */
+.frame-herb {
+  position: relative;
+  border: 1.5px solid var(--color-gold-500);
+  box-shadow: inset 0 0 0 5px var(--color-ivory), inset 0 0 0 6px var(--color-gold-500);
+}
+.frame-herb.on-dark,
+.on-dark.frame-herb {
+  box-shadow: inset 0 0 0 5px var(--color-crimson-800), inset 0 0 0 6px var(--color-gold-500);
+}
+.frame-herb::before,
+.frame-herb::after {
+  content: "❀";
+  position: absolute;
+  top: 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--color-gold-500);
+  pointer-events: none;
+}
+.frame-herb::before { left: 0.7rem; }
+.frame-herb::after { right: 0.7rem; }
+
+/* "Triện/dấu son" — vòng vàng phương Đông, nền phẳng */
+.seal {
+  border: 2px solid var(--color-gold-500);
+  border-radius: 9999px;
+  color: var(--color-gold-300);
+  background-color: var(--color-crimson-800);
+}
+
+/* Nền giấy cổ — PHẲNG (đã bỏ gradient theo yêu cầu) */
+.bg-paper {
+  background-color: var(--color-ivory);
+}

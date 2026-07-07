@@ -1,0 +1,169 @@
+/* ============================================================
+   Y VIỆN TOPLINK — DESIGN TOKENS
+   Phong cách: "Đông Y Cung Đình Hiện Đại"
+   (theo bộ nhận diện rút từ nhatlieuyvien.vn — bản nâng cấp Toplink)
+   Palette: đỏ dược liệu · đỏ sơn mài · vàng kim tiết chế · kem giấy cổ ·
+   nâu gỗ trầm · mực tàu. Màu PHẲNG — không gradient, không blend.
+   Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
+   Heading: Noto Serif (serif, SemiBold 600 — Bộ 1 "Cổ phương") · Body: Be Vietnam Pro.
+   ============================================================ */
+@theme {
+  /* ---- Surfaces (kem giấy cổ / ngọc trắng / cát / sương) ---- */
+  --color-ivory: #fffcf7;   /* ngọc trắng — nền chính */
+  --color-cream: #f6f4df;   /* kem giấy sắc thuốc — khớp nhatlieuyvien.vn */
+  --color-sand: #e7d6b4;    /* cát — viền/đường kẻ nhạt */
+  --color-mist: #e6e5d7;    /* sương — nền phụ (kem #E6E5D7) */
+  --color-paper-light: #f1f1f1; /* chữ sáng trên nền tối */
+
+  /* ---- Crimson — đỏ dược liệu (#95131F anchor — khớp nhatlieuyvien.vn) ---- */
+  --color-crimson-50: #fbf0ef;
+  --color-crimson-100: #f5d9d6;
+  --color-crimson-200: #e6a9a3;
+  --color-crimson-300: #d2756c;
+  --color-crimson-400: #981c1f;
+  --color-crimson-500: #992022;
+  --color-crimson-600: #95131f; /* PRIMARY — đỏ dược liệu */
+  --color-crimson-700: #7e0a15; /* đỏ sơn mài sâu */
+  --color-crimson-800: #6a0511; /* nền tối cao cấp */
+
+  /* ---- Bright accent red (chỉ 1 điểm nhấn cao nhất, vd hotline) ---- */
+  --color-accent-red: #c70002;
+  --color-accent-red-dark: #b20000;
+
+  /* ---- Gold — vàng kim tiết chế (#D8AA4B) ----
+     QUY TẮC CONTRAST: gold trên ivory ~2.1:1 (FAIL WCAG) — chỉ dùng cho
+     line/border/icon lớn/decoration. KHÔNG dùng cho chữ < 24px. */
+  --color-gold-200: #f7e8c2;
+  --color-gold-300: #f3d27a; /* vàng champagne — viền/hover */
+  --color-gold-400: #e6c067;
+  --color-gold-500: #d8aa4b; /* kim thảo — vàng kim chính */
+  --color-gold-600: #a9802c;
+  --color-gold-700: #7c5d1f; /* vàng đậm — chữ vàng trên nền sáng */
+
+  /* ---- Wood — nâu gỗ trầm (#56351F) ---- */
+  --color-wood-400: #6e4632;
+  --color-wood-500: #56351f; /* gỗ trầm */
+  --color-wood-700: #3a2114;
+
+  /* ---- Jade — ngọc trầm (điểm nhấn nghỉ rất nhẹ) ---- */
+  --color-jade-500: #2f5d50;
+  --color-jade-600: #244a3f;
+
+  /* ---- Ink / text (mực tàu #1A1410) ---- */
+  --color-ink: #1a1410;
+  --color-ink-soft: #4a4a4a; /* xám body — đậm hơn để đạt ≥4.5:1 trên kem/ivory (WCAG AA) */
+  --color-ink-mute: #6a6057;
+
+  /* ---- Migration aliases: clay-* cũ map sang crimson ---- */
+  --color-clay-50: #fbf0ef;
+  --color-clay-100: #f5d9d6;
+  --color-clay-600: #992022;
+  --color-clay-700: #95131f;
+  --color-clay-800: #7e0a15;
+
+  /* ---- Fonts ---- */
+  /* Heading (Bộ 1 "Cổ phương"): serif Noto Serif — CHỈ h1/h2/statement/quote.
+     Body + h3 trở xuống: Be Vietnam Pro (--font-sans). */
+  --font-display: var(--font-noto-serif), "Times New Roman", Georgia, serif;
+  --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif), "Times New Roman", Georgia, serif;
+
+  /* ---- Bo góc — sharp cho nút/badge, bo vừa cho ảnh/card lớn ---- */
+  --radius-sm: 2px;  /* buttons */
+  --radius-md: 4px;  /* cards */
+  --radius-lg: 6px;  /* hero / panel lớn */
+  --radius-xl: 8px;
+  --radius-2xl: 16px; /* card ảnh lớn */
+  --radius-3xl: 24px; /* hero / panel không gian */
+
+  /* ---- Type scale helpers ----
+     Scale bậc dùng Tailwind mặc định (text-xs 12 → text-7xl 72).
+     Token riêng chỉ cho các cỡ "định danh" của brand. */
+  --text-body-lg: 1.25rem;  /* 20px */
+  --text-body-md: 1.125rem; /* 18px */
+  --text-hero: clamp(3rem, 6vw, 4.75rem);      /* H1 hero serif — 48→76px, presence lớn */
+  --text-statement: clamp(1.75rem, 3vw, 2rem); /* tên tầng / quote — 28→32px */
+
+  /* ---- Leading & tracking (audit typography) ---- */
+  --leading-tight-hero: 1.08; /* H1 rất lớn */
+  --leading-heading: 1.18;    /* H2 section */
+  --leading-body: 1.65;       /* body 18px */
+  --tracking-h1: -0.025em;
+  --tracking-eyebrow: 0.06em; /* uppercase NGẮN — tiếng Việt dấu không giãn quá */
+
+  /* ---- Width & section spacing rhythm (tránh "đều tay") ---- */
+  --container-narrow: 760px; /* intro quote / FAQ — hẹp, tĩnh */
+  --container-wide: 1280px;
+
+  /* ---- Shadow mềm & nông (học từ Dropbox/MyWebLab: shadow nhẹ, sâu vừa) ----
+     Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
+  --shadow-soft: 0 10px 30px -12px rgba(106, 5, 17, 0.25);
+  --shadow-zalo: 0 12px 28px -8px rgba(0, 104, 254, 0.45);
+
+  /* ---- MOTION SYSTEM "BREATH & FLOW" ----
+     Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
+     nhưng chậm – sâu – có nhịp thở. Bản giây cho GSAP nằm ở lib/motion/config.ts. */
+  --motion-fast: 180ms;
+  --motion-medium: 420ms;
+  --motion-slow: 760ms;
+  --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);   /* hover / vi tương tác */
+  --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1);  /* reveal trị liệu (học MyWebLab) */
+  --reveal-distance: 32px;        /* biên độ trượt khi reveal — nhỏ, điềm tĩnh */
+  --section-parallax-depth: 80px; /* chiều sâu khi tầng/khối lùi về sau */
+}
+
+/* ============================================================
+   shadcn/ui — SEMANTIC TOKENS map vào brand Y viện
+   Component shadcn dùng bg-primary/text-foreground/border… đọc các biến này.
+   CHỦ Ý: KHÔNG remap --radius-* (giữ nguyên bo góc sắc của site).
+   ============================================================ */
+:root {
+  --background: var(--color-ivory);
+  --foreground: var(--color-ink);
+  --card: var(--color-ivory);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-ivory);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-crimson-600);           /* #95131F */
+  --primary-foreground: var(--color-ivory);
+  /* State-scale primary (đỏ dược liệu) — dùng token đậm dần sẵn có, không opacity mờ */
+  --primary-hover: var(--color-crimson-700);     /* #7E0A15 — hover đậm hơn */
+  --primary-active: var(--color-crimson-800);    /* #6A0511 — nhấn/giữ */
+  --primary-disabled: var(--color-crimson-200);  /* #E6A9A3 — vô hiệu, vẫn thấy sắc đỏ */
+  --secondary: var(--color-cream);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-mist);
+  --muted-foreground: var(--color-ink-soft);
+  --accent: var(--color-gold-500);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-accent-red);
+  --destructive-foreground: var(--color-ivory);
+  --border: var(--color-sand);
+  --input: var(--color-sand);
+  --ring: var(--color-crimson-600);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-disabled: var(--primary-disabled);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}

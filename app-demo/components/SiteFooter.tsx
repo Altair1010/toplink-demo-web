@@ -11,7 +11,7 @@ export default function SiteFooter() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold-500 font-display text-lg text-wood-700">
               Y
             </span>
-            <span className="font-display text-xl font-black text-ivory">Y Viện Toplink</span>
+            <span className="font-display text-xl font-bold text-ivory">Y Viện Toplink</span>
           </div>
           <p className="mt-4 text-base leading-relaxed text-cream/70">
             Y Viện Dưỡng Thân · Tỉnh Thức. Đông y dưỡng sinh kết hợp lý liệu trị liệu và công nghệ cao,

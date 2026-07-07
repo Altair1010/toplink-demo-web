@@ -14,7 +14,7 @@ export type NavItem = { href: string; label: string };
 export type NavGroup = { label: string; href?: string; children?: NavItem[] };
 
 const LINK =
-  "whitespace-nowrap text-sm font-bold uppercase tracking-wide text-ink-soft transition-colors hover:text-crimson-600";
+  "whitespace-nowrap text-sm font-semibold uppercase tracking-wide text-ink-soft transition-colors hover:text-crimson-600";
 
 /**
  * Một mục nav desktop: link đơn hoặc nhóm dropdown (shadcn DropdownMenu / Radix).

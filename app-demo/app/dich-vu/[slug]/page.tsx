@@ -76,7 +76,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         {/* Sticky sidebar */}
         <aside className="lg:col-span-1">
           <div className="lg:sticky lg:top-24 rounded-md border border-sand bg-cream p-8 shadow-sm">
-            <h3 className="font-display text-xl font-black text-crimson-600">{service.name}</h3>
+            <h3 className="font-display text-xl font-bold text-crimson-600">{service.name}</h3>
             <dl className="mt-4 space-y-3 text-base">
               <div className="flex items-center justify-between">
                 <dt className="flex items-center gap-1.5 text-ink-soft"><Clock className="h-4 w-4" /> Thời lượng</dt>
@@ -109,7 +109,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 function Block({ title, icon, children }: { title: string; icon?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className="mt-8">
-      <h2 className="flex items-center gap-2 font-display text-2xl font-black text-crimson-600">
+      <h2 className="flex items-center gap-2 font-display text-2xl font-bold text-crimson-600">
         {icon} {title}
       </h2>
       <div className="mt-4">{children}</div>

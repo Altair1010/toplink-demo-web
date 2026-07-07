@@ -25,7 +25,7 @@ export default function ProcessPage() {
               0{i + 1}
             </span>
             <Reveal from="right" delay={i * 90} className="flex-1 rounded-md border border-sand bg-cream p-8 shadow-sm">
-              <h3 className="text-xl font-black text-crimson-600">{step.title}</h3>
+              <h3 className="text-xl font-semibold text-crimson-600">{step.title}</h3>
               <p className="mt-2 text-lg leading-relaxed text-ink-soft">{step.desc}</p>
             </Reveal>
           </li>

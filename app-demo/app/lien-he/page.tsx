@@ -17,7 +17,7 @@ export default function ContactPage() {
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
         {/* CỘT TRÁI — thông tin cơ sở + bản đồ */}
         <div className="rounded-md border border-sand bg-cream p-8 shadow-sm">
-          <h3 className="text-2xl font-black text-crimson-600">{branch.name}</h3>
+          <h3 className="text-2xl font-semibold text-crimson-600">{branch.name}</h3>
           <ul className="mt-4 space-y-3 text-base text-ink">
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" /> {branch.address}

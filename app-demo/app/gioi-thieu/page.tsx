@@ -51,7 +51,7 @@ export default function AboutPage() {
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           <ConvergeItem from="left" dist={180} className="rounded-md border border-sand bg-cream p-8 shadow-sm">
             <Target className="h-8 w-8 text-gold-600" />
-            <h3 className="mt-4 text-2xl font-black text-crimson-600">Sứ mệnh</h3>
+            <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Sứ mệnh</h3>
             <p className="mt-2 text-lg leading-relaxed text-ink-soft">
               Giúp mỗi người được lắng nghe cơ thể, phục hồi năng lượng và tìm lại sự cân bằng thân · tâm · trí giữa
               nhịp sống hiện đại.
@@ -59,7 +59,7 @@ export default function AboutPage() {
           </ConvergeItem>
           <ConvergeItem from="right" dist={180} className="rounded-md border border-sand bg-cream p-8 shadow-sm">
             <Eye className="h-8 w-8 text-gold-600" />
-            <h3 className="mt-4 text-2xl font-black text-crimson-600">Tầm nhìn</h3>
+            <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Tầm nhìn</h3>
             <p className="mt-2 text-lg leading-relaxed text-ink-soft">
               Trở thành hệ thống Y Viện dưỡng sinh được tin cậy, lan tỏa lối sống chăm sóc sức khỏe chủ động.
             </p>
@@ -76,7 +76,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-10">
-          <h2 className="text-3xl font-black text-crimson-600">Giá trị cốt lõi</h2>
+          <h2 className="text-3xl font-bold text-crimson-600">Giá trị cốt lõi</h2>
           <div className="mt-5 grid gap-6 sm:grid-cols-3">
             {[
               { icon: Heart, t: "Tận tâm", d: "Chăm sóc bằng sự thấu hiểu và tôn trọng." },
@@ -85,7 +85,7 @@ export default function AboutPage() {
             ].map(({ icon: Icon, t, d }) => (
               <div key={t} className="rounded-md border border-sand bg-cream p-8">
                 <Icon className="h-7 w-7 text-crimson-600" />
-                <h3 className="mt-3 text-xl font-black text-crimson-600">{t}</h3>
+                <h3 className="mt-3 text-xl font-semibold text-crimson-600">{t}</h3>
                 <p className="mt-1 text-base text-ink-soft">{d}</p>
               </div>
             ))}
@@ -93,7 +93,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-14">
-          <h2 className="text-3xl font-black text-crimson-600">Đội ngũ chuyên viên</h2>
+          <h2 className="text-3xl font-bold text-crimson-600">Đội ngũ chuyên viên</h2>
           <p className="mt-2 text-lg text-ink-soft">Lương y và kỹ thuật viên được đào tạo bài bản, đồng hành cùng chị/anh trên hành trình dưỡng thân.</p>
           <div className="mt-6 grid gap-6 sm:grid-cols-2">
             {TEAM.map((m) => (
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   <Img src={m.image} alt={m.name} fill sizes="80px" className="object-cover" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-crimson-600">{m.name}</h3>
+                  <h3 className="text-xl font-semibold text-crimson-600">{m.name}</h3>
                   <p className="text-sm font-semibold uppercase tracking-wide text-gold-600">{m.title}</p>
                   <p className="mt-2 text-base text-ink">{m.expertise}</p>
                   <p className="mt-1 text-base text-ink-soft">{m.experience}</p>

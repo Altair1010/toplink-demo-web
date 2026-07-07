@@ -8,21 +8,21 @@ import FloatingZalo from "@/components/FloatingZalo";
 import { Toaster } from "@/components/ui/sonner";
 import { CONTACT, BRANCHES } from "@/data/content";
 
-// Be Vietnam Pro — DÙNG CHUNG cho cả heading (display) lẫn body (giảm còn 1 sans
-// family thay vì 2). Bỏ weight 300 ít dùng để cắt số file font preload (FOUT/CLS).
+// Be Vietnam Pro — sans cho body + h3 trở xuống. 3 weight đủ hierarchy
+// (400 body / 500 nhấn nhẹ / 600 title); tiếng Việt mỗi weight = subset
+// Latin + Vietnamese nên cắt weight là cắt payload thật.
 const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   variable: "--font-be-vietnam",
   display: "swap",
 });
 
-// Serif Á Đông (Bộ 1 "Cổ phương") — font HEADING chính toàn site + statement lớn.
-// Noto Serif (regular, KHÔNG Display): tương phản nét vừa phải → dấu tiếng Việt rõ ở
-// MỌI cỡ heading kể cả H4–H6 nhỏ, hợp người lớn tuổi. SemiBold 600 cho H1–H2.
+// Serif Á Đông (Bộ 1 "Cổ phương") — CHỈ h1/h2/statement/quote lớn.
+// 600 heading chính + 700 nhấn (.emph). Không 800: brand tĩnh tại.
 const notoSerif = Noto_Serif({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["600", "700"],
   variable: "--font-noto-serif",
   display: "swap",
 });

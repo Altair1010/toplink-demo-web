@@ -19,7 +19,7 @@ export default function ServicesPage() {
         return (
           <section key={level.key} className="mt-12">
             <div className="flex items-baseline gap-3">
-              <h2 className="text-3xl font-black text-crimson-600">{level.label}</h2>
+              <h2 className="text-3xl font-bold text-crimson-600">{level.label}</h2>
               <span className="text-base text-ink-soft">{level.desc}</span>
             </div>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

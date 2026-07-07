@@ -24,7 +24,7 @@ export default function FranchisePage() {
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-2">
         <Reveal from="left" className="rounded-md border border-sand bg-cream p-8 shadow-sm">
           <Handshake className="h-9 w-9 text-gold-600" />
-          <h2 className="mt-4 text-3xl font-black text-crimson-600">Hỗ trợ dành cho đối tác</h2>
+          <h2 className="mt-4 text-3xl font-bold text-crimson-600">Hỗ trợ dành cho đối tác</h2>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             {FRANCHISE.supports.map((s) => (
               <div key={s.title} className="border-l-2 border-gold-500 pl-4">
