@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import HomeHero from "@/components/home-experience/HomeHero";
 import HomeExperience from "@/components/home-experience/HomeExperience";
 import RitualTimeline from "@/components/home-experience/RitualTimeline";
 import SpaceAsTherapy from "@/components/home-experience/SpaceAsTherapy";
@@ -20,7 +21,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* 1+2 · Body Signal Interface + 4 trạng thái + drawer (client boundary duy nhất) */}
+      {/* 1 · HERO nền đỏ — định vị thương hiệu, đẩy lên đầu */}
+      <HomeHero />
+
+      {/* 2+3 · Body Signal Interface + 4 trạng thái + drawer (client boundary duy nhất) */}
       <HomeExperience />
 
       {/* 3 · Một ngày ở Y Viện — timeline cảm giác */}

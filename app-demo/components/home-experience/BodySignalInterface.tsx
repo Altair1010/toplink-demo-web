@@ -27,9 +27,10 @@ export default function BodySignalInterface({
           <p className="eyebrow text-sm font-semibold text-crimson-600">
             Y Viện Toplink · Dưỡng Thân · Tỉnh Thức
           </p>
-          <h1 className="mt-6 max-w-xl text-balance font-serif-display text-[length:var(--text-hero)] text-ink">
+          {/* h2: H1 trang giờ nằm ở HomeHero (hero nền đỏ đầu trang) */}
+          <h2 className="mt-6 max-w-xl text-balance font-serif-display text-[length:var(--text-hero)] text-ink">
             Hôm nay cơ thể đang báo điều gì?
-          </h1>
+          </h2>
           <p className="measure-lead mt-5 text-lg leading-relaxed text-ink-soft">
             Chạm vào dấu hiệu anh/chị đang cảm nhận — Y Viện lắng nghe trước khi chăm sóc.
           </p>
