@@ -12,10 +12,9 @@ import ServiceFilterGrid from "@/components/ServiceFilterGrid";
 import ReviewWall from "@/components/ReviewWall";
 import ScrollConvergeScene from "@/components/motion/ScrollConvergeScene";
 import ConvergeBlock from "@/components/motion/ConvergeBlock";
-import WindLeafField from "@/components/motion/WindLeafField";
+import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import StatCounter from "@/components/motion/StatCounter";
 import SplitReveal from "@/components/motion/SplitReveal";
-import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { TECHNOLOGIES, CONTACT, STATS, ABOUT_BLOCKS, HERO_IMAGE } from "@/data/content";
 
 const SLOGANS = [
@@ -31,7 +30,7 @@ const TECH_ICONS = [Flame, Droplets, Hand, Snowflake];
 
 export default function HomePage() {
   return (
-    <SmoothScrollProvider>
+    <>
       {/* ===== 1 · HERO — cinematic ritual: H1 serif lớn + grid 5/7 + ảnh bo mềm ===== */}
       <section className="on-dark relative overflow-hidden bg-crimson-800">
         {/* Nền gradient chiều sâu: quầng vàng champagne góc trên-trái → tối dần mép dưới.
@@ -44,7 +43,7 @@ export default function HomePage() {
               "radial-gradient(120% 85% at 15% -10%, rgba(216,170,75,0.14), transparent 55%), linear-gradient(180deg, transparent 45%, rgba(0,0,0,0.28))",
           }}
         />
-        <WindLeafField preset="hero" />
+        <AmbientLeaves />
         <div className="relative z-10 mx-auto grid min-h-[88svh] max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-24 lg:grid-cols-[5fr_7fr]">
           <div className="animate-fade-up text-ivory">
             <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
@@ -318,6 +317,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </SmoothScrollProvider>
+    </>
   );
 }

@@ -3,9 +3,8 @@ import Img from "@/components/Img";
 import SectionHeader from "@/components/SectionHeader";
 import { Leaf, Target, Eye, Heart } from "lucide-react";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
-import WindLeafField from "@/components/motion/WindLeafField";
+import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import SplitReveal from "@/components/motion/SplitReveal";
-import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 import { TEAM } from "@/data/content";
 
 export const metadata = {
@@ -22,9 +21,8 @@ const HERO_IMAGES = [
 
 export default function AboutPage() {
   return (
-    <SmoothScrollProvider>
     <div className="relative overflow-hidden">
-      <WindLeafField preset="ambient" />
+      <AmbientLeaves />
       <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6">
         <SectionHeader
           eyebrow="Giới thiệu"
@@ -119,6 +117,5 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
-    </SmoothScrollProvider>
   );
 }

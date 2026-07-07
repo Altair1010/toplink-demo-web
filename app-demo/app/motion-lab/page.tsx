@@ -1,7 +1,6 @@
 import ScrollConvergeScene from "@/components/motion/ScrollConvergeScene";
 import ConvergeBlock from "@/components/motion/ConvergeBlock";
 import YVienSpaceExperience from "@/components/YVienSpaceExperience";
-import SmoothScrollProvider from "@/components/motion/SmoothScrollProvider";
 
 /**
  * MOTION LAB (dev) — bàn thử cô lập cho hệ "Converging Ritual Motion System".
@@ -26,7 +25,6 @@ const LAB_BLOCKS = [
 
 export default function MotionLabPage() {
   return (
-    <SmoothScrollProvider>
     <div className="bg-ivory">
       <header className="mx-auto max-w-6xl px-4 pt-16 pb-8 sm:px-6">
         <span className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-700">
@@ -66,6 +64,5 @@ export default function MotionLabPage() {
         <YVienSpaceExperience />
       </section>
     </div>
-    </SmoothScrollProvider>
   );
 }

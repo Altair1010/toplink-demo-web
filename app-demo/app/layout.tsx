@@ -81,9 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <a href="#main" className="skip-link">Bỏ qua, tới nội dung chính</a>
         <SiteHeader />
-        {/* Lenis smooth-scroll KHÔNG đặt ở đây nữa: nó được bọc riêng trong từng trang
-            cần motion (/, /gioi-thieu, /khong-gian, /motion-lab) để trang tĩnh không
-            phải tải GSAP/Lenis (giảm initial JS). */}
+        {/* Native scroll toàn site (scroll-behavior: smooth) — Lenis/Three đã gỡ. */}
         <main id="main" className="pb-20 lg:pb-0">{children}</main>
         <SiteFooter />
         <FloatingZalo />

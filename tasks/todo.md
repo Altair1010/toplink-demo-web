@@ -1,34 +1,58 @@
-# TODO — setup-claude-agent-system.ps1
+# TODO — Đại cách tân "Nghi thức chẩn thân"
 
-Nguồn plan: `C:\Users\MCBAu\.claude\plans\read-f-codex-yvien-hotlink-humming-hennessy.md`
+Nguồn plan: `C:\Users\MCBAu\.claude\plans\swirling-scribbling-cookie.md`
 
-## P0 — Skeleton & helpers  ✅ (parse OK, BOM UTF-8)
-- [x] 1. `setup-claude-agent-system.ps1`: param block + Write-Step/Ok/Skip/Fail/Info
-- [x] 2. Helpers: Test-CommandExists, Read-JsonOrEmpty, Write-JsonFile, Add-IfMissing, Write-Template
-- [x] 3. Test-WslAvailable, Invoke-InWsl, Invoke-StepWithCheckpoint (fix/skip/abort + ResumeFrom)
+## P0 — Baseline
+- [x] Commit NavDropdown + tasks cũ (8f00cf4)
+- [ ] npm run build xanh, ghi baseline first-load JS
 
-## P1 — Foundation files  ✅ (test temp: 7/7 file)
-- [x] 4. Write-FoundationFiles: 7 .md here-string, không overwrite (Write-Template trả $false nếu tồn tại)
-- [x] 5. New-ClaudeDirTree: .claude/{skills,commands,agents,hooks} + .trellis/* + .claude-loop/
+## P1 — CSS + Typography
+- [ ] Tách globals.css → styles/tokens.css (@theme ×2), typography.css, components.css, utilities.css
+- [ ] Fonts: Be Vietnam Pro 400/500/600 + Noto Serif 600/700 (9→5)
+- [ ] Serif chỉ h1/h2/.font-display/.statement; h3+ sans 600; hạ font-black→700
+- [ ] Type scale mới + --text-hero clamp(3rem,6vw,4.75rem) + measure 62/54/36ch
 
-## P2 — Hooks & settings  ✅ (test: settings hợp lệ, hooks=PreToolUse,PostToolUse,SessionEnd)
-- [x] 6. Hook wrappers: rtk-rewrite.ps1, cbm-discovery.ps1, context-counter.py, session-learner.ps1 (auto wsl-wrap)
-- [x] 7. Write-ProjectSettings: merge hooks + mcpServers + permissions; PostSession→SessionEnd
+## P2 — Bỏ Lenis/Three
+- [ ] Gỡ SmoothScrollProvider khỏi gioi-thieu/khong-gian/motion-lab
+- [ ] AmbientLeaves CSS-only thay WindLeafField ambient
+- [ ] Dọn .lenis rules + lib/motion tham chiếu
+- [ ] npm uninstall lenis three @types/three (sau grep 0)
+- [ ] Dynamic import GSAP sections inner pages
 
-## P3 — Global install (pause-on-fail mỗi tool)  ⏸ CHỜ USER CHẠY INTERACTIVE
-- [x] 8. Đã code: Install-Rtk(WSL2), Install-Headroom(pipx), Install-CodebaseMemoryMcp(WSL2)
-- [x] 9. Đã code: token-optimizer-mcp(npm), caveman(PS), loop-tools, plugins
-  - ⏸ Chưa thực thi trên repo thật: cần chạy `.\setup-claude-agent-system.ps1` để pause-on-fail tương tác
+## P3 — Data model
+- [ ] BODY_STATES 4 + BODY_REGIONS 6 + SYMPTOMS 8 + RITUAL_MOMENTS 7 + SPACE_QUALITIES 4
+- [ ] lib/recommendation.ts recommend(selected, max=3)
 
-## P4 — Index + compress  ✅ (đã code; trellis init = MANUAL vì interactive)
-- [x] 10. Initialize-Indexes (codebase-memory/codegraph + Push-Location fix) · caveman-compress · trellis nhắc thủ công
+## P4 — Di cư inner pages
+- [ ] /gioi-thieu: WhyChoose + Stats + ReviewWall
+- [ ] /quy-trinh-tri-lieu: HealingProcessMotion (dynamic)
+- [ ] /khong-gian: YVienSpaceExperience (dynamic)
+- [ ] /lien-he: FaqAccordion
+- [ ] /dich-vu: ServiceFilterGrid full + section #bang-gia
+- [ ] Checkpoint: build + QA 5 trang
 
-## P5 — Validation & summary  ✅ (test temp: 20 OK/3 Skip/0 Fail)
-- [x] 11. Test-Setup (JSON valid + đếm 7 file) · Show-Summary + resume hint
+## P5 — Homepage mới (L)
+- [ ] BodyMap.tsx SVG 6 region glow CSS
+- [ ] BodySignalInterface + BodyStatePanel (chips aria-pressed)
+- [ ] FourBodyStates Tắc/Hàn/Hư/Loạn expand
+- [ ] RitualTimeline 7 khoảnh khắc
+- [ ] SpaceAsTherapy 4 frame
+- [ ] RecommendationDrawer slide-up (không đè MobileBottomBar)
+- [ ] HomeFinalCTA
+- [ ] app/page.tsx viết lại; xóa Marquee/NeedSelector + CSS marquee
+- [ ] QA: reduced-motion, keyboard, 375px, grep gsap = 0
 
-## P6 — Retire bootstrap  ⏸ chạy khi user áp dụng trên repo thật
-- [x] 12. Đã code: bootstrap-project.ps1 → .bak (checkpoint trước khi đụng)
+## P6 — Header phẳng
+- [ ] 6 mục + Đặt lịch; footer nhận route phụ
 
-## Lưu ý
-- node.exe pid 22832 (trellis init test cũ) có thể còn treo — đóng thủ công nếu cần (classifier chặn tôi kill).
-- Chạy trên repo THẬT: `.\setup-claude-agent-system.ps1` (mặc định cwd). Tool đã cài (rtk/headroom/codegraph) sẽ [SKIP]; tool chưa có sẽ pause hỏi fix/skip/abort.
+## P7 — SEO
+- [ ] Xóa keywords; sitemap.ts + robots.ts (basePath)
+- [ ] JSON-LD: geo/image/priceRange/sameAs/areaServed/hasOfferCatalog
+- [ ] Service schema /dich-vu/[slug]; FAQPage /lien-he; Breadcrumbs
+- [ ] Homepage metadata thương mại "trị liệu Đông y Hà Nội"
+
+## P8 — Polish
+- [ ] Gold audit: text-gold cấm <24px (SiteFooter 16, BookingStepper 9, lien-he 8)
+- [ ] Images width/height (CLS)
+- [ ] Prettier pass
+- [ ] Lighthouse: LCP<2.5s CLS<0.1 so baseline
