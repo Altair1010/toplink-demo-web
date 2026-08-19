@@ -83,8 +83,9 @@ const JSON_LD = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${beVietnam.variable} ${notoSerif.variable}`}>
-      <body className="bg-paper min-h-screen">
+    // data-brand chọn skin (styles/skins.css). "yvien" = nhận diện mặc định.
+    <html lang="vi" data-brand="yvien" className={`${beVietnam.variable} ${notoSerif.variable}`}>
+      <body className="surface-paper min-h-screen">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}

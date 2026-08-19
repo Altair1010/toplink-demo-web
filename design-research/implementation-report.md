@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # Implementation Report — Breath & Flow + 2 section (cảm hứng MyWebLab)
 
 > Ngày: 2026-06-25 · Nhánh: `feat/dropbox-motion-system` · App: `app-demo/` (Next.js 16, static export).

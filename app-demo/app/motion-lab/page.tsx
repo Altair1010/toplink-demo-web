@@ -51,7 +51,7 @@ export default function MotionLabPage() {
           {LAB_BLOCKS.map((b, i) => (
             <ConvergeBlock key={b.from} from={b.from} index={i}>
               <div
-                className={`rounded-md p-10 text-center font-display text-2xl shadow-soft ${b.tone}`}
+                className={`rounded-md p-10 text-center font-display text-2xl elev-soft ${b.tone}`}
               >
                 {b.label}
               </div>

@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # BẢNG KIỂM TRA TYPOGRAPHY — TẤT CẢ SECTION & SUBTAB
 
 > Mục đích: đối chiếu trên web rồi chỉnh từng chút. Cột **Size** ghi cả class Tailwind và px quy đổi (mobile → desktop nếu có `sm:`/`lg:`).

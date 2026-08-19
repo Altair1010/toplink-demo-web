@@ -4,6 +4,7 @@ import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 import { gsap, ScrollTrigger, registerAdvanced } from "@/lib/motion/scrollTrigger";
 import { registerEases } from "@/lib/motion/easings";
 import { breathFlow } from "@/lib/motion/config";
+import { readMotionTheme } from "@/lib/motion/theme";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
@@ -32,6 +33,8 @@ export default function SplitReveal({
     const el = ref.current;
     if (!el) return;
     if (prefersReducedMotion()) return;
+    const motion = readMotionTheme(); // nhịp lấy từ CSS → theo cả skin đang bật
+    if (!motion) return;
 
     let split: { revert: () => void } | undefined;
     let st: ScrollTrigger | undefined;
@@ -64,7 +67,7 @@ export default function SplitReveal({
       const tween = gsap.from(targets, {
         yPercent: 120,
         autoAlpha: 0,
-        duration: breathFlow.slow,
+        duration: motion.slow,
         ease: breathFlow.ease,
         stagger: 0.08,
         delay,

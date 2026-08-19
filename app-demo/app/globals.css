@@ -9,6 +9,8 @@
 @import "../styles/utilities.css";
 @import "../styles/motion.css";
 @import "../styles/home-experience.css";
+/* Skin PHẢI nhập cuối: ghi đè token theo [data-brand] trên <html>. Xem skins.css. */
+@import "../styles/skins.css";
 
 /* ============================================================
    BASE — nền, chữ, hành vi cuộn

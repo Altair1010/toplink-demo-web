@@ -1,57 +1,110 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * Hiệu ứng mở đầu kiểu brand.dropbox.com: khi cuộn tới, các khối TRƯỢT VỀ GIỮA
- * và phóng to dần tới kích thước thật. Mỗi item tự tính tiến độ theo vị trí của
- * chính nó trong viewport (không thư viện, hợp static export). Tôn trọng
- * prefers-reduced-motion (hiện sẵn, không animate).
+ * và phóng to dần tới kích thước thật.
+ *
+ * KIẾN TRÚC (đã viết lại — bản cũ gọi setState trong rAF trên MỖI scroll event, MỖI
+ * item, kèm getBoundingClientRect mỗi item mỗi frame → React re-render ở tần số cuộn):
+ *
+ *   1. IntersectionObserver quyết định item nào ĐANG cần đo. Item ngoài màn hình
+ *      không tốn phép đo nào.
+ *   2. MỘT listener scroll + MỘT vòng rAF dùng chung cho toàn bộ item, thay vì mỗi
+ *      item một cặp riêng.
+ *   3. Tiến độ ghi thẳng vào custom property `--converge-p` trên element. CSS lo
+ *      transform/opacity. React KHÔNG render lại lần nào sau khi mount.
+ *
+ * Base-state trong CSS là `--converge-p: 1` (đã hội tụ) nên SSR/no-JS hiển thị đầy
+ * đủ. Tôn trọng prefers-reduced-motion (guard cả ở JS lẫn CSS).
+ * Hợp static export: không thư viện, không đo lúc render.
  */
-function useConverge(from: "left" | "right" | "up" | "down", dist: number) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [p, setP] = useState(0);
 
+type From = "left" | "right" | "up" | "down";
+
+/* ── Sổ đăng ký dùng chung ────────────────────────────────────────────────── */
+
+const active = new Set<HTMLElement>();
+let frame = 0;
+let listening = false;
+
+function measure() {
+  frame = 0;
+  const vh = window.innerHeight || 800;
+  const start = vh * 0.95;
+  const end = vh * 0.5;
+  for (const el of active) {
+    const r = el.getBoundingClientRect();
+    const mid = r.top + r.height / 2;
+    const p = Math.max(0, Math.min(1, (start - mid) / (start - end)));
+    el.style.setProperty("--converge-p", p.toFixed(3));
+  }
+}
+
+function schedule() {
+  if (!frame) frame = requestAnimationFrame(measure);
+}
+
+function startListening() {
+  if (listening) return;
+  listening = true;
+  window.addEventListener("scroll", schedule, { passive: true });
+  window.addEventListener("resize", schedule);
+}
+
+function stopListening() {
+  if (!listening) return;
+  listening = false;
+  window.removeEventListener("scroll", schedule);
+  window.removeEventListener("resize", schedule);
+  if (frame) {
+    cancelAnimationFrame(frame);
+    frame = 0;
+  }
+}
+
+/** Bật/tắt việc đo một element theo tầm nhìn, dùng chung listener + rAF. */
+function useConverge(ref: React.RefObject<HTMLDivElement | null>) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (prefersReducedMotion()) {
-      setP(1);
-      return;
-    }
-    let raf = 0;
-    const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const r = el.getBoundingClientRect();
-        const vh = window.innerHeight || 800;
-        const start = vh * 0.95;
-        const end = vh * 0.5;
-        const y = r.top + r.height / 2;
-        const prog = (start - y) / (start - end);
-        setP(Math.max(0, Math.min(1, prog)));
-      });
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, [from, dist]);
+    if (prefersReducedMotion()) return;
 
-  const off: Record<string, [number, number]> = {
-    left: [-dist, 0],
-    right: [dist, 0],
-    up: [0, dist * 0.6],
-    down: [0, -dist * 0.6],
-  };
-  const [ox, oy] = off[from] ?? [0, 0];
-  return { ref, tx: ox * (1 - p), ty: oy * (1 - p), p };
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          active.add(el);
+          startListening();
+          schedule();
+        } else {
+          active.delete(el);
+          if (active.size === 0) stopListening();
+        }
+      },
+      // rootMargin nới ra để item bắt đầu được đo TRƯỚC khi lọt vào khung nhìn,
+      // tránh nhảy giá trị ở khung hình đầu tiên.
+      { rootMargin: "20% 0px 20% 0px" },
+    );
+    io.observe(el);
+
+    return () => {
+      io.disconnect();
+      active.delete(el);
+      if (active.size === 0) stopListening();
+    };
+  }, [ref]);
 }
+
+/* ── Component ────────────────────────────────────────────────────────────── */
+
+const OFFSET: Record<From, [number, number]> = {
+  left: [-1, 0],
+  right: [1, 0],
+  up: [0, 0.6],
+  down: [0, -0.6],
+};
 
 export function ConvergeItem({
   from = "left",
@@ -59,23 +112,24 @@ export function ConvergeItem({
   className = "",
   children,
 }: {
-  from?: "left" | "right" | "up" | "down";
+  from?: From;
   /** Khoảng cách trượt ban đầu (px). Cho so le để độc đáo. */
   dist?: number;
   className?: string;
   children: ReactNode;
 }) {
-  const { ref, tx, ty, p } = useConverge(from, dist);
+  const ref = useRef<HTMLDivElement>(null);
+  useConverge(ref);
+
+  const [fx, fy] = OFFSET[from];
+  // Biến tĩnh — đặt một lần lúc render, không đổi khi cuộn.
+  const style = {
+    "--converge-x": `${fx * dist}px`,
+    "--converge-y": `${fy * dist}px`,
+  } as CSSProperties;
+
   return (
-    <div
-      ref={ref}
-      className={className}
-      style={{
-        transform: `translate(${tx.toFixed(1)}px, ${ty.toFixed(1)}px) scale(${(0.92 + 0.08 * p).toFixed(3)})`,
-        opacity: 0.6 + 0.4 * p,
-        willChange: "transform, opacity",
-      }}
-    >
+    <div ref={ref} data-converge className={className} style={style}>
       {children}
     </div>
   );

@@ -16,7 +16,7 @@ export default function HomeFinalCTA() {
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/dat-lich"
-            className="flex items-center gap-2 rounded-sm bg-gold-500 px-[2.4rem] py-[1.2rem] text-[1.35rem] font-semibold text-wood-700 shadow-soft transition-colors hover:bg-gold-400"
+            className="flex items-center gap-2 rounded-sm bg-gold-500 px-[2.4rem] py-[1.2rem] text-[1.35rem] font-semibold text-wood-700 elev-soft transition-colors hover:bg-gold-400"
           >
             <CalendarPlus className="h-6 w-6" /> Đặt lịch ngay
           </Link>

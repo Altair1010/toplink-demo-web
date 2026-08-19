@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # Motion Implementation Report
 
 Áp dụng hệ Motion UI (cảm hứng cơ chế Dropbox Brand) vào trang chủ Y Viện Toplink.

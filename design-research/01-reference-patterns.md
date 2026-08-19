@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # 01 · Reference patterns → chuyển hóa cho Y Viện Toplink
 
 > Chỉ rút **nguyên lý thiết kế / cơ chế motion / cấu trúc component**. KHÔNG copy màu, typography,

@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # MyWebLab — Audit motion thủ công (Playwright + DOM/CSS inspection)
 
 > Quan sát trực tiếp `https://myweblab.it/` bằng Playwright (DOM, computed style, getBoundingClientRect).

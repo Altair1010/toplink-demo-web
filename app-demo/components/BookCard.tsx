@@ -25,7 +25,7 @@ export default function BookCard({ service, featured }: { service: Service; feat
         className={`book-inner h-full overflow-hidden rounded-2xl ${featured ? "min-h-[30rem]" : "min-h-[24rem]"}`}
       >
         {/* PAGE — ảnh "trang sách" lộ qua khe bìa khi mở hé */}
-        <div className="img-overlay absolute inset-0 rounded-2xl border border-gold-700/60 bg-crimson-900">
+        <div className="img-overlay absolute inset-0 rounded-2xl border border-gold-700/60 bg-crimson-800">
           <Img
             src={service.image ?? INNER_FALLBACK}
             alt=""

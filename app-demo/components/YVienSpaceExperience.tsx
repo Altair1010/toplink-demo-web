@@ -7,6 +7,7 @@ import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger"
 import { registerEases } from "@/lib/motion/easings";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { breathFlow, PIN_MIN_WIDTH } from "@/lib/motion/config";
+import { readMotionTheme } from "@/lib/motion/theme";
 import { SPACES } from "@/data/content";
 
 /**
@@ -40,15 +41,16 @@ export default function YVienSpaceExperience() {
 
       // ----- MOBILE / REDUCED: reveal dọc theo luồng thường, không pin -----
       if (!canPin) {
-        if (reduced) return;
+        const motion = readMotionTheme(); // nhịp lấy từ CSS → theo cả skin đang bật
+        if (reduced || !motion) return;
         panels.forEach((p, i) => {
           gsap.fromTo(
             p,
-            { y: breathFlow.revealDistance, autoAlpha: 0 },
+            { y: motion.revealDistance, autoAlpha: 0 },
             {
               y: 0,
               autoAlpha: 1,
-              duration: breathFlow.slow,
+              duration: motion.slow,
               ease: breathFlow.ease,
               delay: (i % 2) * 0.06,
               scrollTrigger: { trigger: p, start: "top 88%", toggleActions: "play none none none" },
@@ -137,7 +139,7 @@ export default function YVienSpaceExperience() {
               className="shrink-0 lg:flex lg:h-full lg:items-center lg:justify-center lg:px-10"
             >
               <article
-                className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 shadow-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}
+                className={`grid w-full overflow-hidden rounded-3xl border border-gold-700 elev-soft lg:max-w-5xl lg:grid-cols-2 ${sp.tone}`}
               >
                 <div className="img-overlay relative aspect-[4/3] overflow-hidden lg:aspect-auto">
                   <div

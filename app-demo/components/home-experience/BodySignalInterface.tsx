@@ -27,8 +27,10 @@ export default function BodySignalInterface({
           <p className="eyebrow text-sm font-semibold text-crimson-600">
             Y Viện Toplink · Dưỡng Thân · Tỉnh Thức
           </p>
-          {/* h2: H1 trang giờ nằm ở HomeHero (hero nền đỏ đầu trang) */}
-          <h2 className="mt-6 max-w-xl text-balance font-serif-display text-[length:var(--text-hero)] text-ink">
+          {/* h2 — KHÔNG dùng --text-hero. Token đó thuộc về H1 ở HomeHero; đặt ở đây
+              làm h2 to gấp 2,4–3,8 lần h1 của chính trang. Dùng --text-statement cho
+              khớp mọi h2 khác của homepage (RitualTimeline, FourBodyStates). */}
+          <h2 className="mt-6 max-w-xl text-balance font-serif-display text-[length:var(--text-statement)] text-ink">
             Hôm nay cơ thể đang báo điều gì?
           </h2>
           <p className="measure-lead mt-5 text-lg leading-relaxed text-ink-soft">

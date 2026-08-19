@@ -3,7 +3,10 @@
    Phong cách: "Đông Y Cung Đình Hiện Đại"
    (theo bộ nhận diện rút từ nhatlieuyvien.vn — bản nâng cấp Toplink)
    Palette: đỏ dược liệu · đỏ sơn mài · vàng kim tiết chế · kem giấy cổ ·
-   nâu gỗ trầm · mực tàu. Màu PHẲNG — không gradient, không blend.
+   nâu gỗ trầm · mực tàu.
+   Màu PHẲNG cho BỀ MẶT — không gradient cho nền khối, đường kẻ hay chữ. Gradient
+   chỉ được dùng như THIẾT BỊ ÁNH SÁNG ở đúng ba chỗ: scrim hero, .cta-glow, và lớp
+   phủ đọc-chữ trên ảnh (BrandVisual). Xem DESIGN.md §Elevation & Depth.
    Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
    Heading: Noto Serif (serif, SemiBold 600 — Bộ 1 "Cổ phương") · Body: Be Vietnam Pro.
    ============================================================ */
@@ -108,6 +111,26 @@
   --motion-slow: 760ms;
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1); /* hover / vi tương tác */
   --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1); /* reveal trị liệu (học MyWebLab) */
+  --ease-slide: cubic-bezier(0.15, 0.5, 0.05, 1); /* slide-in theo hướng (học Dropbox) */
+  /* Lò xo rời rạc bằng linear() (kỹ thuật motion.dev): "nảy" tinh tế rồi ổn định,
+     KHÔNG cần runtime JS. Dùng cho hover card/nút muốn có sức nặng. */
+  --ease-spring: linear(
+    0,
+    0.006,
+    0.025,
+    0.101,
+    0.27,
+    0.504,
+    0.737,
+    0.914,
+    1.012,
+    1.04,
+    1.027,
+    1.006,
+    0.997,
+    0.998,
+    1
+  );
   --reveal-distance: 32px; /* biên độ trượt khi reveal — nhỏ, điềm tĩnh */
   --section-parallax-depth: 80px; /* chiều sâu khi tầng/khối lùi về sau */
 }

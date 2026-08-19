@@ -1,0 +1,10 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+package-lock.json
+
+# Công cụ tự ghi lại 2 file này (Next.js sửa tsconfig khi `next dev`, shadcn CLI sửa
+# components.json). Để prettier quản lý sẽ làm cổng format chập chờn.
+tsconfig.json
+components.json

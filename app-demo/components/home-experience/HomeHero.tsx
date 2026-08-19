@@ -9,7 +9,7 @@ import AmbientLeaves from "@/components/motion/AmbientLeaves";
  */
 export default function HomeHero() {
   return (
-    <section className="on-dark relative isolate flex min-h-[46svh] items-center overflow-hidden bg-crimson-800">
+    <section className="on-dark relative isolate flex min-h-[64svh] items-center overflow-hidden bg-crimson-800">
       {/* Ảnh không gian — full chiều cao section, bo 2 góc phải, fade mép trái */}
       <div className="absolute inset-y-0 right-0 z-0 w-[68%] overflow-hidden rounded-l-none rounded-r-[2rem]">
         <Img
@@ -26,15 +26,9 @@ export default function HomeHero() {
         />
       </div>
 
-      {/* Scrim đỏ: giữ vùng chữ (trái → giữa) đủ tối để đọc, mép phải lộ ảnh */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-[1]"
-        style={{
-          background:
-            "radial-gradient(120% 90% at 12% -10%, rgba(216,170,75,0.14), transparent 55%), linear-gradient(to right, rgba(106,5,17,0.92) 32%, rgba(106,5,17,0.35) 60%, transparent 78%)",
-        }}
-      />
+      {/* Scrim đỏ: giữ vùng chữ (trái → giữa) đủ tối để đọc, mép phải lộ ảnh.
+          Dựng từ token trong styles/home-experience.css → skin đổi theo. */}
+      <div aria-hidden className="home-hero-scrim pointer-events-none absolute inset-0 z-[1]" />
       <AmbientLeaves />
 
       {/* Nội dung — dồn về NỬA TRÁI (vùng đỏ thuần, đọc rõ), căn giữa dọc */}
@@ -43,10 +37,13 @@ export default function HomeHero() {
           <span className="inline-block border border-gold-500 px-4 py-1.5 text-base font-semibold uppercase tracking-[0.18em] text-gold-300">
             Y Viện Dưỡng Thân · Tỉnh Thức
           </span>
-          <h1 className="animate-fade-up mt-4 font-display text-xl font-semibold uppercase leading-snug tracking-wide text-ivory">
+          {/* H1 dùng --text-hero (48→76px) — token vốn được tạo riêng cho chỗ này.
+              KHÔNG uppercase: tiếng Việt có dấu viết hoa toàn bộ làm chậm đọc, nhất
+              là nhóm khách lớn tuổi (DESIGN.md §Typography). */}
+          <h1 className="animate-fade-up mt-5 text-balance font-serif-display text-[length:var(--text-hero)] text-ivory">
             Dưỡng thân từ gốc, phục hồi từ tâm
           </h1>
-          <p className="animate-fade-up delay-1 mt-5 max-w-lg text-center text-xl leading-relaxed text-cream/90 sm:text-justify sm:[text-align-last:center]">
+          <p className="animate-fade-up stagger-1 mt-5 max-w-lg text-center text-xl leading-relaxed text-cream/90 sm:text-justify sm:[text-align-last:center]">
             Không gian chăm sóc sức khỏe Đông y cao cấp, kết hợp trị liệu thủ công, dưỡng liệu tự
             nhiên và công nghệ hiện đại, giúp cơ thể được lắng nghe và cân bằng.
           </p>
