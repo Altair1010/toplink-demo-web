@@ -132,7 +132,7 @@ export default function ServiceFilterGrid({ featuredOnly = false }: { featuredOn
             {ind && (
               <span
                 aria-hidden
-                className="shadow-soft pointer-events-none absolute rounded-md bg-crimson-600 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+                className="elev-soft pointer-events-none absolute rounded-md bg-crimson-600 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
                 style={{ left: ind.left, top: ind.top, width: ind.width, height: ind.height }}
               />
             )}

@@ -3,8 +3,11 @@
    Style trang trí Đông y đứng riêng, không lẫn vào token/typography.
    ============================================================ */
 
-/* Tiện ích shadow mềm (Tailwind v4 không sinh class từ --shadow-* tùy biến) */
-.shadow-soft {
+/* Shadow mềm — CSS thuần, KHÔNG phụ thuộc Tailwind.
+   Lưu ý: Tailwind v4 CÓ sinh `.shadow-soft` từ `--shadow-soft` trong @theme. Class
+   viết tay tên `shadow-soft` sẽ đè lên bản sinh và phá cấu trúc ring/inset của
+   Tailwind. Vì vậy tên ở đây là `elev-soft` — nằm ngoài mọi namespace Tailwind. */
+.elev-soft {
   box-shadow: var(--shadow-soft);
 }
 
@@ -122,6 +125,6 @@
 }
 
 /* Nền giấy cổ — PHẲNG (đã bỏ gradient theo yêu cầu) */
-.bg-paper {
+.surface-paper {
   background-color: var(--color-ivory);
 }

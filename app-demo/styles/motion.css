@@ -23,6 +23,20 @@
   opacity: 1;
 }
 
+/* ── CONVERGE ITEM (components/ConvergeOnScroll.tsx) ──
+   Toàn bộ nội suy nằm ở CSS; JS chỉ ghi MỘT số vào --converge-p mỗi khung hình.
+   Base-state = 1 (đã hội tụ) để SSR/no-JS hiển thị đầy đủ, không lệch, không mờ. */
+[data-converge] {
+  --converge-p: 1;
+  transform: translate(
+      calc(var(--converge-x, 0px) * (1 - var(--converge-p))),
+      calc(var(--converge-y, 0px) * (1 - var(--converge-p)))
+    )
+    scale(calc(0.92 + 0.08 * var(--converge-p)));
+  opacity: calc(0.6 + 0.4 * var(--converge-p));
+  will-change: transform, opacity;
+}
+
 /* ── BREATH & FLOW ──
    Hook cho 2 section mới: base-state HIỂN THỊ ĐẦY ĐỦ (no-JS/SSR an toàn);
    JS (GSAP) sẽ ghi đè trạng thái khởi đầu trước paint khi motion được phép. */
@@ -61,8 +75,10 @@
   [data-converge-block],
   [data-motion-card],
   [data-breath-reveal],
-  [data-floor-panel] {
+  [data-floor-panel],
+  [data-converge] {
     transform: none !important;
     opacity: 1 !important;
+    will-change: auto;
   }
 }

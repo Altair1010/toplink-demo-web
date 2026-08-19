@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { breathFlow } from "@/lib/motion/config";
+import { readMotionTheme } from "@/lib/motion/theme";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
@@ -24,6 +25,8 @@ export default function StatCounter({
     const el = ref.current;
     if (!el || !m) return;
     if (prefersReducedMotion()) return;
+    const motion = readMotionTheme(); // nhịp lấy từ CSS → theo cả skin đang bật
+    if (!motion) return;
     registerMotion();
 
     const [, prefix, numStr, suffix] = m;
@@ -47,7 +50,7 @@ export default function StatCounter({
         gsap.fromTo(
           el,
           { yPercent: 6, opacity: 0.9 },
-          { yPercent: 0, opacity: 1, duration: breathFlow.medium, ease: breathFlow.ease },
+          { yPercent: 0, opacity: 1, duration: motion.medium, ease: breathFlow.ease },
         );
       },
     });

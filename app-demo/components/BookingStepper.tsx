@@ -472,7 +472,7 @@ function SealStamp() {
   return (
     <div
       ref={ref}
-      className="shadow-soft mx-auto flex h-16 w-16 items-center justify-center rounded-sm border-2 border-gold-400 bg-crimson-600 font-display text-3xl font-bold text-gold-200"
+      className="elev-soft mx-auto flex h-16 w-16 items-center justify-center rounded-sm border-2 border-gold-400 bg-crimson-600 font-display text-3xl font-bold text-gold-200"
       aria-hidden
     >
       Y

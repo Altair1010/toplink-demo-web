@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "typecheck": "tsc --noEmit",
+    "format:check": "prettier --check .",
+    "check:tokens": "node scripts/check-tokens.mjs",
+    "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:tokens"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
@@ -33,5 +36,8 @@
     "prettier": "^3.9.4",
     "tailwindcss": "^4.0.0",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

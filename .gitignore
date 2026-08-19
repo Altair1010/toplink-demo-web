@@ -29,6 +29,6 @@ build
 /*.png
 
 # Hệ agent nội bộ & script setup (giữ repo public gọn cho web demo)
+# AGENTS.md CỐ Ý được track: nó là context chung cho mọi agent + mọi clone mới.
 /.trellis/
-/AGENTS.md
 /setup-claude-agent-system.ps1

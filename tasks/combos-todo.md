@@ -1,3 +1,5 @@
+> ARCHIVE — ghi chép lịch sử, KHÔNG phải trạng thái hiện tại. Có thể mô tả phương án đã bị loại bỏ (Lenis, Three.js, marquee, hero cũ). Nguồn sự thật: `app-demo/styles/tokens.css` + `DESIGN.md` + `AGENTS.md`.
+
 # TODO — 11 Combo tài nguyên (shadcn + animation) cho Yvien
 
 Nguồn plan: `C:\Users\MCBAu\.claude\plans\valiant-swimming-cherny.md`

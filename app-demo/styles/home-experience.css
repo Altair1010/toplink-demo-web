@@ -5,6 +5,37 @@
    Không GSAP, không marquee, không parallax, không scroll hijack.
    ============================================================ */
 
+/* ── HERO SCRIM ──
+   Lớp phủ giữ chữ vùng trái đọc rõ, mép phải lộ ảnh. Gradient ở đây là THIẾT BỊ
+   ÁNH SÁNG chứ không phải màu bề mặt — một trong ba ngoại lệ được phép, xem
+   DESIGN.md §Elevation & Depth.
+
+   Trước đây khối này là inline style trong HomeHero.tsx với hex cứng
+   rgba(106,5,17,…) — nghĩa là skin [data-brand] không chạm tới được. Giờ dựng từ
+   token nên đổi skin là scrim đổi theo.
+
+   Fallback đặc cho trình duyệt không có color-mix() (trước 2023): vẫn đọc được
+   chữ, chỉ mất dải chuyển mềm. */
+.home-hero-scrim {
+  background: linear-gradient(to right, var(--color-crimson-800) 34%, transparent 78%);
+}
+@supports (color: color-mix(in oklab, red, red)) {
+  .home-hero-scrim {
+    background:
+      radial-gradient(
+        120% 90% at 12% -10%,
+        color-mix(in oklab, var(--color-gold-500) 14%, transparent),
+        transparent 55%
+      ),
+      linear-gradient(
+        to right,
+        color-mix(in oklab, var(--color-crimson-800) 92%, transparent) 32%,
+        color-mix(in oklab, var(--color-crimson-800) 35%, transparent) 60%,
+        transparent 78%
+      );
+  }
+}
+
 /* 1 · BODY REGION GLOW */
 .body-region {
   opacity: 0;

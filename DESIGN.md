@@ -4,60 +4,62 @@ name: Y Viện Toplink
 description: Deep, soulful Đông-y wellness brand — saturated crimson red, heritage gold, dark wood, and warm ivory for a luxurious, grounded, traditional-Eastern medicine experience.
 colors:
   primary: "#95131f"
-  primary-light: "#f9dcd9"
-  primary-soft: "#efb0aa"
-  primary-dark: "#7a0f18"
-  primary-deep: "#5c0a11"
+  primary-light: "#f5d9d6"
+  primary-soft: "#e6a9a3"
+  primary-dark: "#7e0a15"
+  primary-deep: "#6a0511"
   accent-red: "#c70002"
   accent-red-dark: "#b20000"
-  secondary: "#c8a02e"
-  secondary-light: "#fdd79a"
-  secondary-bright: "#fff1c1"
-  secondary-dark: "#9c7a1c"
-  wood: "#502c1e"
-  wood-dark: "#3a1f15"
+  secondary: "#d8aa4b"
+  secondary-light: "#f3d27a"
+  secondary-bright: "#f7e8c2"
+  secondary-dark: "#a9802c"
+  wood: "#56351f"
+  wood-dark: "#3a2114"
   tertiary: "#2f5d50"
   tertiary-dark: "#244a3f"
-  neutral: "#fbf7f0"
-  surface: "#ede7d3"
-  surface-high: "#d0c2a7"
+  neutral: "#fffcf7"
+  surface: "#f6f4df"
+  surface-high: "#e7d6b4"
   mist: "#e6e5d7"
-  on-surface: "#313131"
-  on-surface-soft: "#5c534c"
-  on-primary: "#fff1c1"
+  on-surface: "#1a1410"
+  on-surface-soft: "#4a4a4a"
+  on-primary: "#f7e8c2"
 typography:
   display-hero:
-    fontFamily: Playfair Display
-    fontSize: 60px
-    fontWeight: 900
-    lineHeight: 1.05
-    letterSpacing: -0.02em
+    fontFamily: Noto Serif
+    fontSize: clamp(3rem, 6vw, 4.75rem)
+    fontWeight: 600
+    lineHeight: 1.08
+    letterSpacing: -0.025em
   display-1:
-    fontFamily: Playfair Display
-    fontSize: 44px
-    fontWeight: 900
-    lineHeight: 1.1
-    letterSpacing: -0.01em
+    fontFamily: Noto Serif
+    fontSize: 32px
+    fontWeight: 600
+    lineHeight: 1.18
+    letterSpacing: -0.005em
   headline-lg:
-    fontFamily: Playfair Display
-    fontSize: 34px
-    fontWeight: 800
-    lineHeight: 1.15
+    fontFamily: Noto Serif
+    fontSize: 28px
+    fontWeight: 600
+    lineHeight: 1.18
+    letterSpacing: -0.005em
   headline-md:
-    fontFamily: Playfair Display
-    fontSize: 26px
-    fontWeight: 700
-    lineHeight: 1.25
+    fontFamily: Be Vietnam Pro
+    fontSize: 24px
+    fontWeight: 600
+    lineHeight: 1.3
+    letterSpacing: -0.005em
   body-lg:
     fontFamily: Be Vietnam Pro
     fontSize: 20px
     fontWeight: 400
-    lineHeight: 1.75
+    lineHeight: 1.65
   body-md:
     fontFamily: Be Vietnam Pro
     fontSize: 18px
     fontWeight: 400
-    lineHeight: 1.7
+    lineHeight: 1.65
   body-sm:
     fontFamily: Be Vietnam Pro
     fontSize: 16px
@@ -71,19 +73,9 @@ typography:
   label-caps:
     fontFamily: Be Vietnam Pro
     fontSize: 14px
-    fontWeight: 700
+    fontWeight: 600
     lineHeight: 1
-    letterSpacing: 0.18em
-  script-accent:
-    fontFamily: Dancing Script
-    fontSize: 36px
-    fontWeight: 700
-    lineHeight: 1.1
-  script-lg:
-    fontFamily: Dancing Script
-    fontSize: 56px
-    fontWeight: 700
-    lineHeight: 1.1
+    letterSpacing: 0.06em
 spacing:
   base: 16px
   xs: 4px
@@ -96,12 +88,15 @@ spacing:
   gutter: 24px
   margin: 32px
   card-pad: 32px
-  max-width: 1200px
+  max-width: 1280px
+  max-width-narrow: 760px
 rounded:
-  sm: 4px
-  md: 8px
-  lg: 12px
-  xl: 16px
+  sm: 2px
+  md: 4px
+  lg: 6px
+  xl: 8px
+  2xl: 16px
+  3xl: 24px
   full: 9999px
 components:
   button-primary:
@@ -124,6 +119,10 @@ components:
 ---
 
 # Y Viện Toplink — Design System
+
+> **Nguồn sự thật là code, không phải file này.** Mọi giá trị ở trên được rút từ
+> `app-demo/styles/tokens.css`. Khi hai bên lệch nhau, `tokens.css` đúng và file này
+> phải được sửa. Xem bảng đối chiếu ở mục [Token crosswalk](#token-crosswalk).
 
 ## Overview
 
@@ -148,95 +147,201 @@ traditional Eastern language of vitality (đỏ son), prosperity (vàng kim), an
 natural materials (nâu gỗ).
 
 - **Primary — Crimson (#95131f):** A deep, saturated brand red for primary actions,
-  the brand mark, hero gradients, and key emphasis. Conveys vitality, warmth, and
-  permanence. Pairs with warm cream text (#fff1c1), never pure white-on-thin-red.
+  the brand mark, hero surfaces, and key emphasis. Conveys vitality, warmth, and
+  permanence. Pairs with warm gold-tinted cream text (#f7e8c2), never pure
+  white-on-thin-red. Hover deepens to #7e0a15; pressed to #6a0511.
 - **Accent Red (#c70002):** A brighter red reserved for a single high-emphasis cue
   (e.g. the hotline). Used very sparingly so it never competes with the primary.
-- **Secondary — Heritage Gold (#c8a02e):** A rich gold for accents, decorative
-  rules, seals, and highlights. As text, restricted to large headings/eyebrows or
-  use on dark backgrounds (it lacks contrast as body text on light surfaces).
-- **Wood (#502c1e → #3a1f15):** Deep earthy browns for the footer and grounding
+- **Secondary — Heritage Gold (#d8aa4b):** A rich gold for accents, decorative
+  rules, seals, and highlights. **Contrast rule:** gold on ivory is ~2.1:1 and fails
+  WCAG — use it for lines, borders, large icons and decoration only. Never for text
+  below 24px on a light surface. On dark crimson, #f3d27a and #f7e8c2 are safe.
+- **Wood (#56351f → #3a2114):** Deep earthy browns for the footer and grounding
   surfaces, evoking natural materials.
 - **Tertiary — Deep Jade (#2f5d50):** A restrained, darkened teal for occasional
   restful accents and balance cues.
-- **Neutral — Ivory (#fbf7f0):** A warm off-white forming the page foundation.
-- **Surface — Cream / Sand (#ede7d3, #d0c2a7):** Layered warm tones for cards and
-  raised containers, with enough depth to give blocks clear edges.
-- **On-surface — Ink (#313131):** A warm charcoal for body text and headings.
+- **Neutral — Ivory (#fffcf7):** A warm off-white forming the page foundation.
+- **Surface — Cream / Sand (#f6f4df, #e7d6b4):** Layered warm tones for cards,
+  raised containers and hairline rules, with enough depth to give blocks clear edges.
+- **On-surface — Ink (#1a1410):** A warm near-black for body text and headings.
+  Secondary body text uses #4a4a4a to stay ≥4.5:1 on cream and ivory.
+
+### Skins
+
+The palette above is the default identity (`data-brand="yvien"`). The whole look —
+colors, motion tempo, corner radii — is swappable from a single attribute on `<html>`,
+because every utility and every hand-written rule reads the same custom properties.
+Alternate skins live in `app-demo/styles/skins.css`; two ship today (`tet`, `an-tinh`).
+
+A skin may retune brand anchors, motion tempo and radii. It must **not** redefine the
+type scale, container widths or measure — those are system decisions, not seasonal
+identity. Keep a skin recognisably the same brand; if it needs more than the anchors,
+it is a different brand, not a skin.
 
 ## Typography
 
-Three families carry the system: **Playfair Display** (headings, at weight **900**
-for impact) for an elegant, prestigious voice; **Be Vietnam Pro** for body and UI
-text, chosen for excellent Vietnamese diacritic rendering and high legibility; and
-**Dancing Script** as a decorative calligraphic accent that gives the brand soul.
+Two families carry the system: **Noto Serif** (headings, weight **600**) for an
+elegant, prestigious Eastern-classical voice; and **Be Vietnam Pro** for body, UI
+text and every heading from h3 down, chosen for excellent Vietnamese diacritic
+rendering and high legibility.
 
-- **Headlines:** Playfair Display, Black (900) for hero/display, 700–800 for
-  smaller headings. Never set body copy in the display face.
-- **Body:** Be Vietnam Pro Regular at **18–20px** (base 18px) with generous
-  line-height for comfortable reading by middle-aged and elderly guests. Body text
-  is never set below 16px.
-- **Labels:** Be Vietnam Pro Medium/Semi-Bold. Caps labels use light uppercase with
-  wide letter spacing for metadata and eyebrow text.
-- **Script accent:** Dancing Script is **decorative only** — short Vietnamese
-  phrases, hero flourishes, and section eyebrows. Never used for body copy or long
-  passages, to protect readability.
+- **Serif is reserved.** Noto Serif is used **only** for h1, h2, brand statements
+  and large pull quotes. If every sentence is ceremonial, none of them are.
+  Loaded weights: 600 (headings) and 700 (`.emph` keyword emphasis). No 800/900 —
+  the brand is still, not loud.
+- **Headings h3 and below** are Be Vietnam Pro 600, not serif. This is what keeps
+  the page from feeling uniformly ritualized.
+- **Never uppercase Vietnamese headings.** Full-caps Vietnamese with diacritics
+  measurably slows reading, especially for older guests. Uppercase is allowed only
+  for very short eyebrow/nav labels (`.label-caps`, `.eyebrow`) at 0.06em tracking.
+  Longer Vietnamese eyebrow lines use `.eyebrow-long` (no caps).
+- **Body:** Be Vietnam Pro Regular at **18–20px** (base 18px) with line-height 1.65
+  for comfortable reading. Body text is never set below 16px.
+- **Measure:** line length is capped by utility class — 62ch body, 54ch lead,
+  36ch card. Long unconstrained lines are a bug.
+- **No script/calligraphic face.** The brand has no decorative script font. Eastern
+  character comes from the seal motif, gold rules and frame borders, not handwriting.
 
 ## Layout
 
 The layout uses a **fluid single-column grid on mobile** (the priority device) and
-a **fixed max-width grid (1200px)** on desktop. A consistent spacing scale (4/8/16/
-24/40/64/96px) maintains rhythm, with **section vertical padding of 80–112px** and
-**card padding of 32px** for spacious, easy-to-scan blocks.
+a **fixed max-width grid (1280px)** on desktop, with a **760px narrow column** for
+quotes, intros and FAQ. A consistent spacing scale (4/8/16/24/40/64/96px) maintains
+rhythm; section vertical padding is fluid — `clamp(4rem, 9vw, 7rem)` normally and
+`clamp(5.5rem, 12vw, 11rem)` for pillar sections, so the page does not feel evenly
+metronomic.
 
 Content favors abundant whitespace, clearly delineated large content blocks, and
-generous internal padding. Body line length is capped (~max 3xl) for readability.
-On mobile, a persistent bottom action bar (Gọi · Zalo · Đặt lịch · Chỉ đường) stays
-visible without covering forms, with touch targets ≥44px.
+generous internal padding. On mobile, a persistent bottom action bar (Gọi · Zalo ·
+Đặt lịch · Chỉ đường) stays visible without covering forms, with touch targets ≥44px.
 
 ## Elevation & Depth
 
 Depth is conveyed through **tonal layering and soft shadows**, not heavy drop
 shadows. The ivory page background recedes while cream and ivory cards sit gently
-above it. A 2px gold gradient rule, gold "seal" ring motifs, and subtle layered
-paper-texture gradients (crimson + gold tints) add warmth, hierarchy, and an
+above it. Shadows are warm-tinted and shallow, never black.
+
+A **2px solid gold rule** (flat, not a gradient), gold "seal" ring motifs, and inset
+double-border frames (`.frame-gold`, `.frame-herb`) add warmth, hierarchy, and an
 Eastern decorative touch without visual noise.
+
+**On gradients:** the palette is flat by default — solid fills, no blends for
+surfaces, rules or type. Gradients are permitted in exactly three places, as a
+lighting device rather than a color device: the hero scrim, the closing CTA glow
+(`.cta-glow`), and the readability overlay on photography (`BrandVisual`). Do not
+introduce gradients elsewhere, and do not remove these three.
 
 ## Shapes
 
 The shape language is **structured and formal** — modest, near-square corners that
 evoke architectural, traditional-Eastern craft rather than soft, trendy roundness.
-Buttons use a small **4px** radius (not pills); cards use **8px**; large hero and
-CTA panels use **12px**. Full rounding (circles) is reserved only for true circular
-elements: the logo dot, icon buttons, stepper number circles, and avatars.
+Buttons and chips use a **2px** radius (not pills); cards use **4px**; larger panels
+use **6–8px**. Big photographic cards and hero panels may use **16–24px**. Full
+rounding (circles) is reserved only for true circular elements: the logo dot, icon
+buttons, stepper number circles, and avatars.
+
+## Motion
+
+Motion is **slow, soft and therapeutic** — it should read as breathing, never as
+technology demoing itself. Only `transform` and `opacity` are animated.
+
+- **Durations:** 180ms micro-interaction · 420ms state change · 760ms reveal.
+- **Easing:** `--ease-soft` `cubic-bezier(0.22, 1, 0.36, 1)` for hover and
+  micro-interaction; `--ease-ritual` `cubic-bezier(0.16, 1, 0.3, 1)` for reveals;
+  `--ease-slide` for directional slide-ins; `--ease-spring`, a discrete `linear()`
+  spring, for hover states that want weight. No JS runtime needed for any of them.
+- **CSS owns the tempo, including for GSAP.** Durations and reveal distance live in
+  `styles/tokens.css` and are read at runtime by `readMotionTheme()`
+  (`lib/motion/theme.ts`). TypeScript keeps only GSAP-specific curve names. There is
+  no second copy of these numbers — retuning motion is a CSS edit.
+- **Reveal amplitude is small** — 32px of travel. Calm, not cinematic.
+- **The homepage motion budget is three**, all pure CSS: body-region glow, state
+  panel expand, recommendation drawer slide-up. No GSAP on the homepage, no
+  marquee, no parallax, no scroll hijacking.
+- **Scroll is native** (`scroll-behavior: smooth`). There is no smooth-scroll
+  library. Lenis and Three.js were removed and must not return.
+- **Reduced motion is mandatory.** Every animated element must reach its final
+  static state under `prefers-reduced-motion: reduce`.
+
+Engine split: CSS owns micro-interaction and decorative keyframes;
+IntersectionObserver owns the single reveal primitive; GSAP owns pin, scrub,
+horizontal scenes, Flip, SplitText, DrawSVG and counters — on inner pages only.
 
 ## Components
 
 - **Buttons:** Primary buttons are deep crimson with warm cream text, near-square
-  (4px radius), with generous padding (≥20px, ≥44px tall). Secondary buttons are
-  gold with wood text. Hover deepens the fill rather than changing hue. CTAs are
-  prominent but never harsh.
-- **Cards:** Ivory or cream background, 8px radius, soft shadow, 32px internal
-  padding, large type — used for services, branches, products, reviews, and
-  dashboard stats.
-- **Need selector chips:** 8px-radius selection chips (not pills) for "Hôm nay cơ
-  thể chị/anh đang cần gì?" that reveal suggested services on selection.
-- **Input fields:** Clearly labeled, large touch targets (≥44px), visible gold
-  focus rings, explicit error messages, minimal required fields in booking forms.
+  (2px radius), with generous padding (≥44px tall). Secondary buttons are gold with
+  wood text. Hover deepens the fill rather than changing hue. CTAs are prominent but
+  never harsh.
+- **Cards:** Ivory or cream background, 4px radius, soft shadow, 32px internal
+  padding, large type — used for services, branches, products and reviews.
+- **Symptom chips:** 2px-radius selection chips (not pills) for "Hôm nay cơ thể
+  đang báo điều gì?" that reveal suggested treatments on selection. Selected state
+  is a filled crimson chip; unselected is a gold-bordered ivory chip.
+- **Input fields:** Clearly labeled, large touch targets (≥44px), visible focus
+  rings, explicit error messages, minimal required fields in booking forms.
 - **Mobile bottom bar:** Four fixed actions with clear icons and short labels,
   thumb-reachable with one hand.
+- **Focus:** a single site-wide `:focus-visible` treatment — 3px crimson outline on
+  light surfaces, gold on `.on-dark`. Keyboard-only; it must not fire on mouse click.
 
 ## Do's and Don'ts
 
 - Do use the deep crimson primary for the single most important action per screen.
 - Do keep gold as a sparing accent — rules, seals, highlights — not large fills,
-  and not as body text on light backgrounds.
+  and not as text under 24px on light backgrounds.
 - Do keep colors deep and saturated; never let the palette look pale or washed-out.
 - Do maintain WCAG AA contrast (4.5:1 for body text); use ink on warm surfaces and
   warm cream on crimson.
 - Do keep body text large (≥18px) and legible for middle-aged and elderly guests.
-- Do use restrained, gentle motion: short fade-up only; respect reduced-motion.
+- Do use restrained, gentle motion, and respect reduced-motion everywhere.
+- Do reach for an existing token before writing a literal color, size or duration.
 - Don't use pressuring sales language ("Mua ngay", "Chốt đơn ngay").
 - Don't over-round — no full-pill buttons or heavily rounded cards.
 - Don't crowd screens with small text, especially on mobile.
 - Don't mix a cold clinical aesthetic into the warm, deep, traditional palette.
+- Don't set Vietnamese headings in full caps.
+
+## Token crosswalk
+
+Front-matter keys above map to CSS custom properties declared in
+`app-demo/styles/tokens.css`. The CSS name is what you write in code.
+
+| DESIGN.md key | CSS token | Value |
+|---|---|---|
+| `primary` | `--color-crimson-600` | `#95131f` |
+| `primary-light` | `--color-crimson-100` | `#f5d9d6` |
+| `primary-soft` | `--color-crimson-200` | `#e6a9a3` |
+| `primary-dark` | `--color-crimson-700` | `#7e0a15` |
+| `primary-deep` | `--color-crimson-800` | `#6a0511` |
+| `accent-red` | `--color-accent-red` | `#c70002` |
+| `accent-red-dark` | `--color-accent-red-dark` | `#b20000` |
+| `secondary` | `--color-gold-500` | `#d8aa4b` |
+| `secondary-light` | `--color-gold-300` | `#f3d27a` |
+| `secondary-bright` / `on-primary` | `--color-gold-200` | `#f7e8c2` |
+| `secondary-dark` | `--color-gold-600` | `#a9802c` |
+| `wood` | `--color-wood-500` | `#56351f` |
+| `wood-dark` | `--color-wood-700` | `#3a2114` |
+| `tertiary` | `--color-jade-500` | `#2f5d50` |
+| `tertiary-dark` | `--color-jade-600` | `#244a3f` |
+| `neutral` | `--color-ivory` | `#fffcf7` |
+| `surface` | `--color-cream` | `#f6f4df` |
+| `surface-high` | `--color-sand` | `#e7d6b4` |
+| `mist` | `--color-mist` | `#e6e5d7` |
+| `on-surface` | `--color-ink` | `#1a1410` |
+| `on-surface-soft` | `--color-ink-soft` | `#4a4a4a` |
+| `display-hero.fontSize` | `--text-hero` | `clamp(3rem, 6vw, 4.75rem)` |
+| `display-1.fontSize` | `--text-statement` | `clamp(1.75rem, 3vw, 2rem)` |
+| `body-lg.fontSize` | `--text-body-lg` | `1.25rem` |
+| `body-md.fontSize` | `--text-body-md` | `1.125rem` |
+| `label-caps.letterSpacing` | `--tracking-eyebrow` | `0.06em` |
+| `rounded.sm` … `rounded.3xl` | `--radius-sm` … `--radius-3xl` | `2/4/6/8/16/24px` |
+| `max-width` | `--container-wide` | `1280px` |
+| `max-width-narrow` | `--container-narrow` | `760px` |
+| — | `--motion-fast` / `-medium` / `-slow` | `180ms` / `420ms` / `760ms` |
+| — | `--ease-soft` / `--ease-ritual` | see Motion |
+
+Tokens with no front-matter key (`--color-crimson-50/300/400/500`, `--color-gold-400/700`,
+`--color-wood-400`, `--color-ink-mute`, `--color-paper-light`) exist in CSS only.
+The `--color-clay-*` entries are migration aliases mapping to crimson and are being
+retired — do not use them in new code.

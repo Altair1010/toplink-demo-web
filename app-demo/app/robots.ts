@@ -9,8 +9,9 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      // Sandbox dev-only, không index
-      disallow: ["/motion-lab/", "/preview-motion/"],
+      // Sandbox dev-only, không index. `/motion-lab` cũng tự khai robots noindex
+      // trong metadata của page — hai lớp chặn, cố ý.
+      disallow: ["/motion-lab/"],
     },
     sitemap: `${BASE}/sitemap.xml`,
   };

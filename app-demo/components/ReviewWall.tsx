@@ -8,7 +8,7 @@ import { REVIEWS } from "@/data/content";
  * kèm dòng tin cậy. Tất cả là placeholder trung tính, KHÔNG review giả, dễ thay thật.
  * TODO: Replace placeholders with real customer feedback images/videos.
  */
-const GLASS = "rounded-2xl border border-gold-500/35 bg-ivory/80 shadow-soft backdrop-blur-md";
+const GLASS = "rounded-2xl border border-gold-500/35 bg-ivory/80 elev-soft backdrop-blur-md";
 
 export default function ReviewWall() {
   const video = REVIEWS.find((r) => r.type === "video");
@@ -23,7 +23,7 @@ export default function ReviewWall() {
           <figure className={`lift relative overflow-hidden lg:col-span-7 ${GLASS}`}>
             <Spotlight />
             {/* TODO: thay bằng <video> với nguồn thật + poster. */}
-            <div className="img-overlay relative aspect-video w-full overflow-hidden bg-crimson-900">
+            <div className="img-overlay relative aspect-video w-full overflow-hidden bg-crimson-800">
               {video.poster && (
                 <Img
                   src={video.poster}
@@ -34,7 +34,7 @@ export default function ReviewWall() {
                 />
               )}
               <div className="absolute inset-0 z-10 flex items-center justify-center">
-                <span className="flex h-20 w-20 items-center justify-center rounded-full bg-ivory/90 text-crimson-600 shadow-soft">
+                <span className="flex h-20 w-20 items-center justify-center rounded-full bg-ivory/90 text-crimson-600 elev-soft">
                   <Play className="h-9 w-9 translate-x-0.5" fill="currentColor" />
                 </span>
               </div>
@@ -72,7 +72,7 @@ export default function ReviewWall() {
           )}
 
           {quote && (
-            <figure className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-gold-500/40 bg-crimson-600 p-8 text-ivory shadow-soft">
+            <figure className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-gold-500/40 bg-crimson-600 p-8 text-ivory elev-soft">
               <Spotlight radius={200} />
               <Quote className="h-8 w-8 text-gold-300" aria-hidden />
               <blockquote className="mt-4 font-serif-display text-[length:var(--text-statement)] leading-snug">

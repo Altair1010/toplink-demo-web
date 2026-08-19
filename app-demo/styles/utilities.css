@@ -17,19 +17,19 @@
 }
 
 .animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.7s var(--ease-soft) both;
 }
 
-.delay-1 {
+.stagger-1 {
   animation-delay: 0.1s;
 }
-.delay-2 {
+.stagger-2 {
   animation-delay: 0.2s;
 }
-.delay-3 {
+.stagger-3 {
   animation-delay: 0.3s;
 }
-.delay-4 {
+.stagger-4 {
   animation-delay: 0.4s;
 }
 
@@ -38,8 +38,8 @@
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.9s var(--ease-soft),
+    transform 0.9s var(--ease-soft);
   will-change: opacity, transform;
 }
 .reveal.is-visible {
@@ -74,30 +74,30 @@
 /* Thẻ dược liệu: nhấc nhẹ khi hover, ảnh bên trong zoom chậm */
 .lift {
   transition:
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.6s var(--ease-soft),
+    box-shadow 0.6s var(--ease-soft);
 }
 .lift:hover {
   transform: translateY(-8px);
   box-shadow: 0 18px 44px -20px rgba(95, 12, 16, 0.5);
 }
 .zoom-media {
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 1.2s var(--ease-soft);
 }
 .lift:hover .zoom-media {
   transform: scale(1.08);
 }
 
 /* ── DROPBOX SLIDE-IN: khối trôi vào theo hướng khi cuộn ──
-   easing đặc trưng cubic-bezier(0.15,0.5,0.05,1) ~0.6s, có stagger */
+   easing đặc trưng var(--ease-slide) ~0.6s, có stagger */
 .reveal-left,
 .reveal-right,
 .reveal-up,
 .reveal-down {
   opacity: 0;
   transition:
-    opacity 0.6s cubic-bezier(0.15, 0.5, 0.05, 1),
-    transform 0.6s cubic-bezier(0.15, 0.5, 0.05, 1);
+    opacity 0.6s var(--ease-slide),
+    transform 0.6s var(--ease-slide);
   will-change: opacity, transform;
 }
 .reveal-left {
@@ -165,7 +165,7 @@
   }
 }
 .zalo-pulse {
-  animation: zalo-pulse 2.6s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  animation: zalo-pulse 2.6s var(--ease-soft) infinite;
   will-change: box-shadow;
 }
 

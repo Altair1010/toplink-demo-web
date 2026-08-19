@@ -32,7 +32,15 @@ jobs:
 
       - run: npm ci
 
+      # Build TRƯỚC: nó tái sinh .next/types/validator.ts mà tsc đọc. Chạy typecheck
+      # trước sẽ đỏ oan khi vừa xoá/đổi tên một route.
       - run: npm run build
+
+      # Cổng chất lượng — build một mình KHÔNG bắt được lỗi kiểu ngoài route, lỗi
+      # format, hay class Tailwind trỏ tới token không tồn tại (scripts/check-tokens.mjs).
+      - run: npm run typecheck
+      - run: npm run format:check
+      - run: npm run check:tokens
 
       # Stop GitHub Pages from running Jekyll (it would drop the _next folder).
       - run: touch out/.nojekyll

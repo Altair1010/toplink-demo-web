@@ -6,6 +6,7 @@ import { ClipboardList, MessagesSquare, Hand, HeartPulse, type LucideIcon } from
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { breathFlow } from "@/lib/motion/config";
+import { readMotionTheme } from "@/lib/motion/theme";
 import { PROCESS_STEPS, type ProcessStep } from "@/data/content";
 import ScrollProgress from "@/components/motion/ScrollProgress";
 
@@ -36,8 +37,9 @@ export default function HealingProcessMotion() {
     () => {
       registerMotion();
       const reduced = prefersReducedMotion();
+      const motion = readMotionTheme(); // nhịp lấy từ CSS → theo cả skin đang bật
       const items = itemRefs.current.filter(Boolean) as HTMLLIElement[];
-      if (reduced || !items.length) return;
+      if (reduced || !motion || !items.length) return;
 
       const triggers: ScrollTrigger[] = [];
 
@@ -45,11 +47,11 @@ export default function HealingProcessMotion() {
       items.forEach((el) => {
         gsap.fromTo(
           el.querySelector("[data-step-card]"),
-          { y: breathFlow.revealDistance, autoAlpha: 0 },
+          { y: motion.revealDistance, autoAlpha: 0 },
           {
             y: 0,
             autoAlpha: 1,
-            duration: breathFlow.slow,
+            duration: motion.slow,
             ease: breathFlow.ease,
             scrollTrigger: { trigger: el, start: "top 88%", toggleActions: "play none none none" },
           },
@@ -115,7 +117,7 @@ export default function HealingProcessMotion() {
                   data-step-card
                   className={`relative ml-14 rounded-md border p-7 transition-all duration-500 lg:ml-0 ${
                     isActive
-                      ? "-translate-y-1 border-gold-500 bg-crimson-600 text-ivory shadow-soft"
+                      ? "-translate-y-1 border-gold-500 bg-crimson-600 text-ivory elev-soft"
                       : "border-sand bg-ivory text-ink lg:opacity-45"
                   } ${flip ? "" : "lg:text-left"}`}
                 >

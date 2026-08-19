@@ -1,0 +1,84 @@
+/* ============================================================
+   SKINS — hoán đổi diện mạo thương hiệu bằng MỘT thuộc tính trên <html>.
+
+       <html data-brand="tet">   →  toàn site đổi màu + nhịp motion
+
+   CÁCH NÓ CHẠY (không có phép thuật, không build step):
+   `@theme {}` trong tokens.css biên dịch thẳng ra `:root { --color-*: … }`,
+   và mọi utility Tailwind tham chiếu lại biến đó
+   (`.bg-crimson-600 { background-color: var(--color-crimson-600) }`).
+   CSS viết tay của dự án cũng dùng đúng các biến ấy. Nên chỉ cần ghi đè biến
+   trong một selector mạnh hơn là CẢ HAI phía đổi theo — 0 dòng JSX phải sửa.
+
+   `:root[data-brand="…"]` có specificity (0,2,0), `:root` là (0,1,0) → luôn thắng,
+   không phụ thuộc thứ tự import.
+
+   HỆ QUẢ QUAN TRỌNG: file này không phụ thuộc Tailwind. Nếu sau này gỡ Tailwind,
+   chỉ cần đổi `@theme {` thành `:root {` trong tokens.css — skin vẫn chạy nguyên vẹn.
+
+   ────────────────────────────────────────────────────────────
+   BỀ MẶT SKIN ĐƯỢC PHÉP ĐỔI (giữ hẹp để skin không thành fork):
+     · neo màu:   --color-crimson-600/700/800, --color-gold-500/300/200,
+                  --color-ivory, --color-cream, --color-ink
+     · nhịp motion: --motion-fast/medium/slow, --ease-*
+     · hình khối:  --radius-*
+   KHÔNG đổi trong skin: các bậc ramp còn lại, thang chữ, container, đo dòng.
+   Đó là quyết định hệ thống, không phải bản sắc từng mùa.
+
+   ────────────────────────────────────────────────────────────
+   ĐÁNH ĐỔI ĐÃ BIẾT — đọc trước khi thêm skin:
+   Class opacity modifier (`border-gold-500/35`, `text-cream/90`, …) được Tailwind
+   biên dịch thành ĐÚNG HAI rule cùng specificity, dựa vào source order:
+
+     .border-gold-500\/35 { border-color: #d8aa4b59 }                       ← literal
+     .border-gold-500\/35 { border-color: color-mix(in oklab,
+                              var(--color-gold-500) 35%, transparent) }      ← đè lên
+
+   Rule literal được tính sẵn từ màu MẶC ĐỊNH và KHÔNG theo skin. Trình duyệt hiểu
+   `color-mix()` sẽ dùng rule sau → đổi skin đúng. Trình duyệt KHÔNG hiểu
+   (Chrome <111, Safari <16.2, Firefox <113 — đều trước 2023) coi rule sau là không
+   hợp lệ, rơi về literal → giữ sắc mờ của skin mặc định.
+
+   Bề mặt ảnh hưởng đo tại build hiện tại: 55 class. Màu đặc luôn đổi đúng.
+   Suy giảm nhẹ, chỉ thẩm mỹ, chỉ trình duyệt rất cũ. Chấp nhận có chủ đích.
+   ============================================================ */
+
+/* ── yvien · MẶC ĐỊNH ──────────────────────────────────────────
+   Cố ý để trống: giá trị mặc định đã nằm trong tokens.css. Khai lại ở đây sẽ
+   tạo nguồn sự thật thứ hai. Selector giữ lại để `data-brand="yvien"` là hợp lệ
+   và để chỗ này có tên gọi rõ ràng. */
+:root[data-brand="yvien"] {
+  /* (kế thừa tokens.css) */
+}
+
+/* ── tet · Tết ────────────────────────────────────────────────
+   Đỏ tươi hơn, kim rực hơn, nhịp nhanh hơn một chút — vẫn trong họ nhận diện,
+   không đổi sang thương hiệu khác. */
+:root[data-brand="tet"] {
+  --color-crimson-600: #b20000;
+  --color-crimson-700: #8f0000;
+  --color-crimson-800: #6d0000;
+  --color-gold-500: #e8bb52;
+  --color-gold-300: #f7dc8c;
+  --color-cream: #faf3dc;
+
+  --motion-medium: 360ms;
+  --motion-slow: 640ms;
+}
+
+/* ── an-tinh · An Tĩnh ────────────────────────────────────────
+   Biến thể ngọc trầm cho mùa hè / nội dung thiền — mát, chậm, ít kích thích.
+   Dùng cho landing chuyên đề, không thay nhận diện chính. */
+:root[data-brand="an-tinh"] {
+  --color-crimson-600: #2f5d50;
+  --color-crimson-700: #244a3f;
+  --color-crimson-800: #1b382f;
+  --color-gold-500: #c9b98a;
+  --color-gold-300: #e0d5b4;
+  --color-ivory: #fdfdfa;
+  --color-cream: #f0f1e9;
+
+  --motion-medium: 520ms;
+  --motion-slow: 1000ms;
+  --ease-ritual: cubic-bezier(0.16, 1, 0.24, 1);
+}

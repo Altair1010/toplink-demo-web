@@ -39,20 +39,20 @@ export const motionConfig = {
 } as const;
 
 /**
- * BREATH & FLOW — hệ motion riêng cho 2 section mới (Quy trình trị liệu + Không gian).
+ * BREATH & FLOW — hệ motion riêng cho 2 section (Quy trình trị liệu + Không gian).
  * Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
  * nhưng CHẬM hơn, biên độ nhỏ hơn, có nhịp thở — chất trị liệu Đông y.
- * Durations ở đây tính bằng GIÂY (cho GSAP); bản CSS (ms) nằm trong globals.css.
+ *
+ * RANH GIỚI (cố ý):
+ *   · Nhịp có thể đổi theo skin — thời lượng, biên độ reveal, chiều sâu parallax —
+ *     nằm trong `styles/tokens.css` và đọc lúc chạy bằng `readMotionTheme()`
+ *     (`lib/motion/theme.ts`). KHÔNG khai lại ở đây.
+ *   · Thứ dưới đây là ràng buộc riêng của engine GSAP: tên đường cong, độ trễ scrub,
+ *     ngưỡng pin. Chúng không phải bản sắc thương hiệu nên không thuộc bề mặt skin.
  */
 export const breathFlow = {
-  /** Thời lượng (giây) — khớp --motion-fast/medium/slow trong globals.css. */
-  fast: 0.18,
-  medium: 0.42,
-  slow: 0.76,
-  /** Easing GSAP "trị liệu" (xem gsapEasings.ritual). */
+  /** Easing GSAP "trị liệu" (xem gsapEasings.ritual). Tên riêng của GSAP, không phải CSS. */
   ease: "power4.out",
-  /** Biên độ reveal (px) — nhỏ, điềm tĩnh. Khớp --reveal-distance. */
-  revealDistance: 32,
   /** Độ trễ nhịp giữa các phần tử (giây). */
   stagger: 0.12,
 

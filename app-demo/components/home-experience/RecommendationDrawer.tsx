@@ -21,11 +21,15 @@ export default function RecommendationDrawer({ selected }: { selected: Symptom[]
   return (
     <div
       data-open={open}
+      // Khi đóng, drawer chỉ trượt khỏi màn hình bằng transform — link và nút bên
+      // trong VẪN nằm trong tab order nếu không chặn. `inert` gỡ cả focus lẫn cây
+      // a11y, tránh người dùng bàn phím focus vào phần tử vô hình.
+      inert={!open}
       className="reco-drawer fixed inset-x-0 bottom-20 z-40 px-3 lg:inset-x-auto lg:bottom-4 lg:right-4 lg:w-full lg:max-w-md"
       role="region"
       aria-label="Gợi ý liệu trình cho anh/chị"
     >
-      <div className="mx-auto max-h-[42svh] max-w-3xl overflow-y-auto rounded-md border border-gold-500 bg-ivory p-4 shadow-soft sm:p-6 lg:max-h-none">
+      <div className="mx-auto max-h-[42svh] max-w-3xl overflow-y-auto rounded-md border border-gold-500 bg-ivory p-4 elev-soft sm:p-6 lg:max-h-none">
         <div className="flex items-start justify-between gap-4">
           <p className="text-sm font-semibold uppercase tracking-wide text-crimson-600">
             Dựa trên lựa chọn: {selected.map((s) => s.label).join(" + ")}
