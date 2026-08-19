@@ -1,0 +1,21 @@
+# Ép LF trong CẢ index lẫn working tree, mọi hệ điều hành.
+#
+# Vì sao cần: máy dev Windows thường bật core.autocrlf=true, khiến git ghi CRLF ra
+# working tree khi checkout. `prettier --check` mặc định endOfLine: "lf" nên sẽ đỏ
+# hàng loạt file mà không ai sửa gì — trong khi CI (ubuntu) vẫn xanh. Cổng chất
+# lượng báo động giả là cổng sẽ bị bỏ qua.
+#
+# `text=auto` vẫn tự nhận diện file nhị phân và không đụng vào chúng.
+* text=auto eol=lf
+
+# Nhị phân — nêu rõ để không bao giờ bị chuyển đổi.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.mp4 binary
+*.pdf binary
