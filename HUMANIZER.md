@@ -32,19 +32,20 @@ The package's `SKILLS/` directory is canonical. Project-local copies in `.agents
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — PROPOSED: READY FOR HUMAN REVIEW`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
   evidence.
-- **Current artifacts:** `01_HUMAN_EVIDENCE_INVENTORY.md`, `02_EVIDENCE_GAP_GRAPH.md`,
-  `03_USER_REALITY.md`, `04_USER_JOBS_GRAPH.md`, `05_CURRENT_SITE_SPECIFICITY_AUDIT.md`,
-  `06_REFERENCE_EXTRACTION_H0_H1.md`, and `07_H0_H1_DECISION_REPORT.md`.
-- **Target Design Truth:** no `PROPOSED`, `APPROVED` or `LOCKED` Humanizer target decision is
-  recorded yet. Do not infer approval from the master package, legacy `DESIGN.md`, current code,
-  or an external design skill.
-- **Next gate:** collect and verify the P0 external evidence in the H0/H1 report before H2. This
-  remains an evidence task, not code work.
+- **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`. H2 narrative/IA/grayscale/state
+  artifacts are at `docs/humanizer/h2/` (`01_H2_ENTRY_AND_CONSTRAINTS.md` through
+  `06_H2_DECISION_REPORT.md`).
+- **Target Design Truth:** H2 records only `PROPOSED` narrative architecture, page roles, section
+  contracts, and state/consequence contracts. No art-direction, visual-system, token, or migration
+  decision is `APPROVED` or `LOCKED`. Do not infer approval from the master package, legacy
+  `DESIGN.md`, current code, or an external design skill.
+- **Next gate:** Human review of the proposed H2 narrative architecture. H0/H1 P0 external
+  evidence remains required and is represented as H2 dependencies; H2 does not close those gaps.
 
 Decision states are:
 
@@ -132,3 +133,16 @@ wellness slogans without evidence, fake testimonials/metrics/live activity/staff
 presented as real people, medical-certainty inflation, illegible heritage styling, and novelty that
 harms orientation or task completion. Real human evidence must be captured, attributed and
 consent-aware; it must never be fabricated.
+
+## Publication of Humanizer artifacts
+
+After each Humanizer phase:
+
+- commit and push changes under `docs/humanizer/` together with directly related entrypoint or
+  governance documentation to the current remote, after scope-appropriate verification;
+- preserve clear distinctions between real evidence, reference evidence, assumption/hypothesis,
+  and missing evidence in public artifacts;
+- never publish secrets, customer data, private health information, private personal data, or
+  consent-sensitive material not approved for publication;
+- include application/source changes in the phase publication commit only when that phase has
+  separate mutation approval.
