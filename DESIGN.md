@@ -124,6 +124,12 @@ components:
 > `app-demo/styles/tokens.css`. Khi hai bên lệch nhau, `tokens.css` đúng và file này
 > phải được sửa. Xem bảng đối chiếu ở mục [Token crosswalk](#token-crosswalk).
 
+> **Phạm vi sau khi kích hoạt Humanizer v2.1:** file này mô tả **Runtime Truth/current
+> design** của implementation hiện tại, không phải Target Design Truth hay redesign đã xảy ra.
+> Direction Humanizer chỉ có thể supersede các legacy art-direction defaults sau Human Gate
+> phù hợp và Approved Migration Record. Xem `HUMANIZER.md`; cho đến khi migration được
+> implementation + verification, `tokens.css` vẫn là Runtime Truth.
+
 ## Overview
 
 Y Viện Toplink is an Đông-y (traditional Vietnamese medicine) wellness clinic and

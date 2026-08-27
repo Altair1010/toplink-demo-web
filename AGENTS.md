@@ -57,6 +57,56 @@ tasks/                  ARCHIVE — todo cũ, có thể đã lỗi thời
 Khi `DESIGN.md` và `tokens.css` lệch nhau, **`tokens.css` đúng** — sửa `DESIGN.md`, đừng
 sửa code cho khớp doc.
 
+## Humanizer UI v2.1 — governance cho design program
+
+`HUMANIZER.md` là entrypoint ngắn cho chương trình Humanizer. Nó không thay thế package gốc; đọc
+file đó trước khi làm evidence, UX/narrative, art direction, migration hoặc release review.
+
+- **Nguồn governance chính:**
+  `Z-NeededUpdate/reference/toplink-humanizer-ui-master-v2.1/`.
+- **Structural evidence:** `Z-NeededUpdate/reference/sen-tai-thu-web-dna/`. Chỉ rút
+  relationship/narrative/brand-world grammar; không copy visual identity, palette, type,
+  wording hay geometry.
+- **Linguistic/knowledge evidence:** `Z-NeededUpdate/reference/trieu-dong-y-web-dna/`. Chỉ rút
+  taxonomy, vocabulary, explanation/provenance grammar; không kế thừa claim, diagnosis,
+  treatment certainty hay biến Toplink thành encyclopedia.
+
+Hai truth phải tách riêng:
+
+- **Runtime Truth** trả lời “site đang chạy gì?”: actual source → `styles/tokens.css` →
+  `DESIGN.md` diễn giải. Runtime code/tokens không tự đổi theo recommendation.
+- **Target Design Truth** chỉ là Humanizer decision `LOCKED` hoặc approved grammar trong scope
+  đã khai báo. Hiện chưa có target nào được duyệt; không coi package hay legacy
+  `DESIGN.md` là target mới.
+
+Thứ tự precedence: platform/safety/legal → engineering/accessibility/security invariants của repo
+→ explicit user instruction/Human Gate → `LOCKED` Humanizer decision trong scope → approved
+Humanizer grammar → legacy `DESIGN.md` art-direction defaults → proposal/agent suggestion.
+
+- **Hard invariants (không bị Humanizer tự override):** accessibility, reduced motion, one advanced
+  motion engine (GSAP), native scroll, static export, basePath source-of-truth, token hygiene,
+  performance/runtime correctness, security/privacy và existing verification gates.
+- **System/accessibility defaults:** readable type, contrast, measure, keyboard/focus và mobile touch
+  targets giữ nguyên trừ khi evidence cho thấy thay đổi không làm giảm usability/accessibility.
+- **Legacy art-direction defaults:** palette, type family/behavior, visual hierarchy/density,
+  layout/editorial grammar, radii, imagery, decoration, motion semantics và component appearance
+  chỉ có thể supersede sau Human Gate và approved migration record.
+
+Không target decision nào tự cấp quyền ghi code. Flow bắt buộc:
+`current runtime → delta → Humanizer proposal → Human Gate → approved decision → approved
+migration record → implementation → verification → runtime truth mới`.
+
+**Publication của artifact Humanizer:** sau khi kết thúc mỗi phase H0–H6, commit và push các thay
+đổi trong `docs/humanizer/` cùng entrypoint/governance liên quan lên remote hiện tại, sau khi chạy
+kiểm tra phù hợp với scope. Artifact public phải giữ rõ evidence/reference/assumption/missing; không
+đưa secret, dữ liệu khách hàng, thông tin sức khỏe riêng tư, hay consent chưa được phép công bố.
+Thay đổi app/source chỉ được đi cùng commit này khi phase có mutation approval riêng.
+
+Khi Humanizer được kích hoạt, `toplink-humanizer-orchestrator` là primary router; sau đó route
+đến `human-evidence-harvest`, `humanizer-ux-state-review`, `humanizer-art-direction` hoặc
+`humanizer-release-verifier`. `frontend-design` chỉ là art-direction challenger, output luôn là
+`PROPOSED`, không được sửa tokens/code hay `DESIGN.md` như authority.
+
 `design-research/` và `tasks/` là lưu trữ lịch sử. Chúng ghi lại các phương án **đã bị
 loại bỏ** (Lenis, Three.js, marquee, hero cũ). Đừng khôi phục thứ gì từ đó nếu không
 được yêu cầu rõ ràng.
