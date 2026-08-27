@@ -280,6 +280,10 @@ horizontal scenes, Flip, SplitText, DrawSVG and counters — on inner pages only
   is a filled crimson chip; unselected is a gold-bordered ivory chip.
 - **Input fields:** Clearly labeled, large touch targets (≥44px), visible focus
   rings, explicit error messages, minimal required fields in booking forms.
+- **Interactive ownership:** booking uses native `Action`, `TextField`, `TextArea` and
+  `ChoiceField`; feedback uses the local `NoticeRegion`; glyphs come from the closed
+  Toplink vocabulary in `components/Glyph.tsx`. Tailwind remains a layout utility,
+  while `styles/interface.css` owns component anatomy and state.
 - **Mobile bottom bar:** Four fixed actions with clear icons and short labels,
   thumb-reachable with one hand.
 - **Focus:** a single site-wide `:focus-visible` treatment — 3px crimson outline on
