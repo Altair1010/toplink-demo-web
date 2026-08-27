@@ -30,22 +30,32 @@ At a Humanizer session start, read in this order:
 The package's `SKILLS/` directory is canonical. Project-local copies in `.agents/skills/` and
 `.claude/skills/` must retain the same required foundation-load sections.
 
+## Canonical project phase map
+
+For this Toplink execution, `FOUNDATION/18_TOPLINK_EXECUTION_BRIEF.md` is the phase-numbering
+authority:
+
+`H0 Evidence Harvest → H1 User Reality → H2 Grayscale Narrative → H3 Three Directions → H4 Prototype → H5 System Lock → H6 Design/Code Loop → H7 Verify and Release`
+
+The package `ROUTER.md` remains useful only as the skill/tool routing authority. Its older phase
+numbers must not reinterpret the project phase map above.
+
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — PROPOSED: READY FOR HUMAN REVIEW`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED FOR H3`; `H3 — PROPOSED: AWAITING GATE A`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
   evidence.
-- **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`. H2 narrative/IA/grayscale/state
-  artifacts are at `docs/humanizer/h2/` (`01_H2_ENTRY_AND_CONSTRAINTS.md` through
-  `06_H2_DECISION_REPORT.md`).
-- **Target Design Truth:** H2 records only `PROPOSED` narrative architecture, page roles, section
-  contracts, and state/consequence contracts. No art-direction, visual-system, token, or migration
-  decision is `APPROVED` or `LOCKED`. Do not infer approval from the master package, legacy
-  `DESIGN.md`, current code, or an external design skill.
-- **Next gate:** Human review of the proposed H2 narrative architecture. H0/H1 P0 external
-  evidence remains required and is represented as H2 dependencies; H2 does not close those gaps.
+- **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`. H2 artifacts and its human-review
+  record are at `docs/humanizer/h2/` (`01` through `07`). H3 direction artifacts are at
+  `docs/humanizer/h3/` (`01_H3_ENTRY_AND_CONSTRAINTS.md` through `06_H3_GATE_A_REPORT.md`).
+- **Target Design Truth:** H2 semantic architecture, Body Signal disposition B, evidence-slot policy
+  and booking/state input are `APPROVED FOR H3`. All H3 visual systems, typography/color behavior,
+  material/photography and motion remain `PROPOSED`; no direction, token, component or migration is
+  `LOCKED`. Do not infer approval from the package, legacy `DESIGN.md`, runtime or external skill.
+- **Next gate:** **Gate A — Human Direction Selection.** H0/H1 P0/P1 external evidence remains
+  required; H2/H3 do not close those gaps.
 
 Decision states are:
 
@@ -93,11 +103,12 @@ separate explicit approval even when Humanizer proposes them.
 `orchestrator → human-evidence-harvest | humanizer-ux-state-review | humanizer-art-direction | humanizer-release-verifier`
 
 - H0: `human-evidence-harvest`.
-- H1/H2: `humanizer-ux-state-review` for user tasks, states and narrative.
-- Direction: `humanizer-art-direction`; `frontend-design` is a challenger only and produces a
+- H1/H2: `humanizer-ux-state-review` for user reality, tasks, states and grayscale narrative.
+- H3: `humanizer-art-direction`; `frontend-design` is a challenger only and produces a
   `PROPOSED` candidate after an internal evidence brief.
-- H4/H5 migration/implementation: orchestrator routes against current runtime truth.
-- H6: `humanizer-release-verifier`; use Playwright CLI by default, Chrome DevTools for runtime/
+- H4/H5/H6 prototype, system lock and design/code loop: orchestrator routes against approved gates
+  and current runtime truth; mutation still requires the applicable approval/migration record.
+- H7: `humanizer-release-verifier`; use Playwright CLI by default, Chrome DevTools for runtime/
   performance diagnosis, and Playwright MCP only when persistent exploratory browser state warrants it.
 
 No external taste/design skill may overwrite an approved grammar, edit tokens, rewrite `DESIGN.md`,
