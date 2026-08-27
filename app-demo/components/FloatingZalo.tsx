@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle } from "@/components/Glyph";
 import { CONTACT } from "@/data/content";
 
 /**

@@ -1,6 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Clock, Check, AlertTriangle, MessageCircle, ArrowLeft } from "lucide-react";
+import {
+  Clock,
+  Check,
+  TriangleAlertIcon as AlertTriangle,
+  MessageCircle,
+  ArrowLeft,
+} from "@/components/Glyph";
 import BrandVisual from "@/components/BrandVisual";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SERVICES, CONTACT } from "@/data/content";

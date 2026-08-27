@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MapPin, Clock, Mail, MessageCircle, Facebook } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, MessageCircle, Facebook } from "@/components/Glyph";
 import { CONTACT, BRANCHES } from "@/data/content";
 
 export default function SiteFooter() {

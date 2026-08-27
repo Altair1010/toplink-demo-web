@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import ImgFade from "@/components/ImgFade";
-import { ArrowRight, Clock, CalendarDays } from "lucide-react";
+import { ArrowRight, Clock, CalendarDays } from "@/components/Glyph";
 import type { Post } from "@/data/content";
 
 function fmtDate(iso: string) {

@@ -1,6 +1,6 @@
 import Img from "@/components/Img";
-import { Play, Quote, ImageIcon, BadgeCheck } from "lucide-react";
-import Spotlight from "@/components/effects/Spotlight";
+import { Play, Quote, ImageIcon, BadgeCheck } from "@/components/Glyph";
+import PointerLight from "@/components/effects/Spotlight";
 import { REVIEWS } from "@/data/content";
 
 /**
@@ -21,7 +21,7 @@ export default function ReviewWall() {
         {/* VIDEO lớn — chiếm phần lớn chiều ngang */}
         {video && (
           <figure className={`lift relative overflow-hidden lg:col-span-7 ${GLASS}`}>
-            <Spotlight />
+            <PointerLight />
             {/* TODO: thay bằng <video> với nguồn thật + poster. */}
             <div className="img-overlay relative aspect-video w-full overflow-hidden bg-crimson-800">
               {video.poster && (
@@ -50,7 +50,7 @@ export default function ReviewWall() {
         <div className="grid gap-6 lg:col-span-5">
           {image && (
             <figure className={`lift relative overflow-hidden ${GLASS}`}>
-              <Spotlight radius={180} />
+              <PointerLight radius={180} />
               <div className="img-overlay relative aspect-[16/10] overflow-hidden bg-cream">
                 {image.image && (
                   <Img
@@ -73,7 +73,7 @@ export default function ReviewWall() {
 
           {quote && (
             <figure className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-gold-500/40 bg-crimson-600 p-8 text-ivory elev-soft">
-              <Spotlight radius={200} />
+              <PointerLight radius={200} />
               <Quote className="h-8 w-8 text-gold-300" aria-hidden />
               <blockquote className="mt-4 font-serif-display text-[length:var(--text-statement)] leading-snug">
                 “{quote.text}”

@@ -1,6 +1,6 @@
 /* ============================================================
    MOTION SYSTEM — base + reduced-motion guard (native scroll, KHÔNG Lenis).
-   Cảm hứng cơ chế từ brand.dropbox.com (KHÔNG copy màu/asset).
+   Mô tả cục bộ cho trạng thái nền và các nhịp chuyển động.
    Mọi motion JS chỉ chạm transform/opacity; CSS ở đây lo trạng thái nền
    để no-JS/SSR vẫn đọc được nội dung (chống layout shift / flash).
    ============================================================ */

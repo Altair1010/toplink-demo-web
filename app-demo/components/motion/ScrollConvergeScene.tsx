@@ -7,7 +7,7 @@ import { motionConfig, PIN_MIN_WIDTH } from "@/lib/motion/config";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
- * SCROLL CONVERGE SCENE — “sân khấu” sticky kiểu opening brand.dropbox.com.
+ * SCROLL CONVERGE SCENE — sân khấu sticky hội tụ theo tiến độ cuộn.
  * Container cao `heightVh`; bên trong là một stage dán sticky giữa màn hình.
  * Khi cuộn qua, ScrollTrigger pin stage và phát `progress 0→1` (scrub) cho các
  * <ConvergeBlock/> con qua context — block tự nội suy translate/scale/opacity.

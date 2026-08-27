@@ -8,8 +8,8 @@ import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
  * SCROLL PROGRESS — đường/thanh "tự vẽ" theo nhịp cuộn TRONG PHẠM VI một section
- * (không phải toàn trang). Nguyên lý học từ MyWebLab "SvgStrokeProcess": nét dẫn
- * dắt hành trình. Fill scale theo progress của ScrollTrigger (scrub) → mềm theo Lenis.
+ * (không phải toàn trang). Nét dẫn dắt hành trình. Fill scale theo progress của
+ * ScrollTrigger (scrub) để tạo nhịp liên tục.
  *
  * Tự tìm vùng scope qua ancestor `[data-progress-scope]`. Chỉ scale transform (GPU).
  * Reduced-motion: hiện đầy (fill = 1), không scrub.

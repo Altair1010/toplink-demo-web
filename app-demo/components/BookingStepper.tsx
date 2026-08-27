@@ -2,23 +2,17 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { toast } from "sonner";
-import { Check, ArrowLeft, ArrowRight, Sparkles, MessageCircle, Loader2 } from "lucide-react";
+import { Check, ArrowLeft, ArrowRight, Sparkles, MessageCircle, Loader2 } from "@/components/Glyph";
 import { gsap, registerMotion, registerAdvanced } from "@/lib/motion/scrollTrigger";
 import { breathFlow } from "@/lib/motion/config";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { NEEDS, SERVICES, BRANCHES, CONTACT } from "@/data/content";
 import { GFORM, isBookingConfigured, isValidPhone } from "@/lib/booking";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Action } from "@/components/booking/Action";
+import { ChoiceField } from "@/components/booking/ChoiceField";
+import { TextArea } from "@/components/booking/TextArea";
+import { TextField } from "@/components/booking/TextField";
+import { useNotice } from "@/components/notice/NoticeRegion";
 
 // Cỡ input đồng bộ với thiết kế site (thoải mái cho người lớn tuổi, dấu TV rõ):
 // nền ivory nổi trên card cream, chữ 17px, bo 4px, viền sand, focus ring crimson (token --ring).
@@ -27,6 +21,13 @@ const INPUT_CLS = "h-auto rounded-md border-sand bg-ivory px-4 py-3 text-[1.0625
 const STEPS = ["Chọn nhu cầu", "Chọn dịch vụ", "Thông tin liên hệ"];
 
 export default function BookingStepper() {
+  const notice = useNotice();
+  const toast = {
+    error: (message: string, { description }: { description?: string }) =>
+      notice.show({ status: "error", message, detail: description }),
+    success: (message: string, { description }: { description?: string }) =>
+      notice.show({ status: "success", message, detail: description }),
+  };
   const [step, setStep] = useState(0);
   const [need, setNeed] = useState<string | null>(null);
   const [service, setService] = useState<string | null>(null);
@@ -258,7 +259,7 @@ export default function BookingStepper() {
             </p>
 
             <Field label="Họ tên">
-              <Input
+              <TextField
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 placeholder="Nguyễn Văn A"
@@ -266,7 +267,7 @@ export default function BookingStepper() {
               />
             </Field>
             <Field label="Số điện thoại">
-              <Input
+              <TextField
                 value={form.phone}
                 onChange={(e) => {
                   setForm({ ...form, phone: e.target.value });
@@ -288,7 +289,7 @@ export default function BookingStepper() {
               )}
             </Field>
             <Field label="Ngày/giờ mong muốn">
-              <Input
+              <TextField
                 type="datetime-local"
                 value={form.datetime}
                 onChange={(e) => setForm({ ...form, datetime: e.target.value })}
@@ -296,25 +297,15 @@ export default function BookingStepper() {
               />
             </Field>
             <Field label="Cơ sở muốn đến">
-              <Select value={form.branch} onValueChange={(v) => setForm({ ...form, branch: v })}>
-                <SelectTrigger className={`w-full ${INPUT_CLS}`}>
-                  <SelectValue placeholder="Chọn cơ sở" />
-                </SelectTrigger>
-                <SelectContent className="border-sand bg-ivory">
-                  {BRANCHES.map((b) => (
-                    <SelectItem
-                      key={b.slug}
-                      value={b.slug}
-                      className="text-[1.0625rem] text-ink focus:bg-cream focus:text-crimson-600"
-                    >
-                      {b.name}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <ChoiceField
+                value={form.branch}
+                onChange={(e) => setForm({ ...form, branch: e.target.value })}
+                choices={BRANCHES.map((branch) => ({ value: branch.slug, label: branch.name }))}
+                className={INPUT_CLS}
+              />
             </Field>
             <Field label="Ghi chú thêm (nếu có)">
-              <Textarea
+              <TextArea
                 value={form.note}
                 onChange={(e) => setForm({ ...form, note: e.target.value })}
                 rows={3}
@@ -328,27 +319,29 @@ export default function BookingStepper() {
         {/* Nav buttons */}
         <div className="mt-7 flex items-center justify-between">
           {step > 0 ? (
-            <Button
-              variant="ghost"
+            <Action
+              purpose="back"
               onClick={() => setStep(step - 1)}
               className="h-auto gap-1.5 rounded-sm px-7 py-3 text-base font-medium text-ink-soft hover:bg-transparent hover:text-crimson-600"
             >
               <ArrowLeft className="h-4 w-4" /> Quay lại
-            </Button>
+            </Action>
           ) : (
             <span />
           )}
 
           {step < 2 ? (
-            <Button
+            <Action
+              purpose="advance"
               onClick={() => setStep(step + 1)}
               disabled={(step === 0 && !need) || (step === 1 && !service && !letAdvise)}
               className="btn-press h-auto gap-1.5 rounded-sm bg-crimson-600 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-gold-200 hover:bg-crimson-700 disabled:cursor-not-allowed disabled:opacity-40"
             >
               Tiếp tục <ArrowRight className="h-4 w-4" />
-            </Button>
+            </Action>
           ) : (
-            <Button
+            <Action
+              purpose="submit"
               onClick={handleSubmit}
               disabled={!form.name || !form.phone || submitting}
               className="btn-press h-auto gap-1.5 rounded-sm bg-gold-500 px-[2.1rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 hover:bg-gold-400 disabled:cursor-not-allowed disabled:opacity-40"
@@ -360,7 +353,7 @@ export default function BookingStepper() {
               ) : (
                 "Gửi yêu cầu đặt lịch"
               )}
-            </Button>
+            </Action>
           )}
         </div>
       </div>

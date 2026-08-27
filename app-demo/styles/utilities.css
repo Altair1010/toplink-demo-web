@@ -88,7 +88,7 @@
   transform: scale(1.08);
 }
 
-/* ── DROPBOX SLIDE-IN: khối trôi vào theo hướng khi cuộn ──
+/* ── REVEAL THEO HƯỚNG: khối trôi vào theo hướng khi cuộn ──
    easing đặc trưng var(--ease-slide) ~0.6s, có stagger */
 .reveal-left,
 .reveal-right,

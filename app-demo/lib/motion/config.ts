@@ -1,7 +1,6 @@
 /**
  * MOTION CONFIG — nguồn cấu hình DUY NHẤT cho toàn bộ hệ Motion UI.
- * Cảm hứng cơ chế từ opening của brand.dropbox.com (khối trượt + hội tụ về giữa
- * theo nhịp cuộn), nhưng KHÔNG mượn màu/typography/asset của Dropbox.
+ * Ràng buộc engine cho các khối trượt và hội tụ theo tiến độ cuộn.
  *
  * Triết lý Y Viện: motion CHẬM – MỀM – TRỊ LIỆU, không gây chóng mặt.
  * Chỉ animate transform/opacity (GPU). Mọi component motion đọc config ở đây.
@@ -9,8 +8,7 @@
 export const motionConfig = {
   /** Độ trễ scrub của ScrollTrigger (giây). Cao hơn = mượt/“dính” hơn. */
   scrub: 0.8,
-  /** Easing khối HỘI TỤ. CustomEase học từ nhịp ease-out của Dropbox (xem
-   *  easings.ts → convergeRitual). Cần registerEases() trước khi parseEase. */
+  /** Easing khối HỘI TỤ. Cần registerEases() trước khi parseEase. */
   ease: "convergeRitual",
   duration: 1.2,
 
@@ -40,8 +38,7 @@ export const motionConfig = {
 
 /**
  * BREATH & FLOW — hệ motion riêng cho 2 section (Quy trình trị liệu + Không gian).
- * Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
- * nhưng CHẬM hơn, biên độ nhỏ hơn, có nhịp thở — chất trị liệu Đông y.
+ * Nhịp chậm, biên độ nhỏ, chỉ transform/opacity — chất trị liệu Đông y.
  *
  * RANH GIỚI (cố ý):
  *   · Nhịp có thể đổi theo skin — thời lượng, biên độ reveal, chiều sâu parallax —
@@ -58,7 +55,7 @@ export const breathFlow = {
 
   /** Sticky-stack "Không gian 4 tầng". */
   stack: {
-    /** Easing chuyển tầng — CustomEase học từ Dropbox (easings.ts → floorRitual). */
+    /** Easing chuyển tầng — CustomEase floorRitual. */
     ease: "floorRitual",
     /** Tầng inactive lùi sau bao nhiêu (px) để tạo chiều sâu. Khớp --section-parallax-depth. */
     recedeDistance: 80,

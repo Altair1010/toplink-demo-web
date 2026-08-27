@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Img from "@/components/Img";
 import SectionHeader from "@/components/SectionHeader";
-import { Leaf, Target, Eye, Heart } from "lucide-react";
+import { Leaf, Target, Eye, Heart } from "@/components/Glyph";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import SplitReveal from "@/components/motion/SplitReveal";
@@ -32,7 +32,7 @@ export default function AboutPage() {
           desc="Y Viện Toplink kết hợp Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao để chăm sóc sức khỏe một cách cá nhân hóa và có chiều sâu."
         />
 
-        {/* HERO converge — ba khối không gian trôi về giữa khi cuộn (kỹ thuật Dropbox) */}
+        {/* HERO converge — ba khối không gian trôi về giữa khi cuộn */}
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {HERO_IMAGES.map((im, i) => (
             <ConvergeItem

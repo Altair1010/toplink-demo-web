@@ -4,7 +4,7 @@ import { useEffect, useRef, type CSSProperties, type ReactNode } from "react";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
 /**
- * Hiệu ứng mở đầu kiểu brand.dropbox.com: khi cuộn tới, các khối TRƯỢT VỀ GIỮA
+ * Hiệu ứng mở đầu hội tụ: khi cuộn tới, các khối TRƯỢT VỀ GIỮA
  * và phóng to dần tới kích thước thật.
  *
  * KIẾN TRÚC (đã viết lại — bản cũ gọi setState trong rAF trên MỖI scroll event, MỖI
