@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Phone, MessageCircle, CalendarPlus, MapPin } from "lucide-react";
+import { Phone, MessageCircle, CalendarPlus, MapPin } from "@/components/Glyph";
 import { CONTACT } from "@/data/content";
 
 /**

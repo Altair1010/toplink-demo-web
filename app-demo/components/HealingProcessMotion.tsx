@@ -1,8 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, type ComponentType } from "react";
 import { useGSAP } from "@gsap/react";
-import { ClipboardList, MessagesSquare, Hand, HeartPulse, type LucideIcon } from "lucide-react";
+import {
+  ClipboardList,
+  MessagesSquare,
+  Hand,
+  HeartPulse,
+  type GlyphProps,
+} from "@/components/Glyph";
 import { gsap, ScrollTrigger, registerMotion } from "@/lib/motion/scrollTrigger";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 import { breathFlow } from "@/lib/motion/config";
@@ -12,7 +18,7 @@ import ScrollProgress from "@/components/motion/ScrollProgress";
 
 /**
  * QUY TRÌNH TRỊ LIỆU — "ritual journey" 4 bước (hệ Breath & Flow).
- * Nguyên lý học từ MyWebLab "SvgStrokeProcess": một mạch dẫn tự vẽ theo scroll,
+ * Một mạch dẫn tự vẽ theo scroll,
  * mỗi bước hé lộ + sáng lên khi mạch chạm tới; bước chưa tới mờ + lùi nhẹ.
  *
  * - Desktop: line dọc TRUNG TÂM (ScrollProgress) + các bước xen kẽ trái/phải, node trên line.
@@ -20,7 +26,7 @@ import ScrollProgress from "@/components/motion/ScrollProgress";
  * - Active theo scroll (ScrollTrigger center) + hover override (micro-interaction).
  * - Reduced-motion: tất cả hiện tĩnh, bước đầu coi như active.
  */
-const ICONS: Record<ProcessStep["icon"], LucideIcon> = {
+const ICONS: Record<ProcessStep["icon"], ComponentType<Omit<GlyphProps, "name">>> = {
   ClipboardList,
   MessagesSquare,
   Hand,

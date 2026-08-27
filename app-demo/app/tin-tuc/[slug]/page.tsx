@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Img from "@/components/Img";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CalendarDays, Clock, UserRound } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, Clock, UserRound } from "@/components/Glyph";
 import { POSTS } from "@/data/content";
 
 export function generateStaticParams() {

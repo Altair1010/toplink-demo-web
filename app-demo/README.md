@@ -8,7 +8,7 @@ Demo website tương tác cho **Y Viện Toplink** (Y Viện Dưỡng Thân – 
 - Next.js 16 (App Router, static export ra GitHub Pages) + TypeScript strict
 - Tailwind CSS v4 + CSS thuần tách lớp (`styles/tokens · typography · components · utilities · motion · home-experience`)
 - GSAP 3 + ScrollTrigger (chỉ inner pages) — native scroll, KHÔNG Lenis/Three.js
-- lucide-react icons
+- Glyph vocabulary cục bộ tại `components/Glyph.tsx`
 - Font: Be Vietnam Pro (body + h3 trở xuống) + Noto Serif (h1/h2/statement)
 
 ## Chạy trên localhost

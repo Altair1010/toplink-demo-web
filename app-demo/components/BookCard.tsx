@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Img from "@/components/Img";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Clock, BookOpen } from "@/components/Glyph";
 import type { Service } from "@/data/content";
 
 /**

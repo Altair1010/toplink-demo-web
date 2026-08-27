@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 /**
  * Reveal-on-scroll: phần tử mờ + trượt nhẹ lên khi cuộn vào màn hình.
- * Kỹ thuật rút từ Dropbox/Autodesk — easing chậm, chỉ chạy 1 lần.
+ * Hiện tượng cục bộ — easing chậm, chỉ chạy 1 lần.
  * Không dùng thư viện: chỉ IntersectionObserver thuần (hợp static export).
  */
 export default function Reveal({
@@ -15,7 +15,7 @@ export default function Reveal({
 }: {
   children: React.ReactNode;
   delay?: number;
-  /** Hướng khối trôi vào (kỹ thuật Dropbox). "up" giữ tương thích ngược. */
+  /** Hướng khối trôi vào. "up" giữ tương thích ngược. */
   from?: "left" | "right" | "up" | "down";
   className?: string;
 }) {

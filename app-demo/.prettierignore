@@ -1,6 +1,7 @@
 node_modules
 .next
 out
+.playwright-cli
 *.tsbuildinfo
 package-lock.json
 

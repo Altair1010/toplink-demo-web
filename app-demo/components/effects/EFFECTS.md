@@ -1,17 +1,17 @@
-# Kho Effect — Y viện (Curate-only · 1 engine GSAP)
+# Kho effect — Y viện (hiện tượng cục bộ · 1 engine GSAP)
 
-Thư mục `components/effects/` chứa các effect trang trí **nhập từ registry ngoài**
-(Aceternity UI · Magic UI · react-bits) theo mô hình **copy-paste**, KHÔNG cài như package.
+Thư mục `components/effects/` chứa các hiệu ứng trang trí được mô tả bằng hiện tượng
+và hành vi cục bộ. Không dùng thư viện, registry hay style guide bên ngoài làm nguồn
+thẩm quyền thiết kế.
 
 > Phân vai: `components/motion/` = các scene GSAP chính của site (converge, floor-stack,
-> reveal…). `components/effects/` = effect trang trí lẻ nhập từ ngoài, đã port về chuẩn dự án.
+> reveal…). `components/effects/` = hiện tượng trang trí cục bộ, giới hạn trong một bề mặt.
 
 ---
 
 ## Nguyên tắc gốc
 
-- **KHÔNG** `npm install` aceternity/magic-ui/react-bits/**framer-motion**/motion/anime.js.
-  Chúng chỉ là **nguồn code** để lấy effect lẻ.
+- **KHÔNG** thêm motion engine thứ hai (`framer-motion`, `motion`, `anime.js`).
 - **Đúng 1 animation engine = GSAP.** Effect động phải chạy bằng GSAP (nối vào
   `@/lib/motion/`), hoặc thuần **CSS / canvas / SVG** (không cần engine JS).
 - Effect Framer Motion → **PORT sang GSAP trước** khi nhận vào. Không có ngoại lệ.
@@ -59,27 +59,24 @@ Thư mục `components/effects/` chứa các effect trang trí **nhập từ reg
 
 ## Quy trình nhận 1 effect
 
-1. Xác định engine của effect gốc → CSS/canvas/SVG (nhận thẳng) hay Framer (phải port GSAP).
+1. Đặt tên hiện tượng theo hành vi người dùng nhìn thấy, không theo nguồn tham khảo.
 2. Tạo file trong `components/effects/`, thêm **header chú thích** (mẫu dưới).
 3. Áp rules 1–7. Chạy `npm run build` + kiểm tra reduced-motion.
-4. Ghi 1 dòng vào bảng registry.
 
 ### Mẫu header mỗi file effect
 
 ```tsx
 /**
- * Effect: <tên>
- * Nguồn:  Aceternity | Magic UI | react-bits — <url/tên component gốc>
+ * Hiện tượng: <tên theo hành vi>
  * Engine: GSAP | CSS | canvas | SVG
- * Ported: có (từ Framer) | không cần (vốn CSS/canvas)
  * Reduced-motion: <cách xử lý>
  */
 ```
 
 ---
 
-## Registry
+## Hiện tượng hiện có
 
-| Effect    | Nguồn             | Engine        | Ported?             | Reduced-motion               | Dùng ở                        |
-| --------- | ----------------- | ------------- | ------------------- | ---------------------------- | ----------------------------- |
-| Spotlight | animata (ý tưởng) | CSS + pointer | không cần (vốn CSS) | tắt hẳn (không gắn listener) | `ReviewWall` (3 thẻ cảm nhận) |
+| Hiện tượng    | Engine        | Reduced-motion     | Dùng ở       |
+| ------------- | ------------- | ------------------ | ------------ |
+| Pointer light | CSS + pointer | không gắn listener | `ReviewWall` |

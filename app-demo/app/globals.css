@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css"; /* enter/exit CSS cho shadcn (dialog/dropdown/accordion) — data-state, không đụng GSAP */
 
 /* ── Hệ style tách lớp: token → typography → component → utility → motion ──
    Nguyên tắc: globals CHỈ chứa import + base + a11y. Không nhét ý tưởng vào đây. */
@@ -9,6 +8,7 @@
 @import "../styles/utilities.css";
 @import "../styles/motion.css";
 @import "../styles/home-experience.css";
+@import "../styles/interface.css";
 /* Skin PHẢI nhập cuối: ghi đè token theo [data-brand] trên <html>. Xem skins.css. */
 @import "../styles/skins.css";
 

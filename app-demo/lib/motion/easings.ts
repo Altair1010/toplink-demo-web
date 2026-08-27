@@ -2,17 +2,8 @@
  * EASINGS — hằng easing dùng chung, tránh hard-code rải rác.
  * GSAP easing (chuỗi tên) cho tween; CSS cubic-bezier cho fallback/transition.
  *
- * NGUYÊN LIỆU HỌC (deep crawl dembrandt --slow trên brand.dropbox.com):
- * Dropbox KHÔNG dùng CSS-transition để tạo cảm giác (durations ≈ 0.001s × 396 lần
- * → motion của họ chạy bằng scroll-progress + Lottie/JS). Cái ĐÁNG học là *bộ
- * cong easing* mà họ lặp lại nhiều nhất:
- *   cubic-bezier(0.4, 0, 0.2, 1)  ×106  → chuẩn "standard", vào–ra mượt
- *   cubic-bezier(0.5, 0, 0.2, 1)  (button) → ease-out mạnh, "đặt mạnh rồi dừng"
- *   cubic-bezier(0.5, 0, 0,   1)        → ease-out rất gắt, snap về cuối
- *   cubic-bezier(0.2, 0, 0.3, 1)        → vào chậm, dừng êm
- * Chỉ học NHỊP (đường cong là toán học, không phải tài sản nhận diện). Y Viện kéo
- * các curve này CHẬM & MỀM hơn cho chất trị liệu, rồi đăng ký qua GSAP CustomEase
- * để dùng THẬT trong converge/scroll (không chỉ power3.out chung chung).
+ * Các curve riêng của Toplink được đăng ký qua GSAP CustomEase cho hội tụ và
+ * chuyển tầng; chúng không đại diện cho palette, typography hay asset bên ngoài.
  */
 import { gsap } from "./scrollTrigger";
 
@@ -21,13 +12,13 @@ const bezierPath = (x1: number, y1: number, x2: number, y2: number) =>
   `M0,0 C${x1},${y1} ${x2},${y2} 1,1`;
 
 /**
- * Bộ curve "chuyển hóa" từ nhịp Dropbox sang chất Y Viện (ease-out, hãm cực mềm
- * ở cuối = cảm giác "đặt nhẹ vào chỗ"). Đăng ký 1 LẦN, client-only, idempotent.
+ * Bộ curve ease-out, hãm mềm ở cuối để tạo cảm giác "đặt nhẹ vào chỗ".
+ * Đăng ký 1 LẦN, client-only, idempotent.
  */
 const RITUAL_CURVES = {
-  /** Học cubic-bezier(0.4,0,0.2,1) + (0.5,0,0.2,1) → kéo mềm cho khối hội tụ. */
+  /** Curve cho khối hội tụ. */
   convergeRitual: bezierPath(0.32, 0, 0.16, 1),
-  /** Học (0.2,0,0.3,1): vào chậm hơn, hãm rất êm — cho chuyển tầng "Không gian". */
+  /** Curve vào chậm, hãm êm cho chuyển tầng "Không gian". */
   floorRitual: bezierPath(0.22, 0, 0.18, 1),
 } as const;
 
@@ -53,10 +44,9 @@ export function registerEases() {
 export const gsapEasings = {
   /** Vào mượt, ra chậm — chủ đạo, cảm giác thả lỏng. */
   soft: "power3.out",
-  /** Nhịp "trị liệu": vào nhanh, hãm RẤT mượt ở cuối (expo-out). Tương đương
-   *  cubic-bezier(0.16,1,0.3,1) — nguyên lý học từ MyWebLab cho Breath & Flow. */
+  /** Nhịp "trị liệu": vào nhanh, hãm RẤT mượt ở cuối (expo-out). */
   ritual: "power4.out",
-  /** Curve CustomEase học từ Dropbox cho khối HỘI TỤ (cần registerEases trước). */
+  /** Curve CustomEase cho khối HỘI TỤ (cần registerEases trước). */
   convergeRitual: "convergeRitual",
   /** Curve CustomEase cho chuyển TẦNG "Không gian" (cần registerEases trước). */
   floorRitual: "floorRitual",

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X } from "@/components/Glyph";
 
 /**
  * Header IA PHẲNG — người đang đau cổ vai gáy không cần thấy "nhượng quyền".

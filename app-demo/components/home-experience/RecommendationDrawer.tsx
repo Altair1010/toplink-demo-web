@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { X, CalendarPlus } from "lucide-react";
+import { X, CalendarPlus } from "@/components/Glyph";
 import type { Symptom } from "@/data/content";
 import { recommend } from "@/lib/recommendation";
 

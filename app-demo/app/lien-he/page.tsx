@@ -1,4 +1,4 @@
-import { Phone, MapPin, Clock, MessageCircle, Navigation } from "lucide-react";
+import { Phone, MapPin, Clock, MessageCircle, Navigation } from "@/components/Glyph";
 import SectionHeader from "@/components/SectionHeader";
 import FaqAccordion from "@/components/FaqAccordion";
 import { BRANCHES, CONTACT, FAQS } from "@/data/content";

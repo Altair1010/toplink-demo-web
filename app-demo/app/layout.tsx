@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingZalo from "@/components/FloatingZalo";
-import { Toaster } from "@/components/ui/sonner";
+import { NoticeProvider } from "@/components/notice/NoticeRegion";
 import { CONTACT, BRANCHES, SERVICES } from "@/data/content";
 
 // Be Vietnam Pro — sans cho body + h3 trở xuống. 3 weight đủ hierarchy
@@ -93,15 +93,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main" className="skip-link">
           Bỏ qua, tới nội dung chính
         </a>
-        <SiteHeader />
-        {/* Native scroll toàn site (scroll-behavior: smooth) — Lenis/Three đã gỡ. */}
-        <main id="main" className="pb-20 lg:pb-0">
-          {children}
-        </main>
-        <SiteFooter />
-        <FloatingZalo />
-        <MobileBottomBar />
-        <Toaster position="top-center" richColors={false} />
+        <NoticeProvider>
+          <SiteHeader />
+          {/* Native scroll toàn site (scroll-behavior: smooth) — Lenis/Three đã gỡ. */}
+          <main id="main" className="pb-20 lg:pb-0">
+            {children}
+          </main>
+          <SiteFooter />
+          <FloatingZalo />
+          <MobileBottomBar />
+        </NoticeProvider>
       </body>
     </html>
   );

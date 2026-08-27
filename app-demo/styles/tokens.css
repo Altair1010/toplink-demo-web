@@ -98,20 +98,19 @@
   --container-narrow: 760px; /* intro quote / FAQ — hẹp, tĩnh */
   --container-wide: 1280px;
 
-  /* ---- Shadow mềm & nông (học từ Dropbox/MyWebLab: shadow nhẹ, sâu vừa) ----
+  /* ---- Shadow mềm & nông (nhẹ, sâu vừa) ----
      Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
   --shadow-soft: 0 10px 30px -12px rgba(106, 5, 17, 0.25);
   --shadow-zalo: 0 12px 28px -8px rgba(0, 104, 254, 0.45);
 
   /* ---- MOTION SYSTEM "BREATH & FLOW" ----
-     Nguyên lý chắt lọc từ MyWebLab (expo-out, scroll-driven, chỉ transform/opacity)
-     nhưng chậm – sâu – có nhịp thở. Bản giây cho GSAP nằm ở lib/motion/config.ts. */
+     Chậm – sâu – có nhịp thở. Ràng buộc engine GSAP nằm ở lib/motion/config.ts. */
   --motion-fast: 180ms;
   --motion-medium: 420ms;
   --motion-slow: 760ms;
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1); /* hover / vi tương tác */
-  --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1); /* reveal trị liệu (học MyWebLab) */
-  --ease-slide: cubic-bezier(0.15, 0.5, 0.05, 1); /* slide-in theo hướng (học Dropbox) */
+  --ease-ritual: cubic-bezier(0.16, 1, 0.3, 1); /* reveal trị liệu */
+  --ease-slide: cubic-bezier(0.15, 0.5, 0.05, 1); /* slide-in theo hướng */
   /* Lò xo rời rạc bằng linear() (kỹ thuật motion.dev): "nảy" tinh tế rồi ổn định,
      KHÔNG cần runtime JS. Dùng cho hover card/nút muốn có sức nặng. */
   --ease-spring: linear(
@@ -133,60 +132,4 @@
   );
   --reveal-distance: 32px; /* biên độ trượt khi reveal — nhỏ, điềm tĩnh */
   --section-parallax-depth: 80px; /* chiều sâu khi tầng/khối lùi về sau */
-}
-
-/* ============================================================
-   shadcn/ui — SEMANTIC TOKENS map vào brand Y viện
-   Component shadcn dùng bg-primary/text-foreground/border… đọc các biến này.
-   CHỦ Ý: KHÔNG remap --radius-* (giữ nguyên bo góc sắc của site).
-   ============================================================ */
-:root {
-  --background: var(--color-ivory);
-  --foreground: var(--color-ink);
-  --card: var(--color-ivory);
-  --card-foreground: var(--color-ink);
-  --popover: var(--color-ivory);
-  --popover-foreground: var(--color-ink);
-  --primary: var(--color-crimson-600); /* #95131F */
-  --primary-foreground: var(--color-ivory);
-  /* State-scale primary (đỏ dược liệu) — dùng token đậm dần sẵn có, không opacity mờ */
-  --primary-hover: var(--color-crimson-700); /* #7E0A15 — hover đậm hơn */
-  --primary-active: var(--color-crimson-800); /* #6A0511 — nhấn/giữ */
-  --primary-disabled: var(--color-crimson-200); /* #E6A9A3 — vô hiệu, vẫn thấy sắc đỏ */
-  --secondary: var(--color-cream);
-  --secondary-foreground: var(--color-ink);
-  --muted: var(--color-mist);
-  --muted-foreground: var(--color-ink-soft);
-  --accent: var(--color-gold-500);
-  --accent-foreground: var(--color-ink);
-  --destructive: var(--color-accent-red);
-  --destructive-foreground: var(--color-ivory);
-  --border: var(--color-sand);
-  --input: var(--color-sand);
-  --ring: var(--color-crimson-600);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-active: var(--primary-active);
-  --color-primary-disabled: var(--primary-disabled);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
 }

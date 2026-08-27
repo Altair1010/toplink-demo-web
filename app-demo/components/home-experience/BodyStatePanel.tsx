@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MessageCircle, ArrowRight } from "lucide-react";
+import { MessageCircle, ArrowRight } from "@/components/Glyph";
 import { CONTACT, type Symptom } from "@/data/content";
 import { dominantStates } from "@/lib/recommendation";
 

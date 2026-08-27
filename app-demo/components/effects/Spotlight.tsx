@@ -1,10 +1,8 @@
 "use client";
 
 /**
- * Effect: Spotlight (đèn rọi theo con trỏ)
- * Nguồn:  animata.design — "spotlight card" (ý tưởng), viết lại thuần CSS cho Y viện
+ * Hiện tượng: pointer light (đèn rọi theo con trỏ)
  * Engine: CSS (radial-gradient) + pointer tracking (KHÔNG dùng engine animation JS)
- * Ported: không cần (vốn CSS; chỉ set CSS var --mx/--my theo con trỏ)
  * Reduced-motion: tắt hẳn (không gắn listener) → thẻ tĩnh
  *
  * Đặt làm con của khối `relative overflow-hidden`. Tự gắn listener lên parentElement.
@@ -12,7 +10,7 @@
 import { useEffect, useRef } from "react";
 import { prefersReducedMotion } from "@/hooks/useReducedMotion";
 
-export default function Spotlight({ radius = 220 }: { radius?: number }) {
+export default function PointerLight({ radius = 220 }: { radius?: number }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

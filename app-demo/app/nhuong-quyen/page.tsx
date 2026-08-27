@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Handshake, ArrowRight } from "lucide-react";
+import { Handshake, ArrowRight } from "@/components/Glyph";
 import SectionHeader from "@/components/SectionHeader";
 import BrandVisual from "@/components/BrandVisual";
 import Reveal from "@/components/Reveal";

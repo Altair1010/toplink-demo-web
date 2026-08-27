@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@/components/Glyph";
 import { SPACE_QUALITIES } from "@/data/content";
 
 /**

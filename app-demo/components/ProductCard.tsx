@@ -1,4 +1,4 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle } from "@/components/Glyph";
 import BrandVisual from "@/components/BrandVisual";
 import { CONTACT, type Product } from "@/data/content";
 
