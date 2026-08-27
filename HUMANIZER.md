@@ -42,20 +42,21 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED FOR H3`; `H3 — PROPOSED: AWAITING GATE A`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A APPROVED FOR H4`; `H4 — PASS`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
   evidence.
-- **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`. H2 artifacts and its human-review
-  record are at `docs/humanizer/h2/` (`01` through `07`). H3 direction artifacts are at
-  `docs/humanizer/h3/` (`01_H3_ENTRY_AND_CONSTRAINTS.md` through `06_H3_GATE_A_REPORT.md`).
-- **Target Design Truth:** H2 semantic architecture, Body Signal disposition B, evidence-slot policy
-  and booking/state input are `APPROVED FOR H3`. All H3 visual systems, typography/color behavior,
-  material/photography and motion remain `PROPOSED`; no direction, token, component or migration is
-  `LOCKED`. Do not infer approval from the package, legacy `DESIGN.md`, runtime or external skill.
-- **Next gate:** **Gate A — Human Direction Selection.** H0/H1 P0/P1 external evidence remains
-  required; H2/H3 do not close those gaps.
+- **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`; H2 at `docs/humanizer/h2/`; H3
+  direction and Gate A decision at `docs/humanizer/h3/`; H4 prototype evidence at
+  `docs/humanizer/h4/`.
+- **Gate A selection:** **B — Hồ Sơ Sống**, with only two bounded imports: A warm threshold at
+  HP-01/HP-07 and C editable phrase at HP-02/HP-03.
+- **Target Design Truth:** H4 validates this bounded thesis for Gate B consideration. It does not
+  lock production tokens/components, photography/material evidence, `DESIGN.md`, booking transport
+  or migration. H0/H1 evidence gaps remain open.
+- **Next gate:** **H5 — Gate B / System Lock.** Do not begin production migration without the later
+  applicable Migration Gate.
 
 Decision states are:
 
