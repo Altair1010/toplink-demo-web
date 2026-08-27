@@ -6,6 +6,7 @@ const basePath = "/toplink-demo-web";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  agentRules: false,
   // Static HTML export so the demo can be hosted on GitHub Pages.
   output: "export",
   basePath,
