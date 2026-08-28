@@ -6,7 +6,6 @@ import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
 import FloatingZalo from "@/components/FloatingZalo";
 import { NoticeProvider } from "@/components/notice/NoticeRegion";
-import { CONTACT, BRANCHES, SERVICES } from "@/data/content";
 
 // Be Vietnam Pro — sans cho body + h3 trở xuống. 3 weight đủ hierarchy
 // (400 body / 500 nhấn nhẹ / 600 title); tiếng Việt mỗi weight = subset
@@ -45,51 +44,11 @@ export const metadata: Metadata = {
   },
 };
 
-const BASE_URL = "https://altair1010.github.io/toplink-demo-web";
-
-const JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "HealthAndBeautyBusiness",
-  name: "Y Viện Toplink",
-  description:
-    "Y Viện dưỡng thân · tỉnh thức: Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao.",
-  telephone: CONTACT.hotline,
-  email: CONTACT.email,
-  url: BASE_URL,
-  image: `${BASE_URL}/opengraph-image`,
-  priceRange: "150.000đ–890.000đ",
-  openingHours: "Mo-Su 08:00-21:00",
-  sameAs: [CONTACT.facebook, CONTACT.zalo],
-  areaServed: { "@type": "Country", name: "Việt Nam" },
-  address: BRANCHES.map((b) => ({
-    "@type": "PostalAddress",
-    name: b.name,
-    streetAddress: b.address,
-    addressCountry: "VN",
-  })),
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Liệu trình dưỡng sinh & trị liệu",
-    itemListElement: SERVICES.map((s) => ({
-      "@type": "Offer",
-      itemOffered: {
-        "@type": "Service",
-        name: s.name,
-        url: `${BASE_URL}/dich-vu/${s.slug}/`,
-      },
-    })),
-  },
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // data-brand chọn skin (styles/skins.css). "yvien" = nhận diện mặc định.
     <html lang="vi" data-brand="yvien" className={`${beVietnam.variable} ${notoSerif.variable}`}>
       <body className="surface-paper min-h-screen">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
-        />
         <a href="#main" className="skip-link">
           Bỏ qua, tới nội dung chính
         </a>

@@ -11,8 +11,6 @@ import BrandVisual from "@/components/BrandVisual";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { SERVICES, CONTACT } from "@/data/content";
 
-const BASE_URL = "https://altair1010.github.io/toplink-demo-web";
-
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
 }
@@ -32,27 +30,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) notFound();
 
-  // Service schema — mỗi liệu trình là một "sản phẩm" rõ ràng với Google
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.name,
-    description: service.short,
-    url: `${BASE_URL}/dich-vu/${service.slug}/`,
-    provider: { "@type": "HealthAndBeautyBusiness", name: "Y Viện Toplink", url: BASE_URL },
-    offers: {
-      "@type": "Offer",
-      price: service.priceFrom.replace(/[^\d]/g, ""),
-      priceCurrency: "VND",
-    },
-  };
-
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-      />
       <Breadcrumbs
         items={[
           { href: "/", label: "Trang chủ" },

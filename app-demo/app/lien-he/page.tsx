@@ -5,25 +5,10 @@ import { BRANCHES, CONTACT, FAQS } from "@/data/content";
 
 export const metadata = { title: "Liên hệ" };
 
-// FAQPage schema — Google hiểu và có thể hiện rich result cho câu hỏi thường gặp
-const FAQ_JSON_LD = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: { "@type": "Answer", text: f.a },
-  })),
-};
-
 export default function ContactPage() {
   const branch = BRANCHES[0];
   return (
     <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
-      />
       <SectionHeader
         eyebrow="Liên hệ"
         title="Cơ sở Y Viện Toplink"

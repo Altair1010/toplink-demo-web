@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B IMPLEMENTED / VERIFIED ONLY`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B AND M3S-1 IMPLEMENTED / VERIFIED ONLY`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -53,8 +53,8 @@ numbers must not reinterpret the project phase map above.
   `docs/humanizer/h5/`; pre-H5.5 migration plan at `docs/humanizer/migration/`; foundation rebind,
   target reconciliation and migration rebase at `docs/humanizer/h5-5/`; reopened blind direction
   comparison and approved Gate A-R decision at `docs/humanizer/h3r/`; isolated H4R prototype
-  evidence and bounded-revision Gate report at `docs/humanizer/h4r/`; approved M3S-B execution and
-  verification evidence at `docs/humanizer/h6/`.
+  evidence and bounded-revision Gate report at `docs/humanizer/h4r/`; approved M3S-B and M3S-1
+  execution and verification evidence at `docs/humanizer/h6/`.
 - **Historical Gate A selection:** **B — Hồ Sơ Sống** is preserved as history but superseded in the
   reopened visual/brand subtree. Human Gate A-R approved **VX-02 — Nhịp Hỏi — Đáp Rõ** under
   `DEC-H3R-GAR-01` for the isolated H4R prototype only; it does not authorize production migration.
@@ -71,9 +71,12 @@ numbers must not reinterpret the project phase map above.
   `docs/humanizer/migration/` set for implementation planning. Migration Gate-R recommends exact
   READY/CONDITIONAL/DEFERRED/BLOCKED batches. `DEC-MIGR-H6-M3SB-01` approved M3S-B only; its hidden
   placeholder transport and false-success terminal state are removed and verified fail-closed.
-- **Batch status after M3S-B:** M3S-1 remains `READY BUT UNAPPROVED`; M0R, M1, M2A0, M2A1, M2B and
-  M3S-2 remain conditional; M3P remains deferred; M4 remains blocked; M5 remains deferred.
-- **Next gate:** return control to the human for an explicit named-batch decision. Completing M3S-B
+  `DEC-MIGR-H6-M3S1-01` then approved M3S-1 only; four unverified JSON-LD emitters are removed while
+  visible content, metadata and breadcrumb navigation remain unchanged.
+- **Batch status after M3S-1:** M0R, M1, M2A0, M2A1 and M2B remain conditional; M3S-2 remains
+  `CONDITIONAL / SPLIT REQUIRED`; M3P remains deferred to admin; M4 remains blocked; M5 remains
+  deferred.
+- **Next gate:** return control to the human for an explicit named-batch decision. Completing M3S-1
   does not authorize or activate another migration batch.
 
 Decision states are:
