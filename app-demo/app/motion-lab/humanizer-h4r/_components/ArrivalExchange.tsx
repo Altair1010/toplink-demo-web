@@ -23,7 +23,7 @@ export function ArrivalExchange({ state, onToggle, onRemove, onContinue }: Arriv
       data-exchange="arrival"
     >
       <div className={styles.arrivalQuestion}>
-        <p className={styles.exchangeLabel}>Bắt đầu</p>
+        <p className={styles.promptCue}>Có thể bắt đầu từ đây</p>
         <h1 id="h4r-arrival-question" tabIndex={-1}>
           Anh/chị đang muốn bắt đầu từ điều gì?
         </h1>
@@ -34,10 +34,10 @@ export function ArrivalExchange({ state, onToggle, onRemove, onContinue }: Arriv
 
       <div className={styles.arrivalResponse} aria-label="Các cách bắt đầu">
         <p className={styles.responseLead}>
-          Chọn một hoặc nhiều câu gần với điều anh/chị muốn nói.
+          Anh/chị chọn một hoặc vài câu gần nhất với điều mình muốn nói. Chọn xong vẫn sửa được.
         </p>
         <div className={styles.phraseChoices}>
-          {PHRASES.map((phrase, index) => {
+          {PHRASES.map((phrase) => {
             const selected = state.phrases.includes(phrase);
             return (
               <button
@@ -47,15 +47,17 @@ export function ArrivalExchange({ state, onToggle, onRemove, onContinue }: Arriv
                 aria-pressed={selected}
                 onClick={() => onToggle(phrase)}
               >
-                <span aria-hidden="true">0{index + 1}</span>
-                {phrase}
+                <span>{phrase}</span>
+                <span className={styles.choiceMark} aria-hidden="true">
+                  {selected ? "✓" : ""}
+                </span>
               </button>
             );
           })}
         </div>
 
         <div className={styles.editableSummary} aria-live="polite">
-          <p>Điều anh/chị đã chọn</p>
+          <p>Tôi đang giữ lại để anh/chị xem lại</p>
           {state.phrases.length ? (
             <ul>
               {state.phrases.map((phrase) => (
@@ -72,7 +74,9 @@ export function ArrivalExchange({ state, onToggle, onRemove, onContinue }: Arriv
               ))}
             </ul>
           ) : (
-            <p className={styles.emptySummary}>Chưa chọn câu nào. Anh/chị vẫn có thể dừng ở đây.</p>
+            <p className={styles.emptySummary}>
+              Anh/chị chưa chọn câu nào, và vẫn có thể dừng ở đây.
+            </p>
           )}
         </div>
 
@@ -82,8 +86,8 @@ export function ArrivalExchange({ state, onToggle, onRemove, onContinue }: Arriv
           onClick={onContinue}
           disabled={!state.phrases.length}
         >
-          <span className={styles.namedCopy}>Xem Toplink có thể làm gì lúc này</span>
-          <span className={styles.blindCopy}>Xem hệ thống này có thể hỗ trợ gì lúc này</span>
+          <span className={styles.namedCopy}>Xem Toplink có thể hỗ trợ đến đâu</span>
+          <span className={styles.blindCopy}>Xem nơi này có thể hỗ trợ đến đâu</span>
         </button>
       </div>
     </section>

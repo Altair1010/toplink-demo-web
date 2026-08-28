@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5 — UNAFFECTED CONTRACTS KEPT, AFFECTED GATE-B SUBTREE REOPENED`; `Migration — FROZEN`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — INACTIVE`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — PARTIAL: REAL EVIDENCE REQUIRED`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5 — UNAFFECTED CONTRACTS KEPT, AFFECTED GATE-B SUBTREE REOPENED`; `Migration — FROZEN`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — INACTIVE`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -61,9 +61,10 @@ numbers must not reinterpret the project phase map above.
   inputs. Its thesis/material/composition, public primitive expression and affected token map are
   reopened by H5.5. All H5.5 replacement names and knowledge contracts are **PROPOSED**, not target
   authority. Runtime Truth and H0/H1 evidence gaps do not change.
-- **Next gates:** **bounded H4R visual correction + human review → only after H4R PASS, H5R affected
-  subtree relock → partially rebuild Migration Gate → HUMAN MIGRATION APPROVAL.** H5R and H6 are
-  inactive. No migration batch is ready or authorized.
+- **Next gates:** obtain one approved Toplink real-evidence specimen → rerun only the H4R-C
+  evidence/collapse twin and blind review → only after `H4R-C PASS` with `TOPLINK-DEPENDENT`, H5R
+  affected subtree relock → partially rebuild Migration Gate → HUMAN MIGRATION APPROVAL. H5R and H6
+  are inactive. No migration batch is ready or authorized.
 
 Decision states are:
 

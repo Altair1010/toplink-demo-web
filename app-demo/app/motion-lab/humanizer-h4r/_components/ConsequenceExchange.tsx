@@ -8,6 +8,7 @@ type ConsequenceExchangeProps = {
   onUncertain: () => void;
   onFailure: () => void;
   onRetry: () => void;
+  showSpecimenControls: boolean;
 };
 
 const STATE_COPY: Record<H4RState["stage"], { title: string; body: string }> = {
@@ -48,9 +49,9 @@ export function ConsequenceExchange({
   onUncertain,
   onFailure,
   onRetry,
+  showSpecimenControls,
 }: ConsequenceExchangeProps) {
   const copy = STATE_COPY[state.stage];
-  const reviewActionsEnabled = state.stage === "review";
 
   return (
     <section
@@ -61,7 +62,7 @@ export function ConsequenceExchange({
       data-stage={state.stage}
     >
       <header className={styles.consequenceQuestion}>
-        <p className={styles.exchangeLabel}>Trước hành động</p>
+        <p className={styles.promptCue}>Trước khi anh/chị tiếp tục</p>
         <h2 id="h4r-consequence-question" tabIndex={-1}>
           Nếu tiếp tục, điều gì thực sự xảy ra?
         </h2>
@@ -74,13 +75,12 @@ export function ConsequenceExchange({
         tabIndex={-1}
         data-consequence-response="true"
       >
-        <p className={styles.stateKicker}>Trạng thái hiện tại</p>
         <h3>{copy.title}</h3>
         <p>{copy.body}</p>
 
         {state.phrases.length > 0 && (
           <div className={styles.reviewedPhrases}>
-            <span>Thông tin đang có</span>
+            <span>Anh/chị đang xem lại</span>
             <ul>
               {state.phrases.map((phrase) => (
                 <li key={phrase}>{phrase}</li>
@@ -89,20 +89,9 @@ export function ConsequenceExchange({
           </div>
         )}
 
-        <dl className={styles.consequenceFacts}>
-          <div>
-            <dt>Thông tin được gửi</dt>
-            <dd>Không</dd>
-          </div>
-          <div>
-            <dt>Dịch vụ được chọn</dt>
-            <dd>Không</dd>
-          </div>
-          <div>
-            <dt>Có thể sửa</dt>
-            <dd>Có</dd>
-          </div>
-        </dl>
+        <p className={styles.stateClarification}>
+          Chưa gửi dữ liệu, chưa chọn dịch vụ; anh/chị vẫn có thể sửa.
+        </p>
       </div>
 
       <div
@@ -111,39 +100,32 @@ export function ConsequenceExchange({
         data-consequence-actions="true"
       >
         <button type="button" className={styles.quietAction} onClick={onEdit}>
-          Chỉnh lại
+          Quay lại chỉnh câu
         </button>
         {state.stage === "failure" ? (
           <button type="button" className={styles.forwardAction} onClick={onRetry}>
-            Thử lại mẫu trạng thái
+            Thử lại trạng thái minh họa
           </button>
-        ) : (
-          <button
-            type="button"
-            className={styles.forwardAction}
-            onClick={onContinueLocal}
-            disabled={!reviewActionsEnabled}
-          >
-            Tiếp tục xem
+        ) : state.stage === "review" ? (
+          <button type="button" className={styles.forwardAction} onClick={onContinueLocal}>
+            Tiếp tục xem trong trang này
+          </button>
+        ) : null}
+        {state.stage === "review" && (
+          <button type="button" className={styles.quietAction} onClick={onUncertain}>
+            Tôi muốn dừng và vẫn chưa chắc
           </button>
         )}
-        <button
-          type="button"
-          className={styles.quietAction}
-          onClick={onUncertain}
-          disabled={!reviewActionsEnabled}
-        >
-          Tôi vẫn chưa chắc
-        </button>
-        <button
-          type="button"
-          className={styles.specimenAction}
-          onClick={onFailure}
-          disabled={!reviewActionsEnabled}
-          data-internal-specimen="true"
-        >
-          Nội bộ: xem mẫu lỗi / thử lại
-        </button>
+        {showSpecimenControls && state.stage === "review" && (
+          <button
+            type="button"
+            className={styles.specimenAction}
+            onClick={onFailure}
+            data-internal-specimen="true"
+          >
+            Nội bộ: xem mẫu lỗi / thử lại
+          </button>
+        )}
       </div>
     </section>
   );

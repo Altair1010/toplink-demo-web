@@ -5,25 +5,22 @@ import { useEffect, useReducer, useRef, useState } from "react";
 import { ArrivalExchange } from "./ArrivalExchange";
 import { BoundaryExchange } from "./BoundaryExchange";
 import { ConsequenceExchange } from "./ConsequenceExchange";
+import { readPrototypeOptions, type CaptureMode } from "./prototype-mode.mjs";
 import { INITIAL_H4R_STATE, reduceH4RState } from "./prototype-state.mjs";
 import styles from "./h4r-prototype.module.css";
-
-type CaptureMode = "grayscale" | "calibrated" | "blind" | "no-evidence";
-
-function readCaptureMode(): CaptureMode {
-  const mode = new URLSearchParams(window.location.search).get("mode");
-  return mode === "calibrated" || mode === "blind" || mode === "no-evidence" ? mode : "grayscale";
-}
 
 export function H4RPrototype() {
   const [state, dispatch] = useReducer(reduceH4RState, INITIAL_H4R_STATE);
   const [captureMode, setCaptureMode] = useState<CaptureMode>("grayscale");
+  const [showSpecimenControls, setShowSpecimenControls] = useState(false);
   const arrivalRef = useRef<HTMLElement | null>(null);
   const boundaryRef = useRef<HTMLElement | null>(null);
   const consequenceRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    setCaptureMode(readCaptureMode());
+    const options = readPrototypeOptions(window.location.search);
+    setCaptureMode(options.captureMode);
+    setShowSpecimenControls(options.showSpecimenControls);
     arrivalRef.current = document.querySelector("#h4r-arrival");
     boundaryRef.current = document.querySelector("#h4r-boundary");
     consequenceRef.current = document.querySelector("#h4r-consequence");
@@ -65,10 +62,10 @@ export function H4RPrototype() {
       data-evidence-state="collapsed-unavailable"
     >
       <div className={styles.prototypeNotice} role="note">
-        <span>Prototype nội bộ · H4R</span>
+        <span>Bản thử nghiệm H4R</span>
         <strong className={styles.brandName}>Nhịp Hỏi — Đáp Rõ</strong>
         <p data-blind-removable="true">
-          Không phải trang đặt lịch. Không gửi dữ liệu. Không dùng bằng chứng giả.
+          Mọi lựa chọn chỉ ở trong trang này; chưa có thông tin nào được gửi.
         </p>
       </div>
 
@@ -88,10 +85,11 @@ export function H4RPrototype() {
         onUncertain={() => settleConsequence("remainUncertain")}
         onFailure={() => settleConsequence("showFailure")}
         onRetry={() => settleConsequence("retry")}
+        showSpecimenControls={showSpecimenControls}
       />
 
       <footer className={styles.prototypeFooter}>
-        <p>H4R chỉ kiểm tra một hệ thống hỏi/đáp cục bộ. Migration vẫn đóng băng.</p>
+        <p>Prototype chỉ kiểm tra cách hỏi, giải thích giới hạn và cho phép xem lại.</p>
       </footer>
     </article>
   );

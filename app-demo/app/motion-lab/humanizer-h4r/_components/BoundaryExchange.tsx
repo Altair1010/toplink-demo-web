@@ -14,46 +14,40 @@ export function BoundaryExchange({ enabled, onContinue }: BoundaryExchangeProps)
       data-exchange="boundary"
     >
       <header className={styles.boundaryQuestion}>
-        <p className={styles.exchangeLabel}>Làm rõ giới hạn</p>
+        <p className={styles.promptCue}>Điều cần nói rõ trước</p>
         <h2 id="h4r-boundary-question" tabIndex={-1}>
-          <span className={styles.namedCopy}>
-            Trước khi đi tiếp, Toplink có thể hỗ trợ gì và không làm gì?
-          </span>
-          <span className={styles.blindCopy}>
-            Trước khi đi tiếp, hệ thống này có thể hỗ trợ gì và không làm gì?
-          </span>
+          <span className={styles.namedCopy}>Ở bước này, Toplink có thể hỗ trợ đến đâu?</span>
+          <span className={styles.blindCopy}>Ở bước này, nơi này có thể hỗ trợ đến đâu?</span>
         </h2>
       </header>
 
       <div className={styles.boundaryResponse}>
         <div className={styles.canDo}>
-          <p>Có thể</p>
+          <p className={styles.acknowledgement}>
+            Tôi chỉ giữ lại đúng câu anh/chị đã chọn để cùng xem bước tiếp theo.
+          </p>
           <h3>Giúp anh/chị xem lại lựa chọn và các hướng tiếp theo.</h3>
           <p className={styles.noInterpretation}>
-            Câu đã chọn không được phân tích và không làm thay đổi kết quả dịch vụ.
+            Câu đó không được phân tích thành tình trạng sức khỏe và không dùng để chọn dịch vụ.
           </p>
-          <ul>
-            <li>Giải thích phạm vi bằng lời dễ hiểu.</li>
-            <li>Để anh/chị sửa, bỏ hoặc giữ nguyên sự chưa chắc chắn.</li>
-            <li>Mở thêm thông tin nếu anh/chị chưa muốn đi tiếp.</li>
-          </ul>
+          <p className={styles.boundarySupport}>
+            Nếu chưa muốn đi tiếp, anh/chị có thể sửa, bỏ câu, giữ sự chưa chắc chắn hoặc mở thêm
+            phần giải thích.
+          </p>
         </div>
 
         <aside className={styles.cannotDo} aria-label="Giới hạn của định hướng">
-          <p>Không làm</p>
-          <strong>Không chẩn đoán. Không tự chọn dịch vụ. Không gửi thông tin.</strong>
-          <span>
-            Đây là prototype định hướng cục bộ. Không có kết luận sức khỏe hay yêu cầu đặt lịch nào
-            được tạo.
-          </span>
+          <p>Điều này không có nghĩa là</p>
+          <strong>đã có chẩn đoán, đã chọn dịch vụ hay đã gửi thông tin.</strong>
+          <span>Anh/chị vẫn có thể sửa, bỏ câu đã chọn hoặc để mọi thứ chưa chắc chắn.</span>
         </aside>
       </div>
 
       <div className={styles.boundaryContinuation}>
         <details className={styles.learningBridge}>
-          <summary>Tôi muốn hiểu thêm</summary>
+          <summary>Tôi muốn hiểu thêm trước</summary>
           <p>
-            Nhánh này chỉ thử vị trí của một giải thích đã được rà soát trong tương lai. H4R không
+            Đây chỉ là chỗ dành cho một giải thích đã được rà soát trong tương lai. Prototype không
             đưa ra thuật ngữ, lời khuyên hay nội dung y khoa mới.
           </p>
         </details>
@@ -63,7 +57,7 @@ export function BoundaryExchange({ enabled, onContinue }: BoundaryExchangeProps)
           onClick={onContinue}
           disabled={!enabled}
         >
-          Xem điều thực sự xảy ra nếu tiếp tục
+          Xem trước điều xảy ra nếu tiếp tục
         </button>
       </div>
     </section>

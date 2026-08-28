@@ -22,10 +22,10 @@ async (page) => {
     failedRequests.push(`${request.method()} ${request.url()} ${request.failure()?.errorText ?? "failed"}`);
   });
 
-  async function goto(mode = "grayscale") {
-    await page.goto(`${baseUrl}?mode=${mode}`);
+  async function goto(mode = "grayscale", specimen = false) {
+    await page.goto(`${baseUrl}?mode=${mode}${specimen ? "&specimen=1" : ""}`);
     await page.waitForSelector(`[data-capture-mode="${mode}"]`);
-    await page.evaluate(() => document.querySelector("nextjs-portal")?.remove());
+    await page.addStyleTag({ content: "nextjs-portal { visibility: hidden !important; }" });
   }
 
   async function assertNoOverflow(width) {
@@ -72,7 +72,7 @@ async (page) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await goto("calibrated");
   await page.getByRole("button", { name: "Tôi đang có một vùng khó chịu" }).click();
-  await page.getByRole("button", { name: "Xem Toplink có thể làm gì lúc này" }).click();
+  await page.getByRole("button", { name: "Xem Toplink có thể hỗ trợ đến đâu" }).click();
   if (
     (await page
       .locator("#h4r-boundary-question")
@@ -80,7 +80,7 @@ async (page) => {
   ) {
     throw new Error("focus did not move to boundary heading");
   }
-  await page.getByRole("button", { name: "Xem điều thực sự xảy ra nếu tiếp tục" }).click();
+  await page.getByRole("button", { name: "Xem trước điều xảy ra nếu tiếp tục" }).click();
   if (
     (await page
       .locator("#h4r-consequence-question")
@@ -121,7 +121,7 @@ async (page) => {
   }
   results["consequence-over-cta"] = consequenceHierarchy;
 
-  await page.getByRole("button", { name: "Tiếp tục xem" }).click();
+  await page.getByRole("button", { name: "Tiếp tục xem trong trang này" }).click();
   if (
     (await page.locator("[data-exchange=consequence]").getAttribute("data-stage")) !== "local-only"
   ) {
@@ -134,23 +134,24 @@ async (page) => {
   ) {
     throw new Error("focus did not settle on the updated consequence status");
   }
-  await page.getByRole("button", { name: "Chỉnh lại" }).click();
-  await page.getByRole("button", { name: "Xem Toplink có thể làm gì lúc này" }).click();
-  await page.getByRole("button", { name: "Xem điều thực sự xảy ra nếu tiếp tục" }).click();
+  await goto("calibrated", true);
+  await page.getByRole("button", { name: "Tôi đang có một vùng khó chịu" }).click();
+  await page.getByRole("button", { name: "Xem Toplink có thể hỗ trợ đến đâu" }).click();
+  await page.getByRole("button", { name: "Xem trước điều xảy ra nếu tiếp tục" }).click();
   await page.getByRole("button", { name: "Nội bộ: xem mẫu lỗi / thử lại" }).click();
   if (
     (await page.locator("[data-exchange=consequence]").getAttribute("data-stage")) !== "failure"
   ) {
     throw new Error("failure specimen missing");
   }
-  await page.getByRole("button", { name: "Thử lại mẫu trạng thái" }).click();
+  await page.getByRole("button", { name: "Thử lại trạng thái minh họa" }).click();
   if ((await page.locator("[data-exchange=consequence]").getAttribute("data-stage")) !== "retry") {
     throw new Error("retry specimen missing");
   }
-  await page.getByRole("button", { name: "Chỉnh lại" }).click();
-  await page.getByRole("button", { name: "Xem Toplink có thể làm gì lúc này" }).click();
-  await page.getByRole("button", { name: "Xem điều thực sự xảy ra nếu tiếp tục" }).click();
-  await page.getByRole("button", { name: "Tôi vẫn chưa chắc" }).click();
+  await page.getByRole("button", { name: "Quay lại chỉnh câu" }).click();
+  await page.getByRole("button", { name: "Xem Toplink có thể hỗ trợ đến đâu" }).click();
+  await page.getByRole("button", { name: "Xem trước điều xảy ra nếu tiếp tục" }).click();
+  await page.getByRole("button", { name: "Tôi muốn dừng và vẫn chưa chắc" }).click();
   if (
     (await page.locator("[data-exchange=consequence]").getAttribute("data-stage")) !== "uncertain"
   ) {
@@ -158,7 +159,7 @@ async (page) => {
   }
   results.states = "PASS";
 
-  await page.getByRole("button", { name: "Chỉnh lại" }).click();
+  await page.getByRole("button", { name: "Quay lại chỉnh câu" }).click();
   if (
     (await page
       .locator("#h4r-arrival-question")
@@ -167,7 +168,7 @@ async (page) => {
     throw new Error("edit did not return focus to arrival");
   }
   await page.getByRole("button", { name: /^Bỏ câu:/ }).click();
-  if ((await page.getByText("Chưa chọn câu nào. Anh/chị vẫn có thể dừng ở đây.").count()) !== 1) {
+  if ((await page.getByText("Anh/chị chưa chọn câu nào, và vẫn có thể dừng ở đây.").count()) !== 1) {
     throw new Error("remove phrase did not restore empty state");
   }
   results["edit-remove"] = "PASS";
@@ -177,6 +178,24 @@ async (page) => {
     throw new Error("learning bridge did not open");
   }
   results["knowledge-bridge"] = "PASS";
+
+  await goto("grayscale");
+  if ((await page.locator("[data-internal-specimen=true]").count()) !== 0) {
+    throw new Error("internal failure specimen leaked into the normal visitor surface");
+  }
+  const tone = await page.evaluate(() => {
+    const boundary = document.querySelector("[data-exchange=boundary]");
+    const text = boundary.innerText;
+    return {
+      background: getComputedStyle(boundary).backgroundColor,
+      legacyLabels: ["BẮT ĐẦU", "LÀM RÕ GIỚI HẠN", "TRƯỚC HÀNH ĐỘNG", "CÓ THỂ", "KHÔNG LÀM"].filter((label) => text.includes(label)),
+      factMatrix: document.querySelectorAll("dl").length,
+    };
+  });
+  if (tone.legacyLabels.length || tone.factMatrix) {
+    throw new Error(`administrative tone artifacts remain: ${JSON.stringify(tone)}`);
+  }
+  results["administrative-coldness-contract"] = tone;
 
   await page.locator("summary").focus();
   const boundaryFocus = await page.evaluate(() => {
