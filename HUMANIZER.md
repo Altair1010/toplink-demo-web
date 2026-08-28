@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — PASS: PROPOSED FOR GATE B-R`; `Migration — FROZEN UNTIL GATE B-R REVIEW`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — INACTIVE`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS: PROPOSED FOR HUMAN MIGRATION APPROVAL`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — INACTIVE`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -57,15 +57,21 @@ numbers must not reinterpret the project phase map above.
 - **Historical Gate A selection:** **B — Hồ Sơ Sống** is preserved as history but superseded in the
   reopened visual/brand subtree. Human Gate A-R approved **VX-02 — Nhịp Hỏi — Đáp Rõ** under
   `DEC-H3R-GAR-01` for the isolated H4R prototype only; it does not authorize production migration.
-- **Target Design Truth:** unaffected `DEC-H5-GB-01` contracts remain retained inputs. H5R
-  `DEC-H5R-GBR-01` now proposes the corrected VX-02 visual thesis, public primitives, functional
-  surface/token semantics, evidence-later contract and bounded knowledge bridge for human Gate B-R.
-  It is not runtime authority and does not authorize migration.
+- **Target Design Truth:** unaffected `DEC-H5-GB-01` contracts remain retained inputs. Human Gate
+  B-R approved and locked `DEC-H5R-GBR-01`: the corrected VX-02 visual thesis, public primitives,
+  functional surface/token semantics, evidence-later contract and bounded knowledge bridge. The
+  lock is design authority, not runtime write authority.
 - **Evidence decision:** `DEC-H4RC-EVIDENCE-DEFER-01` records private-opening deferral to later admin
   population. Blind state remains `CATEGORY-SPECIFIC — EVIDENCE DEFERRED`; it is not promoted to
-  `TOPLINK-DEPENDENT`. Missing real evidence collapses and cannot be fabricated.
-- **Next gates:** HUMAN GATE B-R → partial Migration Gate rebuild → HUMAN MIGRATION APPROVAL → only
-  then activate an eligible H6 batch. Migration remains frozen and H6 inactive.
+  `TOPLINK-DEPENDENT`. Missing real evidence collapses and cannot be fabricated. `DE-01 PLACE`,
+  `DE-02 PERSON/ROLE`, `DE-03 PROCESS/SERVICE` and `DE-04 REVIEWED SERVICE FACT` remain deferred
+  admin content/reality debt and block only claims requiring them.
+- **Migration planning:** `docs/humanizer/migration-r/` supersedes the historical
+  `docs/humanizer/migration/` set for implementation planning. Migration Gate-R recommends exact
+  READY/CONDITIONAL/DEFERRED/BLOCKED batches but authorizes none.
+- **Next gate:** HUMAN MIGRATION APPROVAL. The human must explicitly name one or more READY batches;
+  only then may H6 activate the approved first batch. Until that decision, migration remains frozen
+  and H6 inactive.
 
 Decision states are:
 
