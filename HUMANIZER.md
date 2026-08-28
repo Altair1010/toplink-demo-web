@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A VISUAL/BRAND SUBTREE REOPENED BY H5.5`; `H4 — BEHAVIORAL EVIDENCE KEPT, BRAND/VISUAL RETEST REQUIRED`; `H5 — UNAFFECTED CONTRACTS KEPT, AFFECTED GATE-B SUBTREE REOPENED`; `Migration Gate — PRE-H5.5 PLAN COMPLETE, NOW BLOCKED/PARTIAL REBUILD`; `H5.5 — PARTIAL: REOPEN REQUIRED`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — PASS: AWAITING GATE A-R`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL TARGET SUPERSEDED PENDING H4R`; `H5 — UNAFFECTED CONTRACTS KEPT, AFFECTED GATE-B SUBTREE REOPENED`; `Migration — FROZEN`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — INACTIVE`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -51,16 +51,18 @@ numbers must not reinterpret the project phase map above.
   direction and Gate A decision at `docs/humanizer/h3/`; H4 prototype evidence at
   `docs/humanizer/h4/`; H5 locked target contracts and Gate B decision at
   `docs/humanizer/h5/`; pre-H5.5 migration plan at `docs/humanizer/migration/`; foundation rebind,
-  target reconciliation and migration rebase at `docs/humanizer/h5-5/`.
-- **Gate A selection:** **B — Hồ Sơ Sống**, with only two bounded imports: A warm threshold at
-  HP-01/HP-07 and C editable phrase at HP-02/HP-03.
+  target reconciliation and migration rebase at `docs/humanizer/h5-5/`; reopened blind direction
+  comparison and Gate A-R report at `docs/humanizer/h3r/`.
+- **Historical Gate A selection:** **B — Hồ Sơ Sống** is preserved as history but superseded in the
+  reopened visual/brand subtree. H3R recommends **VX-02 — Nhịp Hỏi — Đáp Rõ** for human selection;
+  no H3R candidate is approved or locked yet.
 - **Target Design Truth:** unaffected `DEC-H5-GB-01` behavioral contracts remain historical locked
   inputs. Its thesis/material/composition, public primitive expression and affected token map are
   reopened by H5.5. All H5.5 replacement names and knowledge contracts are **PROPOSED**, not target
   authority. Runtime Truth and H0/H1 evidence gaps do not change.
-- **Next gates:** **correct H3-B visual subtree → blind A/B/C comparison → H4 brand/visual retest →
-  relock affected H5 subtree → partially rebuild Migration Gate → HUMAN MIGRATION APPROVAL.** H6
-  is not active. No migration batch is ready or authorized.
+- **Next gates:** **HUMAN GATE A-R → if approved, H4R brand/visual retest → relock affected H5
+  subtree → partially rebuild Migration Gate → HUMAN MIGRATION APPROVAL.** H6 is inactive. No
+  migration batch is ready or authorized.
 
 Decision states are:
 
