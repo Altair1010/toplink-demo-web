@@ -10,8 +10,8 @@ export default function BookingPage() {
         <SectionHeader
           center
           eyebrow="Đặt lịch trải nghiệm"
-          title="Chỉ 3 bước để được chăm sóc"
-          desc="Y Viện sẽ gọi lại xác nhận. Chị/anh chưa cần tạo tài khoản."
+          title="Xem lại nhu cầu trước khi quyết định"
+          desc="Ba bước dưới đây chỉ giúp chị/anh sắp xếp điều đang quan tâm. Không có yêu cầu nào được gửi đi."
         />
       </div>
       <div className="mt-12">
