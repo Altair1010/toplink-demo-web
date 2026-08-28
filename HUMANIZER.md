@@ -42,21 +42,21 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A APPROVED FOR H4`; `H4 — PASS`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A APPROVED`; `H4 — PASS`; `H5 — PROPOSED: AWAITING GATE B`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
   evidence.
 - **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`; H2 at `docs/humanizer/h2/`; H3
   direction and Gate A decision at `docs/humanizer/h3/`; H4 prototype evidence at
-  `docs/humanizer/h4/`.
+  `docs/humanizer/h4/`; H5 proposed system contracts at `docs/humanizer/h5/`.
 - **Gate A selection:** **B — Hồ Sơ Sống**, with only two bounded imports: A warm threshold at
   HP-01/HP-07 and C editable phrase at HP-02/HP-03.
-- **Target Design Truth:** H4 validates this bounded thesis for Gate B consideration. It does not
-  lock production tokens/components, photography/material evidence, `DESIGN.md`, booking transport
-  or migration. H0/H1 evidence gaps remain open.
-- **Next gate:** **H5 — Gate B / System Lock.** Do not begin production migration without the later
-  applicable Migration Gate.
+- **Target Design Truth:** H5 now contains **PROPOSED SYSTEM CONTRACTS** for semantic tokens,
+  editorial primitives, content/state/motion language and a proposed migration map. They are not
+  `LOCKED`, do not change Runtime Truth, and do not close H0/H1 evidence gaps.
+- **Next gate:** **GATE B — HUMAN SYSTEM APPROVAL.** After Gate B approval, a separate Migration
+  Gate must approve the exact current→target delta before H6 Design/Code Loop begins.
 
 Decision states are:
 
