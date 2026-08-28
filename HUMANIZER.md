@@ -6,12 +6,12 @@ gate và migration.
 
 ## Authority và evidence lanes
 
-| Vai trò | Path | Được dùng cho | Không được dùng cho |
-| --- | --- | --- | --- |
-| Primary governance | `Z-NeededUpdate/reference/toplink-humanizer-ui-master-v2.1/` | evidence, doctrine, art direction, UX/state, trust, motion, verification, gates, migration | không thay Runtime Truth khi chưa có migration |
-| Structural evidence | `Z-NeededUpdate/reference/sen-tai-thu-web-dna/` | narrative structure, brand-world organization, space/service/people/treatment/conversion relationships | clone design, palette, type, wording, visual identity, pixel/layout geometry |
-| Linguistic / knowledge evidence | `Z-NeededUpdate/reference/trieu-dong-y-web-dna/` | taxonomy, Đông-y vocabulary, explanation grammar, provenance mindset | medical claims, diagnosis/treatment certainty, academic/encyclopedic scope |
-| Runtime Truth | `app-demo/` actual source; especially `styles/tokens.css`, `styles/`, components, `data/content.ts`, `next.config.mjs`, `package.json` | what the website currently does | approved target before it is migrated |
+| Vai trò                         | Path                                                                                                                                   | Được dùng cho                                                                                          | Không được dùng cho                                                          |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| Primary governance              | `Z-NeededUpdate/reference/toplink-humanizer-ui-master-v2.1/`                                                                           | evidence, doctrine, art direction, UX/state, trust, motion, verification, gates, migration             | không thay Runtime Truth khi chưa có migration                               |
+| Structural evidence             | `Z-NeededUpdate/reference/sen-tai-thu-web-dna/`                                                                                        | narrative structure, brand-world organization, space/service/people/treatment/conversion relationships | clone design, palette, type, wording, visual identity, pixel/layout geometry |
+| Linguistic / knowledge evidence | `Z-NeededUpdate/reference/trieu-dong-y-web-dna/`                                                                                       | taxonomy, Đông-y vocabulary, explanation grammar, provenance mindset                                   | medical claims, diagnosis/treatment certainty, academic/encyclopedic scope   |
+| Runtime Truth                   | `app-demo/` actual source; especially `styles/tokens.css`, `styles/`, components, `data/content.ts`, `next.config.mjs`, `package.json` | what the website currently does                                                                        | approved target before it is migrated                                        |
 
 `AGENTS.md` is the repo-level operational authority. `DESIGN.md` describes the current runtime
 design system. This file and the master package govern future Humanizer work without claiming a
@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A APPROVED`; `H4 — PASS`; `H5 — GATE B APPROVED`; `Migration Gate — PROPOSED: AWAITING HUMAN APPROVAL`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3 — GATE A VISUAL/BRAND SUBTREE REOPENED BY H5.5`; `H4 — BEHAVIORAL EVIDENCE KEPT, BRAND/VISUAL RETEST REQUIRED`; `H5 — UNAFFECTED CONTRACTS KEPT, AFFECTED GATE-B SUBTREE REOPENED`; `Migration Gate — PRE-H5.5 PLAN COMPLETE, NOW BLOCKED/PARTIAL REBUILD`; `H5.5 — PARTIAL: REOPEN REQUIRED`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -50,14 +50,17 @@ numbers must not reinterpret the project phase map above.
 - **Current artifacts:** H0/H1 remains at `docs/humanizer/h0-h1/`; H2 at `docs/humanizer/h2/`; H3
   direction and Gate A decision at `docs/humanizer/h3/`; H4 prototype evidence at
   `docs/humanizer/h4/`; H5 locked target contracts and Gate B decision at
-  `docs/humanizer/h5/`; proposed exact migration delta at `docs/humanizer/migration/`.
+  `docs/humanizer/h5/`; pre-H5.5 migration plan at `docs/humanizer/migration/`; foundation rebind,
+  target reconciliation and migration rebase at `docs/humanizer/h5-5/`.
 - **Gate A selection:** **B — Hồ Sơ Sống**, with only two bounded imports: A warm threshold at
   HP-01/HP-07 and C editable phrase at HP-02/HP-03.
-- **Target Design Truth:** `DEC-H5-GB-01` is the **LOCKED TARGET SYSTEM** for semantic roles,
-  editorial primitives, content/state/motion language and responsive/a11y/anti-pattern contracts.
-  It does not change Runtime Truth or close H0/H1 evidence gaps.
-- **Next gate:** **HUMAN MIGRATION APPROVAL.** Only named ready batches may enter H6 after approval;
-  H6 is not active and blocked/evidence/booking batches remain outside authorization.
+- **Target Design Truth:** unaffected `DEC-H5-GB-01` behavioral contracts remain historical locked
+  inputs. Its thesis/material/composition, public primitive expression and affected token map are
+  reopened by H5.5. All H5.5 replacement names and knowledge contracts are **PROPOSED**, not target
+  authority. Runtime Truth and H0/H1 evidence gaps do not change.
+- **Next gates:** **correct H3-B visual subtree → blind A/B/C comparison → H4 brand/visual retest →
+  relock affected H5 subtree → partially rebuild Migration Gate → HUMAN MIGRATION APPROVAL.** H6
+  is not active. No migration batch is ready or authorized.
 
 Decision states are:
 
@@ -89,11 +92,11 @@ Target truth has no direct write authority. The overall precedence is:
 6. Legacy `DESIGN.md` art-direction defaults.
 7. Proposed directions and agent suggestions.
 
-| Classification | Treatment |
-| --- | --- |
-| Engineering invariants | Keep: accessibility, reduced motion, single advanced motion engine where required, native scroll, static export, basePath source-of-truth, token hygiene, performance/runtime correctness, verification/build gates, security/privacy and no fabrication. Humanizer cannot silently override them. |
-| System/accessibility defaults | Keep readable type, contrast, measure, keyboard/focus and touch targets unless evidence supports a change that does not degrade usability/accessibility. |
-| Legacy art-direction defaults | Palette, type family/behavior, hierarchy/density, layout/editorial grammar, radii, image/decorative language, motion semantics and component appearance may supersede only after the required Human Gate and approved migration. |
+| Classification                | Treatment                                                                                                                                                                                                                                                                                          |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Engineering invariants        | Keep: accessibility, reduced motion, single advanced motion engine where required, native scroll, static export, basePath source-of-truth, token hygiene, performance/runtime correctness, verification/build gates, security/privacy and no fabrication. Humanizer cannot silently override them. |
+| System/accessibility defaults | Keep readable type, contrast, measure, keyboard/focus and touch targets unless evidence supports a change that does not degrade usability/accessibility.                                                                                                                                           |
+| Legacy art-direction defaults | Palette, type family/behavior, hierarchy/density, layout/editorial grammar, radii, image/decorative language, motion semantics and component appearance may supersede only after the required Human Gate and approved migration.                                                                   |
 
 Architecture changes (motion engine, rendering/deployment model, framework, data/backend) require a
 separate explicit approval even when Humanizer proposes them.
@@ -115,6 +118,27 @@ separate explicit approval even when Humanizer proposes them.
 
 No external taste/design skill may overwrite an approved grammar, edit tokens, rewrite `DESIGN.md`,
 or decide brand direction by itself.
+
+### Permanent reference routing after H5.5
+
+For a **structure or IA mutation**, first load only the relevant Sen structural route:
+
+- `Z-NeededUpdate/reference/sen-tai-thu-web-dna/START_HERE.md`
+- `Z-NeededUpdate/reference/sen-tai-thu-web-dna/UI_MINDSET.md`
+- `Z-NeededUpdate/reference/sen-tai-thu-web-dna/inventory/site-foundation.json`
+- `Z-NeededUpdate/reference/sen-tai-thu-web-dna/graphs/task-graph.repaired.json`
+
+For a **YHCT, knowledge or content mutation**, first load only the relevant Triều knowledge route:
+
+- `Z-NeededUpdate/reference/trieu-dong-y-web-dna/docs/web-dna/04_ui_ir/UI_MINDSET.md`
+- `Z-NeededUpdate/reference/trieu-dong-y-web-dna/docs/web-dna/04_ui_ir/KEEP_EVOLVE_REMOVE.md`
+- `Z-NeededUpdate/reference/trieu-dong-y-web-dna/docs/web-dna/03_inventory/page_archetypes.json`
+- `Z-NeededUpdate/reference/trieu-dong-y-web-dna/docs/web-dna/05_graphs/site-graph.json`
+- `Z-NeededUpdate/reference/trieu-dong-y-web-dna/data/content-index-lite.json`
+
+For an **interaction mutation**, load the relevant H5/H5.5 contract plus only the Sen or Triều graph
+whose lane is materially relevant. Do not load both complete corpora for every implementation task.
+References challenge or support a Toplink job; they never supply Toplink facts or visual identity.
 
 ## Human Gates and migration
 
