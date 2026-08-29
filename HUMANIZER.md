@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B, M3S-1, M2A0 AND M1C IMPLEMENTED / VERIFIED; M0R-JIT PASS / NO-OP / VERIFIED`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B, M3S-1, M2A0, M1C AND M2A1 IMPLEMENTED / VERIFIED; M0R-JIT PASS / NO-OP / VERIFIED`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -84,7 +84,11 @@ numbers must not reinterpret the project phase map above.
 - **M0R-JIT semantic bridge:** fresh consumer review retains existing primitives and corrected
   component-local roles. Runtime alias count remains `0`; no legacy crimson/gold value is promoted
   to Humanizer Target Truth and all three skin paths remain unchanged.
-- **Batch status after M1C:** M0R-JIT, M2A1 and M2B remain next in the consolidated sequence; M3S-2 remains
+- **M2A1 guided orientation:** the homepage now accepts bounded ordinary-language choices, exact
+  editable wording and equal uncertainty, then shows a clear no-diagnosis boundary and local
+  no-send consequence. Ten pure state tests and the responsive/keyboard/network browser matrix pass;
+  M2A0 remains the rollback floor.
+- **Batch status after M2A1:** M2B is next in the consolidated sequence; M3S-2 remains
   `CONDITIONAL / SPLIT REQUIRED`; M3P remains deferred to admin; M4 remains blocked; M5 remains
   deferred.
 - **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6

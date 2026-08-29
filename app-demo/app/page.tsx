@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home-experience/HomeHero";
-import StaticOrientationShell from "@/components/home-experience/corrected/StaticOrientationShell";
+import OrientationCore from "@/components/home-experience/corrected/OrientationCore";
 import RitualTimeline from "@/components/home-experience/RitualTimeline";
 import SpaceAsTherapy from "@/components/home-experience/SpaceAsTherapy";
 import HomeFinalCTA from "@/components/home-experience/HomeFinalCTA";
 
 /**
- * HOMEPAGE — M2A0 dùng một sàn định hướng tĩnh, không chẩn đoán hay tự chọn dịch vụ.
+ * HOMEPAGE — M2A1 dùng định hướng có hướng dẫn, không chẩn đoán hay tự chọn dịch vụ.
  * Các section legacy lân cận được giữ nguyên để những batch sau xử lý độc lập.
  */
 export const metadata: Metadata = {
@@ -21,8 +21,8 @@ export default function HomePage() {
       {/* 1 · HERO nền đỏ — định vị thương hiệu, đẩy lên đầu */}
       <HomeHero />
 
-      {/* 2 · M2A0: định hướng tĩnh, giới hạn rõ, không gửi dữ liệu */}
-      <StaticOrientationShell />
+      {/* 2 · M2A1: định hướng có thể sửa, giới hạn rõ, không gửi dữ liệu */}
+      <OrientationCore />
 
       {/* 3 · Một ngày ở Y Viện — timeline cảm giác */}
       <RitualTimeline />
