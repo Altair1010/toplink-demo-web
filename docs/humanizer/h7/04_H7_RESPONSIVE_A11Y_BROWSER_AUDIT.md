@@ -31,6 +31,10 @@ but does not replace, the keyboard and visual review above.
 - unexpected mutating requests: 0;
 - failed application GET/static-resource requests: 0.
 
+A fresh nested-route navigation exposed Next.js 16's smooth-scroll declaration warning. H7 added
+`data-scroll-behavior="smooth"` to the root document and the targeted navigation retest completed
+without the warning.
+
 Chrome emitted five speculative `HEAD` requests with `net::ERR_ABORTED` on the live homepage; they
 returned no 4xx response, produced no console error and did not affect navigation. A minimal local
 file server also lacked the route-data rewrite used by GitHub Pages and produced RSC-prefetch 404s;

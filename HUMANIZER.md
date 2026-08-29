@@ -45,7 +45,7 @@ numbers must not reinterpret the project phase map above.
 - **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R-C — UI/UX/VISUAL CORRECTION PASS`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H6-F — PASS / H6 CLOSED`; `H7 — PASS / TECHNICALLY RELEASE READY / BLOCKED BY RELEASE INPUT`.
 - **H7 release decision:** all technical/content release gates pass. Final release remains blocked by
   the missing approved exact Zalo URL and Facebook Page URL. H7 generated the local static release
-  candidate from `8b10b3abcba559c9f4ad8702841d3f1c23d2f23d`; no deployment was performed.
+  candidate from `ff2d2db899b9aadb97389b8ba879783dcc9e69ec`; no deployment was performed.
 - **H6-F product decision:** `DEC-H6F-PRODUCT-SCOPE-01` defines the website as an information,
   understanding and exploration surface. Booking is **RETIRED**. M4 is **DEPRECATED — REMOVED
   FROM TARGET PRODUCT**. The optional downstream handoff uses the human-approved channel types

@@ -19,8 +19,10 @@ to admin.
 
 H7 removed release-facing scaffold language such as “demo”, “mock”, `SOP` and `Service Menu` from
 public metadata/copy. No graph, visual direction, fact, evidence, route or capability changed.
+It also declares the existing smooth-scroll behavior on the root document so Next.js 16 can
+preserve route-navigation scroll handling without a runtime warning.
 
 ## Release source
 
 The final clean export was generated from
-`8b10b3abcba559c9f4ad8702841d3f1c23d2f23d`.
+`ff2d2db899b9aadb97389b8ba879783dcc9e69ec`.

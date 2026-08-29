@@ -22,7 +22,7 @@ gates pass. Final release is blocked only by missing approved Zalo and Facebook 
 - `npm run verify`: PASS;
 - state tests: 14/14 PASS;
 - `git diff --check`: PASS;
-- release candidate: `app-demo/out` from `8b10b3abcba559c9f4ad8702841d3f1c23d2f23d`.
+- release candidate: `app-demo/out` from `ff2d2db899b9aadb97389b8ba879783dcc9e69ec`.
 
 ## Remote status
 
