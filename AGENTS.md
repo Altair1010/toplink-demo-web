@@ -51,6 +51,16 @@ URL chính xác **chưa có**. Không đoán. Cấm tuyệt đối:
 Trạng thái hiện tại — nêu tên kênh, nói thẳng là chưa có đường dẫn — là trạng thái đúng.
 `PENDING != FAKE`.
 
+Khi có URL chính thức, quy trình vá là:
+
+```
+nhận URL → xác minh danh tính kênh với nguồn vận hành → thêm link thật
+→ npm run verify → commit → push main → GitHub Pages deploy → bấm thử link
+```
+
+Bước xác minh danh tính là bắt buộc, không phải thủ tục. Đây là thay đổi nội dung
+thông thường; không cần mở lại quy trình thiết kế nào.
+
 ## Evidence
 
 Không được bịa: nhân sự, cơ sở vật chất, đánh giá khách hàng, bằng cấp, tuyên bố sức khỏe,
