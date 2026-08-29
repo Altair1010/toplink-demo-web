@@ -1,81 +1,44 @@
-# Y Viện Toplink — Bản demo giao diện
+# Y Viện Toplink — Demo tĩnh
 
-Demo website tương tác cho **Y Viện Toplink** (Y Viện Dưỡng Thân – Tỉnh Thức).
-Đây là **bản demo giao diện**: dữ liệu tĩnh (mock), chưa kết nối database/Supabase.
+Website Humanizer theo mô hình **đọc → hiểu → khám phá → cân nhắc trao đổi với con người**.
+Ứng dụng dùng Next.js App Router với static export cho GitHub Pages.
 
-## Tech
-
-- Next.js 16 (App Router, static export ra GitHub Pages) + TypeScript strict
-- Tailwind CSS v4 + CSS thuần tách lớp (`styles/tokens · typography · components · utilities · motion · home-experience`)
-- GSAP 3 + ScrollTrigger (chỉ inner pages) — native scroll, KHÔNG Lenis/Three.js
-- Glyph vocabulary cục bộ tại `components/Glyph.tsx`
-- Font: Be Vietnam Pro (body + h3 trở xuống) + Noto Serif (h1/h2/statement)
-
-## Chạy trên localhost
+## Chạy cục bộ
 
 ```bash
-cd app-demo
 npm install
 npm run dev
 ```
 
-Mở http://localhost:3000
+Mở `http://localhost:3000/toplink-demo-web`.
 
-Build production thử:
-
-```bash
-npm run build && npm start
-```
-
-## Cổng chất lượng
+## Kiểm tra phát hành
 
 ```bash
-npm run verify   # build → typecheck → format:check → check:tokens
+npm run verify
 ```
 
-CI chạy đúng lệnh này. `check:tokens` bắt thứ `next build` mù: class Tailwind trỏ tới
-token không tồn tại (ví dụ `bg-crimson-900`) — Tailwind lặng lẽ không sinh CSS, build
-vẫn xanh, giao diện thì sai.
+Lệnh này chạy production build/export, TypeScript, Prettier, token checker và release-surface
+assertion. Release assertion khóa allowlist, một `h1` trên mỗi trang, không booking, không
+motion-lab công khai và không liên kết nội bộ chết.
 
-## Đổi bộ nhận diện
+## Public routes
 
-Đặt `data-brand` lên thẻ `<html>` — ví dụ `data-brand="tet"`. Một thuộc tính đổi toàn
-bộ màu và nhịp motion, kể cả phần CSS viết tay. Skin khai trong `styles/skins.css`
-(mặc định `yvien`, kèm sẵn `tet` và `an-tinh`); thử nhanh bằng cách sửa thuộc tính
-trong DevTools.
+- `/`
+- `/gioi-thieu`
+- `/dich-vu`
+- `/quy-trinh-tri-lieu`
+- `/tin-tuc`
+- `/lien-he`
 
-## Bảng màu thương hiệu
+`/dat-lich` đã được gỡ khỏi sản phẩm. Nội dung chưa đủ nguồn nằm ngoài App Router tại
+`deferred-content/`; motion specimens của maintainer nằm tại `dev-evidence/`.
 
-Đỏ dược liệu (`crimson`) · Vàng kim (`gold`) · Nâu gỗ (`wood`) · Ngọc trầm (`jade`) · Trắng ngà / be (`ivory`, `cream`, `sand`).
-Giá trị chuẩn nằm ở `styles/tokens.css`; bản mô tả cho người và agent nằm ở `DESIGN.md` (root repo).
-Tiền tố `clay-*` là alias di cư cũ, đang được rút — không dùng cho code mới.
+## Runtime contract
 
-## Trang đã dựng
-
-- `/` Trang chủ — "Nghi thức chẩn thân": hero, chọn dấu hiệu cơ thể → 4 trạng thái Tắc/Hàn/Hư/Loạn → gợi ý liệu trình, timeline một ngày, không gian, CTA
-- `/gioi-thieu` Giới thiệu
-- `/dich-vu` + `/dich-vu/[slug]` Dịch vụ & chi tiết (sticky booking card)
-- `/quy-trinh-tri-lieu` Quy trình 8 bước
-- `/khong-gian` Không gian 4 tầng
-- `/dat-lich` Đặt lịch 3 bước (stepper tương tác)
-- `/san-pham` Sản phẩm
-- `/tin-tuc` + `/tin-tuc/[slug]` Tin tức & bài viết
-- `/lien-he` Liên hệ + cơ sở + FAQ
-- `/dao-tao` Đào tạo
-- `/nhuong-quyen` Nhượng quyền
-
-Một route sandbox dev-only, không link trong nav, noindex ở cả `robots.ts` lẫn metadata
-của chính page: `/motion-lab` — bàn thử motion tách khỏi nội dung thật.
-
-## Thành phần tương tác
-
-- Header IA phẳng + menu mobile, mobile bottom bar (Gọi · Zalo · Đặt lịch · Chỉ đường)
-- Body Signal Interface: chọn dấu hiệu → suy ra trạng thái → drawer gợi ý liệu trình
-- Booking stepper 3 bước có nút "Tôi chưa biết chọn dịch vụ nào"
-- FAQ accordion
-
-## Lưu ý nội dung
-
-Dùng ngôn ngữ an toàn sức khỏe ("hỗ trợ", "góp phần"), không cam kết chữa khỏi.
-Ảnh đang là placeholder — thay bằng ảnh thật của Y Viện khi có.
-`public/images/home/` hiện chỉ có 1 ảnh; homepage sau hero chưa có ảnh nào.
+- Be Vietnam Pro là font sans-first vận hành, không phải font thương hiệu chính thức.
+- Ba skin `yvien`, `tet`, `an-tinh` tiếp tục dùng chung semantic runtime.
+- Homepage chỉ có một handoff cuối trang cho hai loại kênh Zalo và Facebook Page.
+- Chưa có URL kênh được duyệt nên giao diện không tạo link giả.
+- Evidence sản xuất bằng 0 và tự collapse; M3P chờ admin cung cấp dữ liệu đã duyệt.
+- Website không có booking, form đặt lịch, transport, trạng thái gửi hay xác nhận.

@@ -42,7 +42,18 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — PARTIAL: CROSS-PAGE MIGRATION DELTA REQUIRED; H7 INELIGIBLE`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R-C — UI/UX/VISUAL CORRECTION PASS`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H6-F — PASS / H6 CLOSED / READY FOR H7`.
+- **H6-F product decision:** `DEC-H6F-PRODUCT-SCOPE-01` defines the website as an information,
+  understanding and exploration surface. Booking is **RETIRED**. M4 is **DEPRECATED — REMOVED
+  FROM TARGET PRODUCT**. The optional downstream handoff uses the human-approved channel types
+  Zalo and Facebook Page; exact URLs remain `CONTACT_URL_DEFERRED` and no guessed link is rendered.
+- **H6-F release surface:** public routes are `/`, `/gioi-thieu`, `/dich-vu`,
+  `/quy-trinh-tri-lieu`, `/tin-tuc` and `/lien-he`. Unsupported content is retained outside the App
+  Router, motion labs are maintainer-only, and `/dat-lich` plus all booking state/UI/config are
+  absent from production.
+- **H6-F trust state:** M3P remains **DEFERRED TO ADMIN**. Production evidence remains zero with
+  true collapse. No provider, transport, confirmation, person, facility, process, price, duration,
+  suitability, outcome or contact destination is inferred.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -80,7 +91,7 @@ numbers must not reinterpret the project phase map above.
 - **M1C typography calibration:** `DEC-H6-CONSOLIDATED-01 / C1` resolves the required brand profile
   at its absolute source path and locks a sans-first behavior contract for named M2A1/M2B
   consumers. Be Vietnam Pro remains a digital workhorse/runtime candidate, not an official brand
-  font. Runtime delta is `0`; Noto and global headings are unchanged.
+  font. Runtime delta was `0`; Noto and global headings were unchanged at the M1C checkpoint.
 - **M0R-JIT semantic bridge:** fresh consumer review retains existing primitives and corrected
   component-local roles. Runtime alias count remains `0`; no legacy crimson/gold value is promoted
   to Humanizer Target Truth and all three skin paths remain unchanged.
@@ -103,19 +114,16 @@ numbers must not reinterpret the project phase map above.
   material cross-page migration delta.
 - **M5A cleanup:** the closed pre-M2A0 symptom/taxonomy/recommendation graph has zero runtime, test
   and rollback consumers and is removed. `HomeHero` remains live; `StaticOrientationShell` remains
-  the M2A0 rollback floor. M5B is ineligible with 10 Noto references. M5C removes only proven
+  the M2A0 rollback floor. M5B was then ineligible with 10 Noto references; H6-F later removes the
+  final public/runtime consumers and load path. M5C removes only proven
   zero-consumer evidence/contact/article components, demo exports and their exact legacy selectors;
   all live tokens, primitives and the `yvien`/`tet`/`an-tinh` skins remain.
-- **H6 final rebase:** runtime truth is `PARTIAL`. Homepage score is 74/100; booking is 55/100 with
-  a hard-fail override; route-family coverage is 124/288 (43%); whole-site Humanizer estimate is
-  58/100 and scorecard is 25/60 with hard-fail overrides. Final browser/static verification has zero
-  console errors, zero mutating requests and no reflow failure, but eight legacy route families lack
-  an `h1`, public `/motion-lab*` specimen routes remain, and multiple route families retain
-  unverified facts/legacy visual grammar. M3P stays deferred to admin; M4 stays blocked with no
-  transport introduced. Next is an approved H6 cross-page delta, **not H7**.
-- **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
-  batches in sequence only after the immediately preceding internal gate passes. Any hard fail
-  stops the consolidated run.
+- **H6-F closure:** booking, sticky conversion surfaces and booking-dependent geometry are removed;
+  the homepage hero and public information routes use the locked sans-first Humanizer grammar; all
+  public pages have one `h1`; motion labs and unsupported content do not appear in static output.
+  Browser/static verification and final scores are recorded in `docs/humanizer/h6/38_H6F_FINAL_VERIFICATION.md`
+  and `docs/humanizer/h6/39_H6_CLOSURE_REPORT.md`. Next is **H7 — VERIFY & RELEASE**; H7 must not
+  begin automatically.
 
 Decision states are:
 
