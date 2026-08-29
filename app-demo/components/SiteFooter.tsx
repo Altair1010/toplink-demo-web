@@ -29,7 +29,10 @@ export default function SiteFooter() {
           <ul className="mt-4 space-y-2 text-base">
             {INFORMATION_LINKS.map(([href, label]) => (
               <li key={href}>
-                <Link href={href} className="text-ink-soft underline-offset-4 hover:underline">
+                <Link
+                  href={href}
+                  className="inline-flex min-h-11 items-center text-ink-soft underline-offset-4 hover:underline"
+                >
                   {label}
                 </Link>
               </li>
