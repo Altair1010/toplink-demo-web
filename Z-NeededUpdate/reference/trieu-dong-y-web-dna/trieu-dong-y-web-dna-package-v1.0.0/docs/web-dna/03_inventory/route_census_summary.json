@@ -1,0 +1,65 @@
+{
+  "schema_version": "web-dna-route-census/1.0",
+  "source_origin": "https://trieudongy.vn",
+  "census_date": "2026-08-13",
+  "discovery_method": [
+    "rendered homepage navigation",
+    "archive pagination",
+    "internal links"
+  ],
+  "total_routes": 634,
+  "status_counts": {
+    "captured": 70,
+    "discovered": 563,
+    "failed": 1
+  },
+  "priority_counts": {
+    "P0": 6,
+    "P1": 21,
+    "P2": 607
+  },
+  "archetype_counts": {
+    "homepage": 1,
+    "archive": 17,
+    "condition-detail": 29,
+    "archive-pagination": 46,
+    "article": 100,
+    "service-or-clinical-article": 14,
+    "acupuncture-article": 47,
+    "service-detail": 3,
+    "legal": 2,
+    "expert-detail": 19,
+    "entity-bai-thuoc": 22,
+    "content-detail": 14,
+    "entity-vi-thuoc": 55,
+    "foundation-page": 2,
+    "entity-huyet": 166,
+    "entity-kinh-mach": 29,
+    "contact": 2,
+    "theory-detail": 41,
+    "stories": 1,
+    "interactive-tool": 1,
+    "trigger-point-detail": 23
+  },
+  "browser_pages_visited": 71,
+  "errors": [
+    {
+      "url": "https://trieudongy.vn/duoc/bai-thuoc/",
+      "error": "Error: Runtime.evaluate timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed."
+    }
+  ],
+  "exclusions": [
+    "external origins",
+    "fragments",
+    "tracking queries",
+    "wp-content assets",
+    "feeds",
+    "binary media"
+  ],
+  "limitations": [
+    "robots.txt and XML/JSON endpoints were blocked by the current browser/network surface",
+    "routes marked discovered have not yet received a direct status/render check",
+    "M1 census is link-graph based; M2 must reconcile it with sitemap/export when a direct route is available"
+  ]
+}
+

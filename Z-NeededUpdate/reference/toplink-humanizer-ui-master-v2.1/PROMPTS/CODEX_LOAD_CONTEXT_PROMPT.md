@@ -1,0 +1,3 @@
+# Prompt — Codex Load Humanizer v2 Context
+
+> Read `toplink-humanizer-ui-master-v2.0/00_START_HERE.md`, `GOVERNANCE/00_PRECEDENCE.md`, `GOVERNANCE/01_GOVERNANCE_BRIDGE.md`, `ROUTER.md`, then the repo `AGENTS.md`, `DESIGN.md` and relevant current source. Treat code/tokens as **Runtime Truth** and approved Humanizer decisions as **Target Design Truth**; never mutate runtime from a target without an approved Migration Record. Determine current phase H0–H6, active Locked/Approved/Proposed decisions, missing evidence, allowed skill/tool, and next Human Gate. Return only a concise **Context Load Report + recommended next artifact**. Do not redesign or edit code yet unless the current task explicitly authorizes the implementation/migration phase.

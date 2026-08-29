@@ -1,0 +1,14 @@
+{
+  "schema_version": "dmn-evidence-register/1",
+  "capture_date": "2026-08-21",
+  "method": "authorized normal Chrome rendering and DOM/computed-style observation",
+  "records": [
+    {"id":"E-HOME-STRUCTURE","source":"https://sentaithu.com.vn/","supports":["stack", "tokens", "components", "headings", "landmarks"],"confidence":0.92},
+    {"id":"E-ROUTES-PRIMARY","source":"8 primary routes","supports":["canonical", "metadata", "archetypes", "forms"],"confidence":0.88},
+    {"id":"E-ROUTES-BRANCH","source":"12 branch/service routes","supports":["branch archetype variation", "form reuse", "image counts"],"confidence":0.90},
+    {"id":"E-ASSETS-HOME","source":"home rendered DOM and Elementor settings","supports":["84 asset references", "15 HTTP references", "font and script groups"],"confidence":0.90},
+    {"id":"E-A11Y-HOME","source":"home landmarks, headings, controls, contrast samples","supports":["duplicate ids", "multiple H1", "telephone mismatch", "social contrast"],"confidence":0.86},
+    {"id":"E-MOTION-CONFIG","source":"Elementor data-settings","supports":["slideshow timing", "slider timing", "sticky header"],"confidence":0.82}
+  ],
+  "blocked_or_missing": ["tablet screenshot", "mobile screenshot", "reduced-motion comparison", "runtime replay similarity", "asset binary hashes", "sitemap denominator"]
+}

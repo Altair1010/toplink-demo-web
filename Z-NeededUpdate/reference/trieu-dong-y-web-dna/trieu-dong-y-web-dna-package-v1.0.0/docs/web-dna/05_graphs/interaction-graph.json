@@ -1,0 +1,29 @@
+{
+  "schema_version": "web-dna-interaction-graph/1.0",
+  "nodes": [
+    {
+      "id": "interaction:nav:open",
+      "trigger": "click/keyboard",
+      "effect": "reveal navigation"
+    },
+    {
+      "id": "interaction:search:query",
+      "trigger": "input",
+      "effect": "filter content index"
+    },
+    {
+      "id": "interaction:lookup:select",
+      "trigger": "select",
+      "effect": "reveal related knowledge"
+    },
+    {
+      "id": "interaction:contact:intent",
+      "trigger": "click",
+      "effect": "open contact channel; no automatic submission"
+    }
+  ],
+  "evidence": {
+    "sampled_interactive_elements": 2167,
+    "archetype_exemplars": 21
+  }
+}

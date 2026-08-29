@@ -1,0 +1,62 @@
+{
+  "generated_on": "2026-08-22",
+  "package_version": "2.0.0",
+  "internal_evidence": {
+    "sen_tai_thu": {
+      "file": "sen-tai-thu-web-dna-foundation-v0.2.zip",
+      "sha256": "408d5b13a4d6faf7da10fa72dcd39820259fadff8b885f85ccd1fc099f852456"
+    },
+    "trieu_dong_y": {
+      "file": "trieu-dong-y-web-dna-package-v1.0.0(1).zip",
+      "sha256": "336a446b39c894e2b8fb14234b5e5fe58261305ced88e55a3074773d0428d322"
+    },
+    "vibecode_corpus": {
+      "file": "Pasted markdown(3).md",
+      "sha256": "409f7d41f8e6f44939b3395d351aeda9b1e8481b81a2deafa2c04f28c700553b"
+    },
+    "v1_package": {
+      "file": "toplink-humanizer-ui-master-v1.0.zip",
+      "sha256": "3e376aaea29e55b5164fc6dfcf553209ec90c4921c848c594a954a5b19cb99cc"
+    }
+  },
+  "repo_runtime_refs": {
+    "AGENTS_blob_sha": "0b99cfdb33a2164f607b7e18ba5a76089f00eeb8",
+    "DESIGN_blob_sha": "fe7bb551b322d40f2b7cf6d3a34ff3458f40ce71",
+    "SpaceAsTherapy_blob_sha": "618f237bd0876eca6574a1f624bcd140996d2ff5",
+    "HomeFinalCTA_blob_sha": "c89bdbade18f6f0f79a870b2df87ff5082533987"
+  },
+  "external": {
+    "anthropic_frontend_design": {
+      "repo": "anthropics/skills",
+      "commit": "3b3fad96af16a10759d930941b4520ba0c40edae",
+      "role": "challenger"
+    },
+    "vercel_agent_skills": {
+      "repo": "vercel-labs/agent-skills",
+      "commit": "dd089a8c752c966dee8bf0f27cb625ba193ffd9e",
+      "role": "skill-source"
+    },
+    "vercel_web_design_guidelines": {
+      "repo": "vercel-labs/web-interface-guidelines",
+      "commit": "e3d624baaf29dc1fc645aff3e38f03e564d2d6b1",
+      "role": "pinned-release-validator"
+    },
+    "playwright_cli": {
+      "repo": "microsoft/playwright-cli",
+      "commit": "2f85a94b7b885dbf4a5d34462f253a8746a690c9",
+      "role": "default-browser"
+    },
+    "chrome_devtools_mcp": {
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "commit": "ebf58f2f4aa8f1dfbbae38e440fde4e5fef7deef",
+      "role": "runtime-performance-mcp"
+    },
+    "playwright_mcp": {
+      "repo": "microsoft/playwright-mcp",
+      "role": "conditional-escalation"
+    },
+    "figma_mcp": {
+      "role": "conditional-human-gate-canvas"
+    }
+  }
+}

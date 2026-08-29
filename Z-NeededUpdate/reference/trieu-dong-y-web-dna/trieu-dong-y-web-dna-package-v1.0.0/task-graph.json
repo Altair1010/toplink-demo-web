@@ -1,0 +1,14 @@
+{
+  "schema_version": "web-dna-task-graph/1.0",
+  "tasks": [
+    {"id":"T-M0","name":"governance","depends_on":[],"output":"source lock and decisions","acceptance":"pins resolve"},
+    {"id":"T-M1","name":"route census","depends_on":["T-M0"],"output":"routes and archetypes","acceptance":"634 unique routes"},
+    {"id":"T-M2","name":"raw capture","depends_on":["T-M1"],"output":"rendered evidence","acceptance":"634 captured, 0 failed"},
+    {"id":"T-M3","name":"UI IR and graphs","depends_on":["T-M2"],"output":"tokens and six graphs","acceptance":"no missing route nodes"},
+    {"id":"T-M4","name":"UI mindset","depends_on":["T-M3"],"output":"mindset and evolution brief","acceptance":"observed/inferred/proposed separated"},
+    {"id":"T-M5","name":"baseline app","depends_on":["T-M3"],"output":"baseline route renderer","acceptance":"all content records addressable"},
+    {"id":"T-M6","name":"evolved system","depends_on":["T-M4","T-M5"],"output":"dual-entry components and tokens","acceptance":"knowledge and care journeys distinct"},
+    {"id":"T-M7","name":"quality gates","depends_on":["T-M6"],"output":"QA reports","acceptance":"build, route, a11y and behavior checks pass"},
+    {"id":"T-M8","name":"release package","depends_on":["T-M7"],"output":"Codex handoff and checkpoint","acceptance":"task graph acyclic; package manifest complete"}
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "nodes": [
+    {"id":"G0","type":"governance"},
+    {"id":"G1","type":"universe"},
+    {"id":"G2","type":"evidence"},
+    {"id":"G3","type":"web_dna"},
+    {"id":"G4","type":"baseline"},
+    {"id":"G5","type":"fidelity"},
+    {"id":"G6","type":"quality"},
+    {"id":"G7","type":"release"}
+  ],
+  "edges": [
+    {"from":"G0","to":"G1","type":"depends_on"},
+    {"from":"G1","to":"G2","type":"depends_on"},
+    {"from":"G2","to":"G3","type":"depends_on"},
+    {"from":"G3","to":"G4","type":"depends_on"},
+    {"from":"G4","to":"G5","type":"depends_on"},
+    {"from":"G5","to":"G6","type":"depends_on"},
+    {"from":"G6","to":"G7","type":"depends_on"},
+    {"from":"G5","to":"G2","type":"iteration"}
+  ]
+}

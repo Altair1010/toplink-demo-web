@@ -1,0 +1,9 @@
+﻿{
+    "source_sha":  "ff2d2db899b9aadb97389b8ba879783dcc9e69ec",
+    "build_utc":  "2026-08-29T14:28:39Z",
+    "public_route_count":  6,
+    "file_count":  93,
+    "total_bytes":  4787387,
+    "base_path":  "/toplink-demo-web",
+    "output":  "app-demo/out"
+}

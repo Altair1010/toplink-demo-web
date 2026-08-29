@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://trieu-dong-y-web-dna.local/schemas/evidence-envelope.schema.json",
+  "title": "Web DNA Evidence Envelope",
+  "type": "object",
+  "required": ["evidence_id", "source_url", "captured_at", "method", "integrity"],
+  "properties": {
+    "evidence_id": {"type": "string"},
+    "source_url": {"type": "string", "format": "uri"},
+    "captured_at": {"type": "string", "format": "date-time"},
+    "method": {"type": "string"},
+    "viewport": {
+      "type": ["object", "null"],
+      "properties": {"width": {"type": "integer"}, "height": {"type": "integer"}}
+    },
+    "raw_artifact": {"type": ["string", "null"]},
+    "integrity": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"enum": ["verified", "partial", "blocked", "failed"]},
+        "sha256": {"type": ["string", "null"]}
+      }
+    },
+    "notes": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

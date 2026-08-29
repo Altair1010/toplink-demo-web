@@ -1,0 +1,1432 @@
+{
+  "schema_version": "web-dna-composition-graph/1.0",
+  "nodes": [
+    {
+      "id": "archetype:entity-huyet",
+      "type": "page_archetype",
+      "count": 166
+    },
+    {
+      "id": "archetype:article",
+      "type": "page_archetype",
+      "count": 100
+    },
+    {
+      "id": "archetype:entity-vi-thuoc",
+      "type": "page_archetype",
+      "count": 55
+    },
+    {
+      "id": "archetype:acupuncture-article",
+      "type": "page_archetype",
+      "count": 47
+    },
+    {
+      "id": "archetype:archive-pagination",
+      "type": "page_archetype",
+      "count": 46
+    },
+    {
+      "id": "archetype:theory-detail",
+      "type": "page_archetype",
+      "count": 41
+    },
+    {
+      "id": "archetype:condition-detail",
+      "type": "page_archetype",
+      "count": 29
+    },
+    {
+      "id": "archetype:entity-kinh-mach",
+      "type": "page_archetype",
+      "count": 29
+    },
+    {
+      "id": "archetype:trigger-point-detail",
+      "type": "page_archetype",
+      "count": 23
+    },
+    {
+      "id": "archetype:entity-bai-thuoc",
+      "type": "page_archetype",
+      "count": 22
+    },
+    {
+      "id": "archetype:expert-detail",
+      "type": "page_archetype",
+      "count": 19
+    },
+    {
+      "id": "archetype:archive",
+      "type": "page_archetype",
+      "count": 17
+    },
+    {
+      "id": "archetype:service-or-clinical-article",
+      "type": "page_archetype",
+      "count": 14
+    },
+    {
+      "id": "archetype:content-detail",
+      "type": "page_archetype",
+      "count": 14
+    },
+    {
+      "id": "archetype:service-detail",
+      "type": "page_archetype",
+      "count": 3
+    },
+    {
+      "id": "archetype:legal",
+      "type": "page_archetype",
+      "count": 2
+    },
+    {
+      "id": "archetype:foundation-page",
+      "type": "page_archetype",
+      "count": 2
+    },
+    {
+      "id": "archetype:contact",
+      "type": "page_archetype",
+      "count": 2
+    },
+    {
+      "id": "archetype:homepage",
+      "type": "page_archetype",
+      "count": 1
+    },
+    {
+      "id": "archetype:stories",
+      "type": "page_archetype",
+      "count": 1
+    },
+    {
+      "id": "archetype:interactive-tool",
+      "type": "page_archetype",
+      "count": 1
+    },
+    {
+      "id": "component:shared:site-header",
+      "name": "site-header",
+      "family": "shared",
+      "purpose": "navigation"
+    },
+    {
+      "id": "component:shared:breadcrumb",
+      "name": "breadcrumb",
+      "family": "shared",
+      "purpose": "orientation"
+    },
+    {
+      "id": "component:shared:hero",
+      "name": "hero",
+      "family": "section",
+      "purpose": "attention"
+    },
+    {
+      "id": "component:shared:archive-grid",
+      "name": "archive-grid",
+      "family": "listing",
+      "purpose": "discovery"
+    },
+    {
+      "id": "component:shared:article-prose",
+      "name": "article-prose",
+      "family": "content",
+      "purpose": "reading"
+    },
+    {
+      "id": "component:shared:entity-facts",
+      "name": "entity-facts",
+      "family": "entity",
+      "purpose": "reference"
+    },
+    {
+      "id": "component:shared:lookup-form",
+      "name": "lookup-form",
+      "family": "interactive",
+      "purpose": "lookup"
+    },
+    {
+      "id": "component:shared:lead-form",
+      "name": "lead-form",
+      "family": "interactive",
+      "purpose": "contact"
+    },
+    {
+      "id": "component:shared:related-content",
+      "name": "related-content",
+      "family": "content",
+      "purpose": "continuation"
+    },
+    {
+      "id": "component:shared:site-footer",
+      "name": "site-footer",
+      "family": "shared",
+      "purpose": "trust"
+    }
+  ],
+  "edges": [
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-huyet",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:article",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-vi-thuoc",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:acupuncture-article",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive-pagination",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:theory-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:condition-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-kinh-mach",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:trigger-point-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:entity-bai-thuoc",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:expert-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:archive",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-or-clinical-article",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:content-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:service-detail",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:legal",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:foundation-page",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:contact",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:homepage",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:stories",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:site-header",
+      "type": "may-contain",
+      "confidence": "observed"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:breadcrumb",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:hero",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:archive-grid",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:article-prose",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:entity-facts",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:lookup-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:lead-form",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:related-content",
+      "type": "may-contain",
+      "confidence": "inferred"
+    },
+    {
+      "from": "archetype:interactive-tool",
+      "to": "component:shared:site-footer",
+      "type": "may-contain",
+      "confidence": "observed"
+    }
+  ]
+}

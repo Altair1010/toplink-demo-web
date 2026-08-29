@@ -1,0 +1,69 @@
+{
+  "schema_version": "web-dna-motion-graph/1.0",
+  "capture_mode": "computed-transition census",
+  "limitation": "Runtime mutation was prohibited on the capture surface; motion-capture-v4 is packaged and smoke-tested but not injected into the public site.",
+  "transition_families": [
+    {
+      "id": "motion:transition:1",
+      "value": "color 0.2s",
+      "count": 923
+    },
+    {
+      "id": "motion:transition:2",
+      "value": "0.2s",
+      "count": 679
+    },
+    {
+      "id": "motion:transition:3",
+      "value": "all",
+      "count": 374
+    },
+    {
+      "id": "motion:transition:4",
+      "value": "transform 0.2s, background 0.2s, border-color 0.2s, color 0.2s",
+      "count": 137
+    },
+    {
+      "id": "motion:transition:5",
+      "value": "0.25s",
+      "count": 16
+    },
+    {
+      "id": "motion:transition:6",
+      "value": "transform 0.12s, box-shadow 0.12s, background 0.12s",
+      "count": 11
+    },
+    {
+      "id": "motion:transition:7",
+      "value": "background 0.2s, transform 0.2s",
+      "count": 10
+    },
+    {
+      "id": "motion:transition:8",
+      "value": "transform 0.2s, box-shadow 0.2s, border-color 0.2s",
+      "count": 8
+    },
+    {
+      "id": "motion:transition:9",
+      "value": "0.3s",
+      "count": 6
+    },
+    {
+      "id": "motion:transition:10",
+      "value": "background 0.2s, color 0.2s, box-shadow 0.2s",
+      "count": 2
+    },
+    {
+      "id": "motion:transition:11",
+      "value": "background 0.2s",
+      "count": 1
+    }
+  ],
+  "tokens": {
+    "fast": "120ms",
+    "standard": "200ms",
+    "deliberate": "250ms",
+    "easing": "ease",
+    "reduced_motion": "remove non-essential transform and smooth scrolling"
+  }
+}

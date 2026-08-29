@@ -1,0 +1,18 @@
+{
+  "schema_version": "dmn-interaction-motion/1",
+  "motion_capture_core_sha256": "839d203d65acfa697309d9fb6d8c5a5796f5c4719d44018cbfc0d1fd9c489a58",
+  "motion_evidence_status": "configuration observed; v5 runtime/replay gate incomplete",
+  "motions": [
+    {"id":"hero-slideshow","trigger":"page load","loop":true,"delay_ms":5000,"duration_ms":500,"easing":"not yet measured","properties":["opacity"],"evidence":"Elementor data-settings"},
+    {"id":"service-slider-right","trigger":"viewport reveal + autoplay","entrance":"fadeInRight","speed_class":"animated-slow","autoplay_ms":5000,"transition_ms":500,"pause_on_hover":true,"pause_on_interaction":true},
+    {"id":"service-slider-left","trigger":"viewport reveal + autoplay","entrance":"fadeInLeft","speed_class":"animated-slow","autoplay_ms":5000,"transition_ms":500,"pause_on_hover":true,"pause_on_interaction":true},
+    {"id":"campaign-slider","trigger":"page load/viewport","transition":"slide","autoplay_ms":5000,"transition_ms":500,"infinite":true},
+    {"id":"sticky-header","trigger":"scroll threshold","offset_px":100,"entrance":"fadeInDown","targets":["desktop","tablet","mobile"]}
+  ],
+  "states": [
+    {"component":"primary nav","states":["desktop horizontal", "tablet/mobile burger", "submenu"]},
+    {"component":"booking form","states":["default", "required phone", "branch select"],"not_tested":["validation", "loading", "success", "server error"]},
+    {"component":"slider","states":["autoplay", "hover pause", "interaction pause", "previous", "next", "pagination"]}
+  ],
+  "motion_evidence_gate": {"gate":"FAIL","reason":"No three-viewport replay, reduced-motion comparison, native timeline capture or v5 sub-capability score"}
+}

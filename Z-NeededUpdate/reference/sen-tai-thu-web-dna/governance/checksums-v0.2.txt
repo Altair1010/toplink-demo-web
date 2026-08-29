@@ -1,0 +1,16 @@
+e5a8cc9a0532d70aad44cf1acd1df5933889bc868d24fdca66bfd33faf14b87d  sen-tai-thu-web-dna/ir/design-tokens.json
+4382647e900e09b2db69a10086ddbb157c18753809ee666f77283b3f453fa716  sen-tai-thu-web-dna/ir/interaction-motion-v0.2.json
+24132c4716f2d149979191f335f355f3cc8d8f205dd226573c39dd4b34c66000  sen-tai-thu-web-dna/evidence/derived/evidence-register-v0.2.json
+398d40c2d9873d9353e77ef59a369e089cc6de93ebbf525c2037c293471c6115  sen-tai-thu-web-dna/UI_MINDSET.md
+9af3ee8600cbaeaf4cab03249729bf0cd6e7da2c266e3d9864fbc39c04320bcb  sen-tai-thu-web-dna/governance/run-manifest.json
+b4e2095f56c96f442a3781e77103e4573875da3fdb888213a803bf0a4c2a0946  sen-tai-thu-web-dna/governance/checksums-v0.2.txt
+f06c8f8e0b8fad8c2f2266a5a68eacd021664bc07bcef00bd598d27ec9fc7b3c  sen-tai-thu-web-dna/governance/decision-lock.json
+c4dd10f1d5909bcbb4ecde8099fef8cb5a790cf4b0e0ce24cf81c370ef36d86a  sen-tai-thu-web-dna/inventory/site-foundation.json
+598b0ac3da3fee04a879212bdd14fbfbe561a8c84dd2c6926f2045321f2ac6e8  sen-tai-thu-web-dna/inventory/asset-manifest-v0.2.json
+b9745a797dd09778912b996758320fde5847729f2b2152294d4e6f94b12e0406  sen-tai-thu-web-dna/inventory/route-census-v0.2.json
+6c89508089873305bd6852d374c44a981cd7b571a6bbf2620ea758af277e177e  sen-tai-thu-web-dna/qa/accessibility-semantic-audit-v0.2.md
+75096c5cac14883fbba3eb4bd99a368bae6b3e0e77780af9df454673001bb462  sen-tai-thu-web-dna/qa/defects.md
+103b0b673d9d94a1bdde8d250c5d6e448b41bd2fbbe9002c74028fbb2a66010d  sen-tai-thu-web-dna/qa/scorecard.json
+7073e0cad041539b976f9f92f9e0f78bee253a9a2d5a60a8be6b2e0504797880  sen-tai-thu-web-dna/START_HERE.md
+582ff581a787366eb6fc872268718fb8232be93caf316d19094e3a43ddbe06d1  sen-tai-thu-web-dna/graphs/task-graph.repaired.json
+352232ebedece9dc4af4a5f9267df07cefb4bb37e5fc7443840592ea54e8fbf6  sen-tai-thu-web-dna/graphs/task-graph.json

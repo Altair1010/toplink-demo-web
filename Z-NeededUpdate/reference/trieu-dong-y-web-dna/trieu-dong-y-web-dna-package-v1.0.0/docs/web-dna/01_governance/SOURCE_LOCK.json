@@ -1,0 +1,58 @@
+{
+  "schema_version": "web-dna-source-lock/1.0",
+  "locked_at": "2026-08-13",
+  "sources": [
+    {
+      "name": "trieudongy.vn",
+      "kind": "target-site",
+      "url": "https://trieudongy.vn/",
+      "permission_basis": "user-confirmed right to copy and reuse",
+      "lock_type": "origin-and-capture-date"
+    },
+    {
+      "name": "Scrapling",
+      "kind": "capture-engine-reference",
+      "url": "https://github.com/D4Vinci/Scrapling",
+      "version": "v0.4.14",
+      "commit": "5d213a2d4764002bfc4fed33c32fe09fa8b0bf7f",
+      "license": "BSD-3-Clause"
+    },
+    {
+      "name": "AI Website Cloner Template",
+      "kind": "reconstruction-reference",
+      "url": "https://github.com/JCodesMore/ai-website-cloner-template",
+      "version": "v0.4.0",
+      "commit": "cc6f35b31a2e71c8611016a997455e912d50931f",
+      "license": "MIT"
+    },
+    {
+      "name": "Dembrandt",
+      "kind": "design-system-extraction-reference",
+      "url": "https://github.com/NotHussein/Dembrandt",
+      "version": "v0.27.1",
+      "commit": "b149ef26d893404c7372dd40f4d6020d0e1d29cc",
+      "license": "MIT"
+    },
+    {
+      "name": "Dembrandt Skills",
+      "kind": "agent-workflow-reference",
+      "url": "https://github.com/NotHussein/dembrandt-skills",
+      "commit": "f14d2e84ad7a8311b6c804c27ebf3f7db0029063",
+      "license": "MIT"
+    },
+    {
+      "name": "Website-Cloner",
+      "kind": "concept-reference-only",
+      "url": "https://github.com/X-SLAYER/Website-Cloner",
+      "commit": "7eccf624ddbc3d6a79915a4dd65a7a58d7b2eabf",
+      "license": "NOASSERTION",
+      "reuse_policy": "do not copy code"
+    },
+    {
+      "name": "motion-capture-v4.js",
+      "kind": "motion-capture-input",
+      "sha256": "839d203d65acfa697309d9fb6d8c5a5796f5c4719d44018cbfc0d1fd9c489a58",
+      "verification": ["syntax-pass", "smoke-pass"]
+    }
+  ]
+}

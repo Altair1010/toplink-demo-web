@@ -1,0 +1,259 @@
+{
+  "schema_version": "web-dna-tokens/1.0",
+  "source": {
+    "font_families": [
+      {
+        "value": "Tahoma, Geneva, Verdana, sans-serif",
+        "count": 203
+      },
+      {
+        "value": "Arial",
+        "count": 20
+      },
+      {
+        "value": "Tahoma, sans-serif",
+        "count": 9
+      }
+    ],
+    "font_sizes": [
+      {
+        "value": "16px",
+        "count": 147
+      },
+      {
+        "value": "13.3333px",
+        "count": 20
+      },
+      {
+        "value": "36px",
+        "count": 14
+      },
+      {
+        "value": "30.4px",
+        "count": 13
+      },
+      {
+        "value": "17px",
+        "count": 13
+      },
+      {
+        "value": "14px",
+        "count": 6
+      },
+      {
+        "value": "41.6px",
+        "count": 4
+      },
+      {
+        "value": "18.4px",
+        "count": 4
+      },
+      {
+        "value": "16.96px",
+        "count": 2
+      },
+      {
+        "value": "32px",
+        "count": 2
+      },
+      {
+        "value": "25.6px",
+        "count": 1
+      },
+      {
+        "value": "54.4px",
+        "count": 1
+      },
+      {
+        "value": "17.28px",
+        "count": 1
+      },
+      {
+        "value": "48px",
+        "count": 1
+      },
+      {
+        "value": "81.78px",
+        "count": 1
+      },
+      {
+        "value": "14.72px",
+        "count": 1
+      },
+      {
+        "value": "15px",
+        "count": 1
+      }
+    ],
+    "colors": [
+      {
+        "value": "rgb(74, 52, 38)",
+        "count": 117
+      },
+      {
+        "value": "rgb(47, 36, 28)",
+        "count": 75
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 21
+      },
+      {
+        "value": "rgb(239, 227, 204)",
+        "count": 10
+      },
+      {
+        "value": "rgb(138, 98, 53)",
+        "count": 6
+      },
+      {
+        "value": "rgb(102, 81, 65)",
+        "count": 2
+      },
+      {
+        "value": "rgb(109, 87, 68)",
+        "count": 1
+      }
+    ],
+    "backgrounds": [
+      {
+        "value": "rgba(0, 0, 0, 0)",
+        "count": 155
+      },
+      {
+        "value": "rgb(255, 248, 234)",
+        "count": 24
+      },
+      {
+        "value": "rgb(139, 46, 36)",
+        "count": 21
+      },
+      {
+        "value": "rgb(246, 239, 225)",
+        "count": 20
+      },
+      {
+        "value": "rgb(74, 52, 38)",
+        "count": 10
+      },
+      {
+        "value": "rgb(243, 244, 246)",
+        "count": 1
+      },
+      {
+        "value": "rgb(255, 255, 255)",
+        "count": 1
+      }
+    ],
+    "radii": [
+      {
+        "value": "0px",
+        "count": 173
+      },
+      {
+        "value": "6px",
+        "count": 21
+      },
+      {
+        "value": "20px",
+        "count": 13
+      },
+      {
+        "value": "16px",
+        "count": 13
+      },
+      {
+        "value": "10px",
+        "count": 6
+      },
+      {
+        "value": "17px",
+        "count": 4
+      },
+      {
+        "value": "22px",
+        "count": 1
+      },
+      {
+        "value": "999px",
+        "count": 1
+      }
+    ],
+    "shadows": [
+      {
+        "value": "none",
+        "count": 152
+      },
+      {
+        "value": "rgba(47, 36, 28, 0.08) 0px 8px 18px 0px, rgba(255, 255, 255, 0.42) 0px 0px 0px 1px inset",
+        "count": 21
+      },
+      {
+        "value": "rgba(255, 255, 255, 0.6) 0px 1px 0px 0px inset, rgba(62, 42, 30, 0.08) 0px 1px 3px 0px",
+        "count": 21
+      },
+      {
+        "value": "rgba(47, 36, 28, 0.1) 0px 18px 52px 0px",
+        "count": 13
+      },
+      {
+        "value": "rgba(47, 36, 28, 0.06) 0px 8px 24px 0px",
+        "count": 13
+      },
+      {
+        "value": "rgba(184, 138, 68, 0.38) 0px 0px 0px 1px inset",
+        "count": 5
+      },
+      {
+        "value": "rgba(47, 36, 28, 0.07) 0px 8px 20px 0px",
+        "count": 4
+      },
+      {
+        "value": "rgba(62, 42, 30, 0.08) 0px 1px 3px 0px",
+        "count": 1
+      },
+      {
+        "value": "rgba(62, 42, 30, 0.1) 0px 6px 24px 0px",
+        "count": 1
+      },
+      {
+        "value": "rgba(182, 138, 62, 0.18) 0px 4px 14px 0px, rgb(255, 248, 234) 0px 0px 0px 1px inset",
+        "count": 1
+      }
+    ]
+  },
+  "evolved": {
+    "color": {
+      "ink": "#173827",
+      "forest": "#244c37",
+      "paper": "#f3efe4",
+      "vermilion": "#a94732",
+      "gold": "#b38b50"
+    },
+    "typography": {
+      "display": "Georgia, serif",
+      "body": "Avenir Next, Segoe UI, sans-serif",
+      "source_body": "Tahoma, Geneva, Verdana, sans-serif"
+    },
+    "spacing": {
+      "unit": 4,
+      "section": [
+        64,
+        80,
+        96,
+        120
+      ],
+      "container": 1180
+    },
+    "radius": {
+      "control": 6,
+      "card": 20,
+      "pill": 999
+    },
+    "motion": {
+      "fast": 120,
+      "standard": 200,
+      "deliberate": 250
+    }
+  }
+}

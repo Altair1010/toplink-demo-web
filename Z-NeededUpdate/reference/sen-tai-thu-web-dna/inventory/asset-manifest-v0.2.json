@@ -1,0 +1,33 @@
+{
+  "schema_version": "dmn-asset-manifest/1",
+  "scope": "home page deep inventory plus representative branch observations",
+  "home_unique_asset_references": 84,
+  "home_insecure_http_references": 15,
+  "origins": [
+    "https://sentaithu.com.vn", "http://sentaithu.com.vn", "https://fonts.googleapis.com", "https://www.googletagmanager.com", "https://cdn.buttonizer.io", "https://www.formilla.com", "https://static.cloudflareinsights.com", "https://youtu.be"
+  ],
+  "core_brand_assets": [
+    {"url":"https://sentaithu.com.vn/wp-content/uploads/2024/08/Logo-STT-08-1.png","role":"header logo","dimensions":"1042x417"},
+    {"url":"https://sentaithu.com.vn/wp-content/uploads/2024/08/Logo-STT-02-1.png","role":"footer/logo mark","dimensions":"1042x1042"}
+  ],
+  "hero_slideshow": {
+    "duration_ms": 5000,
+    "transition": "fade",
+    "transition_ms": 500,
+    "loop": true,
+    "assets": ["MT-5590.jpg", "MT-6202.jpg", "MT-6623.jpg", "MT-6627.jpg"],
+    "protocol_issue": "All four URLs are configured as http"
+  },
+  "font_observation": {
+    "primary": ["Open Sans 400", "Playfair Display 600", "Playfair Display 700"],
+    "also_loaded": ["Roboto", "Roboto Slab", "Font Awesome", "Elementor Icons"],
+    "risk": "Additional font CSS appears loaded although primary computed typography uses Open Sans and Playfair Display"
+  },
+  "script_groups": {
+    "core": ["jQuery", "Astra frontend", "Elementor runtime/frontend", "Elementor Pro runtime/frontend"],
+    "interaction": ["Swiper 8.4.5", "SmartMenus", "sticky", "Easy Fancybox"],
+    "lead_and_chat": ["Fluent Forms", "Buttonizer", "Formilla"],
+    "analytics": ["Google Tag Manager", "Cloudflare Insights"]
+  },
+  "unresolved": ["binary hashes", "response sizes", "font binary files", "all media across news and recruitment archives"]
+}

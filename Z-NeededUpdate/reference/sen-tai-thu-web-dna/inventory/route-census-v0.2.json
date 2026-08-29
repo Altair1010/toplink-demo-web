@@ -1,0 +1,28 @@
+{
+  "schema_version": "dmn-route-census/1",
+  "captured_at": "2026-08-21T00:00:00+07:00",
+  "observed_universe_basis": "Rendered navigation links and pagination links from authorized public routes",
+  "directly_rendered_count": 20,
+  "discovered_unique_estimate": 40,
+  "coverage_status": "representative saturation not full sitemap convergence",
+  "directly_rendered": [
+    "/", "/gioi-thieu/", "/he-thong/", "/tin-tuc/", "/tuyen-dung-2/", "/lien-he/", "/nhuong-quyen/", "/dat-lich/",
+    "/bang-gia-sen-tai-thu-1992/", "/bang-gia-sen-tai-thu-110-thai-thinh/", "/sen-thang-long/", "/sen-tai-thu-tay-ho/", "/bang-gia-sen-tai-thu-tran-quoc-toan/", "/bang-gia-sen-tai-thu-long-bien/", "/bang-gia-sen-tai-thu-thai-binh/", "/bang-gia-sen-tai-thu-van-cao/", "/bang-gia-sen-tai-thu-vincom-mega-mall-smart-city/", "/bang-gia-sen-tai-thu-da-nang/", "/bang-gia-sen-tai-thu-ha-nam/", "/bang-gia-sen-tai-thu-tan-son-nhat/"
+  ],
+  "discovered_editorial": [
+    "/uu-dai-chuong-trinh-cham-soc-suc-khoe-chu-dong/", "/coming-soon-chuong-trinh-cham-soc-suc-khoe-chu-dong-2026/", "/sen-tai-thu-tan-son-nhat-chinh-thuc-ra-mat-goi-tri-lieu-hanh-khi-hoat-huyet/", "/thong-bao-dieu-chinh-thoi-gian-hoat-dong-cua-cac-chi-nhanh-sen-tai-thu/", "/uu-dai-mung-sinh-nhat-sen-tai-thu-34-nam-hanh-trinh/", "/vui-don-he-sang-uu-dai-ngap-tran/", "/tin-tuc/2/", "/tin-tuc/3/", "/tin-tuc/4/", "/tin-tuc/5/"
+  ],
+  "discovered_recruitment": [
+    "/truong-phong-tuyen-sinh/", "/chuyen-vien-tuyen-sinh/", "/ke-toan-tong-hop-2/", "/ke-toan-thue/", "/tri-lieu-vien/", "/quan-ly-kinh-doanh/", "/tuyen-dung-2/2/", "/tuyen-dung-2/3/", "/tuyen-dung-2/4/"
+  ],
+  "other_primary": ["/nap-the-hoi-vien/", "/privacy-policy/"],
+  "canonical_observation": "All directly rendered non-home representatives exposed a self-referencing canonical URL",
+  "metadata_observation": "Representative pages exposed robots=max-image-preview:large but no meta description",
+  "route_variation": {
+    "branch_price_images": {"minimum_observed":3,"maximum_observed":25},
+    "branch_price_forms": "1 form on each observed branch-price route",
+    "news_pagination_pages_observed":5,
+    "recruitment_pagination_pages_observed":4
+  },
+  "blockers": ["robots.txt and sitemap unavailable through current capture channel", "WordPress REST endpoint blocked by browser client policy"]
+}

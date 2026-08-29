@@ -1,0 +1,32 @@
+{
+  "site": {
+    "canonical_origin": "https://sentaithu.com.vn",
+    "title": "Sen Tài Thu",
+    "delivery": ["WordPress", "SSR", "Elementor hydrated widgets"],
+    "site_classes": ["CMS/editorial", "service catalog", "lead generation", "multi-branch"],
+    "generator_evidence": ["WordPress 7.1", "Elementor 4.2.3", "Site Kit by Google 1.185.0"]
+  },
+  "stack": {
+    "theme": "Astra 4.8.10",
+    "builder": ["Elementor 4.2.3", "Elementor Pro 3.31.0"],
+    "observed_plugins": ["Header Footer Elementor", "Fluent Forms 6.2.12", "Essential Addons for Elementor Lite 6.7.3", "Easy Fancybox", "Buttonizer 4.15.4", "Formilla", "Google Site Kit"],
+    "libraries": ["jQuery 3.7.1", "Swiper 8.4.5", "Font Awesome 5.x"]
+  },
+  "archetypes": [
+    {"id":"home","example":"/","role":"brand promise + service discovery + booking CTA"},
+    {"id":"brand_about","example":"/gioi-thieu/","role":"history, mission, vision and trust"},
+    {"id":"branch_directory","example":"/he-thong/","role":"branch discovery and contact"},
+    {"id":"branch_price","example":"/bang-gia-sen-tai-thu-tan-son-nhat/","role":"image-led price catalog + booking form"},
+    {"id":"news_index","example":"/tin-tuc/","role":"editorial listing + pagination"},
+    {"id":"news_article","example":"/uu-dai-chuong-trinh-cham-soc-suc-khoe-chu-dong/","role":"campaign/editorial detail"},
+    {"id":"lead_form","example":"/dat-lich/","role":"name, phone and branch conversion"},
+    {"id":"business","example":"/nhuong-quyen/","role":"franchise proposition"}
+  ],
+  "observed_primary_routes": ["/", "/gioi-thieu/", "/he-thong/", "/tin-tuc/", "/tuyen-dung-2/", "/lien-he/", "/nhuong-quyen/", "/dat-lich/", "/nap-the-hoi-vien/", "/privacy-policy/"],
+  "observed_branch_service_routes": [
+    "/bang-gia-sen-tai-thu-1992/", "/bang-gia-sen-tai-thu-110-thai-thinh/", "/sen-thang-long/", "/sen-tai-thu-tay-ho/", "/bang-gia-sen-tai-thu-tran-quoc-toan/", "/bang-gia-sen-tai-thu-long-bien/", "/bang-gia-sen-tai-thu-thai-binh/", "/bang-gia-sen-tai-thu-van-cao/", "/bang-gia-sen-tai-thu-vincom-mega-mall-smart-city/", "/bang-gia-sen-tai-thu-da-nang/", "/bang-gia-sen-tai-thu-ha-nam/", "/bang-gia-sen-tai-thu-tan-son-nhat/"
+  ],
+  "content_model": ["brand narrative", "service group", "branch", "price image", "article", "campaign", "booking lead"],
+  "critical_journeys": ["home -> booking", "service menu -> branch price -> booking", "branch directory -> call", "news index -> article", "franchise -> contact"],
+  "forms": {"observed_engine":"Elementor form", "fields":["name", "phoneNumber(required)", "branch"], "submission_tested":false}
+}

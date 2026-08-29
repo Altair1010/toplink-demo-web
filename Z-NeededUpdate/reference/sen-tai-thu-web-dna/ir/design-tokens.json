@@ -1,0 +1,25 @@
+{
+  "schema_version": "draft-dtcg-observation/1",
+  "status": "observed_desktop_foundation",
+  "color": {
+    "forest": {"value":"#06331E", "role":"hero/header/brand authority", "confidence":0.92},
+    "body_text": {"value":"#5D544C", "role":"primary body copy", "confidence":0.95},
+    "white": {"value":"#FFFFFF", "role":"reversed copy and surfaces", "confidence":0.99},
+    "cream": {"value":"#F8EBC9", "role":"warm section surface", "confidence":0.90},
+    "brand_green": {"value":"#166334", "role":"accent/action", "confidence":0.88},
+    "gold": {"value":"#D4AD48", "role":"premium accent", "confidence":0.78},
+    "dark": {"value":"#161513", "role":"high contrast text", "confidence":0.80}
+  },
+  "typography": {
+    "display": {"family":"Playfair Display", "weights":[600,700], "observed_sizes_px":[35,40], "role":"heritage/editorial headings"},
+    "body": {"family":"Open Sans", "weight":400, "observed_sizes_px":[15,16,17,20,21,25], "role":"navigation/body/UI"}
+  },
+  "shape": {"default_radius":"0px", "button_radius_examples":["3px", "50px"], "character":"mostly square with selective pill actions"},
+  "breakpoints": {
+    "astra": [544, 921, 1200],
+    "elementor": [767, 1024],
+    "risk": "two overlapping breakpoint systems create intermediate-width drift"
+  },
+  "motion_observed": ["Elementor fadeInRight", "fadeInLeft", "fadeInUp", "fadeInDown", "Swiper slides", "sticky header"],
+  "motion_status": "native runtime timeline capture pending"
+}

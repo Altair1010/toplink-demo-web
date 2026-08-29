@@ -1,0 +1,24 @@
+{
+  "schema_version": "dmn-scorecard/1",
+  "status": "foundation_only_not_parity",
+  "target": 90,
+  "web_dna_completeness": 68,
+  "running_parity": null,
+  "confidence_adjusted_overall": null,
+  "reason": "No reconstructed baseline exists; parity cannot be scored honestly",
+  "foundation_dimensions": {
+    "route_ia_observation": {"score":78,"confidence":0.84},
+    "content_model": {"score":78,"confidence":0.84},
+    "asset_inventory": {"score":70,"confidence":0.79},
+    "visual_desktop": {"score":66,"confidence":0.80},
+    "responsive_state": {"score":38,"confidence":0.48},
+    "interaction_journeys": {"score":45,"confidence":0.56},
+    "motion": {"score":55,"confidence":0.61},
+    "design_system_ui_mindset": {"score":82,"confidence":0.88},
+    "accessibility_semantics": {"score":62,"confidence":0.76},
+    "provenance": {"score":82,"confidence":0.86}
+  },
+  "release_gate": "FAIL_EXPECTED",
+  "motion_evidence_gate": {"gate":"FAIL","reason":"three-viewport and replay evidence not available"},
+  "next_gate": "obtain tablet/mobile captures, sitemap or owner inventory, binary asset hashes and Motion Capture v5 replay before baseline build"
+}

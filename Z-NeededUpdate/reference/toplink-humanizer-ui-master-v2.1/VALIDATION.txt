@@ -1,0 +1,7 @@
+PASS
+version=2.1.0
+files=68
+bytes=115273
+v1_foundation_files=20
+v1_hash_mismatches=0
+strict_superset=true

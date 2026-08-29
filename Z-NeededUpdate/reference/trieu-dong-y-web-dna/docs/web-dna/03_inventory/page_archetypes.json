@@ -1,0 +1,236 @@
+{
+  "schema_version": "web-dna-archetypes/1.0",
+  "source_origin": "https://trieudongy.vn",
+  "archetypes": [
+    {
+      "archetype": "entity-huyet",
+      "count": 166,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/huyet-dao/am-bao/",
+        "https://trieudongy.vn/huyet-dao/am-coc/",
+        "https://trieudongy.vn/huyet-dao/am-do/",
+        "https://trieudongy.vn/huyet-dao/am-khich/",
+        "https://trieudongy.vn/huyet-dao/am-lang-tuyen/"
+      ]
+    },
+    {
+      "archetype": "article",
+      "count": 100,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/blog/10-loai-sam-quy-tai-viet-nam/",
+        "https://trieudongy.vn/blog/3-loai-benh-de-tan-cong-tre-trong-mua-dong/",
+        "https://trieudongy.vn/blog/4-loai-thao-duoc-ho-tro-dieu-tri-benh-tri/",
+        "https://trieudongy.vn/blog/5-loai-thuc-uong-giup-ha-mo-mau-cholesterol-ldl-xau-an-toan/",
+        "https://trieudongy.vn/blog/5-mon-an-tang-cuong-suc-de-khang-mua-thu-theo-yhct/"
+      ]
+    },
+    {
+      "archetype": "entity-vi-thuoc",
+      "count": 55,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/duoc/vi-thuoc/actiso/",
+        "https://trieudongy.vn/duoc/vi-thuoc/an-xoa/",
+        "https://trieudongy.vn/duoc/vi-thuoc/ba-dot/",
+        "https://trieudongy.vn/duoc/vi-thuoc/ba-gac/",
+        "https://trieudongy.vn/duoc/vi-thuoc/ba-kich/"
+      ]
+    },
+    {
+      "archetype": "acupuncture-article",
+      "count": 47,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/cham-cuu/bat-phap/bo-ta-tu-anh/",
+        "https://trieudongy.vn/cham-cuu/bat-phap/bo/",
+        "https://trieudongy.vn/cham-cuu/bat-phap/han/",
+        "https://trieudongy.vn/cham-cuu/bat-phap/hop/",
+        "https://trieudongy.vn/cham-cuu/bat-phap/on/"
+      ]
+    },
+    {
+      "archetype": "archive-pagination",
+      "count": 46,
+      "captured": 41,
+      "exemplars": [
+        "https://trieudongy.vn/benh/page/2/",
+        "https://trieudongy.vn/benh/page/3/",
+        "https://trieudongy.vn/blog/page/2/",
+        "https://trieudongy.vn/blog/page/3/",
+        "https://trieudongy.vn/blog/page/4/"
+      ]
+    },
+    {
+      "archetype": "theory-detail",
+      "count": 41,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/ly-luan-yhct/bat-cuong/",
+        "https://trieudongy.vn/ly-luan-yhct/hoc-thuyet/am-duong/",
+        "https://trieudongy.vn/ly-luan-yhct/hoc-thuyet/huyet-khich/",
+        "https://trieudongy.vn/ly-luan-yhct/hoc-thuyet/huyet-lac/",
+        "https://trieudongy.vn/ly-luan-yhct/hoc-thuyet/huyet-nguyen/"
+      ]
+    },
+    {
+      "archetype": "condition-detail",
+      "count": 29,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/benh/ap-xe-o-bung-abdominal-abscess/",
+        "https://trieudongy.vn/benh/benh-than-bot-amyloidosis/",
+        "https://trieudongy.vn/benh/cum-mua-influenza/",
+        "https://trieudongy.vn/benh/day-than-kinh-so-5/",
+        "https://trieudongy.vn/benh/dot-quy/"
+      ]
+    },
+    {
+      "archetype": "entity-kinh-mach",
+      "count": 29,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/kinh-mach/bat-mach-ky-kinh/",
+        "https://trieudongy.vn/kinh-mach/bat-mach-ky-kinh/duong-kieu/",
+        "https://trieudongy.vn/kinh-mach/bat-mach-ky-kinh/mach-am-duy/",
+        "https://trieudongy.vn/kinh-mach/bat-mach-ky-kinh/mach-am-kieu/",
+        "https://trieudongy.vn/kinh-mach/bat-mach-ky-kinh/mach-doc/"
+      ]
+    },
+    {
+      "archetype": "trigger-point-detail",
+      "count": 23,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/trigger-point/dau-quy-chieu-la-gi/",
+        "https://trieudongy.vn/trigger-point/dkh-la-gi/",
+        "https://trieudongy.vn/trigger-point/tiem-tpi/",
+        "https://trieudongy.vn/trigger-point/vung-dau-va-co/",
+        "https://trieudongy.vn/trigger-point/vung-dau-va-co/dau-dau-thai-duong/"
+      ]
+    },
+    {
+      "archetype": "entity-bai-thuoc",
+      "count": 22,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/duoc/bai-thuoc/",
+        "https://trieudongy.vn/duoc/bai-thuoc/be-kinh/",
+        "https://trieudongy.vn/duoc/bai-thuoc/be-kinh/bo-huyet-thong-kinh-thang/",
+        "https://trieudongy.vn/duoc/bai-thuoc/be-kinh/bot-huong-phu-tong-lu/",
+        "https://trieudongy.vn/duoc/bai-thuoc/be-kinh/dan-sam-thang/"
+      ]
+    },
+    {
+      "archetype": "expert-detail",
+      "count": 19,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/danh-y/bac-si/bac-si-chua-dau-day-than-kinh-so-5-tphcm/",
+        "https://trieudongy.vn/danh-y/bac-si/bac-si-co-xuong-khop-o-vinmec/",
+        "https://trieudongy.vn/danh-y/bac-si/bac-si-da-lieu-gioi-tphcm/",
+        "https://trieudongy.vn/danh-y/bac-si/bac-si-dong-y-yhct-gioi-ha-noi/",
+        "https://trieudongy.vn/danh-y/bac-si/bac-si-dong-y-yhct-gioi-tphcm/"
+      ]
+    },
+    {
+      "archetype": "archive",
+      "count": 17,
+      "captured": 17,
+      "exemplars": [
+        "https://trieudongy.vn/benh/",
+        "https://trieudongy.vn/blog/",
+        "https://trieudongy.vn/cay-chi/",
+        "https://trieudongy.vn/cham-cuu/",
+        "https://trieudongy.vn/cham-cuu/bat-phap/"
+      ]
+    },
+    {
+      "archetype": "service-or-clinical-article",
+      "count": 14,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/cay-chi/cay-chi-giai-phap-y-hoc-co-truyen/",
+        "https://trieudongy.vn/cay-chi/chua-hoi-chung-vai-gay/",
+        "https://trieudongy.vn/cay-chi/chua-thoat-vi-dia-dem/",
+        "https://trieudongy.vn/cay-chi/dieu-tri-benh-viem-khop-dang-thap-cc/",
+        "https://trieudongy.vn/cay-chi/dieu-tri-dau-than-kinh-lien-suon-cc/"
+      ]
+    },
+    {
+      "archetype": "content-detail",
+      "count": 14,
+      "captured": 0,
+      "exemplars": [
+        "https://trieudongy.vn/duoc/ngu-vi/",
+        "https://trieudongy.vn/duoc/tu-khi-ngu-vi/",
+        "https://trieudongy.vn/duoc/tu-khi/",
+        "https://trieudongy.vn/tac-gia/trieudongy/",
+        "https://trieudongy.vn/web-stories/bai-tap-cai-thien-tinh-trang-dau-cung-khop-vai/"
+      ]
+    },
+    {
+      "archetype": "service-detail",
+      "count": 3,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/cham-cuu/dich-vu-cham-cuu-tai-tphcm/",
+        "https://trieudongy.vn/cham-cuu/dieu-tri-liet-mat-quan-7/",
+        "https://trieudongy.vn/cham-cuu/quan-7-tan-hung/"
+      ]
+    },
+    {
+      "archetype": "legal",
+      "count": 2,
+      "captured": 2,
+      "exemplars": [
+        "https://trieudongy.vn/chinh-sach-bao-mat/",
+        "https://trieudongy.vn/dieu-khoan-xuat-ban-bai-viet-va-nhan-xet/"
+      ]
+    },
+    {
+      "archetype": "foundation-page",
+      "count": 2,
+      "captured": 2,
+      "exemplars": [
+        "https://trieudongy.vn/gioi-thieu/",
+        "https://trieudongy.vn/y-hoc-co-truyen-viet-nam/"
+      ]
+    },
+    {
+      "archetype": "contact",
+      "count": 2,
+      "captured": 2,
+      "exemplars": [
+        "https://trieudongy.vn/lien-he/",
+        "https://trieudongy.vn/thac-mac/"
+      ]
+    },
+    {
+      "archetype": "homepage",
+      "count": 1,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/"
+      ]
+    },
+    {
+      "archetype": "stories",
+      "count": 1,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/stories-trieu-dong-y/"
+      ]
+    },
+    {
+      "archetype": "interactive-tool",
+      "count": 1,
+      "captured": 1,
+      "exemplars": [
+        "https://trieudongy.vn/tra-cuu-bo-huyet-dong-y/"
+      ]
+    }
+  ]
+}
+

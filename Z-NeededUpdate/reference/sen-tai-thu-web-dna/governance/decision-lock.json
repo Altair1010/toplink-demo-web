@@ -1,0 +1,14 @@
+{
+  "schema_version": "dmn-decision-lock/1",
+  "target": "https://sentaithu.com.vn/",
+  "allowed_domains": ["sentaithu.com.vn"],
+  "permission_basis": "User states they have full authorization from the website manager",
+  "purpose": ["web_dna", "baseline_audit", "future_reconstruction"],
+  "access_scope": "public routes only in this run",
+  "authenticated_scope": "excluded until separately authorized and needed",
+  "reuse_policy": "analysis and authorized reconstruction; no external publication in this run",
+  "target_parity": 90,
+  "viewports_required_next": ["desktop", "tablet", "mobile"],
+  "external_mutation": "forbidden",
+  "captured_at": "2026-08-21T00:00:00+07:00"
+}

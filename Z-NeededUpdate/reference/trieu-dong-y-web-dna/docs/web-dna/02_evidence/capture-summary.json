@@ -1,0 +1,27 @@
+{
+  "schema_version": "web-dna-capture-summary/1.0",
+  "captured_at": "2026-08-13",
+  "routes": {
+    "expected": 634,
+    "captured": 634,
+    "failed": 0,
+    "unique": 634
+  },
+  "archetypes": {
+    "count": 21,
+    "deep_exemplars": 21
+  },
+  "evidence": {
+    "raw_batches": 20,
+    "unique_asset_references": 1939,
+    "unique_image_references": 643,
+    "link_edges": 39038,
+    "interactive_elements_sampled": 2167
+  },
+  "limitations": [
+    "robots.txt, XML sitemap, and REST endpoints were blocked by the current access surface",
+    "viewport resizing was unavailable; Tier A mobile screenshots remain a future fidelity enhancement",
+    "asset nodes are remote-resolved references, not an offline binary mirror",
+    "motion runtime script was not injected into the public origin; computed transition evidence is used"
+  ]
+}
