@@ -43,7 +43,7 @@ export default function SiteFooter() {
         <div>
           <h2 className="text-xl font-semibold">Trao đổi trực tiếp</h2>
           <p className="mt-4 text-base leading-relaxed text-ink-soft">
-            Zalo và Facebook Page là hai kênh handoff đã được chọn. Đường dẫn chính thức vẫn đang
+            Zalo và Facebook Page là hai kênh trao đổi đã được chọn. Đường dẫn chính thức vẫn đang
             chờ xác minh trước khi công bố.
           </p>
           <Link

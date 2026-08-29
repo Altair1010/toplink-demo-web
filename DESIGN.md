@@ -1,5 +1,5 @@
 ---
-version: h6f
+version: h7
 name: Y Viện Toplink
 description: Information-first Humanizer runtime with booking retired and a bounded human-contact handoff.
 typography:
@@ -15,6 +15,12 @@ skins:
 
 > Code remains authoritative. This document records what runs after H6-F; it is not permission to
 > fabricate operational facts, evidence, contact destinations or a future brand identity.
+
+## H7 Release Hygiene
+
+H7 giữ nguyên graph, art direction và product scope của H6-F. Các chỉnh sửa runtime chỉ loại bỏ
+ngôn ngữ scaffold như “demo”, “mock”, `SOP` và `Service Menu` khỏi metadata/nội dung công khai;
+không thêm fact, evidence, contact URL hay khả năng mới.
 
 ## H6-F Runtime Status
 

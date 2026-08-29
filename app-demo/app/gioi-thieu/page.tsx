@@ -25,7 +25,8 @@ export default function AboutPage() {
           </p>
           <p>
             “Dưỡng Thân · Tỉnh Thức” là descriptor đã có trong hồ sơ thương hiệu. Nó không thay cho
-            hồ sơ pháp lý, danh mục dịch vụ, SOP, nhân sự, cơ sở hoặc bằng chứng vận hành.
+            hồ sơ pháp lý, danh mục dịch vụ, quy trình vận hành, nhân sự, cơ sở hoặc bằng chứng thực
+            tế.
           </p>
         </div>
       </section>
@@ -38,7 +39,7 @@ export default function AboutPage() {
         </h2>
         <p>
           Bằng chứng về địa điểm, nhân sự, quy trình và dịch vụ sẽ chỉ xuất hiện sau khi có nguồn,
-          quyền công bố và review phù hợp. M3P vẫn được chuyển cho admin ở giai đoạn sau.
+          quyền công bố và rà soát phù hợp. Phần bằng chứng này sẽ được bổ sung ở giai đoạn sau.
         </p>
       </section>
     </div>

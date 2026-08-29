@@ -22,14 +22,14 @@ export const metadata: Metadata = {
     template: "%s · Y Viện Toplink",
   },
   description:
-    "Website demo giới thiệu định hướng dưỡng thân, tỉnh thức và các giới hạn thông tin hiện có của Y Viện Toplink.",
+    "Website giới thiệu định hướng dưỡng thân, tỉnh thức và các giới hạn thông tin hiện có của Y Viện Toplink.",
   openGraph: {
     type: "website",
     locale: "vi_VN",
     siteName: "Y Viện Toplink",
     title: "Y Viện Toplink · Dưỡng Thân · Tỉnh Thức",
     description:
-      "Website demo giới thiệu định hướng dưỡng thân, tỉnh thức và các giới hạn thông tin hiện có của Y Viện Toplink.",
+      "Website giới thiệu định hướng dưỡng thân, tỉnh thức và các giới hạn thông tin hiện có của Y Viện Toplink.",
   },
 };
 

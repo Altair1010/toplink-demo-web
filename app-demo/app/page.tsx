@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      {/* 1 · HERO nền đỏ — định vị thương hiệu, đẩy lên đầu */}
+      {/* 1 · Mở đầu định hướng mục đích đọc */}
       <HomeHero />
 
       {/* 2 · M2A1: định hướng có thể sửa, giới hạn rõ, không gửi dữ liệu */}

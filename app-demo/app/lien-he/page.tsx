@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Liên hệ",
-  description: "Zalo và Facebook Page là hai kênh handoff; URL chính thức đang chờ xác minh.",
+  description: "Zalo và Facebook Page là hai kênh trao đổi; URL chính thức đang chờ xác minh.",
 };
 
 export default function ContactPage() {
@@ -12,8 +12,8 @@ export default function ContactPage() {
         <p className="info-eyebrow">Liên hệ</p>
         <h1>Hai kênh để tiếp tục trao đổi với con người</h1>
         <p>
-          Zalo và Facebook Page là hai loại kênh đã được xác nhận cho handoff. Website không nhận
-          lịch hẹn, không thu thập yêu cầu và không hứa thời gian phản hồi.
+          Zalo và Facebook Page là hai loại kênh đã được xác nhận để trao đổi trực tiếp. Website
+          không nhận lịch hẹn, không thu thập yêu cầu và không hứa thời gian phản hồi.
         </p>
       </header>
 

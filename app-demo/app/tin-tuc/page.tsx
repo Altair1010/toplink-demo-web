@@ -13,7 +13,7 @@ export default function NewsPage() {
         <h1>Chưa có bài viết được duyệt để công bố</h1>
         <p>
           Nội dung sức khỏe và dưỡng sinh cần có nguồn, người chịu trách nhiệm và trạng thái rà soát
-          phù hợp. Bộ bài viết demo hiện tại không đáp ứng các điều kiện đó nên không được hiển thị.
+          phù hợp. Bộ bài viết hiện có chưa đáp ứng các điều kiện đó nên không được hiển thị.
         </p>
       </header>
 

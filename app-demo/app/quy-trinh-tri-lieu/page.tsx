@@ -14,8 +14,9 @@ export default function ProcessPage() {
           <h1>Một quy trình chỉ đáng tin khi người đọc biết đâu là điều đã xác minh</h1>
         </div>
         <p>
-          Website chưa có SOP công khai để mô tả người tiếp nhận, thao tác, thời lượng hay bước theo
-          dõi. Thay vì dựng một hành trình giả, trang này giữ lại những câu hỏi cần được trả lời.
+          Website chưa có quy trình vận hành đã được xác minh để mô tả người tiếp nhận, thao tác,
+          thời lượng hay bước theo dõi. Thay vì dựng một hành trình giả, trang này giữ lại những câu
+          hỏi cần được trả lời.
         </p>
       </header>
       <VisitProcessExplanation />

@@ -14,8 +14,8 @@ export default function ServicesPage() {
         <h1>Hiểu từng nhóm trước khi tìm một tên dịch vụ cụ thể</h1>
         <p>
           Hồ sơ thương hiệu đã duyệt cấu trúc Lý liệu · Dược liệu · Dưỡng liệu và vai trò hỗ trợ của
-          thiết bị. Tên, thời lượng, giá và điều kiện áp dụng của từng dịch vụ vẫn cần Service Menu
-          riêng trước khi công bố.
+          thiết bị. Tên, thời lượng, giá và điều kiện áp dụng của từng dịch vụ vẫn cần một bảng
+          thông tin đã được xác minh trước khi công bố.
         </p>
       </header>
       <ServiceScope />

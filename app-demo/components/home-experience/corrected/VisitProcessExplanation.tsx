@@ -25,7 +25,7 @@ export default function VisitProcessExplanation() {
       <div className="hh-narrative__visit-body">
         <p className="hh-narrative__visit-limit">
           Website hiện chưa có nguồn vận hành đã duyệt để mô tả một trình tự cụ thể. Vì vậy phần này
-          không lặp lại bốn bước mock, thời lượng, người thực hiện hay lời hứa theo dõi.
+          không lặp lại mô tả bốn bước trước đây, thời lượng, người thực hiện hay lời hứa theo dõi.
         </p>
         <dl className="hh-narrative__visit-questions">
           {EXPECTATION_QUESTIONS.map((item) => (
