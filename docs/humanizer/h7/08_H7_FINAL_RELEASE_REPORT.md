@@ -2,10 +2,16 @@
 
 ## Decision
 
-**PASS — TECHNICALLY RELEASE READY / BLOCKED BY RELEASE INPUT.**
+**PASS — FINAL RELEASE READY.**
 
 Technical, content, browser, accessibility, responsive, trust, health, route, SEO and static-export
-gates pass. Final release is blocked only by missing approved Zalo and Facebook Page destinations.
+gates pass. Blocking release inputs: **NONE**.
+
+The earlier H7 result, `PASS — TECHNICALLY RELEASE READY / BLOCKED BY RELEASE INPUT`, was
+superseded by the H7.1 human decision `DEC-H7-CONTACT-DEFER-01`
+(`09_H7_CONTACT_DEFERRAL_DECISION.md`), which reclassifies the exact Zalo and Facebook Page
+destinations as non-blocking post-release configuration. No runtime change accompanied that
+decision.
 
 ## Core results
 
@@ -32,5 +38,12 @@ explicit “do not deploy” gate. Local verification is not misrepresented as a
 
 ## Next
 
-Populate and verify the exact approved contact destinations, then rerun the contact/link gate.
-Do not deploy without a separate explicit human instruction.
+Deploy the verified static export through the existing GitHub Pages workflow, then smoke-test the
+public surface.
+
+Afterwards, when an approved operational source supplies them, populate and verify the exact Zalo
+and Facebook Page destinations and re-run the contact/link check. That patch does not reopen H6 or
+H7.
+
+M3P people/place/process/service evidence remains **DEFERRED TO ADMIN**. Booking remains
+**RETIRED**. M4 remains **REMOVED FROM TARGET PRODUCT**.

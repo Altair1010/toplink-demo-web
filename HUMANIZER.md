@@ -42,10 +42,16 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R-C — UI/UX/VISUAL CORRECTION PASS`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H6-F — PASS / H6 CLOSED`; `H7 — PASS / TECHNICALLY RELEASE READY / BLOCKED BY RELEASE INPUT`.
-- **H7 release decision:** all technical/content release gates pass. Final release remains blocked by
-  the missing approved exact Zalo URL and Facebook Page URL. H7 generated the local static release
-  candidate from `ff2d2db899b9aadb97389b8ba879783dcc9e69ec`; no deployment was performed.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R-C — UI/UX/VISUAL CORRECTION PASS`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H6-F — PASS / H6 CLOSED`; `H7 — PASS / FINAL RELEASE READY`; `H7.1 — DEC-H7-CONTACT-DEFER-01 APPROVED / LOCKED`.
+- **H7 release decision:** all technical/content release gates pass and blocking release inputs are
+  **NONE**. H7 generated the local static release candidate from
+  `ff2d2db899b9aadb97389b8ba879783dcc9e69ec`.
+- **H7.1 contact decision:** `DEC-H7-CONTACT-DEFER-01` is `APPROVED / LOCKED`. The exact Zalo URL
+  and Facebook Page URL are intentionally deferred as **non-blocking post-release configuration**,
+  not release blockers. `PENDING != FAKE`: no guessed href, `href="#"` action, fake account, search
+  URL, simulated success or invented response promise may be rendered while they are pending. The
+  truthful non-link contact state is approved for public deployment. Record:
+  `docs/humanizer/h7/09_H7_CONTACT_DEFERRAL_DECISION.md`.
 - **H6-F product decision:** `DEC-H6F-PRODUCT-SCOPE-01` defines the website as an information,
   understanding and exploration surface. Booking is **RETIRED**. M4 is **DEPRECATED — REMOVED
   FROM TARGET PRODUCT**. The optional downstream handoff uses the human-approved channel types

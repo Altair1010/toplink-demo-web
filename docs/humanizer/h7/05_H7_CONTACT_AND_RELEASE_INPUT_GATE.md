@@ -20,11 +20,16 @@ The homepage and `/lien-he` therefore keep truthful non-link states. Fake URL co
 
 ### Blocking release
 
-1. approved exact Zalo destination;
-2. approved exact Facebook Page destination.
+**NONE.**
 
-### Non-blocking post-release content
+The two entries originally registered here — the approved exact Zalo destination and the approved
+exact Facebook Page destination — were reclassified by `DEC-H7-CONTACT-DEFER-01` (see
+`09_H7_CONTACT_DEFERRAL_DECISION.md`).
 
+### Non-blocking post-release configuration
+
+- exact Zalo destination;
+- exact Facebook Page destination;
 - M3P approved people/place/process/service evidence;
 - official brand font, logo and digital palette.
 
@@ -35,5 +40,12 @@ H7.
 
 ## Gate
 
-**BLOCKED.** The code/UI/system is technically ready, but the intended contact handoff cannot be a
-final clickable release until verified destinations exist.
+**PASS — NON-BLOCKING.** Superseded by `DEC-H7-CONTACT-DEFER-01`.
+
+The original H7 gate read `BLOCKED`: the code/UI/system was technically ready, but the intended
+contact handoff could not be a final clickable release until verified destinations existed. The
+human decision recorded in `09_H7_CONTACT_DEFERRAL_DECISION.md` accepts the truthful non-link
+contact state as releasable and moves both destinations to post-release configuration.
+
+The searched evidence above is unchanged: no approved destination exists, and none is guessed.
+`PENDING != FAKE` remains a hard invariant.
