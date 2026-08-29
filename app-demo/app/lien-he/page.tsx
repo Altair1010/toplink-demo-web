@@ -3,7 +3,10 @@ import SectionHeader from "@/components/SectionHeader";
 import FaqAccordion from "@/components/FaqAccordion";
 import { BRANCHES, CONTACT, FAQS } from "@/data/content";
 
-export const metadata = { title: "Liên hệ" };
+export const metadata = {
+  title: "Thông tin liên hệ",
+  description: "Địa chỉ, điện thoại và kênh liên hệ đang chờ nguồn vận hành được xác minh.",
+};
 
 export default function ContactPage() {
   const branch = BRANCHES[0];

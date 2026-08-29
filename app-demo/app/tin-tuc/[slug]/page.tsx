@@ -12,8 +12,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = POSTS.find((p) => p.slug === slug);
   return {
-    title: post ? post.title : "Tin tức",
-    description: post?.excerpt,
+    title: post ? "Nội dung đang được rà soát" : "Nội dung kiến thức",
+    description:
+      "Nội dung sức khỏe chỉ được công bố sau khi có nguồn và trạng thái review phù hợp.",
   };
 }
 

@@ -7,9 +7,8 @@ import YVienSpaceExperience from "@/components/YVienSpaceExperience";
 import { SPACES } from "@/data/content";
 
 export const metadata = {
-  title: "Không gian Y Viện",
-  description:
-    "Bốn tầng Tĩnh · Thông · Dưỡng · Tỉnh, hành trình đưa cơ thể từ căng thẳng về cân bằng tại Y Viện Toplink.",
+  title: "Thông tin không gian",
+  description: "Thông tin về địa điểm và không gian đang chờ nguồn thực tế được xác minh.",
 };
 
 export default function SpacePage() {

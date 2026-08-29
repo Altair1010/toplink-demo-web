@@ -3,7 +3,10 @@ import SectionHeader from "@/components/SectionHeader";
 import ServiceFilterGrid from "@/components/ServiceFilterGrid";
 import { SERVICES } from "@/data/content";
 
-export const metadata = { title: "Dịch vụ" };
+export const metadata = {
+  title: "Thông tin dịch vụ",
+  description: "Phạm vi, thời lượng, giá và độ phù hợp của dịch vụ đang chờ nguồn xác minh.",
+};
 
 export default function ServicesPage() {
   return (

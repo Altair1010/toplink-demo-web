@@ -7,9 +7,9 @@ import OrientationCore from "@/components/home-experience/corrected/OrientationC
  * HOMEPAGE — M2B hoàn tất narrative an toàn sau định hướng, không dùng mock fact hoặc evidence.
  */
 export const metadata: Metadata = {
-  title: "Y Viện Toplink — Trị liệu Đông y, cổ vai gáy, lưng eo & dưỡng sinh tại Hà Nội",
+  title: "Y Viện Toplink — Dưỡng thân, tỉnh thức",
   description:
-    "Không gian chăm sóc sức khỏe chủ động: dưỡng sinh Đông y, trị liệu thủ công cổ vai gáy · lưng eo, thảo dược và công nghệ hỗ trợ phục hồi. Đặt lịch tại Y Viện Toplink Hà Nội.",
+    "Bắt đầu từ điều đang quan tâm, xem phạm vi thông tin và giới hạn trước khi quyết định.",
 };
 
 export default function HomePage() {

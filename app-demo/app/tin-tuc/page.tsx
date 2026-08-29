@@ -3,9 +3,8 @@ import BlogIndex from "@/components/BlogIndex";
 import { POSTS } from "@/data/content";
 
 export const metadata = {
-  title: "Tin tức",
-  description:
-    "Kiến thức sức khỏe và dưỡng sinh Đông y giúp chị/anh chăm sóc cơ thể chủ động mỗi ngày.",
+  title: "Nội dung kiến thức",
+  description: "Nội dung sức khỏe chỉ được công bố sau khi có nguồn và trạng thái review phù hợp.",
 };
 
 export default function NewsPage() {

@@ -2,7 +2,10 @@ import Link from "next/link";
 import SectionHeader from "@/components/SectionHeader";
 import HealingProcessMotion from "@/components/HealingProcessMotion";
 
-export const metadata = { title: "Quy trình trị liệu" };
+export const metadata = {
+  title: "Thông tin trải nghiệm",
+  description: "Trình tự vận hành và người phụ trách đang chờ nguồn thực tế được xác minh.",
+};
 
 export default function ProcessPage() {
   return (

@@ -11,8 +11,7 @@ import { TEAM, STATS } from "@/data/content";
 
 export const metadata = {
   title: "Giới thiệu",
-  description:
-    "Y Viện Toplink · Dưỡng Thân, Tỉnh Thức. Sứ mệnh, triết lý dưỡng sinh và đội ngũ chuyên viên chăm sóc sức khỏe cá nhân hóa.",
+  description: "Nền tảng thương hiệu Dưỡng Thân · Tỉnh Thức và các giới hạn đang được xác minh.",
 };
 
 const HERO_IMAGES = [

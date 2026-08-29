@@ -1,7 +1,10 @@
 import BookingStepper from "@/components/BookingStepper";
 import SectionHeader from "@/components/SectionHeader";
 
-export const metadata = { title: "Đặt lịch" };
+export const metadata = {
+  title: "Xem lại nhu cầu",
+  description: "Sắp xếp điều đang quan tâm trên trang; không có yêu cầu nào được gửi đi.",
+};
 
 export default function BookingPage() {
   return (

@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
   return {
-    title: `${service.name} — ${service.duration}, từ ${service.priceFrom}`,
-    description: service.short,
+    title: "Thông tin dịch vụ",
+    description: "Phạm vi, thời lượng, giá và độ phù hợp của dịch vụ đang chờ nguồn xác minh.",
   };
 }
 

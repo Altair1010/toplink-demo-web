@@ -6,9 +6,8 @@ import Reveal from "@/components/Reveal";
 import { TRAINING, CONTACT } from "@/data/content";
 
 export const metadata = {
-  title: "Đào tạo KTV",
-  description:
-    "Đào tạo kỹ thuật viên trị liệu Đông y dưỡng sinh bài bản tại Y Viện Toplink: lộ trình từ nền tảng đến thực hành và chứng nhận.",
+  title: "Thông tin đào tạo",
+  description: "Thông tin đào tạo trên website demo đang chờ hồ sơ chương trình được xác minh.",
 };
 
 export default function TrainingPage() {

@@ -4,8 +4,8 @@ import Reveal from "@/components/Reveal";
 import { PRODUCTS } from "@/data/content";
 
 export const metadata = {
-  title: "Sản phẩm",
-  description: "Thảo dược, máy sức khỏe và sản phẩm hỗ trợ dưỡng sinh tại nhà từ Y Viện Toplink.",
+  title: "Thông tin sản phẩm",
+  description: "Danh mục, công dụng và giá sản phẩm đang chờ hồ sơ được xác minh.",
 };
 
 export default function ProductsPage() {

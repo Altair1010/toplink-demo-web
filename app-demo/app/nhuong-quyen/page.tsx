@@ -6,9 +6,8 @@ import Reveal from "@/components/Reveal";
 import { FRANCHISE, CONTACT } from "@/data/content";
 
 export const metadata = {
-  title: "Nhượng quyền & Hợp tác",
-  description:
-    "Hợp tác cùng Y Viện Toplink: hỗ trợ trọn gói set-up, vận hành, đào tạo đội ngũ, sản phẩm và marketing để phát triển mô hình dưỡng sinh.",
+  title: "Thông tin hợp tác",
+  description: "Phạm vi và điều kiện hợp tác đang chờ hồ sơ chương trình được xác minh.",
 };
 
 export default function FranchisePage() {
