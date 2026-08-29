@@ -54,9 +54,9 @@ until an approved operational source supplies them.
 - `/tin-tuc` — bounded knowledge/read-more route;
 - `/lien-he` — contact-directory boundary for Zalo and Facebook Page.
 
-`/dat-lich` is retired. Dynamic service/article detail routes and unsupported commercial/place
-routes are deferred outside `app/`. Motion labs live under `app-demo/dev-evidence/` and are absent
-from the production route graph.
+`/dat-lich` is retired. Dynamic service/article detail routes, unsupported commercial/place
+routes and the maintainer motion labs are removed from the tracked tree; they remain recoverable
+from the `humanizer-h7-final-20260829` archive tag.
 
 ## Homepage Graph
 
@@ -112,7 +112,7 @@ The previous symptom taxonomy, automatic service recommendation and booking path
 - Scrolling is native and public motion is bounded to opacity/transform behavior.
 - Orientation state changes preserve user control and never simulate transport or success.
 - `prefers-reduced-motion: reduce` reaches the final readable state without active animation.
-- Motion-lab specimens are maintainer evidence only and are not production routes.
+- No motion lab or motion specimen is part of the tracked tree or the production route graph.
 
 ## Skins and Tokens
 
@@ -132,9 +132,10 @@ The previous symptom taxonomy, automatic service recommendation and booking path
 
 ## Deferred Content
 
-Source retained under `app-demo/deferred-content/` is not part of the static release graph. It may
-be reviewed and migrated later, but it must not be treated as current public truth. This includes
-space, service/article detail, product, training and partnership material.
+Space, service/article detail, product, training and partnership material is not part of the
+static release graph and is no longer carried in the tracked tree. It remains recoverable from the
+`humanizer-h7-final-20260829` archive tag, but it must not be treated as current public truth: any
+later migration needs approved evidence, not the retained draft copy.
 
 ## Accessibility Contract
 

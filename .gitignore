@@ -20,10 +20,10 @@ build
 # Công cụ extract token (clone riêng) & artifact kiểm thử — không đưa vào demo
 /dembrandt/
 /.playwright-mcp/
-/home-desktop.jpeg
+/.release/
 /CLAUDE.docx
 
-# Ảnh reference chụp màn hình ở ROOT (asset app nằm trong app-demo/public, không phải đây)
+# Ảnh reference chụp màn hình ở ROOT — không phải asset của app
 /*.jpeg
 /*.jpg
 /*.png
