@@ -95,9 +95,8 @@ numbers must not reinterpret the project phase map above.
   the external knowledge branch is deferred rather than fabricated.
 - **M3S-2 inventory:** ten independent claim families are registered in
   `docs/humanizer/h6/26_M3S2_CLAIM_INVENTORY.md`. F10 metadata/SEO, F4 staff/stat and F5
-  review/testimonial and F1 identity/contact claims are verified; F9 articles remain eligible only
-  as an exact true-collapse batch. F2/F3/F6/F7/F8 remain deferred or blocked from automatic
-  inference.
+  review/testimonial, F1 identity/contact and F9 article/knowledge claims are verified by bounded
+  rewrite or true collapse. F2/F3/F6/F7/F8 remain deferred or blocked from automatic inference.
 - **Batch status after M2B:** M3S-2 split execution is active under the consolidated stop rule; M3P
   remains deferred to admin; M4 remains blocked; M5 remains deferred.
 - **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
