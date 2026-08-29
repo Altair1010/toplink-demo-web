@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Y Viện Toplink
-description: Deep, soulful Đông-y wellness brand — saturated crimson red, heritage gold, dark wood, and warm ivory for a luxurious, grounded, traditional-Eastern medicine experience.
+description: Partial H6 runtime — corrected sans-first homepage narrative inside a retained crimson/gold compatibility shell; legacy routes are not yet converged.
 colors:
   primary: "#95131f"
   primary-light: "#f5d9d6"
@@ -89,7 +89,6 @@ spacing:
   margin: 32px
   card-pad: 32px
   max-width: 1280px
-  max-width-narrow: 760px
 rounded:
   sm: 2px
   md: 4px
@@ -130,27 +129,94 @@ components:
 > phù hợp và Approved Migration Record. Xem `HUMANIZER.md`; cho đến khi migration được
 > implementation + verification, `tokens.css` vẫn là Runtime Truth.
 
+## H6 Runtime Status — PARTIAL
+
+This file describes the runtime at H6 final rebase, not a finished Humanizer system.
+
+### Corrected homepage graph
+
+```text
+HomeHero (bounded opening context; legacy visual shell)
+    ↓
+OrientationCore
+    ├─ OpeningQuestion
+    ├─ GuidedOrientation
+    ├─ ClearBoundary
+    └─ ConsequenceBeforeAction (local / no-send)
+    ↓
+NarrativeCompletion
+    ├─ ServiceScope
+    ├─ VisitProcessExplanation
+    ├─ EvidenceAnswer → null in production (0 approved records)
+    └─ ContinueUnderstanding → local return to orientation
+```
+
+`HomeExperience → Tắc/Hàn/Hư/Loạn → service recommendation` is deleted and unreachable.
+`StaticOrientationShell` remains the M2A0 rollback floor.
+
+### Actual typography consumers
+
+- Corrected homepage roles use Be Vietnam Pro through component-local `hh-*` rules and the M1C
+  behavior contract.
+- `HomeHero`, `HealingProcessMotion` and `YVienSpaceExperience` still consume
+  `.font-serif-display`/Noto Serif.
+- Noto has 10 remaining load, alias and consumer references across 6 files. It is a runtime
+  compatibility font, **not** an official brand font.
+- The official font family remains unverified.
+
+### Actual semantic tokens and skins
+
+- M0R-JIT added zero aliases; corrected roles remain component-local or use existing primitives.
+- `tokens.css` still exposes the legacy crimson/gold/wood/ivory system and is not Humanizer Target
+  Truth.
+- All three live skins remain: `yvien` (default), `tet`, `an-tinh`. Browser verification confirms
+  distinct primary/surface/motion values for each.
+
+### Actual motion
+
+- Corrected orientation/narrative uses bounded CSS state/reveal behavior and native scroll.
+- `prefers-reduced-motion: reduce` disables homepage fade/leaf animation in the verified browser.
+- Legacy route motion (`Reveal`, `ConvergeOnScroll`, space/process motion and decorative leaves)
+  remains active compatibility behavior and route migration debt.
+
+### Trust and operational state
+
+- Booking is fail-closed: local review only, no form, submit control, iframe, recipient, transport,
+  confirmed/success state or mutating request.
+- Booking still contains unverified need labels, service matching, duration and price. It is not H7
+  ready.
+- Production evidence count is zero. Evidence UI truly collapses; reviews, staff metrics and demo
+  article bodies are removed from reachable production.
+- Contact publishes no branch, phone, map, email, social channel or response promise.
+- M3P remains **DEFERRED TO ADMIN**. M4 remains **BLOCKED OPERATIONALLY**.
+
+### Remaining route debt
+
+`/`, `/dich-vu`, `/dich-vu/[slug]`, `/dat-lich`, `/gioi-thieu`, `/khong-gian`,
+`/quy-trinh-tri-lieu`, `/san-pham`, `/dao-tao`, `/nhuong-quyen` and public `/motion-lab*`
+surfaces remain H6-blocking debt. The homepage still retains a red/gold prestige hero and stock
+ambience; other legacy routes retain unverified service, health, place, process or commercial
+claims and repeated card grammar. Eight route families also lack an `h1`.
+
+H6 is therefore **PARTIAL — CROSS-PAGE MIGRATION DELTA REQUIRED**, not full convergence and not H7
+eligible.
+
 ## Overview
 
-Y Viện Toplink is an Đông-y (traditional Vietnamese medicine) wellness clinic and
-dưỡng sinh sanctuary, styled after its parent brand **nhatlieuyvien.vn**. The
-interface must feel **luxurious, grounded, serene, and deeply rooted in Eastern
-tradition** — a calm, dignified place to slow down and be cared for. The primary
-audience skews **middle-aged and elderly**, so the design favors **large type,
-large content blocks, high color contrast, and generous breathing room** over
-clinical sterility or trendy minimalism.
+The current runtime is a mixed system. Its corrected homepage uses a sans-first editorial sequence
+to help a person state uncertainty, understand boundaries and keep decision authority. Its global
+shell and most inner routes still use the older crimson/gold/wood design, Noto display type,
+decorative material language and card-heavy layouts.
 
-The look is rich and warm: a **deep, saturated crimson red** anchors the brand,
-paired with **heritage gold**, **dark wood**, and a warm ivory paper background.
-It must **never** read as pale or washed-out, coldly medical, like a mass-market
-spa, or over-animated. Restraint guides the motion and layout; saturation and
-craft give it soul.
+The approved brand profile supports warm Caregiver, clear Sage and non-coercive Guide behavior. It
+does not verify the legacy palette as official digital identity, a facility, service facts, health
+outcomes, staff, evidence, contact data or operational programs. Those runtime remnants must not be
+read as brand approval.
 
 ## Colors
 
-The palette is built on a deep, saturated crimson with gold and wood — the
-traditional Eastern language of vitality (đỏ son), prosperity (vàng kim), and
-natural materials (nâu gỗ).
+The retained compatibility palette is built on crimson, gold and wood. It is what currently runs,
+not a verified official brand palette and not the locked Humanizer visual target.
 
 - **Primary — Crimson (#95131f):** A deep, saturated brand red for primary actions,
   the brand mark, hero surfaces, and key emphasis. Conveys vitality, warmth, and
@@ -186,10 +252,8 @@ it is a different brand, not a skin.
 
 ## Typography
 
-Two families carry the system: **Noto Serif** (headings, weight **600**) for an
-elegant, prestigious Eastern-classical voice; and **Be Vietnam Pro** for body, UI
-text and every heading from h3 down, chosen for excellent Vietnamese diacritic
-rendering and high legibility.
+Two families remain loaded in runtime: **Noto Serif** for legacy display consumers and **Be Vietnam
+Pro** for body/UI plus the corrected homepage. Neither is claimed as the official brand font.
 
 - **Serif is reserved.** Noto Serif is used **only** for h1, h2, brand statements
   and large pull quotes. If every sentence is ceremonial, none of them are.
@@ -317,39 +381,39 @@ horizontal scenes, Flip, SplitText, DrawSVG and counters — on inner pages only
 Front-matter keys above map to CSS custom properties declared in
 `app-demo/styles/tokens.css`. The CSS name is what you write in code.
 
-| DESIGN.md key | CSS token | Value |
-|---|---|---|
-| `primary` | `--color-crimson-600` | `#95131f` |
-| `primary-light` | `--color-crimson-100` | `#f5d9d6` |
-| `primary-soft` | `--color-crimson-200` | `#e6a9a3` |
-| `primary-dark` | `--color-crimson-700` | `#7e0a15` |
-| `primary-deep` | `--color-crimson-800` | `#6a0511` |
-| `accent-red` | `--color-accent-red` | `#c70002` |
-| `accent-red-dark` | `--color-accent-red-dark` | `#b20000` |
-| `secondary` | `--color-gold-500` | `#d8aa4b` |
-| `secondary-light` | `--color-gold-300` | `#f3d27a` |
-| `secondary-bright` / `on-primary` | `--color-gold-200` | `#f7e8c2` |
-| `secondary-dark` | `--color-gold-600` | `#a9802c` |
-| `wood` | `--color-wood-500` | `#56351f` |
-| `wood-dark` | `--color-wood-700` | `#3a2114` |
-| `tertiary` | `--color-jade-500` | `#2f5d50` |
-| `tertiary-dark` | `--color-jade-600` | `#244a3f` |
-| `neutral` | `--color-ivory` | `#fffcf7` |
-| `surface` | `--color-cream` | `#f6f4df` |
-| `surface-high` | `--color-sand` | `#e7d6b4` |
-| `mist` | `--color-mist` | `#e6e5d7` |
-| `on-surface` | `--color-ink` | `#1a1410` |
-| `on-surface-soft` | `--color-ink-soft` | `#4a4a4a` |
-| `display-hero.fontSize` | `--text-hero` | `clamp(3rem, 6vw, 4.75rem)` |
-| `display-1.fontSize` | `--text-statement` | `clamp(1.75rem, 3vw, 2rem)` |
-| `body-lg.fontSize` | `--text-body-lg` | `1.25rem` |
-| `body-md.fontSize` | `--text-body-md` | `1.125rem` |
-| `label-caps.letterSpacing` | `--tracking-eyebrow` | `0.06em` |
-| `rounded.sm` … `rounded.3xl` | `--radius-sm` … `--radius-3xl` | `2/4/6/8/16/24px` |
-| `max-width` | `--container-wide` | `1280px` |
-| `max-width-narrow` | `--container-narrow` | `760px` |
-| — | `--motion-fast` / `-medium` / `-slow` | `180ms` / `420ms` / `760ms` |
-| — | `--ease-soft` / `--ease-ritual` | see Motion |
+| DESIGN.md key                     | CSS token                             | Value                       |
+| --------------------------------- | ------------------------------------- | --------------------------- |
+| `primary`                         | `--color-crimson-600`                 | `#95131f`                   |
+| `primary-light`                   | `--color-crimson-100`                 | `#f5d9d6`                   |
+| `primary-soft`                    | `--color-crimson-200`                 | `#e6a9a3`                   |
+| `primary-dark`                    | `--color-crimson-700`                 | `#7e0a15`                   |
+| `primary-deep`                    | `--color-crimson-800`                 | `#6a0511`                   |
+| `accent-red`                      | `--color-accent-red`                  | `#c70002`                   |
+| `accent-red-dark`                 | `--color-accent-red-dark`             | `#b20000`                   |
+| `secondary`                       | `--color-gold-500`                    | `#d8aa4b`                   |
+| `secondary-light`                 | `--color-gold-300`                    | `#f3d27a`                   |
+| `secondary-bright` / `on-primary` | `--color-gold-200`                    | `#f7e8c2`                   |
+| `secondary-dark`                  | `--color-gold-600`                    | `#a9802c`                   |
+| `wood`                            | `--color-wood-500`                    | `#56351f`                   |
+| `wood-dark`                       | `--color-wood-700`                    | `#3a2114`                   |
+| `tertiary`                        | `--color-jade-500`                    | `#2f5d50`                   |
+| `tertiary-dark`                   | `--color-jade-600`                    | `#244a3f`                   |
+| `neutral`                         | `--color-ivory`                       | `#fffcf7`                   |
+| `surface`                         | `--color-cream`                       | `#f6f4df`                   |
+| `surface-high`                    | `--color-sand`                        | `#e7d6b4`                   |
+| `mist`                            | `--color-mist`                        | `#e6e5d7`                   |
+| `on-surface`                      | `--color-ink`                         | `#1a1410`                   |
+| `on-surface-soft`                 | `--color-ink-soft`                    | `#4a4a4a`                   |
+| `display-hero.fontSize`           | `--text-hero`                         | `clamp(3rem, 6vw, 4.75rem)` |
+| `display-1.fontSize`              | `--text-statement`                    | `clamp(1.75rem, 3vw, 2rem)` |
+| `body-lg.fontSize`                | `--text-body-lg`                      | `1.25rem`                   |
+| `body-md.fontSize`                | `--text-body-md`                      | `1.125rem`                  |
+| `label-caps.letterSpacing`        | `--tracking-eyebrow`                  | `0.06em`                    |
+| `rounded.sm` … `rounded.3xl`      | `--radius-sm` … `--radius-3xl`        | `2/4/6/8/16/24px`           |
+| `max-width`                       | `--container-wide`                    | `1280px`                    |
+| `max-width-narrow`                | `--container-narrow`                  | `760px`                     |
+| —                                 | `--motion-fast` / `-medium` / `-slow` | `180ms` / `420ms` / `760ms` |
+| —                                 | `--ease-soft` / `--ease-ritual`       | see Motion                  |
 
 Tokens with no front-matter key (`--color-crimson-50/300/400/500`, `--color-gold-400/700`,
 `--color-wood-400`, `--color-ink-mute`, `--color-paper-light`) exist in CSS only.

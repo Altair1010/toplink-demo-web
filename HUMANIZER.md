@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B, M3S-1, M2A0, M1C, M2A1 AND M2B IMPLEMENTED / VERIFIED; M0R-JIT PASS / NO-OP / VERIFIED`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — PARTIAL: CROSS-PAGE MIGRATION DELTA REQUIRED; H7 INELIGIBLE`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -75,8 +75,8 @@ numbers must not reinterpret the project phase map above.
   visible content, metadata and breadcrumb navigation remain unchanged.
 - **M2A0 migration:** `DEC-MIGR-H6-M2A0-01` approved M2A0 only. The production homepage now uses a
   static sans-first Opening Question → Clear Boundary → local no-send/uncertainty shell; the old
-  Body Signal → Tắc/Hàn/Hư/Loạn → automatic service recommendation source is retained but no longer
-  reachable from `/`.
+  Body Signal → Tắc/Hàn/Hư/Loạn → automatic service recommendation graph is unreachable from `/`
+  and its proven zero-consumer source is removed by M5A.
 - **M1C typography calibration:** `DEC-H6-CONSOLIDATED-01 / C1` resolves the required brand profile
   at its absolute source path and locks a sans-first behavior contract for named M2A1/M2B
   consumers. Be Vietnam Pro remains a digital workhorse/runtime candidate, not an official brand
@@ -91,20 +91,28 @@ numbers must not reinterpret the project phase map above.
 - **M2B narrative completion:** the reachable homepage now continues through bounded service
   category meaning, a truthful process expectation boundary, production zero-evidence collapse and
   a local return-to-orientation continuation. `RitualTimeline`, `SpaceAsTherapy` and `HomeFinalCTA`
-  are no longer reachable; source remains for M5 audit. No reviewed learning destination exists, so
-  the external knowledge branch is deferred rather than fabricated.
+  are no longer reachable and their zero-consumer source is removed by M5A. No reviewed learning
+  destination exists, so the external knowledge branch is deferred rather than fabricated.
 - **M3S-2 inventory:** ten independent claim families are registered in
   `docs/humanizer/h6/26_M3S2_CLAIM_INVENTORY.md`. F10 metadata/SEO, F4 staff/stat and F5
   review/testimonial, F1 identity/contact, F9 article/knowledge and F3A homepage health claims are
   verified by bounded rewrite or true collapse. F2 and the remaining F3/F6/F7/F8 families require
   a route migration delta and remain deferred or blocked from automatic inference.
-- **Batch status after M2B:** M3S-2 split execution is active under the consolidated stop rule; M3P
-  remains deferred to admin; M4 remains blocked; M5 remains deferred.
+- **M3S-2 final state:** F10, F4, F5, F1, F9 and bounded F3A are implemented/verified. F2 and the
+  remaining F3/F6/F7/F8 families are explicitly deferred because safe completion requires a
+  material cross-page migration delta.
 - **M5A cleanup:** the closed pre-M2A0 symptom/taxonomy/recommendation graph has zero runtime, test
   and rollback consumers and is removed. `HomeHero` remains live; `StaticOrientationShell` remains
   the M2A0 rollback floor. M5B is ineligible with 10 Noto references. M5C removes only proven
   zero-consumer evidence/contact/article components, demo exports and their exact legacy selectors;
   all live tokens, primitives and the `yvien`/`tet`/`an-tinh` skins remain.
+- **H6 final rebase:** runtime truth is `PARTIAL`. Homepage score is 74/100; booking is 55/100 with
+  a hard-fail override; route-family coverage is 124/288 (43%); whole-site Humanizer estimate is
+  58/100 and scorecard is 25/60 with hard-fail overrides. Final browser/static verification has zero
+  console errors, zero mutating requests and no reflow failure, but eight legacy route families lack
+  an `h1`, public `/motion-lab*` specimen routes remain, and multiple route families retain
+  unverified facts/legacy visual grammar. M3P stays deferred to admin; M4 stays blocked with no
+  transport introduced. Next is an approved H6 cross-page delta, **not H7**.
 - **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
   batches in sequence only after the immediately preceding internal gate passes. Any hard fail
   stops the consolidated run.
