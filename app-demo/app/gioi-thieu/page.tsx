@@ -1,120 +1,46 @@
-import Link from "next/link";
-import Img from "@/components/Img";
-import SectionHeader from "@/components/SectionHeader";
-import { Leaf, Target, Eye, Heart } from "@/components/Glyph";
-import { ConvergeItem } from "@/components/ConvergeOnScroll";
-import AmbientLeaves from "@/components/motion/AmbientLeaves";
-import SplitReveal from "@/components/motion/SplitReveal";
-
 export const metadata = {
-  title: "Giới thiệu",
-  description: "Nền tảng thương hiệu Dưỡng Thân · Tỉnh Thức và các giới hạn đang được xác minh.",
+  title: "Về Y Viện Toplink",
+  description:
+    "Định hướng Dưỡng Thân · Tỉnh Thức và cách Toplink muốn giúp người đọc hiểu trước khi lựa chọn.",
 };
-
-const HERO_IMAGES = [
-  { src: "/images/spaces/tang-1-tinh.jpg", from: "left" as const, dist: 280 },
-  { src: "/images/spaces/tang-3-duong.jpg", from: "up" as const, dist: 200 },
-  { src: "/images/spaces/tang-4-tinh.jpg", from: "right" as const, dist: 280 },
-];
 
 export default function AboutPage() {
   return (
-    <div className="relative overflow-hidden">
-      <AmbientLeaves />
-      <div className="relative mx-auto max-w-5xl px-4 py-14 sm:px-6">
-        <SectionHeader
-          eyebrow="Giới thiệu"
-          title="Y Viện Dưỡng Thân · Tỉnh Thức"
-          desc="Y Viện Toplink kết hợp Đông y dưỡng sinh, lý liệu trị liệu và công nghệ cao để chăm sóc sức khỏe một cách cá nhân hóa và có chiều sâu."
-        />
+    <div className="info-page">
+      <header className="info-page__header">
+        <p className="info-eyebrow">Về Y Viện</p>
+        <h1>Toplink định hướng trở thành một nơi dưỡng thân và giúp người đọc hiểu rõ hơn</h1>
+        <p>
+          Hồ sơ thương hiệu 2026 mô tả Toplink bằng tinh thần Caregiver, Sage và Guide: ấm áp nhưng
+          không làm thay, có hiểu biết nhưng không lên lớp, dẫn đường nhưng không quyết định hộ.
+        </p>
+      </header>
 
-        {/* HERO converge — ba khối không gian trôi về giữa khi cuộn */}
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
-          {HERO_IMAGES.map((im, i) => (
-            <ConvergeItem
-              key={im.src}
-              from={im.from}
-              dist={im.dist}
-              className={`aspect-[3/4] overflow-hidden frame-gold ${i === 1 ? "sm:-mt-6" : "sm:mt-6"}`}
-            >
-              <div className="relative h-full w-full">
-                <Img
-                  src={im.src}
-                  alt="Không gian Y Viện Toplink"
-                  fill
-                  sizes="(max-width: 640px) 100vw, 33vw"
-                  className="object-cover"
-                />
-              </div>
-            </ConvergeItem>
-          ))}
-        </div>
-
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
-          <ConvergeItem
-            from="left"
-            dist={180}
-            className="rounded-md border border-sand bg-cream p-8 shadow-sm"
-          >
-            <Target className="h-8 w-8 text-gold-700" />
-            <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Sứ mệnh</h3>
-            <p className="mt-2 text-lg leading-relaxed text-ink-soft">
-              Giúp mỗi người được lắng nghe cơ thể, phục hồi năng lượng và tìm lại sự cân bằng thân
-              · tâm · trí giữa nhịp sống hiện đại.
-            </p>
-          </ConvergeItem>
-          <ConvergeItem
-            from="right"
-            dist={180}
-            className="rounded-md border border-sand bg-cream p-8 shadow-sm"
-          >
-            <Eye className="h-8 w-8 text-gold-700" />
-            <h3 className="mt-4 text-2xl font-semibold text-crimson-600">Tầm nhìn</h3>
-            <p className="mt-2 text-lg leading-relaxed text-ink-soft">
-              Trở thành hệ thống Y Viện dưỡng sinh được tin cậy, lan tỏa lối sống chăm sóc sức khỏe
-              chủ động.
-            </p>
-          </ConvergeItem>
-        </div>
-
-        <div className="on-dark mt-10 frame-gold bg-crimson-800 p-8 text-ivory sm:p-12">
-          <Leaf className="h-10 w-10 text-gold-300" />
-          <SplitReveal as="h2" className="mt-4 text-3xl text-gold-200">
-            Triết lý <span className="emph emph-light">dưỡng sinh</span>
-          </SplitReveal>
-          <p className="mt-3 max-w-2xl text-lg leading-relaxed text-cream/85">
-            Chúng tôi tin rằng cơ thể có khả năng tự cân bằng khi được chăm sóc đúng cách và đủ tĩnh
-            tại. Mỗi liệu trình tại Y Viện bắt đầu từ việc lắng nghe, không vội vàng, không cam kết
-            quá lời.
+      <section className="info-editorial-pair" aria-labelledby="about-purpose">
+        <h2 id="about-purpose">Điều thương hiệu muốn giữ</h2>
+        <div>
+          <p>
+            Đưa những giá trị phù hợp của Đông y dưỡng sinh vào đời sống hiện đại bằng ngôn ngữ dễ
+            hiểu; xây dựng trải nghiệm lấy con người làm trung tâm và tôn trọng khác biệt cá nhân.
+          </p>
+          <p>
+            “Dưỡng Thân · Tỉnh Thức” là descriptor đã có trong hồ sơ thương hiệu. Nó không thay cho
+            hồ sơ pháp lý, danh mục dịch vụ, SOP, nhân sự, cơ sở hoặc bằng chứng vận hành.
           </p>
         </div>
+      </section>
 
-        <div className="mt-10">
-          <h2 className="text-3xl font-bold text-crimson-600">Giá trị cốt lõi</h2>
-          <div className="mt-5 grid gap-6 sm:grid-cols-3">
-            {[
-              { icon: Heart, t: "Tận tâm", d: "Chăm sóc bằng sự thấu hiểu và tôn trọng." },
-              { icon: Leaf, t: "Tự nhiên", d: "Ưu tiên liệu pháp dưỡng sinh an toàn." },
-              { icon: Target, t: "Tôn trọng", d: "Giữ quyền cân nhắc và quyết định ở mỗi người." },
-            ].map(({ icon: Icon, t, d }) => (
-              <div key={t} className="rounded-md border border-sand bg-cream p-8">
-                <Icon className="h-7 w-7 text-crimson-600" />
-                <h3 className="mt-3 text-xl font-semibold text-crimson-600">{t}</h3>
-                <p className="mt-1 text-base text-ink-soft">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/dat-lich"
-            className="inline-block rounded-sm bg-gold-500 px-[2.1rem] py-[1.05rem] text-[1.35rem] font-semibold uppercase tracking-wide text-wood-700 hover:bg-gold-400"
-          >
-            Đặt lịch trải nghiệm
-          </Link>
-        </div>
-      </div>
+      <section className="info-boundary" aria-labelledby="about-boundary">
+        <p className="info-eyebrow">Giới hạn hiện tại</p>
+        <h2 id="about-boundary">
+          Website chưa dùng hình ảnh, con người hay không gian để chứng minh điều chưa được xác
+          minh.
+        </h2>
+        <p>
+          Bằng chứng về địa điểm, nhân sự, quy trình và dịch vụ sẽ chỉ xuất hiện sau khi có nguồn,
+          quyền công bố và review phù hợp. M3P vẫn được chuyển cho admin ở giai đoạn sau.
+        </p>
+      </section>
     </div>
   );
 }

@@ -1,35 +1,24 @@
-import Link from "next/link";
-import SectionHeader from "@/components/SectionHeader";
-import HealingProcessMotion from "@/components/HealingProcessMotion";
+import VisitProcessExplanation from "@/components/home-experience/corrected/VisitProcessExplanation";
 
 export const metadata = {
-  title: "Thông tin trải nghiệm",
-  description: "Trình tự vận hành và người phụ trách đang chờ nguồn thực tế được xác minh.",
+  title: "Trước một trải nghiệm",
+  description: "Những câu hỏi cần được làm rõ trước, trong và sau một trải nghiệm chăm sóc.",
 };
 
 export default function ProcessPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <SectionHeader
-        center
-        eyebrow="Quy trình trị liệu"
-        title="Một hành trình chăm sóc bài bản"
-        desc="Y Viện làm việc có quy trình, minh bạch và tôn trọng cơ thể của chị/anh ở mỗi bước."
-      />
-
-      {/* 4 bước motion — di cư từ homepage (đại cách tân) */}
-      <div className="mt-12">
-        <HealingProcessMotion />
-      </div>
-
-      <div className="mt-10 text-center">
-        <Link
-          href="/dat-lich"
-          className="inline-block rounded-sm bg-gold-500 px-7 py-3.5 text-base font-semibold text-wood-700 transition-colors hover:bg-gold-400"
-        >
-          Bắt đầu hành trình của chị/anh
-        </Link>
-      </div>
+    <div className="info-page">
+      <header className="info-page__header info-page__header--split">
+        <div>
+          <p className="info-eyebrow">Trước một trải nghiệm</p>
+          <h1>Một quy trình chỉ đáng tin khi người đọc biết đâu là điều đã xác minh</h1>
+        </div>
+        <p>
+          Website chưa có SOP công khai để mô tả người tiếp nhận, thao tác, thời lượng hay bước theo
+          dõi. Thay vì dựng một hành trình giả, trang này giữ lại những câu hỏi cần được trả lời.
+        </p>
+      </header>
+      <VisitProcessExplanation />
     </div>
   );
 }

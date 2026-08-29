@@ -8,7 +8,7 @@
    chỉ được dùng như THIẾT BỊ ÁNH SÁNG ở đúng ba chỗ: scrim hero, .cta-glow, và lớp
    phủ đọc-chữ trên ảnh (BrandVisual). Xem DESIGN.md §Elevation & Depth.
    Bo góc vuông vức (sharp/formal). Chữ lớn cho người trung niên/cao tuổi.
-   Heading: Noto Serif (serif, SemiBold 600 — Bộ 1 "Cổ phương") · Body: Be Vietnam Pro.
+   Typography runtime: Be Vietnam Pro cho toàn bộ bề mặt công khai.
    ============================================================ */
 @theme {
   /* ---- Surfaces (kem giấy cổ / ngọc trắng / cát / sương) ---- */
@@ -65,11 +65,10 @@
   --color-clay-800: #7e0a15;
 
   /* ---- Fonts ---- */
-  /* Heading (Bộ 1 "Cổ phương"): serif Noto Serif — CHỈ h1/h2/statement/quote.
-     Body + h3 trở xuống: Be Vietnam Pro (--font-sans). */
-  --font-display: var(--font-noto-serif), "Times New Roman", Georgia, serif;
+  /* Be Vietnam Pro là digital workhorse, không phải official brand font. */
+  --font-display: var(--font-sans);
   --font-sans: var(--font-be-vietnam), "Segoe UI", system-ui, sans-serif;
-  --font-serif: var(--font-noto-serif), "Times New Roman", Georgia, serif;
+  --font-serif: var(--font-sans);
 
   /* ---- Bo góc — sharp cho nút/badge, bo vừa cho ảnh/card lớn ---- */
   --radius-sm: 2px; /* buttons */

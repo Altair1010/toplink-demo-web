@@ -9,7 +9,8 @@
     "typecheck": "tsc --noEmit",
     "format:check": "prettier --check .",
     "check:tokens": "node scripts/check-tokens.mjs",
-    "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:tokens"
+    "check:release": "node scripts/check-release-surface.mjs",
+    "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:tokens && npm run check:release"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

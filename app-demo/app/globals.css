@@ -10,6 +10,7 @@
 @import "../styles/home-experience.css";
 @import "../styles/home-humanizer.css";
 @import "../styles/interface.css";
+@import "../styles/information.css";
 /* Skin PHẢI nhập cuối: ghi đè token theo [data-brand] trên <html>. Xem skins.css. */
 @import "../styles/skins.css";
 

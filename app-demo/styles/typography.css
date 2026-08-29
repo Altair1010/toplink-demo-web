@@ -1,16 +1,12 @@
 /* ============================================================
    TYPOGRAPHY — quy tắc chữ toàn site
-   Serif = "nghi lễ chính": CHỈ h1, h2, statement, quote lớn.
-   h3 trở xuống + card title = Be Vietnam Pro 600.
-   Nếu mọi câu đều nghi lễ, không còn câu nào quan trọng.
+   Sans-first Vietnamese: hierarchy đến từ cỡ, weight, measure và nhịp.
    ============================================================ */
 
-/* ── H1/H2: serif Noto SemiBold — KHÔNG uppercase (IN HOA tiếng Việt có dấu
-   làm chậm tốc độ đọc, đặc biệt nhóm khách lớn tuổi). ── */
 h1,
 h2,
 .heading-font {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-weight: 600;
   letter-spacing: -0.005em;
   line-height: var(--leading-heading);
@@ -33,9 +29,9 @@ h6 {
   line-height: 1.3;
 }
 
-/* Statement serif (KHÔNG uppercase — để lộ chữ thường thư tịch) */
+/* Alias tương thích; public runtime vẫn dùng cùng hệ sans. */
 .font-serif-display {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   text-transform: none;
   font-weight: 600; /* Bộ 1: hero/statement SemiBold */
   letter-spacing: -0.01em;

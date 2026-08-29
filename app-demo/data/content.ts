@@ -187,23 +187,6 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export interface Need {
-  key: string;
-  label: string;
-  emoji: string;
-}
-
-export const NEEDS: Need[] = [
-  { key: "thu-gian", label: "Thư giãn", emoji: "🍃" },
-  { key: "ngu-ngon", label: "Ngủ ngon hơn", emoji: "🌙" },
-  { key: "co-vai-gay", label: "Cổ vai gáy", emoji: "💆" },
-  { key: "lung-eo", label: "Lưng eo", emoji: "🧘" },
-  { key: "giam-cang-thang", label: "Giảm căng thẳng", emoji: "🌿" },
-  { key: "phuc-hoi", label: "Phục hồi năng lượng", emoji: "✨" },
-  { key: "duong-sinh", label: "Dưỡng sinh định kỳ", emoji: "☯️" },
-  { key: "tu-van", label: "Tư vấn liệu trình", emoji: "💬" },
-];
-
 // Quy trình trị liệu — đúng 4 bước (theo master prompt). `icon` là tên lucide,
 // được map sang component trong PROCESS_ICONS ở nơi sử dụng.
 export interface ProcessStep {

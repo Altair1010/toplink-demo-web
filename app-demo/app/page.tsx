@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home-experience/HomeHero";
+import HumanContactHandoff from "@/components/home-experience/corrected/HumanContactHandoff";
 import NarrativeCompletion from "@/components/home-experience/corrected/NarrativeCompletion";
 import OrientationCore from "@/components/home-experience/corrected/OrientationCore";
 
@@ -23,6 +24,7 @@ export default function HomePage() {
 
       {/* 3 · M2B: phạm vi → kỳ vọng quy trình → evidence collapse → tiếp tục hiểu */}
       <NarrativeCompletion />
+      <HumanContactHandoff />
     </>
   );
 }

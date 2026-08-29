@@ -202,7 +202,6 @@ export const ArrowRight = named("arrow-right");
 export const BadgeCheck = named("badge-check");
 export const BookOpen = named("book-open");
 export const CalendarDays = named("calendar");
-export const CalendarPlus = named("calendar");
 export const Check = named("check");
 export const CheckIcon = Check;
 export const CircleCheckIcon = named("badge-check");

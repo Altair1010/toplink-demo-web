@@ -1,0 +1,202 @@
+.info-eyebrow {
+  margin: 0;
+  color: var(--color-ink-mute);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.info-hero,
+.info-page,
+.info-contact-handoff {
+  font-family: var(--font-sans);
+}
+
+.info-hero {
+  padding: clamp(5rem, 11vw, 9rem) clamp(1.25rem, 6vw, 6rem);
+  background: var(--color-ivory);
+}
+
+.info-hero__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.65fr);
+  gap: clamp(2.5rem, 8vw, 8rem);
+  align-items: end;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+}
+
+.info-hero__inner > .info-eyebrow {
+  grid-column: 1 / -1;
+}
+
+.info-hero h1,
+.info-page__header h1 {
+  max-width: 15ch;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(2.7rem, 5.4vw, 5.4rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.info-hero__answer,
+.info-page__header > p:last-child {
+  max-width: 38rem;
+  color: var(--color-ink-soft);
+  font-size: 1.125rem;
+  line-height: 1.72;
+}
+
+.info-text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--color-ink);
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-crimson-600);
+  text-underline-offset: 0.35em;
+}
+
+.info-page {
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+.info-page__header {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+  border-bottom: 1px solid var(--color-sand);
+}
+
+.info-page__header--split {
+  grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+  align-items: end;
+  gap: clamp(2rem, 7vw, 7rem);
+}
+
+.info-page__header--split .info-eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.info-editorial-pair {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.6fr) minmax(0, 1.4fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+.info-editorial-pair h2,
+.info-boundary h2,
+.info-contact-handoff h2 {
+  max-width: 24ch;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.info-editorial-pair p,
+.info-boundary p,
+.info-contact-handoff p {
+  max-width: 60ch;
+  color: var(--color-ink-soft);
+  font-size: 1.125rem;
+  line-height: 1.72;
+}
+
+.info-boundary {
+  max-width: 64rem;
+  margin: clamp(3rem, 7vw, 6rem) 0 0 auto;
+  padding: clamp(2rem, 5vw, 4rem);
+  border-left: 2px solid var(--color-crimson-600);
+  background: color-mix(in srgb, var(--color-ink) 5%, var(--color-ivory));
+}
+
+.info-boundary .info-eyebrow {
+  margin-bottom: 1.25rem;
+}
+
+.info-contact-handoff {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(18rem, 1.1fr);
+  gap: clamp(2.5rem, 9vw, 9rem);
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 6vw, 6rem);
+  border-top: 1px solid var(--color-sand);
+}
+
+.info-contact-handoff .info-eyebrow {
+  margin-bottom: 1.25rem;
+}
+
+.info-channel-list {
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-sand);
+}
+
+.info-channel-list li {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--color-sand);
+}
+
+.info-channel-list span {
+  color: var(--color-ink);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.info-channel-list small {
+  color: var(--color-ink-mute);
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .info-hero__inner,
+  .info-page__header--split,
+  .info-editorial-pair,
+  .info-contact-handoff {
+    grid-template-columns: 1fr;
+  }
+
+  .info-hero__inner {
+    gap: 2rem;
+  }
+
+  .info-channel-list li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+    justify-content: center;
+  }
+
+  .info-channel-list small {
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-hero *,
+  .info-page *,
+  .info-contact-handoff * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
