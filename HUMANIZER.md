@@ -100,6 +100,10 @@ numbers must not reinterpret the project phase map above.
   a route migration delta and remain deferred or blocked from automatic inference.
 - **Batch status after M2B:** M3S-2 split execution is active under the consolidated stop rule; M3P
   remains deferred to admin; M4 remains blocked; M5 remains deferred.
+- **M5A cleanup:** the closed pre-M2A0 symptom/taxonomy/recommendation graph has zero runtime, test
+  and rollback consumers and is removed. `HomeHero` remains live; `StaticOrientationShell` remains
+  the M2A0 rollback floor. M5B is ineligible with 10 Noto references; exact M5C zero-consumer
+  material is the next isolated cleanup.
 - **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
   batches in sequence only after the immediately preceding internal gate passes. Any hard fail
   stops the consolidated run.
