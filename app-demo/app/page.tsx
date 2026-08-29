@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home-experience/HomeHero";
+import NarrativeCompletion from "@/components/home-experience/corrected/NarrativeCompletion";
 import OrientationCore from "@/components/home-experience/corrected/OrientationCore";
-import RitualTimeline from "@/components/home-experience/RitualTimeline";
-import SpaceAsTherapy from "@/components/home-experience/SpaceAsTherapy";
-import HomeFinalCTA from "@/components/home-experience/HomeFinalCTA";
 
 /**
- * HOMEPAGE — M2A1 dùng định hướng có hướng dẫn, không chẩn đoán hay tự chọn dịch vụ.
- * Các section legacy lân cận được giữ nguyên để những batch sau xử lý độc lập.
+ * HOMEPAGE — M2B hoàn tất narrative an toàn sau định hướng, không dùng mock fact hoặc evidence.
  */
 export const metadata: Metadata = {
   title: "Y Viện Toplink — Trị liệu Đông y, cổ vai gáy, lưng eo & dưỡng sinh tại Hà Nội",
@@ -24,14 +21,8 @@ export default function HomePage() {
       {/* 2 · M2A1: định hướng có thể sửa, giới hạn rõ, không gửi dữ liệu */}
       <OrientationCore />
 
-      {/* 3 · Một ngày ở Y Viện — timeline cảm giác */}
-      <RitualTimeline />
-
-      {/* 4 · Không gian như liệu pháp */}
-      <SpaceAsTherapy />
-
-      {/* 5 · CTA cuối: đặt lịch / Zalo / chỉ đường */}
-      <HomeFinalCTA />
+      {/* 3 · M2B: phạm vi → kỳ vọng quy trình → evidence collapse → tiếp tục hiểu */}
+      <NarrativeCompletion />
     </>
   );
 }
