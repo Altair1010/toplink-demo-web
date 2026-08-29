@@ -1,15 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  Clock,
-  Check,
-  TriangleAlertIcon as AlertTriangle,
-  MessageCircle,
-  ArrowLeft,
-} from "@/components/Glyph";
+import { Clock, Check, TriangleAlertIcon as AlertTriangle, ArrowLeft } from "@/components/Glyph";
 import BrandVisual from "@/components/BrandVisual";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import { SERVICES, CONTACT } from "@/data/content";
+import { SERVICES } from "@/data/content";
 
 export function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
@@ -135,12 +129,6 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             >
               Đặt lịch dịch vụ này
             </Link>
-            <a
-              href={CONTACT.zalo}
-              className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-200"
-            >
-              <MessageCircle className="h-4 w-4" /> Nhắn Zalo tư vấn
-            </a>
           </div>
         </aside>
       </div>

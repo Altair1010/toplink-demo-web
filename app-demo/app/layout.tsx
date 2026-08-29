@@ -4,7 +4,6 @@ import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import MobileBottomBar from "@/components/MobileBottomBar";
-import FloatingZalo from "@/components/FloatingZalo";
 import { NoticeProvider } from "@/components/notice/NoticeRegion";
 
 // Be Vietnam Pro — sans cho body + h3 trở xuống. 3 weight đủ hierarchy
@@ -59,7 +58,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </main>
           <SiteFooter />
-          <FloatingZalo />
           <MobileBottomBar />
         </NoticeProvider>
       </body>

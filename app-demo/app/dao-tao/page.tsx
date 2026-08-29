@@ -3,7 +3,7 @@ import { GraduationCap, Check, ArrowRight } from "@/components/Glyph";
 import SectionHeader from "@/components/SectionHeader";
 import BrandVisual from "@/components/BrandVisual";
 import Reveal from "@/components/Reveal";
-import { TRAINING, CONTACT } from "@/data/content";
+import { TRAINING } from "@/data/content";
 
 export const metadata = {
   title: "Thông tin đào tạo",
@@ -69,12 +69,6 @@ export default function TrainingPage() {
           >
             Đăng ký tư vấn <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href={CONTACT.zalo}
-            className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
-          >
-            Nhắn Zalo
-          </a>
         </div>
       </div>
     </div>

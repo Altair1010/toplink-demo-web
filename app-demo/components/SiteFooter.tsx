@@ -1,11 +1,9 @@
 import Link from "next/link";
-import { Phone, MapPin, Clock, Mail, MessageCircle, Facebook } from "@/components/Glyph";
-import { CONTACT, BRANCHES } from "@/data/content";
 
 export default function SiteFooter() {
   return (
     <footer className="mt-20 bg-wood-700 text-cream/90">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-3">
         <div className="md:col-span-1">
           <div className="flex items-center gap-2.5">
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gold-500 font-display text-lg text-wood-700">
@@ -14,8 +12,8 @@ export default function SiteFooter() {
             <span className="font-display text-xl font-bold text-ivory">Y Viện Toplink</span>
           </div>
           <p className="mt-4 text-base leading-relaxed text-cream/70">
-            Y Viện Dưỡng Thân · Tỉnh Thức. Đông y dưỡng sinh kết hợp lý liệu trị liệu và công nghệ
-            cao, chăm sóc cá nhân hóa.
+            Dưỡng Thân · Tỉnh Thức. Website demo giúp xem phạm vi thông tin và giới hạn trước khi
+            quyết định.
           </p>
         </div>
 
@@ -41,62 +39,24 @@ export default function SiteFooter() {
         </div>
 
         <div>
-          <h4 className="font-display text-xl font-bold text-gold-300">Hệ thống cơ sở</h4>
-          <ul className="mt-4 space-y-3 text-base text-cream/70">
-            {BRANCHES.map((b) => (
-              <li key={b.slug} className="flex gap-2">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-300" />
-                <span>{b.address}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="font-display text-xl font-bold text-gold-300">Liên hệ</h4>
-          <ul className="mt-4 space-y-3 text-base text-cream/70">
-            <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-gold-300" />
-              <a href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`} className="hover:text-gold-300">
-                {CONTACT.hotline}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <MessageCircle className="h-4 w-4 text-gold-300" />
-              <a href={CONTACT.zalo} className="hover:text-gold-300">
-                Nhắn Zalo tư vấn
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Mail className="h-4 w-4 text-gold-300" />
-              <a href={`mailto:${CONTACT.email}`} className="hover:text-gold-300">
-                {CONTACT.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Facebook className="h-4 w-4 text-gold-300" />
-              <a href={CONTACT.facebook} className="hover:text-gold-300">
-                Fanpage Facebook
-              </a>
-            </li>
-            <li className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-gold-300" />
-              {CONTACT.hours}
-            </li>
-          </ul>
+          <h4 className="font-display text-xl font-bold text-gold-300">Thông tin vận hành</h4>
+          <p className="mt-4 text-base leading-relaxed text-cream/70">
+            Địa chỉ, số điện thoại, giờ hoạt động và kênh liên hệ chưa có nguồn vận hành được xác
+            minh nên chưa được công bố.
+          </p>
           <Link
-            href="/dat-lich"
-            className="mt-5 inline-block rounded-sm bg-gold-500 px-[1.8rem] py-[0.9rem] text-[1.2rem] font-semibold text-wood-700 transition-colors hover:bg-gold-400"
+            href="/lien-he"
+            className="mt-5 inline-block text-base font-semibold text-gold-300 underline underline-offset-4 hover:text-gold-200"
           >
-            Đặt lịch trải nghiệm
+            Xem trạng thái liên hệ
           </Link>
         </div>
       </div>
 
       <div className="border-t border-cream/15">
         <div className="mx-auto max-w-6xl px-4 py-5 text-center text-sm text-cream/50 sm:px-6">
-          © {new Date().getFullYear()} Y Viện Toplink · Bản demo giao diện · Các liệu trình hỗ trợ
-          chăm sóc sức khỏe, không thay thế tư vấn y khoa chuyên môn.
+          © {new Date().getFullYear()} Y Viện Toplink · Bản demo giao diện · Chỉ công bố dữ kiện vận
+          hành sau khi được xác minh.
         </div>
       </div>
     </footer>

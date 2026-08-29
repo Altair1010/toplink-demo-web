@@ -1,6 +1,5 @@
-import { MessageCircle } from "@/components/Glyph";
 import BrandVisual from "@/components/BrandVisual";
-import { CONTACT, type Product } from "@/data/content";
+import { type Product } from "@/data/content";
 
 /**
  * ProductCard — thẻ sản phẩm dùng chung (tách khỏi inline /san-pham để chuẩn hoá 1 phong
@@ -27,14 +26,6 @@ export default function ProductCard({ product: p }: { product: Product }) {
       <div className="mt-4 flex items-center justify-between">
         <span className="text-base font-semibold text-crimson-600">từ {p.priceFrom}</span>
       </div>
-      <a
-        href={CONTACT.zalo}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-3 flex items-center justify-center gap-2 rounded-sm border border-gold-500 px-6 py-3 text-base font-semibold text-gold-700 transition-colors hover:bg-gold-200"
-      >
-        <MessageCircle className="h-4 w-4" /> Tư vấn liệu trình
-      </a>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Handshake, ArrowRight } from "@/components/Glyph";
 import SectionHeader from "@/components/SectionHeader";
 import BrandVisual from "@/components/BrandVisual";
 import Reveal from "@/components/Reveal";
-import { FRANCHISE, CONTACT } from "@/data/content";
+import { FRANCHISE } from "@/data/content";
 
 export const metadata = {
   title: "Thông tin hợp tác",
@@ -57,12 +57,6 @@ export default function FranchisePage() {
           >
             Đăng ký hợp tác <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href={`tel:${CONTACT.hotline.replace(/\s/g, "")}`}
-            className="rounded-sm border border-gold-500 px-7 py-3.5 text-base font-semibold text-gold-300 transition-colors hover:bg-gold-500 hover:text-wood-700"
-          >
-            Gọi {CONTACT.hotline}
-          </a>
         </div>
       </div>
     </div>
