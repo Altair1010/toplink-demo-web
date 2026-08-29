@@ -1,0 +1,153 @@
+/* M2A0 — hiệu chỉnh cục bộ, trung tính; không phải API token Humanizer toàn cục. */
+.hh-home-shell {
+  --hh-home-canvas: var(--color-ivory);
+  --hh-home-ground: color-mix(in srgb, var(--color-ink) 7%, var(--color-ivory));
+  --hh-home-text: var(--color-ink);
+  --hh-home-muted: var(--color-ink-soft);
+  box-sizing: border-box;
+  padding: clamp(4rem, 9vw, 8.5rem) clamp(1.25rem, 6vw, 6rem);
+  background: var(--hh-home-canvas);
+  color: var(--hh-home-text);
+  font-family: var(--font-sans);
+}
+
+.hh-home-shell__opening,
+.hh-home-shell__boundary,
+.hh-home-shell__consequence {
+  box-sizing: border-box;
+  max-inline-size: var(--container-wide);
+  margin-inline: auto;
+}
+
+.hh-home-shell__opening {
+  display: grid;
+  grid-template-columns: minmax(15rem, 0.78fr) minmax(0, 1.22fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: end;
+  min-block-size: clamp(21rem, 31vw, 28rem);
+}
+
+.hh-home-shell__opening-question {
+  max-inline-size: 12ch;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(2.7rem, 5.8vw, 5.8rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.hh-home-shell__opening-context {
+  max-inline-size: 35rem;
+  margin: 0 0 clamp(0.25rem, 2vw, 2rem);
+  color: var(--hh-home-muted);
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 1.6vw, 1.35rem);
+  line-height: 1.7;
+}
+
+.hh-home-shell__boundary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-inline-size: 68rem;
+  margin-block-start: clamp(4rem, 9vw, 8rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(1.25rem, 4vw, 4rem);
+}
+
+.hh-home-shell__boundary-purpose {
+  max-inline-size: 25ch;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.hh-home-shell__boundary-limit {
+  align-self: flex-end;
+  max-inline-size: 33rem;
+  margin: clamp(2rem, 5vw, 4.5rem) 0 0;
+  color: var(--hh-home-muted);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.65;
+}
+
+.hh-home-shell__consequence {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(14rem, 0.55fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: end;
+  margin-block-start: clamp(2rem, 5vw, 4rem);
+  padding: clamp(3rem, 7vw, 6.5rem) clamp(1.25rem, 5vw, 5rem);
+  background: var(--hh-home-ground);
+}
+
+.hh-home-shell__consequence-state {
+  max-inline-size: 22ch;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4.5vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.hh-home-shell__consequence-permission {
+  max-inline-size: 28rem;
+  margin: 0;
+  color: var(--hh-home-muted);
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 48rem) {
+  .hh-home-shell {
+    padding-block: 4rem;
+  }
+
+  .hh-home-shell__opening {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-content: space-between;
+    min-block-size: 27rem;
+  }
+
+  .hh-home-shell__opening-context {
+    justify-self: end;
+    max-inline-size: 28rem;
+  }
+
+  .hh-home-shell__boundary {
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
+  .hh-home-shell__boundary-limit {
+    align-self: flex-end;
+    max-inline-size: 24rem;
+  }
+
+  .hh-home-shell__consequence {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .hh-home-shell__consequence-permission {
+    max-inline-size: 22rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hh-home-shell,
+  .hh-home-shell * {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import HomeHero from "@/components/home-experience/HomeHero";
-import HomeExperience from "@/components/home-experience/HomeExperience";
+import StaticOrientationShell from "@/components/home-experience/corrected/StaticOrientationShell";
 import RitualTimeline from "@/components/home-experience/RitualTimeline";
 import SpaceAsTherapy from "@/components/home-experience/SpaceAsTherapy";
 import HomeFinalCTA from "@/components/home-experience/HomeFinalCTA";
 
 /**
- * HOMEPAGE — "Nghi thức chẩn thân" (body-first experience).
- * Không phải mục lục của các tab: người dùng bước vào bằng câu hỏi về cơ thể,
- * chọn dấu hiệu → trạng thái Tắc/Hàn/Hư/Loạn → gợi ý liệu trình → đặt lịch.
- * Motion budget = 3 (region glow / state expand / drawer slide) — thuần CSS, 0 GSAP.
- * SEO thương mại nằm ở metadata; H1 hiển thị giữ giọng trải nghiệm.
+ * HOMEPAGE — M2A0 dùng một sàn định hướng tĩnh, không chẩn đoán hay tự chọn dịch vụ.
+ * Các section legacy lân cận được giữ nguyên để những batch sau xử lý độc lập.
  */
 export const metadata: Metadata = {
   title: "Y Viện Toplink — Trị liệu Đông y, cổ vai gáy, lưng eo & dưỡng sinh tại Hà Nội",
@@ -24,8 +21,8 @@ export default function HomePage() {
       {/* 1 · HERO nền đỏ — định vị thương hiệu, đẩy lên đầu */}
       <HomeHero />
 
-      {/* 2+3 · Body Signal Interface + 4 trạng thái + drawer (client boundary duy nhất) */}
-      <HomeExperience />
+      {/* 2 · M2A0: định hướng tĩnh, giới hạn rõ, không gửi dữ liệu */}
+      <StaticOrientationShell />
 
       {/* 3 · Một ngày ở Y Viện — timeline cảm giác */}
       <RitualTimeline />
