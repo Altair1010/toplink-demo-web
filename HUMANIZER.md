@@ -42,7 +42,7 @@ numbers must not reinterpret the project phase map above.
 
 ## Current status
 
-- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B, M3S-1 AND M2A0 IMPLEMENTED / VERIFIED ONLY`.
+- **Humanizer phase:** `H0–H1 — PARTIAL: EXTERNAL EVIDENCE REQUIRED`; `H2 — APPROVED`; `H3R — GATE A-R APPROVED: VX-02`; `H4R initial — PARTIAL: VX-02 VISUAL REVISION REQUIRED`; `H4R-C — UI/UX/VISUAL CORRECTION PASS, REAL EVIDENCE DEFERRED BY HUMAN DECISION`; `H4 — BEHAVIORAL EVIDENCE KEPT, HISTORICAL VISUAL RESULT SUPERSEDED`; `H5R — GATE B-R APPROVED / LOCKED: DEC-H5R-GBR-01`; `Migration Gate-R — PASS`; `Historical Migration — SUPERSEDED FOR IMPLEMENTATION PLANNING`; `H5.5 — PARTIAL: REOPEN REQUIRED / COMPLETED`; `H6 — M3S-B, M3S-1, M2A0 AND M1C IMPLEMENTED / VERIFIED`.
 - **Why:** the H0/H1 artifacts now exist at `docs/humanizer/h0-h1/`, but the audit found no
   consent/provenance-confirmed Toplink people, place, craft, customer-language or operational
   evidence. Existing placeholder media/content and unverified operational claims are not real
@@ -77,11 +77,16 @@ numbers must not reinterpret the project phase map above.
   static sans-first Opening Question → Clear Boundary → local no-send/uncertainty shell; the old
   Body Signal → Tắc/Hàn/Hư/Loạn → automatic service recommendation source is retained but no longer
   reachable from `/`.
-- **Batch status after M2A0:** M0R, M1, M2A1 and M2B remain conditional; M3S-2 remains
+- **M1C typography calibration:** `DEC-H6-CONSOLIDATED-01 / C1` resolves the required brand profile
+  at its absolute source path and locks a sans-first behavior contract for named M2A1/M2B
+  consumers. Be Vietnam Pro remains a digital workhorse/runtime candidate, not an official brand
+  font. Runtime delta is `0`; Noto and global headings are unchanged.
+- **Batch status after M1C:** M0R-JIT, M2A1 and M2B remain next in the consolidated sequence; M3S-2 remains
   `CONDITIONAL / SPLIT REQUIRED`; M3P remains deferred to admin; M4 remains blocked; M5 remains
   deferred.
-- **Next gate:** return control to the human for explicit M2A1 approval. Completing M2A0 does not
-  authorize or activate M2A1 or any other migration batch.
+- **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
+  batches in sequence only after the immediately preceding internal gate passes. Any hard fail
+  stops the consolidated run.
 
 Decision states are:
 
