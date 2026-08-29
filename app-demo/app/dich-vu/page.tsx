@@ -43,8 +43,8 @@ export default function ServicesPage() {
                 <th scope="col" className="px-5 py-4 font-semibold">
                   Giá từ
                 </th>
-                <th scope="col" className="px-5 py-4 font-semibold sr-only">
-                  Đặt lịch
+                <th scope="col" className="px-5 py-4 font-semibold">
+                  Hành động
                 </th>
               </tr>
             </thead>
