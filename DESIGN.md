@@ -20,7 +20,8 @@ skins:
 
 H7 giữ nguyên graph, art direction và product scope của H6-F. Các chỉnh sửa runtime chỉ loại bỏ
 ngôn ngữ scaffold như “demo”, “mock”, `SOP` và `Service Menu` khỏi metadata/nội dung công khai;
-không thêm fact, evidence, contact URL hay khả năng mới.
+khai báo rõ smooth-scroll routing behavior cho Next 16; không thêm fact, evidence, contact URL hay
+khả năng mới.
 
 ## H6-F Runtime Status
 

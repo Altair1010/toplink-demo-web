@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     // data-brand chọn skin (styles/skins.css). "yvien" = nhận diện mặc định.
-    <html lang="vi" data-brand="yvien" className={beVietnam.variable}>
+    <html lang="vi" data-brand="yvien" data-scroll-behavior="smooth" className={beVietnam.variable}>
       <body className="surface-paper min-h-screen">
         <a href="#main" className="skip-link">
           Bỏ qua, tới nội dung chính
