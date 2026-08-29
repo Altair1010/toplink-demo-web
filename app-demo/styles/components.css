@@ -11,10 +11,7 @@
   box-shadow: var(--shadow-soft);
 }
 
-/* ── WIDTH & SECTION SPACING RHYTHM ── */
-.container-narrow {
-  max-width: var(--container-narrow);
-}
+/* ── SECTION SPACING RHYTHM ── */
 .section-pad {
   padding-block: clamp(4rem, 9vw, 7rem);
 }

@@ -370,37 +370,6 @@ export const ABOUT_BLOCKS: AboutBlock[] = [
   },
 ];
 
-// FAQ — 4 câu bắt buộc (theo master prompt). Trả lời theo hướng tư vấn an toàn,
-// KHÔNG khẳng định điều trị khỏi bệnh, KHÔNG hứa y khoa quá mức.
-export const FAQS = [
-  {
-    q: "Tôi bị thoát vị có làm được không?",
-    a: "Tùy mức độ và tình trạng hiện tại. Anh/chị nên trao đổi trước với chuyên viên để được tư vấn vùng có thể chăm sóc, lực tác động phù hợp và các thao tác cần tránh.",
-  },
-  {
-    q: "Phụ nữ sau sinh có phù hợp không?",
-    a: "Có thể phù hợp với nhiều mẹ sau sinh, nhưng cần xem thời điểm sau sinh, thể trạng, sinh thường hay sinh mổ và tình trạng sức khỏe hiện tại. Y Viện sẽ tư vấn liệu trình nhẹ nhàng, phù hợp từng người.",
-  },
-  {
-    q: "Người lớn tuổi có thể trải nghiệm không?",
-    a: "Có. Người lớn tuổi thường cần nhịp trị liệu chậm, lực vừa phải và theo dõi phản ứng cơ thể kỹ hơn. Trước khi làm, chuyên viên sẽ tiếp nhận thông tin sức khỏe để điều chỉnh phù hợp.",
-  },
-  {
-    q: "Bao lâu nên dưỡng sinh một lần?",
-    a: "Tùy thể trạng và mục tiêu chăm sóc. Với nhu cầu thư giãn, duy trì sức khỏe, có thể tham khảo nhịp 1–2 lần/tuần hoặc theo tư vấn sau buổi trải nghiệm đầu tiên.",
-  },
-];
-
-export const BRANCHES = [
-  {
-    slug: "co-so-trung-tam",
-    name: "Y Viện Toplink · Cơ sở Trung tâm",
-    address: "123 Đường Sức Khỏe, Quận 1, TP. Hồ Chí Minh",
-    phone: "0968 824 386",
-    hours: "08:00 đến 21:00 hằng ngày",
-  },
-];
-
 export const PRODUCTS = [
   {
     slug: "tra-duong-sinh",
@@ -552,65 +521,6 @@ export const POSTS: Post[] = [
       "Nên uống trà ấm, vừa đủ, tránh quá đặc hoặc uống quá khuya để không ảnh hưởng giấc ngủ.",
       "Quan trọng nhất là sự đều đặn: một thói quen nhỏ duy trì lâu dài thường mang lại lợi ích bền hơn những thay đổi vội vàng.",
     ],
-  },
-];
-
-export const CONTACT = {
-  hotline: "0968 824 386",
-  zalo: "https://zalo.me/0968824386",
-  email: "cskh@toplink.vn",
-  facebook: "https://facebook.com/yvientoplink",
-  hours: "08:00 đến 21:00 hằng ngày",
-  mapsQuery: "Y+Vien+Toplink",
-};
-
-// ---- Số liệu / cam kết niềm tin (dùng cam kết chất lượng, không phóng đại) ----
-export const STATS: { value: string; label: string }[] = [
-  { value: "100%", label: "Kỹ thuật viên được đào tạo bài bản" },
-  { value: "8+", label: "Liệu trình dưỡng sinh & trị liệu" },
-  { value: "4 tầng", label: "Không gian Tĩnh · Thông · Dưỡng · Tỉnh" },
-  // TODO(user): xác nhận con số thật (số năm kinh nghiệm / lượt khách) — giữ "đếm được",
-  // không phóng đại. Tạm dùng số năm đồng hành để thay claim "An toàn" thiếu sức nặng.
-  { value: "10+", label: "Năm đồng hành cùng sức khỏe người Việt" },
-];
-
-// ---- Đội ngũ chuyên viên / kỹ thuật viên ----
-export interface TeamMember {
-  name: string;
-  title: string;
-  expertise: string;
-  experience: string;
-  image: string;
-}
-
-export const TEAM: TeamMember[] = [
-  {
-    name: "Lương y Trần Minh Khang",
-    title: "Cố vấn chuyên môn Đông y",
-    expertise: "Dưỡng sinh, điều hòa khí huyết, tư vấn thể trạng",
-    experience: "Hơn 20 năm thực hành Đông y dưỡng sinh",
-    image: "/images/team/member-1.jpg",
-  },
-  {
-    name: "Chuyên viên Nguyễn Thị Thu Hà",
-    title: "Trưởng nhóm trị liệu",
-    expertise: "Trị liệu cổ vai gáy, lưng eo, trị liệu cơ sâu",
-    experience: "10 năm kinh nghiệm trị liệu thủ công",
-    image: "/images/team/member-2.jpg",
-  },
-  {
-    name: "KTV Phạm Quốc Bảo",
-    title: "Kỹ thuật viên dưỡng sinh",
-    expertise: "Xông · ngâm thảo dược, liệu pháp nóng · lạnh",
-    experience: "Được đào tạo bài bản, chứng chỉ nghề chăm sóc sức khỏe",
-    image: "/images/team/member-3.jpg",
-  },
-  {
-    name: "Chuyên viên Lê Thảo Nguyên",
-    title: "Tư vấn & chăm sóc khách hàng",
-    expertise: "Tiếp nhận, lắng nghe nhu cầu, gợi ý liệu trình",
-    experience: "Đồng hành cùng khách hàng từ buổi đầu tiên",
-    image: "/images/team/member-4.jpg",
   },
 ];
 

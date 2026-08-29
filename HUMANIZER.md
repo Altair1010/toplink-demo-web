@@ -102,8 +102,9 @@ numbers must not reinterpret the project phase map above.
   remains deferred to admin; M4 remains blocked; M5 remains deferred.
 - **M5A cleanup:** the closed pre-M2A0 symptom/taxonomy/recommendation graph has zero runtime, test
   and rollback consumers and is removed. `HomeHero` remains live; `StaticOrientationShell` remains
-  the M2A0 rollback floor. M5B is ineligible with 10 Noto references; exact M5C zero-consumer
-  material is the next isolated cleanup.
+  the M2A0 rollback floor. M5B is ineligible with 10 Noto references. M5C removes only proven
+  zero-consumer evidence/contact/article components, demo exports and their exact legacy selectors;
+  all live tokens, primitives and the `yvien`/`tet`/`an-tinh` skins remain.
 - **Active migration authority:** `DEC-H6-CONSOLIDATED-01` authorizes the remaining eligible H6
   batches in sequence only after the immediately preceding internal gate passes. Any hard fail
   stops the consolidated run.

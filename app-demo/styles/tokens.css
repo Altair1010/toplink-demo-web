@@ -95,13 +95,10 @@
   --tracking-eyebrow: 0.06em; /* uppercase NGẮN — tiếng Việt dấu không giãn quá */
 
   /* ---- Width & section spacing rhythm (tránh "đều tay") ---- */
-  --container-narrow: 760px; /* intro quote / FAQ — hẹp, tĩnh */
   --container-wide: 1280px;
 
-  /* ---- Shadow mềm & nông (nhẹ, sâu vừa) ----
-     Dùng cho card nổi, CTA và nút Zalo — KHÔNG dùng shadow đen nặng. */
+  /* ---- Shadow mềm & nông (nhẹ, sâu vừa) ---- */
   --shadow-soft: 0 10px 30px -12px rgba(106, 5, 17, 0.25);
-  --shadow-zalo: 0 12px 28px -8px rgba(0, 104, 254, 0.45);
 
   /* ---- MOTION SYSTEM "BREATH & FLOW" ----
      Chậm – sâu – có nhịp thở. Ràng buộc engine GSAP nằm ở lib/motion/config.ts. */

@@ -1,8 +1,5 @@
 /* ============================================================
-   HOME EXPERIENCE — "Nghi thức chẩn thân"
-   Motion budget homepage = ĐÚNG 3, toàn CSS:
-   1) body region glow · 2) state expand · 3) drawer slide-up
-   Không GSAP, không marquee, không parallax, không scroll hijack.
+   HOME HERO — legacy skin-compatible scrim retained by HomeHero.
    ============================================================ */
 
 /* ── HERO SCRIM ──
@@ -33,47 +30,5 @@
         color-mix(in oklab, var(--color-crimson-800) 35%, transparent) 60%,
         transparent 78%
       );
-  }
-}
-
-/* 1 · BODY REGION GLOW */
-.body-region {
-  opacity: 0;
-  transition:
-    opacity var(--motion-medium) var(--ease-soft),
-    filter var(--motion-medium) var(--ease-soft);
-}
-.body-region[data-active="true"] {
-  opacity: 0.55;
-  filter: drop-shadow(0 0 14px var(--color-crimson-300));
-}
-
-/* 2 · STATE EXPAND — thẻ Tắc/Hàn/Hư/Loạn mở bằng grid-rows (không đo height JS) */
-.state-panel {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows var(--motion-medium) var(--ease-ritual);
-}
-.state-panel > div {
-  overflow: hidden;
-}
-.state-card[data-open="true"] .state-panel {
-  grid-template-rows: 1fr;
-}
-
-/* 3 · DRAWER SLIDE-UP */
-.reco-drawer {
-  transform: translateY(110%);
-  transition: transform var(--motion-slow) var(--ease-ritual);
-}
-.reco-drawer[data-open="true"] {
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .body-region,
-  .state-panel,
-  .reco-drawer {
-    transition: none;
   }
 }

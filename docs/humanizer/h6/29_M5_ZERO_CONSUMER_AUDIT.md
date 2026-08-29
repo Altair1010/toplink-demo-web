@@ -58,7 +58,7 @@ brand-font claim.
 
 ## M5C — token, skin and material cleanup
 
-Exact zero-consumer candidates identified for the next isolated checkpoint:
+Exact zero-consumer material removed in the isolated M5C checkpoint:
 
 - source-only `ReviewWall`, `BlogIndex`, `ImgFade`, `FloatingZalo`, `FaqAccordion` and
   `StatCounter`;
@@ -71,6 +71,11 @@ All three skins have live variable override graphs and remain retained:
 - `:root[data-brand="tet"]`;
 - `:root[data-brand="an-tinh"]`.
 
+The related old body-state/drawer motion selectors, FAQ width helper and Zalo pulse/shadow
+selectors/tokens are removed. Post-delete symbol search returns zero; the token checker reports 35
+color tokens and zero orphan classes. The full production build and all 14 corrected-state tests
+pass.
+
 No other token, selector, skin or primitive has deletion authority without consumer and skin proof.
 
-**M5C status at this checkpoint: ELIGIBLE / NEXT ISOLATED BATCH.**
+**M5C status: ELIGIBLE ZERO-CONSUMER MATERIAL IMPLEMENTED / VERIFIED; REMAINDER DEFERRED.**
