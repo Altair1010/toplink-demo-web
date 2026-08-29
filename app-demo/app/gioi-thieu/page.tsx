@@ -5,7 +5,6 @@ import { Leaf, Target, Eye, Heart } from "@/components/Glyph";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import SplitReveal from "@/components/motion/SplitReveal";
-import ReviewWall from "@/components/ReviewWall";
 
 export const metadata = {
   title: "Giới thiệu",
@@ -104,20 +103,6 @@ export default function AboutPage() {
                 <p className="mt-1 text-base text-ink-soft">{d}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* CẢM NHẬN KHÁCH HÀNG — di cư từ homepage (social proof đặt ở trang giới thiệu) */}
-        <div className="mt-14">
-          <SectionHeader
-            center
-            eyebrow="Cảm nhận khách hàng"
-            title="Những chia sẻ thật"
-            emphasis="thật"
-            desc="Ảnh, video và trích cảm nhận — sẽ được thay bằng dữ liệu thật của khách hàng."
-          />
-          <div className="mt-8">
-            <ReviewWall />
           </div>
         </div>
 
