@@ -13,16 +13,9 @@
     "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:tokens && npm run check:release"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "@hookform/resolvers": "^5.4.0",
-    "clsx": "^2.1.1",
-    "gsap": "^3.13.0",
     "next": "^16.2.9",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7",
-    "react-hook-form": "^7.80.0",
-    "tailwind-merge": "^3.6.0",
-    "zod": "^4.4.3"
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@playwright/cli": "^0.1.18",

@@ -97,9 +97,10 @@ Khi `DESIGN.md` và `tokens.css` lệch nhau, `tokens.css` đúng — sửa doc,
    cuối, 0 animation đang chạy.
 5. **Native scroll.** Không Lenis, không Three.js, không tự viết `requestAnimationFrame` loop
    cho scroll.
-6. **Một engine motion = GSAP.** Motion công khai hiện chỉ là opacity/transform bằng CSS; GSAP
-   là engine duy nhất được phép nếu sau này cần motion nâng cao. Không cài `framer-motion`,
-   `motion`, `anime.js` hay package effect dựng sẵn.
+6. **Một engine motion = GSAP, và hiện chưa cài.** Motion công khai chỉ là opacity/transform
+   bằng CSS nên repo không giữ package motion nào. Nếu sau này cần motion nâng cao, GSAP là
+   engine duy nhất được phép cài thêm. Không cài `framer-motion`, `motion`, `anime.js` hay
+   package effect dựng sẵn.
 7. **Không hardcode màu / thời lượng / bo góc.** Luôn dùng token từ `styles/tokens.css`, nếu
    không skin `[data-brand]` sẽ không chạm tới được.
 8. **Class CSS viết tay không được trùng namespace Tailwind.** Tailwind v4 sinh class từ

@@ -75,6 +75,9 @@ node --test components/home-experience/corrected/orientation-state.test.mjs
 node --test components/home-experience/corrected/evidence-visibility.test.mjs
 ```
 
+Kiểm mắt trình duyệt sau khi deploy chạy bằng `@playwright/cli` — devDependency QA duy nhất,
+không có source nào import. Giữ lại vì đây là công cụ soi bản demo công khai thật.
+
 ## Runtime contract
 
 - Be Vietnam Pro là font sans-first vận hành, không phải font thương hiệu chính thức.

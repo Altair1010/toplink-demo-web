@@ -42,6 +42,10 @@ jobs:
       - run: npm run format:check
       - run: npm run check:tokens
 
+      # Cổng bề mặt phát hành — phải chạy SAU build vì nó đọc out/. Chặn deploy khi
+      # lộ route đã nghỉ, mất h1, còn dấu vết booking hay có link nội bộ chết.
+      - run: npm run check:release
+
       # Stop GitHub Pages from running Jekyll (it would drop the _next folder).
       - run: touch out/.nojekyll
 
