@@ -5,9 +5,7 @@ import { Leaf, Target, Eye, Heart } from "@/components/Glyph";
 import { ConvergeItem } from "@/components/ConvergeOnScroll";
 import AmbientLeaves from "@/components/motion/AmbientLeaves";
 import SplitReveal from "@/components/motion/SplitReveal";
-import StatCounter from "@/components/motion/StatCounter";
 import ReviewWall from "@/components/ReviewWall";
-import { TEAM, STATS } from "@/data/content";
 
 export const metadata = {
   title: "Giới thiệu",
@@ -98,62 +96,12 @@ export default function AboutPage() {
             {[
               { icon: Heart, t: "Tận tâm", d: "Chăm sóc bằng sự thấu hiểu và tôn trọng." },
               { icon: Leaf, t: "Tự nhiên", d: "Ưu tiên liệu pháp dưỡng sinh an toàn." },
-              { icon: Target, t: "Chuyên môn", d: "Kỹ thuật viên được đào tạo bài bản." },
+              { icon: Target, t: "Tôn trọng", d: "Giữ quyền cân nhắc và quyết định ở mỗi người." },
             ].map(({ icon: Icon, t, d }) => (
               <div key={t} className="rounded-md border border-sand bg-cream p-8">
                 <Icon className="h-7 w-7 text-crimson-600" />
                 <h3 className="mt-3 text-xl font-semibold text-crimson-600">{t}</h3>
                 <p className="mt-1 text-base text-ink-soft">{d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-14">
-          <h2 className="text-3xl font-bold text-crimson-600">Đội ngũ chuyên viên</h2>
-          <p className="mt-2 text-lg text-ink-soft">
-            Lương y và kỹ thuật viên được đào tạo bài bản, đồng hành cùng chị/anh trên hành trình
-            dưỡng thân.
-          </p>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2">
-            {TEAM.map((m) => (
-              <div
-                key={m.name}
-                className="flex gap-5 rounded-md border border-sand bg-cream p-6 shadow-sm"
-              >
-                <div className="relative h-24 w-20 shrink-0 overflow-hidden rounded-md border border-gold-500/60">
-                  <Img src={m.image} alt={m.name} fill sizes="80px" className="object-cover" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-crimson-600">{m.name}</h3>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">
-                    {m.title}
-                  </p>
-                  <p className="mt-2 text-base text-ink">{m.expertise}</p>
-                  <p className="mt-1 text-base text-ink-soft">{m.experience}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* SỐ LIỆU / NIỀM TIN — di cư từ homepage (đại cách tân: home không còn counter) */}
-        <div className="on-dark mt-14 bg-crimson-800 py-10">
-          <SectionHeader
-            center
-            dark
-            eyebrow="Vì sao được tin tưởng"
-            title="Những con số nói lên sự tận tâm"
-            emphasis="tận tâm"
-          />
-          <div className="mx-auto mt-8 grid max-w-5xl gap-px overflow-hidden border border-gold-700 bg-gold-700 sm:grid-cols-2 lg:grid-cols-4">
-            {STATS.map((s) => (
-              <div key={s.label} className="bg-crimson-800 px-6 py-8 text-center">
-                <StatCounter
-                  value={s.value}
-                  className="font-display text-4xl font-bold text-gold-300 sm:text-5xl"
-                />
-                <p className="mt-2 text-base leading-snug text-cream/85">{s.label}</p>
               </div>
             ))}
           </div>
