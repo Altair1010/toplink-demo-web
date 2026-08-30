@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-30 23:13 +07:00  
+**Updated:** 2026-08-30 23:22 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
 **Phase:** P0  
-**Status:** IN PROGRESS — VALIDATION AND GIT CLOSEOUT  
+**Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -13,7 +13,11 @@
 **Current branch:** `chore/v1-foundation`  
 **Baseline origin/main SHA:** `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`  
 **Branch start HEAD:** `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`  
+**P0 content checkpoint HEAD:** `27e1239a47daf96850551fe218184a70f33b1d43`  
+**Verified remote branch SHA before closeout commit:** `27e1239a47daf96850551fe218184a70f33b1d43`  
 **Actor holding implementation:** Codex
+
+**Gate state:** P0 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P1
 
 ## Completed work
 
@@ -29,10 +33,11 @@
 - Classified all 65 baseline tracked files across the four required salvage states.
 - Captured six desktop routes, mobile homepage, mobile navigation and three semantic snapshots.
 - Ran baseline dependency, state-test and full repository verification successfully.
+- Committed logical P0 checkpoints and pushed only `chore/v1-foundation` to GitHub.
 
 ## In-progress work
 
-- Final diff/security/deletion/format review, commit, push and closeout SHA recording.
+- None. Work is stopped at the P0 human gate.
 
 ## Blockers
 
@@ -75,6 +80,9 @@
 - `node --test components/home-experience/corrected/evidence-visibility.test.mjs`: PASS 4/4.
 - `npm run verify`: PASS (build, TypeScript, Prettier, 35 token colors, six-route release surface).
 - Playwright route capture: six HTTP 200 routes; console 0 errors, 0 warnings.
+- `git diff --check`: PASS after a scoped Git whitespace rule preserved intentional Markdown hard breaks.
+- classification/evidence integrity script: PASS; 65 files classified and 11 evidence hashes matched.
+- `git push -u origin chore/v1-foundation`: PASS; remote branch created.
 
 ## Test/build results
 
@@ -91,7 +99,7 @@
 
 ## Next actor
 
-`Codex` until closeout is pushed; then `ChatGPT Web / Human` for review.
+`ChatGPT Web / Human` for P0 review.
 
 ## NEXT ACTION
 

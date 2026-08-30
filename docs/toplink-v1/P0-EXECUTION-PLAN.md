@@ -71,9 +71,9 @@ Markdown governance.
 
 **Files:** P0 documents and Git history only.
 
-- [ ] Re-run verification, package checksum verification and `git diff --check`.
-- [ ] Confirm the diff contains no application-source change, deletion, secret or generated build output.
-- [ ] Commit logical P0 checkpoints and push only `chore/v1-foundation`.
-- [ ] Update `WORKSTATE.md` to `COMPLETE — READY FOR HUMAN REVIEW` with one next action.
-- [ ] Stop before P1; do not merge and do not open a PR because the current workflow does not make
+- [x] Re-run verification, package checksum verification and `git diff --check`.
+- [x] Confirm the diff contains no application-source change, deletion, secret or generated build output.
+- [x] Commit logical P0 checkpoints and push only `chore/v1-foundation`.
+- [x] Update `WORKSTATE.md` to `COMPLETE — READY FOR HUMAN REVIEW` with one next action.
+- [x] Stop before P1; do not merge and do not open a PR because the current workflow does not make
       external PR creation an automatic P0 action.
