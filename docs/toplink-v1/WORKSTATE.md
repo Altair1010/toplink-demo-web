@@ -2,48 +2,40 @@
 
 **Updated:** 2026-08-30 23:22 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P0  
-**Status:** COMPLETE — READY FOR HUMAN REVIEW  
+**Phase:** P1  
+**Status:** IN PROGRESS — REFERENCE EXTRACTION  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
 **P0 worktree:** `F:\Codex\yvien-v1-foundation`  
 **Reference package:** `F:\Codex\Yvien Hotlink Website\Z-NeededUpdate\reference\toplink-headless-commercial-redesign-master-v1.0.0`  
 **GitHub repository:** `https://github.com/Altair1010/toplink-demo-web`  
-**Current branch:** `chore/v1-foundation`  
+**Current branch:** `research/v1-reference-system`  
 **Baseline origin/main SHA:** `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`  
-**Branch start HEAD:** `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`  
-**P0 content checkpoint HEAD:** `27e1239a47daf96850551fe218184a70f33b1d43`  
-**Verified remote branch SHA before closeout commit:** `27e1239a47daf96850551fe218184a70f33b1d43`  
+**Approved P0 base SHA:** `12be3fe9e99d022c3a11005712244b2877002733`  
+**Branch start HEAD:** `12be3fe9e99d022c3a11005712244b2877002733`  
 **Actor holding implementation:** Codex
 
-**Gate state:** P0 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P1
+**Active route:** RECOVER MINIMUM STATE → SEN LIVE EXTRACTION  
+**Gate state:** P1 ACTIVE — REFERENCE EXTRACTION ONLY
 
 ## Completed work
 
-- Verified the read-only master package against all listed SHA-256 checksums.
-- Resolved the repository root and captured clean pre-mutation Git/worktree state.
-- Fetched and verified canonical GitHub metadata without pull/merge.
-- Confirmed package baseline and current `origin/main` are the same SHA.
-- Created isolated `chore/v1-foundation` worktree from `origin/main`.
-- Installed the governing package under `docs/toplink-v1/` with the package-provided script.
-- Added a minimal V1 authority notice to the existing `AGENTS.md`; preserved all H7 text.
-- Inventoried architecture, routes, client boundaries, styling, accessibility, assets, content,
-  dependencies, tooling and CI.
-- Classified all 65 baseline tracked files across the four required salvage states.
-- Captured six desktop routes, mobile homepage, mobile navigation and three semantic snapshots.
-- Ran baseline dependency, state-test and full repository verification successfully.
-- Committed logical P0 checkpoints and pushed only `chore/v1-foundation` to GitHub.
+- P0 was approved by ChatGPT Web / Human for the single transition P0 → P1.
+- Fetched origin and verified `origin/main` remains
+  `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`.
+- Verified `origin/chore/v1-foundation` and the clean P0 worktree are both at approved SHA
+  `12be3fe9e99d022c3a11005712244b2877002733`.
+- Created `research/v1-reference-system` at the approved P0 SHA in the existing linked worktree.
+- Read the minimum P1 authority and source-policy set; no conflict blocks capture.
 
 ## In-progress work
 
-- None. Work is stopped at the P0 human gate.
+- Discovering the current live Sen route/state surface before representative capture.
 
 ## Blockers
 
-- No technical blocker to human review.
-- Human-gated open items: repository-private transition and whether a separate pre-V1 archive tag is
-  required beyond existing provenance.
+- None at the P1 start gate.
 
 ## Decisions encountered
 
@@ -103,8 +95,8 @@
 
 ## NEXT ACTION
 
-Review and approve the pushed Phase P0 foundation branch before authorizing any P1 reference or brand extraction.
+Discover the current live Sen route and morphology set, then select the smallest representative capture corpus.
 
 ## Human gate
 
-Required before P1, merge, deployment, repository visibility change or archive-tag creation.
+Required before P2, merge, deployment, repository visibility change or archive-tag creation.
