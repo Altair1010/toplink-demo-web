@@ -17,42 +17,42 @@ provisional Toplink brand dossier without copying Sen assets/content or designin
 - [x] Verify the P0 worktree is clean.
 - [x] Create `research/v1-reference-system` from the approved P0 SHA in the existing worktree.
 - [x] Read the minimum P1 authority set.
-- [ ] Record P1 as active in `WORKSTATE.md`.
+- [x] Record P1 as active in `WORKSTATE.md`.
 
 ## Task 2 — Capture representative Sen evidence
 
-- [ ] Discover live routes from the site rather than freezing planning notes.
-- [ ] Group routes by morphology and select only representatives that add a new mechanism.
-- [ ] Capture applicable states at 375, 768, 1280 and 1440 pixels with deterministic names.
-- [ ] Record URL, timestamp, viewport, state, file path, SHA-256 and limitation notes.
-- [ ] Preserve screenshots only as `RESEARCH ONLY — NOT PRODUCTION ASSET` evidence.
+- [x] Discover live routes from the site rather than freezing planning notes.
+- [x] Group routes by morphology and select only representatives that add a new mechanism.
+- [x] Capture applicable states at 375, 768, 1280 and 1440 pixels with deterministic names.
+- [x] Record URL, timestamp, viewport, state, file path, SHA-256 and limitation notes.
+- [x] Preserve screenshots only as `RESEARCH ONLY — NOT PRODUCTION ASSET` evidence.
 
 ## Task 3 — Distill the Sen reference genome
 
-- [ ] Write `ROUTE-MAP.md` with page jobs, morphology and capture priority.
-- [ ] Write evidence-backed `UI-GENOME.md`.
-- [ ] Write measured or explicitly estimated `MOTION-GENOME.md`.
-- [ ] Write transformation-oriented `RESPONSIVE-MAP.md`.
-- [ ] Write evidence-located `ADOPT-ADAPT-REJECT.md` judgments.
+- [x] Write `ROUTE-MAP.md` with page jobs, morphology and capture priority.
+- [x] Write evidence-backed `UI-GENOME.md`.
+- [x] Write measured or explicitly estimated `MOTION-GENOME.md`.
+- [x] Write transformation-oriented `RESPONSIVE-MAP.md`.
+- [x] Write evidence-located `ADOPT-ADAPT-REJECT.md` judgments.
 
 ## Task 4 — Extract Toplink brand inputs
 
-- [ ] Read only dossier sections needed for semantics, experience, safety and visual direction.
-- [ ] Write a fact/direction/inference/open-question semantic inventory with source locators.
-- [ ] Map meaning to provisional material and interface expression without locking tokens.
-- [ ] Define at least three mechanically different visual-family hypotheses without selecting one.
-- [ ] Translate the five audience segments into design constraints.
-- [ ] Record only decision-relevant unresolved visual questions.
+- [x] Read only dossier sections needed for semantics, experience, safety and visual direction.
+- [x] Write a fact/direction/inference/open-question semantic inventory with source locators.
+- [x] Map meaning to provisional material and interface expression without locking tokens.
+- [x] Define at least three mechanically different visual-family hypotheses without selecting one.
+- [x] Translate the five audience segments into design constraints.
+- [x] Record only decision-relevant unresolved visual questions.
 
 ## Task 5 — Cross-synthesize and close P1
 
-- [ ] Write `P1-DESIGN-INPUT-SYNTHESIS.md` with an explicit reference/design boundary.
-- [ ] Update `SOURCE-REGISTER.md` with exact live Sen URLs and inspection date.
-- [ ] Verify evidence hashes/index counts, links, source locators and AAR coverage.
-- [ ] Verify zero `app-demo` diff, zero deletion, zero secret signature and zero Sen production media.
-- [ ] Run `git diff --check` and one same-agent boundary/compliance review.
-- [ ] Run `npm run verify` once only if the existing verifier remains practical.
-- [ ] Commit logical research checkpoints, push the P1 branch and stop at the human gate.
+- [x] Write `P1-DESIGN-INPUT-SYNTHESIS.md` with an explicit reference/design boundary.
+- [x] Update `SOURCE-REGISTER.md` with exact live Sen URLs and inspection date.
+- [x] Verify evidence hashes/index counts, links, source locators and AAR coverage.
+- [x] Verify zero `app-demo` diff, zero deletion, zero secret signature and zero Sen production media.
+- [x] Run `git diff --check` and one same-agent boundary/compliance review.
+- [x] Run `npm run verify` once only if the existing verifier remains practical.
+- [x] Commit logical research checkpoints, push the P1 branch and stop at the human gate.
 
 ## Exit gate
 
