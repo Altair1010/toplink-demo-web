@@ -1,0 +1,125 @@
+- generic [active] [ref=f6e1]:
+  - link "Bỏ qua, tới nội dung chính" [ref=f6e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f6e3]:
+    - generic [ref=f6e4]:
+      - link "Y Y Viện Toplink" [ref=f6e5] [cursor=pointer]:
+        - /url: /toplink-demo-web/
+        - generic [ref=f6e6]: "Y"
+        - generic [ref=f6e7]: Y Viện Toplink
+      - button "Mở menu" [ref=f6e135]
+  - main [ref=f6e14]:
+    - region [ref=f6e15]:
+      - generic [ref=f6e16]:
+        - paragraph [ref=f6e17]: Y Viện Dưỡng Thân · Tỉnh Thức
+        - heading "Đọc để hiểu trước khi quyết định có cần trao đổi trực tiếp" [level=1] [ref=f6e18]
+        - generic [ref=f6e19]:
+          - paragraph [ref=f6e20]: Website này giúp chị/anh sắp xếp điều đang quan tâm, hiểu phạm vi dịch vụ và những giới hạn hiện có. Nó không chẩn đoán, không chọn dịch vụ thay và không tiếp nhận lịch hẹn.
+          - link "Bắt đầu từ điều đang quan tâm" [ref=f6e21] [cursor=pointer]:
+            - /url: "#hh-orientation-title"
+    - region [ref=f6e22]:
+      - generic [ref=f6e23]:
+        - paragraph [ref=f6e24]: Bắt đầu từ điều anh/chị đang cảm nhận
+        - heading "Hôm nay, anh/chị muốn cơ thể mình được quan tâm điều gì nhất?" [level=2] [ref=f6e25]
+        - paragraph [ref=f6e26]: Không cần biết tên dịch vụ. Anh/chị có thể chọn một câu gần với mình, sửa lại bằng lời của mình, hoặc giữ nguyên rằng mình chưa biết.
+      - group "Chọn một cách bắt đầu" [ref=f6e28]:
+        - paragraph [ref=f6e30]: Không có lựa chọn nào là câu trả lời y khoa.
+        - generic [ref=f6e31]:
+          - button "Một vùng cơ thể đang căng hoặc khó chịu" [ref=f6e32] [cursor=pointer]:
+            - generic [ref=f6e33]: "01"
+          - button "Tôi muốn hiểu một buổi chăm sóc diễn ra thế nào" [ref=f6e35] [cursor=pointer]:
+            - generic [ref=f6e36]: "02"
+          - button "Tôi chưa biết nên bắt đầu từ đâu" [ref=f6e38] [cursor=pointer]:
+            - generic [ref=f6e39]: "03"
+          - button "Khác — tôi muốn tự viết" [ref=f6e41] [cursor=pointer]:
+            - generic [ref=f6e42]: "04"
+    - generic [ref=f6e44]:
+      - region [ref=f6e45]:
+        - generic [ref=f6e46]:
+          - paragraph [ref=f6e47]: Phạm vi dịch vụ
+          - heading "Đọc tên nhóm để biết mình đang tìm hiểu điều gì — không dùng nó để tự kết luận phù hợp." [level=2] [ref=f6e48]
+        - list [ref=f6e49]:
+          - listitem [ref=f6e50]:
+            - generic [ref=f6e51]: "01"
+            - heading "Lý liệu / thao tác chăm sóc" [level=3] [ref=f6e52]
+            - paragraph [ref=f6e53]: Cách gọi cho phần giải thích cơ thể được chăm sóc bằng thao tác hoặc vận động có hướng dẫn. Tên nhóm không tự nói ai phù hợp.
+          - listitem [ref=f6e54]:
+            - generic [ref=f6e55]: "02"
+            - heading "Dược liệu" [level=3] [ref=f6e56]
+            - paragraph [ref=f6e57]: Cách gọi cho phần có liên quan đến dược liệu. Thành phần, cách dùng và lưu ý chỉ được công bố khi có hồ sơ riêng đã xác minh.
+          - listitem [ref=f6e58]:
+            - generic [ref=f6e59]: "03"
+            - heading "Dưỡng liệu" [level=3] [ref=f6e60]
+            - paragraph [ref=f6e61]: Cách gọi cho phần hỗ trợ thói quen chăm sóc. Nó không thay cho chẩn đoán, điều trị hay hướng dẫn y khoa cá nhân.
+          - listitem [ref=f6e62]:
+            - generic [ref=f6e63]: "04"
+            - heading "Thiết bị hỗ trợ" [level=3] [ref=f6e64]
+            - paragraph [ref=f6e65]: Cách gọi cho công cụ được đặt trong trải nghiệm chăm sóc. Tên thiết bị không phải bằng chứng về công dụng hoặc độ phù hợp.
+        - paragraph [ref=f6e66]: Đây không phải danh mục dịch vụ đầy đủ và không công bố thời lượng, giá, kết quả sức khỏe hoặc khả năng phù hợp của một người cụ thể.
+      - region [ref=f6e67]:
+        - generic [ref=f6e68]:
+          - paragraph [ref=f6e69]: Một buổi cần làm rõ điều gì?
+          - heading "Một quy trình chỉ có ích khi nó nói đúng điều đang được vận hành." [level=2] [ref=f6e70]
+        - generic [ref=f6e71]:
+          - paragraph [ref=f6e72]: Website hiện chưa có nguồn vận hành đã duyệt để mô tả một trình tự cụ thể. Vì vậy phần này không lặp lại mô tả bốn bước trước đây, thời lượng, người thực hiện hay lời hứa theo dõi.
+          - generic [ref=f6e73]:
+            - generic [ref=f6e74]:
+              - term [ref=f6e75]: Trước khi bắt đầu
+              - definition [ref=f6e76]: Ai tiếp nhận, và thông tin nào thực sự cần được chia sẻ?
+            - generic [ref=f6e77]:
+              - term [ref=f6e78]: Trong trải nghiệm
+              - definition [ref=f6e79]: Ai thực hiện, phạm vi thao tác là gì, và khi nào cần dừng?
+            - generic [ref=f6e80]:
+              - term [ref=f6e81]: Sau khi kết thúc
+              - definition [ref=f6e82]: Có hướng dẫn hoặc bước theo dõi nào thật sự được vận hành?
+      - region [ref=f6e83]:
+        - paragraph [ref=f6e84]: Tiếp tục mà chưa cần quyết định
+        - heading "Nếu một tên nhóm còn mơ hồ, hãy giữ lại đúng câu mình muốn hỏi." [level=2] [ref=f6e85]
+        - paragraph [ref=f6e86]: Website không tự đổi câu hỏi đó thành lựa chọn dịch vụ. Anh/chị có thể quay lại phần định hướng, sửa câu chữ hoặc dừng ở đó.
+        - link "Quay lại câu định hướng" [ref=f6e87] [cursor=pointer]:
+          - /url: "#hh-orientation-title"
+    - region [ref=f6e88]:
+      - generic [ref=f6e89]:
+        - paragraph [ref=f6e90]: Sau khi đã đọc đủ
+        - heading "Nếu muốn trao đổi trực tiếp, cuộc trò chuyện sẽ tiếp tục ngoài website." [level=2] [ref=f6e91]
+      - generic [ref=f6e92]:
+        - paragraph [ref=f6e93]: Toplink đã chọn Zalo và Facebook Page làm hai kênh trao đổi với con người. Đường dẫn chính thức chưa có nguồn vận hành được xác minh, nên website chưa tạo nút bấm hoặc đoán tài khoản.
+        - list "Kênh trao đổi trực tiếp" [ref=f6e94]:
+          - listitem [ref=f6e95]:
+            - generic [ref=f6e96]: Zalo
+            - generic [ref=f6e97]: Đường dẫn đang được xác minh
+          - listitem [ref=f6e98]:
+            - generic [ref=f6e99]: Facebook Page
+            - generic [ref=f6e100]: Đường dẫn đang được xác minh
+        - link "Xem trạng thái liên hệ" [ref=f6e101] [cursor=pointer]:
+          - /url: /toplink-demo-web/lien-he/
+  - contentinfo [ref=f6e102]:
+    - generic [ref=f6e103]:
+      - generic [ref=f6e104]:
+        - generic [ref=f6e105]:
+          - generic [ref=f6e106]: "Y"
+          - generic [ref=f6e107]: Y Viện Toplink
+        - paragraph [ref=f6e108]: Một nơi để đọc, hiểu phạm vi hiện có và tự cân nhắc trước khi trao đổi trực tiếp với con người.
+      - generic [ref=f6e109]:
+        - heading "Thông tin chính" [level=2] [ref=f6e110]
+        - list [ref=f6e111]:
+          - listitem [ref=f6e112]:
+            - link "Phạm vi dịch vụ" [ref=f6e113] [cursor=pointer]:
+              - /url: /toplink-demo-web/dich-vu/
+          - listitem [ref=f6e114]:
+            - link "Trước một trải nghiệm" [ref=f6e115] [cursor=pointer]:
+              - /url: /toplink-demo-web/quy-trinh-tri-lieu/
+          - listitem [ref=f6e116]:
+            - link "Về Y Viện" [ref=f6e117] [cursor=pointer]:
+              - /url: /toplink-demo-web/gioi-thieu/
+          - listitem [ref=f6e118]:
+            - link "Hiểu thêm" [ref=f6e119] [cursor=pointer]:
+              - /url: /toplink-demo-web/tin-tuc/
+      - generic [ref=f6e120]:
+        - heading "Trao đổi trực tiếp" [level=2] [ref=f6e121]
+        - paragraph [ref=f6e122]: Zalo và Facebook Page là hai kênh trao đổi đã được chọn. Đường dẫn chính thức vẫn đang chờ xác minh trước khi công bố.
+        - link "Xem thông tin liên hệ" [ref=f6e123] [cursor=pointer]:
+          - /url: /toplink-demo-web/lien-he/
+    - generic [ref=f6e124]: © 2026 Y Viện Toplink · Thông tin thực tế chỉ được công bố sau khi xác minh.
+  - button "Open Next.js Dev Tools" [ref=f6e131] [cursor=pointer]
+  - alert [ref=f6e138]

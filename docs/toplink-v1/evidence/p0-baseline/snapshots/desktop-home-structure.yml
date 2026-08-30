@@ -1,0 +1,135 @@
+- generic [active] [ref=e1]:
+  - link "Bỏ qua, tới nội dung chính" [ref=e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Y Y Viện Toplink" [ref=e5] [cursor=pointer]:
+        - /url: /toplink-demo-web/
+        - generic [ref=e6]: "Y"
+        - generic [ref=e7]: Y Viện Toplink
+      - navigation "Điều hướng chính" [ref=e8]:
+        - link "Về Y Viện" [ref=e9] [cursor=pointer]:
+          - /url: /toplink-demo-web/gioi-thieu/
+        - link "Phạm vi dịch vụ" [ref=e10] [cursor=pointer]:
+          - /url: /toplink-demo-web/dich-vu/
+        - link "Trước một trải nghiệm" [ref=e11] [cursor=pointer]:
+          - /url: /toplink-demo-web/quy-trinh-tri-lieu/
+        - link "Hiểu thêm" [ref=e12] [cursor=pointer]:
+          - /url: /toplink-demo-web/tin-tuc/
+        - link "Liên hệ" [ref=e13] [cursor=pointer]:
+          - /url: /toplink-demo-web/#lien-he
+  - main [ref=e14]:
+    - region [ref=e15]:
+      - generic [ref=e16]:
+        - paragraph [ref=e17]: Y Viện Dưỡng Thân · Tỉnh Thức
+        - heading "Đọc để hiểu trước khi quyết định có cần trao đổi trực tiếp" [level=1] [ref=e18]
+        - generic [ref=e19]:
+          - paragraph [ref=e20]: Website này giúp chị/anh sắp xếp điều đang quan tâm, hiểu phạm vi dịch vụ và những giới hạn hiện có. Nó không chẩn đoán, không chọn dịch vụ thay và không tiếp nhận lịch hẹn.
+          - link "Bắt đầu từ điều đang quan tâm" [ref=e21] [cursor=pointer]:
+            - /url: "#hh-orientation-title"
+    - region [ref=e22]:
+      - generic [ref=e23]:
+        - paragraph [ref=e24]: Bắt đầu từ điều anh/chị đang cảm nhận
+        - heading "Hôm nay, anh/chị muốn cơ thể mình được quan tâm điều gì nhất?" [level=2] [ref=e25]
+        - paragraph [ref=e26]: Không cần biết tên dịch vụ. Anh/chị có thể chọn một câu gần với mình, sửa lại bằng lời của mình, hoặc giữ nguyên rằng mình chưa biết.
+      - group "Chọn một cách bắt đầu" [ref=e28]:
+        - paragraph [ref=e30]: Không có lựa chọn nào là câu trả lời y khoa.
+        - generic [ref=e31]:
+          - button "Một vùng cơ thể đang căng hoặc khó chịu" [ref=e32] [cursor=pointer]:
+            - generic [ref=e33]: "01"
+          - button "Tôi muốn hiểu một buổi chăm sóc diễn ra thế nào" [ref=e35] [cursor=pointer]:
+            - generic [ref=e36]: "02"
+          - button "Tôi chưa biết nên bắt đầu từ đâu" [ref=e38] [cursor=pointer]:
+            - generic [ref=e39]: "03"
+          - button "Khác — tôi muốn tự viết" [ref=e41] [cursor=pointer]:
+            - generic [ref=e42]: "04"
+    - generic [ref=e44]:
+      - region [ref=e45]:
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Phạm vi dịch vụ
+          - heading "Đọc tên nhóm để biết mình đang tìm hiểu điều gì — không dùng nó để tự kết luận phù hợp." [level=2] [ref=e48]
+        - list [ref=e49]:
+          - listitem [ref=e50]:
+            - generic [ref=e51]: "01"
+            - heading "Lý liệu / thao tác chăm sóc" [level=3] [ref=e52]
+            - paragraph [ref=e53]: Cách gọi cho phần giải thích cơ thể được chăm sóc bằng thao tác hoặc vận động có hướng dẫn. Tên nhóm không tự nói ai phù hợp.
+          - listitem [ref=e54]:
+            - generic [ref=e55]: "02"
+            - heading "Dược liệu" [level=3] [ref=e56]
+            - paragraph [ref=e57]: Cách gọi cho phần có liên quan đến dược liệu. Thành phần, cách dùng và lưu ý chỉ được công bố khi có hồ sơ riêng đã xác minh.
+          - listitem [ref=e58]:
+            - generic [ref=e59]: "03"
+            - heading "Dưỡng liệu" [level=3] [ref=e60]
+            - paragraph [ref=e61]: Cách gọi cho phần hỗ trợ thói quen chăm sóc. Nó không thay cho chẩn đoán, điều trị hay hướng dẫn y khoa cá nhân.
+          - listitem [ref=e62]:
+            - generic [ref=e63]: "04"
+            - heading "Thiết bị hỗ trợ" [level=3] [ref=e64]
+            - paragraph [ref=e65]: Cách gọi cho công cụ được đặt trong trải nghiệm chăm sóc. Tên thiết bị không phải bằng chứng về công dụng hoặc độ phù hợp.
+        - paragraph [ref=e66]: Đây không phải danh mục dịch vụ đầy đủ và không công bố thời lượng, giá, kết quả sức khỏe hoặc khả năng phù hợp của một người cụ thể.
+      - region [ref=e67]:
+        - generic [ref=e68]:
+          - paragraph [ref=e69]: Một buổi cần làm rõ điều gì?
+          - heading "Một quy trình chỉ có ích khi nó nói đúng điều đang được vận hành." [level=2] [ref=e70]
+        - generic [ref=e71]:
+          - paragraph [ref=e72]: Website hiện chưa có nguồn vận hành đã duyệt để mô tả một trình tự cụ thể. Vì vậy phần này không lặp lại mô tả bốn bước trước đây, thời lượng, người thực hiện hay lời hứa theo dõi.
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - term [ref=e75]: Trước khi bắt đầu
+              - definition [ref=e76]: Ai tiếp nhận, và thông tin nào thực sự cần được chia sẻ?
+            - generic [ref=e77]:
+              - term [ref=e78]: Trong trải nghiệm
+              - definition [ref=e79]: Ai thực hiện, phạm vi thao tác là gì, và khi nào cần dừng?
+            - generic [ref=e80]:
+              - term [ref=e81]: Sau khi kết thúc
+              - definition [ref=e82]: Có hướng dẫn hoặc bước theo dõi nào thật sự được vận hành?
+      - region [ref=e83]:
+        - paragraph [ref=e84]: Tiếp tục mà chưa cần quyết định
+        - heading "Nếu một tên nhóm còn mơ hồ, hãy giữ lại đúng câu mình muốn hỏi." [level=2] [ref=e85]
+        - paragraph [ref=e86]: Website không tự đổi câu hỏi đó thành lựa chọn dịch vụ. Anh/chị có thể quay lại phần định hướng, sửa câu chữ hoặc dừng ở đó.
+        - link "Quay lại câu định hướng" [ref=e87] [cursor=pointer]:
+          - /url: "#hh-orientation-title"
+    - region [ref=e88]:
+      - generic [ref=e89]:
+        - paragraph [ref=e90]: Sau khi đã đọc đủ
+        - heading "Nếu muốn trao đổi trực tiếp, cuộc trò chuyện sẽ tiếp tục ngoài website." [level=2] [ref=e91]
+      - generic [ref=e92]:
+        - paragraph [ref=e93]: Toplink đã chọn Zalo và Facebook Page làm hai kênh trao đổi với con người. Đường dẫn chính thức chưa có nguồn vận hành được xác minh, nên website chưa tạo nút bấm hoặc đoán tài khoản.
+        - list "Kênh trao đổi trực tiếp" [ref=e94]:
+          - listitem [ref=e95]:
+            - generic [ref=e96]: Zalo
+            - generic [ref=e97]: Đường dẫn đang được xác minh
+          - listitem [ref=e98]:
+            - generic [ref=e99]: Facebook Page
+            - generic [ref=e100]: Đường dẫn đang được xác minh
+        - link "Xem trạng thái liên hệ" [ref=e101] [cursor=pointer]:
+          - /url: /toplink-demo-web/lien-he/
+  - contentinfo [ref=e102]:
+    - generic [ref=e103]:
+      - generic [ref=e104]:
+        - generic [ref=e105]:
+          - generic [ref=e106]: "Y"
+          - generic [ref=e107]: Y Viện Toplink
+        - paragraph [ref=e108]: Một nơi để đọc, hiểu phạm vi hiện có và tự cân nhắc trước khi trao đổi trực tiếp với con người.
+      - generic [ref=e109]:
+        - heading "Thông tin chính" [level=2] [ref=e110]
+        - list [ref=e111]:
+          - listitem [ref=e112]:
+            - link "Phạm vi dịch vụ" [ref=e113] [cursor=pointer]:
+              - /url: /toplink-demo-web/dich-vu/
+          - listitem [ref=e114]:
+            - link "Trước một trải nghiệm" [ref=e115] [cursor=pointer]:
+              - /url: /toplink-demo-web/quy-trinh-tri-lieu/
+          - listitem [ref=e116]:
+            - link "Về Y Viện" [ref=e117] [cursor=pointer]:
+              - /url: /toplink-demo-web/gioi-thieu/
+          - listitem [ref=e118]:
+            - link "Hiểu thêm" [ref=e119] [cursor=pointer]:
+              - /url: /toplink-demo-web/tin-tuc/
+      - generic [ref=e120]:
+        - heading "Trao đổi trực tiếp" [level=2] [ref=e121]
+        - paragraph [ref=e122]: Zalo và Facebook Page là hai kênh trao đổi đã được chọn. Đường dẫn chính thức vẫn đang chờ xác minh trước khi công bố.
+        - link "Xem thông tin liên hệ" [ref=e123] [cursor=pointer]:
+          - /url: /toplink-demo-web/lien-he/
+    - generic [ref=e124]: © 2026 Y Viện Toplink · Thông tin thực tế chỉ được công bố sau khi xác minh.
+  - button "Open Next.js Dev Tools" [ref=e131] [cursor=pointer]
+  - alert [ref=e135]
