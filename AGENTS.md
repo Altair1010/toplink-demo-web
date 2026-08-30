@@ -1,5 +1,24 @@
 # AGENTS.md — hợp đồng bảo trì cho mọi agent làm việc trên repo này
 
+> **V1 authority notice (Phase P0):** Với mọi công việc thuộc Y Viện Toplink Commercial
+> Headless Redesign V1, hãy đọc `docs/toplink-v1/START-HERE.md`,
+> `docs/toplink-v1/DECISIONS.md`, `docs/toplink-v1/SOURCE-OF-TRUTH.md` và
+> `docs/toplink-v1/WORKSTATE.md` trước khi thay đổi code. Các quy tắc H7 bên dưới
+> chỉ mô tả baseline runtime lịch sử và không còn là thẩm quyền cho thiết kế mục tiêu.
+
+## Ranh giới thẩm quyền V1
+
+- Master package được theo dõi tại `docs/toplink-v1/` là hợp đồng điều hành cho V1.
+- H7 chỉ là nguồn salvage kỹ thuật. H7 không định nghĩa visual hierarchy, page morphology,
+  section order, color palette, typography, motion language, copy, navigation architecture,
+  information architecture hoặc conversion model của V1.
+- `app-demo/` tiếp tục là baseline kỹ thuật trong P0. Đề xuất đổi tên thành `web/` không cho
+  phép di chuyển file trong P0.
+- Không bắt đầu phase tiếp theo nếu `WORKSTATE.md` chưa ghi đúng một exact next action và
+  human gate chưa được thông qua.
+- Không merge `main`, deploy, đổi DNS/repo visibility, tạo archive tag hoặc triển khai
+  WordPress nếu chưa có chấp thuận riêng cho hành động đó.
+
 Đọc file này trước khi sửa bất cứ thứ gì. Đây là file context duy nhất được git track và đi
 theo mọi clone. Nó mô tả trạng thái **đang chạy**, không phải lịch sử thiết kế.
 

@@ -19,3 +19,7 @@
 *.woff2 binary
 *.mp4 binary
 *.pdf binary
+
+# Tài liệu master V1 dùng hai khoảng trắng cuối dòng làm Markdown hard break có chủ đích.
+# Chỉ tắt blank-at-eol trong payload này; các kiểm tra whitespace khác vẫn giữ nguyên.
+docs/toplink-v1/** whitespace=-blank-at-eol

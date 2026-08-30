@@ -1,0 +1,19 @@
+{
+  "package": "toplink-headless-commercial-redesign-master",
+  "version": "1.0.0",
+  "created": "2026-08-30",
+  "project": "Y Viện Toplink",
+  "repo": "Altair1010/toplink-demo-web",
+  "baseline_sha": "b98dfd063f6bc8f63e43a65bb8cfe617c750c111",
+  "upstreams": {
+    "hallmark": "13ac0ec7e148655948100b6396439e481361d690",
+    "impeccable": "b0594c72d18006b5865c70eb3a97e8b04064e600"
+  },
+  "architecture": "Next.js headless frontend + WordPress REST CMS",
+  "actors": [
+    "ChatGPT Web",
+    "Codex",
+    "Human release gate"
+  ],
+  "hosting_note": "Vercel Hobby is preview/staging only; current terms restrict it to personal/non-commercial use."
+}
