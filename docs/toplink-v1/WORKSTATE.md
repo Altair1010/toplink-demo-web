@@ -26,6 +26,8 @@
 **P3B content checkpoint HEAD:** `10f55be8fcdfb1e679c4a2cc3ea3cc3b631c6307`  
 **Approved P3B base SHA:** `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b`  
 **P4 branch start HEAD:** `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b`  
+**P4 implementation HEAD:** `25424ed69a64bbb6763c657bd35a92287c296fb3`  
+**P4 content checkpoint HEAD:** `a6d9510593f32e6505185c511b2a52f814af95d1`  
 **Current branch:** `feat/v1-frontend-fixtures`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
