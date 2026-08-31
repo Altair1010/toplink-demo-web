@@ -4,3 +4,7 @@ out/
 *.tsbuildinfo
 .playwright/
 browser-results/
+.env
+.env.local
+.env.*.local
+!.env.example
