@@ -87,7 +87,8 @@
 - Organization/contact/service/product/place/story facts that are not supplied remain `PENDING` and
   fail closed.
 - No visual family, palette, font, pattern, token, motion or composition was selected.
-- Hallmark and Impeccable have no P2 consumer and were not fetched or installed.
+- During P2, Hallmark and Impeccable had no consumer and were not fetched; P3A fetched their exact pins
+  into ignored method-only cache once an immediate consumer existed.
 - No locked decision changed; no new ADR was required.
 - Hallmark was used only for structural pressure; Impeccable only for craft/browser review.
 - The three directions remain independently viable and no provisional score selects a winner.
@@ -156,7 +157,7 @@
 
 - P2 contract/integrity audit: PASS.
 - Existing application verification: PASS on the unchanged application.
-- No browser/visual QA was run because P2 contains no application or visual change.
+- P2 historical check: no browser/visual QA was run because P2 contained no application or visual change.
 - P3A browser prototype: PASS after one bounded correction and one confirmation.
 - Existing application verification: PASS; 12 static surfaces, TypeScript, formatting, tokens and release
   surface checks completed without modifying application source.
