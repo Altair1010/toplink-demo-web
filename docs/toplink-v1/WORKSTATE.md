@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 12:48 +07:00  
+**Updated:** 2026-08-31 20:49 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
 **Phase:** P3B  
-**Status:** IN PROGRESS — DIRECTION LOCK (C)  
+**Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -23,15 +23,16 @@
 **Verified P3A content checkpoint HEAD:** `a429119edac5b9beaedfd3218bc49df878202a68`  
 **Approved P3A base SHA:** `ca1bdb4a6d1efae3a6de5241e0f7b6d9b59385dc`  
 **P3B branch start HEAD:** `ca1bdb4a6d1efae3a6de5241e0f7b6d9b59385dc`  
+**P3B content checkpoint HEAD:** `10f55be8fcdfb1e679c4a2cc3ea3cc3b631c6307`  
 **Current branch:** `design/v1-lock-c`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
 **Resolved P3B worktree:** `F:\Codex\yvien-v1-foundation`  
-**Actor holding implementation:** Codex
+**Actor holding implementation:** None — stopped at human gate
 
-**Active route:** LOCK C → COMPILE DESIGN AUTHORITY  
-**Gate state:** P3B IN PROGRESS
+**Active route:** HUMAN REVIEW BEFORE P4 → STOP  
+**Gate state:** P3B COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P4
 
 ## Completed work
 
@@ -68,16 +69,30 @@
 - Completed Hallmark structure review, Impeccable craft review, audience stress test, motion comparison,
   blind identity test, provisional rubric, open-question classification and human comparison package.
 - Ran the bounded closeout verification and unchanged application verifier successfully.
+- Verified the approved P3A remote HEAD and unchanged `origin/main`, then created `design/v1-lock-c`
+  exactly from `ca1bdb4a6d1efae3a6de5241e0f7b6d9b59385dc` in the clean linked worktree.
+- Recorded the human selection of pure Direction C; A/B are no longer active directions.
+- Compiled authoritative design, type, token, motion, page-morphology and machine-readable structural
+  memory contracts for P4 without changing P2 product truth.
+- Contracted all four pending asset inputs into bounded override slots without inventing a logo,
+  pattern, place/material evidence or photography.
+- Added the chosen-C-only browser harness and locked home, service-detail and knowledge-detail evidence.
+- Captured eight hash-indexed PNGs and verified 375/768/1280/1440 geometry, mobile navigation,
+  one-H1 semantics, reduced motion, contrast and clean console state.
+- Completed one contrast correction batch and one confirmation pass; no further browser loop was run.
+- Re-verified both method pins and completed targeted Hallmark/Impeccable C reviews with detector
+  limitation recorded truthfully.
+- Ran the bounded P3B integrity audit and unchanged application verifier successfully.
 
 ## In-progress work
 
-- Compile the human-selected Direction C into authoritative design, token, motion, morphology,
-  structural-memory and asset-integration contracts.
+- None. P3B is stopped before P4.
 
 ## Blockers
 
-- Authoritative logo, place/material and consented photography evidence remain unavailable; they do not
-  block P3B system lock but remain conditional asset inputs.
+- Authoritative logo geometry, authentic pattern provenance, actual Toplink place/material evidence and
+  authorized/consented photography remain unavailable. They do not block P3B; P4 must use the defined
+  conditional slots and fail-closed publication behavior.
 
 ## Decisions encountered
 
@@ -89,13 +104,14 @@
 - `editorial_lifecycle` is private control metadata, not a fact-status field.
 - Organization/contact/service/product/place/story facts that are not supplied remain `PENDING` and
   fail closed.
-- No visual family, palette, font, pattern, token, motion or composition was selected.
+- Direction C is now human-selected and authoritative; A/B are critique/anti-regression references only.
 - During P2, Hallmark and Impeccable had no consumer and were not fetched; P3A fetched their exact pins
   into ignored method-only cache once an immediate consumer existed.
 - No locked decision changed; no new ADR was required.
 - Hallmark was used only for structural pressure; Impeccable only for craft/browser review.
-- The three directions remain independently viable and no provisional score selects a winner.
-- Candidate values, web fonts and motion are comparison-only; no production design system was locked.
+- P3A provisional scores did not choose the winner; the explicit human decision selected C.
+- C morphology, typography, base roles, spacing, hierarchy and release/procession motion logic are
+  locked. Asset-coupled identity colors, logo, pattern and media treatment remain conditional.
 - Impeccable static detection was degraded by unavailable optional parsers and URL detection by unavailable
   Puppeteer; no dependency was installed only to manufacture a clean result.
 
@@ -114,6 +130,15 @@
 - Modified `.gitignore`, `P3A-EXECUTION-PLAN.md`, `SOURCE-REGISTER.md`, `WORKSTATE.md` and the P3A
   distinctness matrix; created `design/P3-TOOL-LEDGER.md` and three direction briefs.
 - No existing tracked file was deleted; `app-demo/**` remained unchanged.
+- Created: `docs/toplink-v1/design/P3B-DIRECTION-SELECTION.md`, `DESIGN.md`, `TYPE-SYSTEM.md`,
+  `TOKENS.md`, `MOTION.md`, `PAGE-MORPHOLOGY-LIBRARY.md`, `STRUCTURE-MEMORY.json`,
+  `ASSET-INTEGRATION-CONTRACT.md`, `P4-HANDOFF.md`.
+- Created: `docs/toplink-v1/design/p3b/LOCKED-VS-CONDITIONAL.md`, `SIGNATURE-EXPERIENCE.md`,
+  `HALLMARK-C-REVIEW.md`, `IMPECCABLE-C-REVIEW.md`, `EVIDENCE-INDEX.md` and eight files under
+  `docs/toplink-v1/design/p3b/evidence/`.
+- Created: `prototypes/toplink-v1/p3-direction-sprint/lock.html`, `lock.css`, `lock.js`.
+- Modified: `prototypes/toplink-v1/p3-direction-sprint/README.md`,
+  `docs/toplink-v1/SOURCE-REGISTER.md`, `docs/toplink-v1/WORKSTATE.md`.
 
 ## Evidence created
 
@@ -127,6 +152,11 @@
 - Evidence index: 20/20 file hashes matched; six comparison links resolved.
 - Browser confirmation: zero horizontal overflow across all four widths; one H1 per representative page;
   zero console errors/warnings in the final A/B/C pass.
+- P3B chosen-C evidence: eight PNGs covering home, service detail, knowledge detail, mobile navigation
+  and reduced motion; 8/8 SHA-256 hashes match the evidence index.
+- P3B browser confirmation: zero overflow at 375/768/1280/1440, one H1 per surface, mobile menu open,
+  reduced-motion gateway `animation-name: none`, zero console/page errors and small-label contrast
+  from 5.58:1 to 8.64:1.
 
 ## Commands and checks actually run
 
@@ -139,6 +169,20 @@
 - `npm run verify`: PASS once at closeout (Next build 12 static surfaces, TypeScript, formatting,
   35 token colors, six-route legacy release-surface guard).
 - `git diff --check`: PASS.
+- `git fetch --prune origin`: PASS; P3A and main refs matched the approved SHAs.
+- Branch/worktree checks: PASS; clean linked worktree, exact P3A base and no pre-existing P3B branch.
+- `git rev-parse HEAD` in Hallmark/Impeccable caches: PASS; exact pins `13ac0ec...` and `b0594c72...`.
+- `node --check prototypes/toplink-v1/p3-direction-sprint/lock.js`: PASS.
+- `ConvertFrom-Json docs/toplink-v1/design/STRUCTURE-MEMORY.json`: PASS.
+- Playwright P3B capture/geometry/semantic/console/contrast pass: PASS after one correction and one confirmation.
+- Impeccable `detect.mjs --json ...`: UNAVAILABLE — `Error: bundled detector not found.`; no refetch or
+  dependency was added. Browser/DOM evidence is the recorded fallback.
+- Required-file, evidence-hash, no-app-diff, no-deletion, ignored-tool, fake-contact/commerce and secret
+  signature audit: PASS.
+- `npm run verify`: PASS once at P3B closeout; build generated 12 static surfaces, TypeScript and
+  Prettier passed, token check reported 35 colors/0 orphan classes, release check reported six public
+  routes/0 booking traces/0 forbidden routes/0 dead links.
+- `git diff --check`: PASS before P3B commits.
 - Application-diff, tracked-deletion, dependency/tool-install, secret-signature, fake-contact,
   final-hex and forbidden-schema checks: PASS, all zero.
 - `git push -u origin product/v1-ia-content`: PASS; remote branch created at
@@ -164,6 +208,8 @@
 - P3A browser prototype: PASS after one bounded correction and one confirmation.
 - Existing application verification: PASS; 12 static surfaces, TypeScript, formatting, tokens and release
   surface checks completed without modifying application source.
+- P3B design authority and browser evidence: PASS after one correction and one confirmation.
+- Existing application verification: PASS once at P3B closeout; application source remained unchanged.
 
 ## Unresolved findings
 
@@ -172,18 +218,21 @@
 - Exact Zalo, Facebook/Messenger and phone destinations, address, hours and legal identifiers remain
   `PENDING`.
 - Actual authorized Toplink space/people/media and real consented customer stories remain unavailable.
-- Final art direction, palette, typography, pattern, media system and motion intensity remain P3/later
-  decisions by design.
+- Final logo geometry, authentic ornament asset, real place/material nuance and consented photography
+  remain conditional pending user evidence. Their insertion cannot reopen C morphology/hierarchy.
+- Impeccable automated detection is unavailable in the sparse pinned cache; P3B does not claim a clean
+  detector scan.
 - Repository visibility, archive tag and all production/release actions remain human-gated.
 
 ## Next actor
 
-Codex
+ChatGPT Web / Human
 
 ## NEXT ACTION
 
-Compile the selected Direction C into the P3B design authority and browser evidence package.
+Review and approve the locked Direction C design authority package before authorizing P4 frontend implementation.
 
 ## Human gate
 
-P3B is active. P4, merge, deployment, repository visibility change and archive-tag creation remain blocked.
+P3B COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P4. P4, merge, deployment, repository
+visibility change and archive-tag creation remain blocked.
