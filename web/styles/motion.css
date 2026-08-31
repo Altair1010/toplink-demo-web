@@ -1,0 +1,44 @@
+@keyframes gateway-release {
+  from {
+    inset: 16% 17%;
+    opacity: 0.55;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a,
+  summary {
+    transition:
+      color var(--motion-state) ease-out,
+      background-color var(--motion-state) ease-out;
+  }
+
+  .orientation-rail a:hover {
+    background: var(--slot-identity-anchor);
+  }
+
+  .record-link:has(a:hover) {
+    background: color-mix(in srgb, var(--slot-identity-anchor) 8%, transparent);
+  }
+}
+
+@media (max-width: 47.999rem) {
+  .gateway-frame {
+    animation-duration: var(--motion-threshold);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .gateway-frame {
+    animation: none;
+  }
+}

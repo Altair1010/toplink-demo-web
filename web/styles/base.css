@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-wrap: break-word;
+  background: var(--color-surface-reading);
+  color: var(--color-ink-strong);
+  font-family: var(--font-body);
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+
+main {
+  display: block;
+  min-width: 0;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-block-start: 0;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.28em;
+  text-decoration-thickness: 0.08em;
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: var(--border-emphasis) solid var(--color-focus);
+  outline-offset: var(--space-1);
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  inset: var(--space-3) auto auto var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  transform: translateY(-180%);
+  background: white;
+  color: black;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.lead {
+  font-size: var(--type-body-lg);
+  line-height: 1.6;
+}
+
+.chapter-mark,
+.record-eyebrow {
+  margin-block-end: var(--space-4);
+  font-size: var(--type-note);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter-mark {
+  color: var(--slot-identity-anchor);
+}
+
+.text-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-weight: 600;
+}
+
+.plain-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.body-copy > * + * {
+  margin-block-start: var(--space-5);
+}
+
+.body-copy p {
+  max-width: var(--measure-reading);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

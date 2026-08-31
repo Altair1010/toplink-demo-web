@@ -1,0 +1,32 @@
+{
+  "name": "y-vien-toplink-v1-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check:content": "node scripts/check-content-boundary.mjs",
+    "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:content",
+    "browser:audit": "node scripts/browser-audit.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "playwright": "1.63.0-alpha-2026-08-05",
+    "prettier": "3.9.4",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

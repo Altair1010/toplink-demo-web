@@ -1,0 +1,126 @@
+.site-header {
+  position: relative;
+  z-index: 30;
+  display: flex;
+  min-height: 5.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding: var(--space-4) var(--gutter);
+  border-block-end: var(--border-hairline) solid var(--color-rule);
+  background: var(--color-ink-strong);
+  color: var(--color-surface-reading);
+}
+
+.text-identity {
+  display: grid;
+  flex: none;
+  min-height: 44px;
+  align-content: center;
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.text-identity strong {
+  font-size: var(--type-note);
+  letter-spacing: 0.12em;
+}
+
+.text-identity span {
+  color: var(--slot-identity-metal);
+  font-size: 0.8rem;
+}
+
+.desktop-navigation {
+  display: none;
+  align-items: center;
+  gap: clamp(var(--space-4), 2vw, var(--space-6));
+}
+
+.desktop-navigation a,
+.mobile-navigation a,
+.site-footer a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-size: var(--type-utility);
+  font-weight: 500;
+}
+
+.mobile-navigation {
+  position: relative;
+}
+
+.mobile-navigation summary {
+  display: grid;
+  min-width: 5.5rem;
+  min-height: 44px;
+  cursor: pointer;
+  place-items: center;
+  border: var(--border-hairline) solid var(--color-rule);
+  border-radius: var(--radius-control);
+  list-style: none;
+  font-weight: 600;
+}
+
+.mobile-navigation summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-navigation nav {
+  position: absolute;
+  z-index: 40;
+  inset: calc(100% + var(--space-2)) 0 auto auto;
+  display: grid;
+  min-width: min(18rem, calc(100vw - 2 * var(--gutter)));
+  padding: var(--space-2);
+  border: var(--border-hairline) solid var(--color-rule);
+  background: var(--color-surface-reading);
+  color: var(--color-ink-strong);
+}
+
+.mobile-navigation a {
+  padding-inline: var(--space-3);
+}
+
+.site-footer {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-7) var(--gutter);
+  border-block-start: var(--border-hairline) solid var(--color-rule);
+  background: var(--color-ink-strong);
+  color: var(--color-surface-reading);
+}
+
+.site-footer p {
+  margin-block-end: 0;
+}
+
+.site-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+.footer-status {
+  color: var(--color-surface-muted);
+  font-size: var(--type-note);
+}
+
+@media (min-width: 70rem) {
+  .desktop-navigation {
+    display: flex;
+  }
+
+  .mobile-navigation {
+    display: none;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr auto;
+  }
+
+  .footer-status {
+    grid-column: 1 / -1;
+  }
+}
