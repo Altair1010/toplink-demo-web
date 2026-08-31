@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0-p3b",
+  "authority": "Direction C - Tan Cung Duong Dai / Structured Procession",
+  "status": "locked-for-p4",
+  "pageTypes": {
+    "home": {
+      "hero": "identity-gateway",
+      "sequence": ["orientation-procession", "service-court", "trust-threshold", "knowledge-hall", "space-evidence-gate", "contact-release"]
+    },
+    "service-index": { "hero": "gateway-lite", "sequence": ["service-discovery-courts", "obligation-ledger", "knowledge-bridge"] },
+    "service-detail": { "hero": "purpose-gate", "sequence": ["fit-chamber", "process-court", "limitations-chamber", "knowledge-bridge", "contact-release"] },
+    "knowledge-index": { "hero": "learning-gateway", "sequence": ["topic-halls", "annotated-reading-index"] },
+    "knowledge-detail": { "hero": "question-gate", "sequence": ["reading-hall", "evidence-spine", "bounded-application", "escalation-chamber", "related-reading"] },
+    "news": { "hero": "gateway-lite", "sequence": ["editorial-docket", "editorial-boundary"] },
+    "space": { "hero": "evidence-gate", "sequence": ["authorized-media-court", "provenance-ledger"] },
+    "about": { "hero": "brand-gateway", "sequence": ["philosophy-procession", "organization-facts", "trust-boundary"] },
+    "contact": { "hero": "utility-gate", "sequence": ["verified-facts", "verified-channel-directory", "privacy-note"] }
+  },
+  "sectionFamilies": ["gateway", "gateway-lite", "court", "chamber", "reading-hall", "evidence-spine", "threshold", "release", "utility-hall"],
+  "heroArchetypes": ["identity-gateway", "purpose-gate", "learning-gateway", "question-gate", "evidence-gate", "utility-gate"],
+  "contentChambers": ["purpose", "fit", "process", "limitations", "professional-escalation", "evidence", "bounded-application", "related-reading"],
+  "allowedAdjacency": {
+    "gateway": ["procession", "court", "reading-hall"],
+    "court": ["chamber", "threshold", "reading-hall"],
+    "chamber": ["chamber", "threshold", "release"],
+    "reading-hall": ["evidence-spine", "bounded-application", "related-reading"],
+    "threshold": ["court", "reading-hall", "release"],
+    "release": ["footer"]
+  },
+  "rhythmConstraints": {
+    "maxSameMorphologyAdjacent": 2,
+    "maxConsecutiveDarkChapters": 2,
+    "longFormMeasure": "44rem",
+    "ceremonyZonesPerUtilityPage": 1,
+    "desktopIndentOptions": ["12%", "18%", "24%"],
+    "mobileIndent": "0"
+  },
+  "contactSurfaceLimits": {
+    "requiresVerifiedDestination": true,
+    "requiresPriorUnderstandingOrTrust": true,
+    "maxPrimaryContactReleasePerPage": 1,
+    "stickyOnKnowledge": false,
+    "pendingBehavior": "omit-action-or-render-honest-noninteractive-status"
+  },
+  "disallowedRepetitions": ["universal-card-grid", "same-hero-all-routes", "contact-after-every-section", "decorative-sequence-numbers", "full-page-dark-light-zebra"],
+  "forbiddenAntiPatterns": ["literal-palace-decoration", "generic-lattice-wallpaper", "gold-small-text-on-light", "glassmorphism", "pill-overload", "fake-testimonial", "fake-contact", "fake-premises", "scroll-hijack", "every-section-fade-up", "pulsing-cta"]
+}
