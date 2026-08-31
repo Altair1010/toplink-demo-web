@@ -2,8 +2,8 @@
 
 **Updated:** 2026-08-31 23:50 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P5  
-**Status:** COMPLETE — READY FOR HUMAN REVIEW  
+**Phase:** P6  
+**Status:** IN PROGRESS — HEADLESS INTEGRATION  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -30,7 +30,9 @@
 **P4 content checkpoint HEAD:** `a6d9510593f32e6505185c511b2a52f814af95d1`  
 **Approved P4 base SHA:** `74ca8f120fa6a1630d9bca16191291bd6a366afa`  
 **P5 branch start HEAD:** `74ca8f120fa6a1630d9bca16191291bd6a366afa`  
-**Current branch:** `feat/v1-wordpress-foundation`  
+**P5 implementation HEAD:** `71361d18ead8b84fdafeb17e8fc28856d2fa3d50`  
+**P6 branch start HEAD:** `71361d18ead8b84fdafeb17e8fc28856d2fa3d50`  
+**Current branch:** `feat/v1-headless-integration`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
@@ -38,10 +40,10 @@
 **Resolved P4 worktree:** `F:\Codex\yvien-v1-foundation`  
 **Target V1 frontend:** `F:\Codex\yvien-v1-foundation\web`  
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
-**Actor holding implementation:** None
+**Actor holding implementation:** Codex
 
-**Active route:** HUMAN REVIEW BEFORE P6 → STOP  
-**Gate state:** P5 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P6
+**Active route:** WP REST → VALIDATION → NORMALIZATION → DOMAIN → REACT  
+**Gate state:** P6 IN PROGRESS — HEADLESS INTEGRATION
 
 ## Completed work
 
@@ -123,7 +125,7 @@
 
 ## In-progress work
 
-- None. P5 is stopped before P6.
+- P6 headless integration authorized by the current user prompt and started from the exact approved P5 SHA.
 
 ## Blockers
 
