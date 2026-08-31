@@ -61,9 +61,9 @@ Playwright browser capture, Markdown evidence.
 - [x] Complete audience stress test, motion comparison, blind identity critique and provisional rubric.
 - [x] Classify all ten open visual questions without resolving missing evidence by assumption.
 - [x] Write the scannable `DIRECTION-COMPARISON.md` with evidence locators and no winner.
-- [ ] Update SOURCE-REGISTER and WORKSTATE with exactly one next action.
-- [ ] Verify scope, paths, screenshots, overflow, pins, ignored tools, no app diff/deletion/secrets.
-- [ ] Run `npm run verify` once from `app-demo`, inspect full diff, commit logically and push branch.
+- [x] Update SOURCE-REGISTER and WORKSTATE with exactly one next action.
+- [x] Verify scope, paths, screenshots, overflow, pins, ignored tools, no app diff/deletion/secrets.
+- [x] Run `npm run verify` once from `app-demo`, inspect full diff, commit logically and push branch.
 
 ## Plan self-review
 
