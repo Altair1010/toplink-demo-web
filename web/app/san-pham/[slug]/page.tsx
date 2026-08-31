@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
+import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Chamber } from "@/components/structural/Chamber";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
-import { getProductBySlug, getProducts } from "@/lib/content";
+import { getContentRedirect, getProductBySlug, getProducts } from "@/lib/content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,11 +23,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const product = await getProductBySlug((await params).slug);
-  if (!product) notFound();
+  const slug = (await params).slug;
+  const product = await getProductBySlug(slug);
+  if (!product) {
+    const redirect = await getContentRedirect("products", slug);
+    if (redirect) permanentRedirect(redirect);
+    notFound();
+  }
 
   return (
     <main id="main">
+      <PreviewNotice lifecycle={product.editorial_lifecycle} />
       <Gateway
         eyebrow="Documentation hall · published"
         title={product.title.value}

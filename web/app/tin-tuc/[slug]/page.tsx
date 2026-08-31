@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
+import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
-import { getArticleBySlug, getArticles } from "@/lib/content";
+import { getArticleBySlug, getArticles, getContentRedirect } from "@/lib/content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,11 +27,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function NewsDetailPage({ params }: PageProps) {
-  const article = await getArticleBySlug((await params).slug);
-  if (!article || article.article_type.value === "knowledge") notFound();
+  const slug = (await params).slug;
+  const article = await getArticleBySlug(slug);
+  if (!article || article.article_type.value === "knowledge") {
+    const redirect = await getContentRedirect("articles", slug);
+    if (redirect?.startsWith("/tin-tuc/")) permanentRedirect(redirect);
+    notFound();
+  }
 
   return (
     <main id="main">
+      <PreviewNotice lifecycle={article.editorial_lifecycle} />
       <Gateway
         eyebrow={`${article.article_type.value} · ${article.published_at.value}`}
         title={article.title.value}

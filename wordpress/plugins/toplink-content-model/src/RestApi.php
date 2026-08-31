@@ -114,9 +114,6 @@ final class RestApi {
 	public static function preview_detail( WP_REST_Request $request ): WP_REST_Response|WP_Error {
 		$intent = trim( (string) $request->get_header( 'x-toplink-preview-intent' ) );
 		if ( '' === $intent ) {
-			$intent = trim( (string) $request->get_param( 'intent' ) );
-		}
-		if ( '' === $intent ) {
 			return new WP_Error( 'toplink_preview_unauthorized', 'Thiếu preview intent.', array( 'status' => 401 ) );
 		}
 		$payload = IntegrationAuth::verify_preview_intent( $intent );
@@ -126,7 +123,14 @@ final class RestApi {
 			return new WP_Error( 'toplink_preview_unauthorized', 'Preview intent không hợp lệ.', array( 'status' => 401 ) );
 		}
 		$post = get_post( $post_id );
-		if ( ! $post || $post_type !== $post->post_type || PublicationGates::validate( $post_id, null, false ) ) {
+		$article_type_matches = 'post' !== $post_type || PublicationGates::article_type( $post_id ) === ( $payload['article_type'] ?? '' );
+		if (
+			! $post
+			|| $post_type !== $post->post_type
+			|| $post->post_name !== ( $payload['slug'] ?? '' )
+			|| ! $article_type_matches
+			|| PublicationGates::validate( $post_id, null, false )
+		) {
 			return new WP_Error( 'toplink_preview_unavailable', 'Record chưa đủ điều kiện preview.', array( 'status' => 404 ) );
 		}
 		$item = self::project_post( $post, true );

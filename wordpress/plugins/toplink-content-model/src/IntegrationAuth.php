@@ -11,7 +11,7 @@ final class IntegrationAuth {
 
 	public static function sign_preview_intent( array $payload ): string {
 		$secret = self::preview_secret();
-		if ( '' === $secret ) {
+		if ( strlen( $secret ) < 32 ) {
 			return '';
 		}
 		$payload['exp'] = min( (int) ( $payload['exp'] ?? 0 ), time() + self::PREVIEW_TTL );
@@ -21,7 +21,7 @@ final class IntegrationAuth {
 
 	public static function verify_preview_intent( string $intent ): ?array {
 		$secret = self::preview_secret();
-		if ( '' === $secret || ! str_contains( $intent, '.' ) ) {
+		if ( strlen( $secret ) < 32 || ! str_contains( $intent, '.' ) ) {
 			return null;
 		}
 		list( $encoded, $signature ) = explode( '.', $intent, 2 );

@@ -6,20 +6,41 @@ import { chromium } from "playwright";
 
 const port = Number(process.env.P4_PORT ?? 4180);
 const baseUrl = `http://127.0.0.1:${port}`;
-const evidenceDirectory = resolve(process.cwd(), "../docs/toplink-v1/p4/evidence");
-const resultPath = resolve(process.cwd(), "browser-results/audit.json");
+const p6Cms = process.env.P6_CMS === "1";
+const evidenceDirectory = resolve(
+  process.cwd(),
+  p6Cms ? "../docs/toplink-v1/p6/evidence" : "../docs/toplink-v1/p4/evidence",
+);
+const resultPath = resolve(
+  process.cwd(),
+  p6Cms ? "browser-results/audit-p6.json" : "browser-results/audit.json",
+);
 
 const routes = [
   ["home", "/"],
   ["about", "/gioi-thieu"],
   ["service-index", "/dich-vu"],
-  ["service-detail", "/dich-vu/ban-mau-cau-truc"],
+  [
+    "service-detail",
+    p6Cms ? "/dich-vu/p6-integration-test-valid-service" : "/dich-vu/ban-mau-cau-truc",
+  ],
   ["product-index", "/san-pham"],
-  ["product-detail", "/san-pham/ho-so-san-pham-mau"],
+  [
+    "product-detail",
+    p6Cms ? "/san-pham/p6-integration-test-valid-product" : "/san-pham/ho-so-san-pham-mau",
+  ],
   ["knowledge-index", "/kien-thuc"],
-  ["knowledge-detail", "/kien-thuc/cach-doc-thong-tin-an-toan"],
+  [
+    "knowledge-detail",
+    p6Cms
+      ? "/kien-thuc/p6-integration-test-valid-article"
+      : "/kien-thuc/cach-doc-thong-tin-an-toan",
+  ],
   ["news-index", "/tin-tuc"],
-  ["news-detail", "/tin-tuc/ban-tin-van-hanh-mau"],
+  [
+    "news-detail",
+    p6Cms ? "/tin-tuc/p5-contract-test-customer-story" : "/tin-tuc/ban-tin-van-hanh-mau",
+  ],
   ["space", "/khong-gian"],
   ["contact", "/lien-he"],
 ];
@@ -286,8 +307,8 @@ try {
 
   for (const routePath of [
     "/",
-    "/dich-vu/ban-mau-cau-truc",
-    "/kien-thuc/cach-doc-thong-tin-an-toan",
+    routes.find(([name]) => name === "service-detail")[1],
+    routes.find(([name]) => name === "knowledge-detail")[1],
     "/lien-he",
   ]) {
     const context = await browser.newContext({
@@ -329,11 +350,11 @@ try {
 }
 
 if (failures.length > 0) {
-  console.error(`P4 browser audit failed (${failures.length}):`);
+  console.error(`${p6Cms ? "P6 CMS" : "P4"} browser audit failed (${failures.length}):`);
   failures.forEach((failure) => console.error(`- ${failure}`));
   process.exit(1);
 }
 
 console.log(
-  `P4 browser audit passed: ${routes.length} routes × ${widths.length} widths, ${evidence.length} retained captures.`,
+  `${p6Cms ? "P6 CMS" : "P4"} browser audit passed: ${routes.length} routes × ${widths.length} widths, ${evidence.length} retained captures.`,
 );

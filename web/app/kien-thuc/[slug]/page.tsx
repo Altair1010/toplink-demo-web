@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
+import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
-import { getArticleBySlug, getArticles } from "@/lib/content";
+import { getArticleBySlug, getArticles, getContentRedirect } from "@/lib/content";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,8 +23,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function KnowledgeDetailPage({ params }: PageProps) {
-  const article = await getArticleBySlug((await params).slug, "knowledge");
-  if (!article) notFound();
+  const slug = (await params).slug;
+  const article = await getArticleBySlug(slug, "knowledge");
+  if (!article) {
+    const redirect = await getContentRedirect("articles", slug);
+    if (redirect?.startsWith("/kien-thuc/")) permanentRedirect(redirect);
+    notFound();
+  }
 
   const chapterNames = [
     "Câu hỏi học tập",
@@ -34,6 +40,7 @@ export default async function KnowledgeDetailPage({ params }: PageProps) {
 
   return (
     <main id="main">
+      <PreviewNotice lifecycle={article.editorial_lifecycle} />
       <Gateway
         variant="reading"
         eyebrow="Knowledge detail · reading hall"

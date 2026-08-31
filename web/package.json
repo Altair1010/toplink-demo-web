@@ -11,6 +11,7 @@
     "format:check": "prettier --check .",
     "check:content": "node scripts/check-content-boundary.mjs",
     "test:p6": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:p6:http": "node scripts/verify-p6-http.mjs",
     "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:content",
     "browser:audit": "node scripts/browser-audit.mjs"
   },

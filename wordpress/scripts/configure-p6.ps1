@@ -57,6 +57,7 @@ Set-DotEnvValue $wordpressLines 'TOPLINK_PREVIEW_WEB_URL' 'http://127.0.0.1:3000
 
 $webLines = Read-DotEnvLines $webEnvPath
 Set-DotEnvValue $webLines 'TOPLINK_CMS_BASE_URL' 'http://127.0.0.1:8085/wp-json/toplink/v1'
+Set-DotEnvValue $webLines 'TOPLINK_WEB_BASE_URL' 'http://127.0.0.1:3000/'
 Set-DotEnvValue $webLines 'TOPLINK_WEBHOOK_SECRET' $webhookSecret
 Set-DotEnvValue $webLines 'TOPLINK_PREVIEW_SECRET' $previewSecret
 [IO.File]::WriteAllLines($webEnvPath, $webLines, [Text.UTF8Encoding]::new($false))

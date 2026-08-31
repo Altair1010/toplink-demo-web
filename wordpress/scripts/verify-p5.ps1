@@ -1,5 +1,7 @@
 [CmdletBinding()]
-param()
+param(
+    [switch]$AllowP6Integration
+)
 
 $ErrorActionPreference = 'Stop'
 $wordpressRoot = Split-Path -Parent $PSScriptRoot
@@ -48,13 +50,15 @@ try {
         }
         $trackedEnv = & git ls-files -- wordpress/.env
         if ($trackedEnv) { throw 'wordpress/.env is tracked.' }
-        $cmsTrace = & rg -n -i 'WORDPRESS_URL|CMS_URL|wp-json|toplink/v1|wp-client' web 2>$null
-        if ($cmsTrace) { throw 'P6/CMS integration trace detected in web/.' }
+        if (-not $AllowP6Integration) {
+            $cmsTrace = & rg -n -i 'WORDPRESS_URL|CMS_URL|wp-json|toplink/v1|wp-client' web 2>$null
+            if ($cmsTrace) { throw 'P6/CMS integration trace detected in web/.' }
+        }
         $base = '74ca8f120fa6a1630d9bca16191291bd6a366afa'
         $webDiff = & git diff --name-only $base -- web
         $appDiff = & git diff --name-only $base -- app-demo
         $deletions = & git diff --diff-filter=D --name-only $base
-        if ($webDiff) { throw 'web/ changed during P5.' }
+        if ($webDiff -and -not $AllowP6Integration) { throw 'web/ changed during P5.' }
         if ($appDiff) { throw 'app-demo/ changed during P5.' }
         if ($deletions) { throw 'An existing tracked file was deleted.' }
     }

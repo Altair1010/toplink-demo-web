@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 
 import { ContactDirectory } from "@/components/content/ContactDirectory";
 import { MediaFigure } from "@/components/content/MediaFigure";
+import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Chamber } from "@/components/structural/Chamber";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
-import { getServiceBySlug, getServices, getSiteSettings } from "@/lib/content";
+import { getContentRedirect, getServiceBySlug, getServices, getSiteSettings } from "@/lib/content";
 import { approvedValue } from "@/types/domain";
 
 interface PageProps {
@@ -25,12 +26,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
-  const service = await getServiceBySlug((await params).slug);
-  if (!service) notFound();
+  const slug = (await params).slug;
+  const service = await getServiceBySlug(slug);
+  if (!service) {
+    const redirect = await getContentRedirect("services", slug);
+    if (redirect) permanentRedirect(redirect);
+    notFound();
+  }
   const media = approvedValue(service.media) ?? [];
 
   return (
     <main id="main">
+      <PreviewNotice lifecycle={service.editorial_lifecycle} />
       <Gateway
         eyebrow="Purpose gate · published"
         title={service.title.value}
