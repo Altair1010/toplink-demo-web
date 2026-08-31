@@ -1,25 +1,29 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 02:53 +07:00  
+**Updated:** 2026-08-31 03:20 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P1  
-**Status:** COMPLETE — READY FOR HUMAN REVIEW  
+**Phase:** P2  
+**Status:** IN PROGRESS — PRODUCT / IA / CONTENT  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
 **P0 worktree:** `F:\Codex\yvien-v1-foundation`  
 **Reference package:** `F:\Codex\Yvien Hotlink Website\Z-NeededUpdate\reference\toplink-headless-commercial-redesign-master-v1.0.0`  
 **GitHub repository:** `https://github.com/Altair1010/toplink-demo-web`  
-**Current branch:** `research/v1-reference-system`  
+**P1 branch:** `research/v1-reference-system`  
 **Baseline origin/main SHA:** `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`  
 **Approved P0 base SHA:** `12be3fe9e99d022c3a11005712244b2877002733`  
 **Branch start HEAD:** `12be3fe9e99d022c3a11005712244b2877002733`  
 **P1 content checkpoint HEAD:** `f05c7715a6bed44fc1d0461d04acb7762a510375`  
 **Verified remote checkpoint before closeout commit:** `f05c7715a6bed44fc1d0461d04acb7762a510375`  
-**Actor holding implementation:** None — stopped at human gate
+**Approved P1 base SHA:** `4c93285bb1290100c388e4efe6a40879310f4393`  
+**P2 branch start HEAD:** `4c93285bb1290100c388e4efe6a40879310f4393`  
+**Current branch:** `product/v1-ia-content`  
+**Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
+**Actor holding implementation:** Codex
 
-**Active route:** HUMAN GATE → STOP  
-**Gate state:** P1 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P2
+**Active route:** CROSS-CHECK → VERIFY  
+**Gate state:** P2 IN PROGRESS
 
 ## Completed work
 
@@ -46,12 +50,11 @@
 
 ## In-progress work
 
-- None. Work is stopped before P2.
+- Running the P2 reverse-graph, consistency and deterministic verification pass.
 
 ## Blockers
 
-- No technical blocker to human review.
-- P2 remains blocked by the required Human / ChatGPT approval gate.
+- None at P2 start.
 
 ## Decisions encountered
 
@@ -124,12 +127,12 @@
 
 ## Next actor
 
-`ChatGPT Web / Human` for P1 corpus review.
+`Codex` for P2 specification execution.
 
 ## NEXT ACTION
 
-Review and approve the P1 design-input corpus before authorizing P2 product IA and content architecture.
+Define the canonical product contract, audience journeys and candidate V1 route/page jobs.
 
 ## Human gate
 
-Required before P2, merge, deployment, repository visibility change or archive-tag creation.
+Required before P3, merge, deployment, repository visibility change or archive-tag creation.
