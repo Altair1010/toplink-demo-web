@@ -1,8 +1,8 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 22:05 +07:00  
+**Updated:** 2026-08-31 23:50 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P4  
+**Phase:** P5  
 **Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
@@ -28,7 +28,9 @@
 **P4 branch start HEAD:** `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b`  
 **P4 implementation HEAD:** `25424ed69a64bbb6763c657bd35a92287c296fb3`  
 **P4 content checkpoint HEAD:** `a6d9510593f32e6505185c511b2a52f814af95d1`  
-**Current branch:** `feat/v1-frontend-fixtures`  
+**Approved P4 base SHA:** `74ca8f120fa6a1630d9bca16191291bd6a366afa`  
+**P5 branch start HEAD:** `74ca8f120fa6a1630d9bca16191291bd6a366afa`  
+**Current branch:** `feat/v1-wordpress-foundation`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
@@ -36,10 +38,10 @@
 **Resolved P4 worktree:** `F:\Codex\yvien-v1-foundation`  
 **Target V1 frontend:** `F:\Codex\yvien-v1-foundation\web`  
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
-**Actor holding implementation:** None — stopped at human gate
+**Actor holding implementation:** None
 
-**Active route:** HUMAN REVIEW BEFORE P5 → STOP  
-**Gate state:** P4 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P5
+**Active route:** HUMAN REVIEW BEFORE P6 → STOP  
+**Gate state:** P5 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P6
 
 ## Completed work
 
@@ -106,10 +108,22 @@
 - Re-verified Hallmark/Impeccable pins and completed P4 structural/craft audits with the detector
   limitation recorded truthfully.
 - Ran the P4 verifier and the unchanged H7 verifier successfully.
+- Verified the exact approved P4 remote HEAD and unchanged `origin/main`, then created
+  `feat/v1-wordpress-foundation` exactly from `74ca8f120fa6a1630d9bca16191291bd6a366afa`.
+- Added a localhost-only, immutable-digest Docker Compose stack for WordPress, MariaDB and WP-CLI with
+  persistent named volumes, internal-only database exposure and untracked generated credentials.
+- Implemented `toplink-content-model` with one central 57-field schema registry, Service/Product CPTs,
+  `service_group`, core Article categories, attachment governance and independently governed SiteSettings.
+- Added native editor surfaces, least-privilege Author/Editor capabilities, four-state lifecycle,
+  required/source/status gates, customer-story consent gates and fail-closed media behavior.
+- Added the read-only `toplink/v1` projection and versioned schema for exactly Service, Product, Article,
+  Media and SiteSettings; optional non-approved facts and private governance are omitted.
+- Added idempotent nonproduction seeds and a reusable static/runtime P5 verification harness.
+- Completed V0, one same-agent V1 review, one bounded correction batch and one confirmation; P6 was not started.
 
 ## In-progress work
 
-- None. P4 is stopped before P5.
+- None. P5 is stopped before P6.
 
 ## Blockers
 
@@ -173,6 +187,10 @@
 - Created: `docs/toplink-v1/P4-EXECUTION-PLAN.md` and `docs/toplink-v1/p4/` implementation, route,
   fixture, browser evidence, Hallmark, Impeccable and open-finding artifacts.
 - Modified in P4: `docs/toplink-v1/WORKSTATE.md`; no existing tracked file was deleted.
+- Created: `wordpress/` Docker/plugin/bootstrap/seed/test foundation.
+- Created: `docs/toplink-v1/P5-EXECUTION-PLAN.md` and `docs/toplink-v1/p5/` implementation, REST,
+  workflow, gate, seed, test and open-finding artifacts.
+- Modified in P5: `docs/toplink-v1/WORKSTATE.md`; no existing tracked file was deleted.
 
 ## Evidence created
 
@@ -195,6 +213,10 @@
   console/page error, heading skip and contrast failure.
 - Four representative surfaces passed 640 CSS-pixel reflow as the 1280px/200%-zoom equivalent.
 - Fourteen decision-relevant PNGs have SHA-256 entries in `p4/BROWSER-EVIDENCE-INDEX.md`.
+- P5 static contract: five tests; runtime workflow: 32 assertions covering A–L plus approval casing,
+  Author self-approval denial and post-save unpublication.
+- P5 browser smoke: Author had no Publish control; Editor DOM contained the Toplink meta box and Editor
+  could access/save the SiteSettings surface.
 
 ## Commands and checks actually run
 
@@ -254,6 +276,12 @@
 - `npm run verify` in `web/`: PASS; build, TypeScript, Prettier and content-boundary checks.
 - `npm run verify` in unchanged `app-demo/`: PASS once; build, TypeScript, Prettier, 35 token
   colors/0 orphan classes and six legacy routes/0 release violations.
+- P5 first and second bootstrap: PASS; second run kept content count `4 -> 4` and user count `3 -> 3`.
+- `wordpress/scripts/verify-p5.ps1`: PASS after the V1 correction batch; container/core/plugin health,
+  PHP lint, 5 static tests, 32 runtime assertions, secret scan and preservation checks completed.
+- `npm run verify` in unchanged fixture-driven `web/`: PASS once during P5; 16-page build, TypeScript,
+  Prettier and 12-route content boundary completed.
+- `git diff --check`, deletion, forbidden/P6 token, digest pin and `web/`/`app-demo/` diff checks: PASS.
 
 ## Test/build results
 
@@ -267,6 +295,8 @@
 - Existing application verification: PASS once at P3B closeout; application source remained unchanged.
 - P4 frontend verification: PASS; build/type/format/content-boundary and browser matrix completed.
 - H7 preservation verification: PASS; `app-demo/` has zero diff from the approved P3B base.
+- P5 WordPress/editorial/REST contract: PASS after one bounded correction and one confirmation.
+- P4 frontend preservation in P5: PASS; application remains fixture-driven and unchanged.
 
 ## Unresolved findings
 
@@ -289,9 +319,9 @@ ChatGPT Web / Human
 
 ## NEXT ACTION
 
-Review and approve the completed fixture-driven V1 frontend before authorizing P5 WordPress foundation.
+Review and approve the local WordPress editorial/content-model foundation before authorizing P6 headless integration.
 
 ## Human gate
 
-P4 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P5. P5, merge, deployment, repository
+P5 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P6. P6, merge, deployment, repository
 visibility change and archive-tag creation remain blocked.
