@@ -26,12 +26,16 @@ final class RestApi {
 		}
 		register_rest_route( self::NAMESPACE, '/media', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'media_collection' ), 'permission_callback' => '__return_true' ) );
 		register_rest_route( self::NAMESPACE, '/media/(?P<id>\d+)', array( 'methods' => WP_REST_Server::READABLE, 'callback' => static fn ( WP_REST_Request $request ) => self::media_detail( absint( $request['id'] ) ), 'permission_callback' => '__return_true' ) );
+		register_rest_route( self::NAMESPACE, '/redirects/(?P<resource>services|products|articles)/(?P<slug>[a-z0-9-]+)', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'redirect_detail' ), 'permission_callback' => '__return_true' ) );
+		register_rest_route( self::NAMESPACE, '/preview/(?P<post_type>service|product|post)/(?P<id>\d+)', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'preview_detail' ), 'permission_callback' => '__return_true' ) );
 		register_rest_route( self::NAMESPACE, '/site-settings', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'site_settings' ), 'permission_callback' => '__return_true' ) );
 		register_rest_route( self::NAMESPACE, '/schema', array( 'methods' => WP_REST_Server::READABLE, 'callback' => array( self::class, 'schema' ), 'permission_callback' => '__return_true' ) );
 	}
 
 	public static function collection( string $post_type, WP_REST_Request $request ): WP_REST_Response {
-		$args = array( 'post_type' => $post_type, 'post_status' => 'publish', 'posts_per_page' => 100, 'orderby' => array( 'menu_order' => 'ASC', 'date' => 'DESC' ), 'no_found_rows' => true );
+		$page = max( 1, absint( $request->get_param( 'page' ) ?: 1 ) );
+		$per_page = min( 100, max( 1, absint( $request->get_param( 'per_page' ) ?: 20 ) ) );
+		$args = array( 'post_type' => $post_type, 'post_status' => 'publish', 'posts_per_page' => $per_page, 'paged' => $page, 'orderby' => array( 'menu_order' => 'ASC', 'date' => 'DESC' ), 'no_found_rows' => false );
 		if ( 'post' === $post_type ) {
 			$args['category_name'] = implode( ',', array_keys( SchemaRegistry::article_category_map() ) );
 			$type = sanitize_key( (string) $request->get_param( 'type' ) );
@@ -48,7 +52,21 @@ final class RestApi {
 				$items[] = $projected;
 			}
 		}
-		return new WP_REST_Response( array( 'items' => $items, 'count' => count( $items ) ), 200 );
+		$total_pages = (int) $query->max_num_pages;
+		return new WP_REST_Response(
+			array(
+				'items'      => $items,
+				'count'      => count( $items ),
+				'pagination' => array(
+					'page'        => $page,
+					'per_page'    => $per_page,
+					'total_items' => (int) $query->found_posts,
+					'total_pages' => $total_pages,
+					'next_page'   => $page < $total_pages ? $page + 1 : null,
+				),
+			),
+			200
+		);
 	}
 
 	public static function detail( string $post_type, string $slug ): WP_REST_Response|WP_Error {
@@ -60,10 +78,59 @@ final class RestApi {
 		return null === $item ? new WP_Error( 'toplink_not_found', 'Không tìm thấy nội dung publishable.', array( 'status' => 404 ) ) : new WP_REST_Response( $item, 200 );
 	}
 
-	public static function media_collection(): WP_REST_Response {
-		$attachments = get_posts( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'numberposts' => 100 ) );
-		$items = array_values( array_filter( array_map( static fn ( \WP_Post $post ) => self::project_media( $post->ID ), $attachments ) ) );
-		return new WP_REST_Response( array( 'items' => $items, 'count' => count( $items ) ), 200 );
+	public static function media_collection( WP_REST_Request $request ): WP_REST_Response {
+		$page = max( 1, absint( $request->get_param( 'page' ) ?: 1 ) );
+		$per_page = min( 100, max( 1, absint( $request->get_param( 'per_page' ) ?: 20 ) ) );
+		$query = new WP_Query( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'posts_per_page' => $per_page, 'paged' => $page, 'no_found_rows' => false ) );
+		$items = array_values( array_filter( array_map( static fn ( \WP_Post $post ) => self::project_media( $post->ID ), $query->posts ) ) );
+		$total_pages = (int) $query->max_num_pages;
+		return new WP_REST_Response(
+			array(
+				'items' => $items,
+				'count' => count( $items ),
+				'pagination' => array( 'page' => $page, 'per_page' => $per_page, 'total_items' => (int) $query->found_posts, 'total_pages' => $total_pages, 'next_page' => $page < $total_pages ? $page + 1 : null ),
+			),
+			200
+		);
+	}
+
+	public static function redirect_detail( WP_REST_Request $request ): WP_REST_Response|WP_Error {
+		$resource = sanitize_key( (string) $request['resource'] );
+		$post_type = array( 'services' => 'service', 'products' => 'product', 'articles' => 'post' )[ $resource ] ?? '';
+		$slug = sanitize_title( (string) $request['slug'] );
+		$posts = get_posts( array( 'post_type' => $post_type, 'post_status' => 'publish', 'numberposts' => 1, 'orderby' => 'modified', 'order' => 'DESC', 'meta_key' => '_wp_old_slug', 'meta_value' => $slug ) );
+		if ( ! $posts || null === self::project_post( $posts[0] ) ) {
+			return new WP_Error( 'toplink_redirect_not_found', 'Không tìm thấy canonical redirect.', array( 'status' => 404 ) );
+		}
+		$current_slug = $posts[0]->post_name;
+		$base = match ( $post_type ) {
+			'service' => '/dich-vu/',
+			'product' => '/san-pham/',
+			default => 'knowledge' === PublicationGates::article_type( $posts[0]->ID ) ? '/kien-thuc/' : '/tin-tuc/',
+		};
+		return new WP_REST_Response( array( 'slug' => $current_slug, 'path' => $base . $current_slug ), 200 );
+	}
+
+	public static function preview_detail( WP_REST_Request $request ): WP_REST_Response|WP_Error {
+		$intent = trim( (string) $request->get_header( 'x-toplink-preview-intent' ) );
+		if ( '' === $intent ) {
+			$intent = trim( (string) $request->get_param( 'intent' ) );
+		}
+		if ( '' === $intent ) {
+			return new WP_Error( 'toplink_preview_unauthorized', 'Thiếu preview intent.', array( 'status' => 401 ) );
+		}
+		$payload = IntegrationAuth::verify_preview_intent( $intent );
+		$post_type = sanitize_key( (string) $request['post_type'] );
+		$post_id = absint( $request['id'] );
+		if ( ! $payload || $post_type !== ( $payload['post_type'] ?? '' ) || $post_id !== (int) ( $payload['id'] ?? 0 ) ) {
+			return new WP_Error( 'toplink_preview_unauthorized', 'Preview intent không hợp lệ.', array( 'status' => 401 ) );
+		}
+		$post = get_post( $post_id );
+		if ( ! $post || $post_type !== $post->post_type || PublicationGates::validate( $post_id, null, false ) ) {
+			return new WP_Error( 'toplink_preview_unavailable', 'Record chưa đủ điều kiện preview.', array( 'status' => 404 ) );
+		}
+		$item = self::project_post( $post, true );
+		return null === $item ? new WP_Error( 'toplink_preview_unavailable', 'Record chưa đủ điều kiện preview.', array( 'status' => 404 ) ) : new WP_REST_Response( array( 'item' => $item, 'lifecycle' => (string) get_post_meta( $post_id, '_toplink_editorial_lifecycle', true ) ), 200 );
 	}
 
 	public static function media_detail( int $attachment_id ): WP_REST_Response|WP_Error {
@@ -101,8 +168,8 @@ final class RestApi {
 		return new WP_REST_Response( array( 'version' => '1.0.0', 'domains' => $domains, 'omission' => 'Only approved values are emitted; non-approved optional values are absent.' ), 200 );
 	}
 
-	private static function project_post( \WP_Post $post ): ?array {
-		if ( 'publish' !== $post->post_status || PublicationGates::validate( $post->ID ) ) {
+	private static function project_post( \WP_Post $post, bool $preview = false ): ?array {
+		if ( ( ! $preview && 'publish' !== $post->post_status ) || PublicationGates::validate( $post->ID, null, ! $preview ) ) {
 			return null;
 		}
 		$fields = SchemaRegistry::fields_for_post_type( $post->post_type );
@@ -169,11 +236,26 @@ final class RestApi {
 		if ( 'id_list' === $definition['type'] && 'media' === $key ) {
 			return array_values( array_filter( array_map( static fn ( $id ) => self::project_media( (int) $id ), (array) $value ) ) );
 		}
+		if ( 'id_list' === $definition['type'] ) {
+			return array_values( array_filter( array_map( static fn ( $id ) => self::relation_slug( $key, (int) $id ), (array) $value ) ) );
+		}
 		if ( 'service_group' === $key && is_array( $value ) ) {
 			return $value[0] ?? null;
 		}
 		unset( $post );
 		return $value;
+	}
+
+	private static function relation_slug( string $key, int $post_id ): ?string {
+		$expected_type = 'related_services' === $key ? 'service' : 'post';
+		$post = get_post( $post_id );
+		if ( ! $post || $expected_type !== $post->post_type || 'publish' !== $post->post_status || PublicationGates::validate( $post_id ) ) {
+			return null;
+		}
+		if ( 'related_knowledge' === $key && 'knowledge' !== PublicationGates::article_type( $post_id ) ) {
+			return null;
+		}
+		return $post->post_name;
 	}
 
 	private static function field_wrapper( mixed $value, string $owner, string $source ): array {

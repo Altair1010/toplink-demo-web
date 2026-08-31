@@ -23,7 +23,7 @@ final class PublicationGates {
 		return $data;
 	}
 
-	public static function validate( int $post_id, ?array $incoming = null ): array {
+	public static function validate( int $post_id, ?array $incoming = null, bool $require_lifecycle = true ): array {
 		$post = $post_id ? get_post( $post_id ) : null;
 		$post_type = (string) ( $incoming['post_type'] ?? ( $post ? $post->post_type : '' ) );
 		$fields = SchemaRegistry::fields_for_post_type( $post_type );
@@ -33,7 +33,7 @@ final class PublicationGates {
 
 		$errors = array();
 		$lifecycle = (string) get_post_meta( $post_id, '_toplink_editorial_lifecycle', true );
-		if ( ! in_array( $lifecycle, array( 'approved', 'published' ), true ) ) {
+		if ( $require_lifecycle && ! in_array( $lifecycle, array( 'approved', 'published' ), true ) ) {
 			$errors[] = 'editorial_lifecycle phải là approved trước khi publish.';
 		}
 		$governance = (array) get_post_meta( $post_id, '_toplink_field_governance', true );

@@ -33,6 +33,10 @@ services:
       WORDPRESS_DB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER in .env}
       WORDPRESS_DB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD in .env}
       WORDPRESS_DEBUG: "0"
+      TOPLINK_WEBHOOK_URL: ${TOPLINK_WEBHOOK_URL:-}
+      TOPLINK_WEBHOOK_SECRET: ${TOPLINK_WEBHOOK_SECRET:-}
+      TOPLINK_PREVIEW_SECRET: ${TOPLINK_PREVIEW_SECRET:-}
+      TOPLINK_PREVIEW_WEB_URL: ${TOPLINK_PREVIEW_WEB_URL:-}
     healthcheck:
       test: ["CMD-SHELL", "php -r '$$socket=@fsockopen(\"127.0.0.1\",80); exit($$socket?0:1);'"]
       interval: 5s
@@ -65,6 +69,10 @@ services:
       TOPLINK_WP_AUTHOR_PASSWORD: ${TOPLINK_WP_AUTHOR_PASSWORD:?Set TOPLINK_WP_AUTHOR_PASSWORD in .env}
       TOPLINK_WP_EDITOR_USER: ${TOPLINK_WP_EDITOR_USER:-p5_editor}
       TOPLINK_WP_EDITOR_PASSWORD: ${TOPLINK_WP_EDITOR_PASSWORD:?Set TOPLINK_WP_EDITOR_PASSWORD in .env}
+      TOPLINK_WEBHOOK_URL: ${TOPLINK_WEBHOOK_URL:-}
+      TOPLINK_WEBHOOK_SECRET: ${TOPLINK_WEBHOOK_SECRET:-}
+      TOPLINK_PREVIEW_SECRET: ${TOPLINK_PREVIEW_SECRET:-}
+      TOPLINK_PREVIEW_WEB_URL: ${TOPLINK_PREVIEW_WEB_URL:-}
     volumes:
       - toplink_wordpress_data:/var/www/html
       - ./plugins/toplink-content-model:/var/www/html/wp-content/plugins/toplink-content-model:ro

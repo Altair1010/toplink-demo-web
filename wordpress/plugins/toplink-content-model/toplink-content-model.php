@@ -21,6 +21,7 @@ require_once __DIR__ . '/src/ContentTypes.php';
 require_once __DIR__ . '/src/Roles.php';
 require_once __DIR__ . '/src/AdminUi.php';
 require_once __DIR__ . '/src/PublicationGates.php';
+require_once __DIR__ . '/src/IntegrationAuth.php';
 require_once __DIR__ . '/src/RestApi.php';
 
 use Toplink\ContentModel\AdminUi;
