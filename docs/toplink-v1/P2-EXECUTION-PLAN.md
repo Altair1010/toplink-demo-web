@@ -124,12 +124,12 @@
 - Consumes: every P2 contract.
 - Produces: a pushed, clean P2 branch with exactly one human-review next action.
 
-- [ ] Audit backward from P3 comparable directions, P4 fixtures and P5 WordPress schema; remove speculative items with no consumer.
-- [ ] Cross-check PRODUCT, page jobs, journeys, contracts, CTA, SEO, WordPress and DECISIONS once.
-- [ ] Run deterministic contract checks, Markdown formatting, secret/deletion/app-diff checks and `git diff --check`.
-- [ ] Run `npm run verify` at most once as the closeout regression guard.
-- [ ] Commit in semantic groups, push `product/v1-ia-content`, verify local/remote parity and no PR/merge/deploy.
-- [ ] Close WORKSTATE as `P2 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P3` with exactly one `NEXT ACTION`.
+- [x] Audit backward from P3 comparable directions, P4 fixtures and P5 WordPress schema; remove speculative items with no consumer.
+- [x] Cross-check PRODUCT, page jobs, journeys, contracts, CTA, SEO, WordPress and DECISIONS once.
+- [x] Run deterministic contract checks, Markdown formatting, secret/deletion/app-diff checks and `git diff --check`.
+- [x] Run `npm run verify` at most once as the closeout regression guard.
+- [x] Commit in semantic groups and create the tracked remote `product/v1-ia-content` branch; verify final local/remote parity externally after the closeout commit.
+- [x] Close WORKSTATE as `P2 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P3` with exactly one `NEXT ACTION`.
 
 ## Self-review
 

@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 03:20 +07:00  
+**Updated:** 2026-08-31 11:05 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
 **Phase:** P2  
-**Status:** IN PROGRESS — PRODUCT / IA / CONTENT  
+**Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -20,118 +20,118 @@
 **P2 branch start HEAD:** `4c93285bb1290100c388e4efe6a40879310f4393`  
 **Current branch:** `product/v1-ia-content`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
-**Actor holding implementation:** Codex
+**P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
+**Actor holding implementation:** None — stopped at human gate
 
-**Active route:** CROSS-CHECK → VERIFY  
-**Gate state:** P2 IN PROGRESS
+**Active route:** HUMAN GATE → STOP  
+**Gate state:** P2 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P3
 
 ## Completed work
 
-- P0 was approved by ChatGPT Web / Human for the single transition P0 → P1.
-- Fetched origin and verified `origin/main` remains
+- Human / ChatGPT approved the single transition P1 → P2.
+- Fetched origin and verified `origin/research/v1-reference-system` at approved SHA
+  `4c93285bb1290100c388e4efe6a40879310f4393` and `origin/main` unchanged at
   `b98dfd063f6bc8f63e43a65bb8cfe617c750c111`.
-- Verified `origin/chore/v1-foundation` and the clean P0 worktree are both at approved SHA
-  `12be3fe9e99d022c3a11005712244b2877002733`.
-- Created `research/v1-reference-system` at the approved P0 SHA in the existing linked worktree.
-- Read the minimum P1 authority and source-policy set; no conflict blocks capture.
-- Inspected eight current Sen route candidates; selected seven distinct representative morphologies.
-- Captured 60 research-only PNGs: seven morphologies at 375/768/1280/1440 with first/full states,
-  plus four native branch-disclosure states.
-- Created the Sen route map, UI genome, motion genome, responsive map and 3/9/8
-  ADOPT/ADAPT/REJECT matrix.
-- Extracted 26 classified Toplink semantic inputs, a semantic/material map, three provisional visual
-  families, five audience constraint rows and ten decision-relevant open visual questions.
-- Created the cross-track design-input synthesis and explicit `REFERENCE GRAMMAR ≠ TOPLINK DESIGN`
-  boundary.
-- Updated the source register with live inspection date and exact Sen URL set.
-- Ran the P1 verification ladder and the unchanged application verifier successfully.
-- Committed separate Sen and Toplink brand/synthesis checkpoints.
-- Pushed `research/v1-reference-system` to the canonical GitHub repository without opening a PR.
+- Reused the clean linked worktree and created `product/v1-ia-content` exactly from the approved P1 SHA.
+- Read the minimum P2 authority set; no authority contradiction blocked product specification.
+- Defined the V1 product role, outcomes, commercial path, trust model, in-scope/out-of-scope and bounded
+  future-English readiness.
+- Mapped all five audience journeys, including a knowledge-only completion path with no contact requirement.
+- Promoted a 12-pattern candidate route graph with 12 distinct page jobs; knowledge/news remain distinct
+  and `/nhuong-quyen` remains backlog-only.
+- Defined exactly five domain objects with 57 production-facing field contracts, including 39 required
+  fields and universal fail-closed pending behavior.
+- Separated four canonical fact statuses from the private editorial lifecycle.
+- Defined navigation/discovery/learn/contact action classes and verified-destination gates for Zalo,
+  Facebook/Messenger and phone.
+- Defined the real-story/consent/media evidence policy, semantic SEO architecture and WordPress P5 draft.
+- Completed reverse-graph and same-agent consistency review for P3/P4/P5 consumers.
+- Ran the bounded P2 verification ladder and the unchanged application verifier successfully.
+- Committed product/IA and content/conversion/CMS checkpoints and created the remote P2 branch.
 
 ## In-progress work
 
-- Running the P2 reverse-graph, consistency and deterministic verification pass.
+- None. Work is stopped before P3.
 
 ## Blockers
 
-- None at P2 start.
+- No technical blocker to P2 human review.
+- P3 remains blocked by the required Human / ChatGPT approval gate.
 
 ## Decisions encountered
 
-- Live Sen behavior overrode planning notes for observational facts.
-- Repeated branch-price routes and the franchise route were excluded because they added no
-  P1-relevant morphology for the authorized V1 corpus.
-- Two mobile-menu attempts and the carousel/nav-hover probes produced no state delta because live
-  Elementor chunks were blocked; no third retry was made.
-- D-001 and D-019/D-020/D-022/D-039 override dossier proposals for the longer public name, public
-  pricing, on-site form transport, accounts and purchase flows.
-- No visual family, palette, font, pattern, token or motion system was selected or locked.
-- No locked decision changed; no new ADR was created.
+- The initial 12 route patterns all retain distinct jobs; no route was collapsed or added.
+- Knowledge and news share an Article domain but retain different page jobs, URL namespaces and
+  editorial intent.
+- Five domain objects are sufficient for current consumers; no branch, CTA, FAQ or taxonomy object was
+  added speculatively.
+- `editorial_lifecycle` is private control metadata, not a fact-status field.
+- Organization/contact/service/product/place/story facts that are not supplied remain `PENDING` and
+  fail closed.
+- No visual family, palette, font, pattern, token, motion or composition was selected.
+- Hallmark and Impeccable have no P2 consumer and were not fetched or installed.
+- No locked decision changed; no new ADR was required.
 
 ## Files changed
 
-- Modified: `docs/toplink-v1/SOURCE-REGISTER.md`, `docs/toplink-v1/WORKSTATE.md`.
-- Created: `docs/toplink-v1/P1-EXECUTION-PLAN.md`.
-- Created: `docs/toplink-v1/research/P1-DESIGN-INPUT-SYNTHESIS.md`.
-- Created: `docs/toplink-v1/research/sen/ROUTE-MAP.md`, `UI-GENOME.md`, `MOTION-GENOME.md`,
-  `RESPONSIVE-MAP.md`, `ADOPT-ADAPT-REJECT.md`, `EVIDENCE-INDEX.md`.
-- Created: 60 PNGs under `docs/toplink-v1/research/sen/screenshots/`; exact paths and SHA-256 values
-  are in `EVIDENCE-INDEX.md`.
-- Created: `docs/toplink-v1/research/brand/SEMANTIC-INVENTORY.md`,
-  `SEMANTIC-MATERIAL-MAP.md`, `VISUAL-FAMILY-HYPOTHESES.md`,
-  `AUDIENCE-DESIGN-IMPLICATIONS.md`, `OPEN-VISUAL-QUESTIONS.md`.
+- Created: `docs/toplink-v1/PRODUCT.md`, `docs/toplink-v1/P2-EXECUTION-PLAN.md`.
+- Created: `docs/toplink-v1/product/AUDIENCE-JOURNEY-MAP.md`, `IA-CONTENT-MAP.md`,
+  `CONTENT-CONTRACTS.md`, `CTA-CONVERSION-MAP.md`, `EDITORIAL-EVIDENCE-POLICY.md`,
+  `SEO-CONTENT-ARCHITECTURE.md`.
+- Modified: `docs/toplink-v1/art-direction/PAGE-ARCHETYPES.md`,
+  `docs/toplink-v1/architecture/WORDPRESS-CONTENT-MODEL.md`,
+  `docs/toplink-v1/SOURCE-REGISTER.md`, `docs/toplink-v1/WORKSTATE.md`.
 - Application source/config/dependencies: unchanged.
 
 ## Evidence created
 
-- `research/sen/EVIDENCE-INDEX.md`: 60/60 screenshot paths, timestamps, states and SHA-256 hashes.
-- Four failed/no-delta state images were preserved outside Git at
-  `F:\tmp\toplink-p1-sen-failed-states-20260831`; they are not corpus evidence.
-- Browser scratch output was preserved outside the repo at
-  `F:\tmp\toplink-p1-playwright-cli-20260831-0247`.
-- Live computed-style/state probes remain ephemeral under `F:\tmp` and are distilled into
-  `research/sen/MOTION-GENOME.md`.
+- Product truth and route/page-job contracts for P3 comparison.
+- Five audience journey records for P3/P4 content requirements.
+- Five-domain, 57-field contract with 39 required production fields for P4/P5/P6.
+- CTA/contact, editorial evidence, SEO and WordPress alignment contracts for P5/P7.
+- Deterministic audit output: 12 routes, 12 page jobs, five audiences, zero app diff/deletion/schema
+  violations and complete field governance.
 
 ## Commands and checks actually run
 
-- `git fetch --prune origin`: PASS; verified `origin/main` and approved P0 remote SHA.
-- Playwright live route scan: eight candidates returned HTTP 200; seven representative morphologies
-  selected.
-- Playwright capture: PASS; 60 corpus PNGs at 375/768/1280/1440.
-- Playwright state/computed-style probes: PASS with documented live mixed-content/chunk limitations.
-- SHA-256/index integrity loop: PASS, 60/60 files matched.
-- Coverage loop: PASS, every representative has first/full captures at all four widths; branch
-  disclosure has four additional expanded-state captures.
-- AAR count check: PASS, ADOPT 3 / ADAPT 9 / REJECT 8.
-- Required-artifact check: PASS, all Track A, Track B and cross-synthesis files present.
-- `npx prettier --check ...`: PASS after mechanical formatting.
-- `npm run verify`: PASS (Next build 12 static surfaces, TypeScript, Prettier, 35 token colors, six-route
-  release surface).
-- `git diff --check`: PASS at both staged research checkpoints.
-- Application-diff, deletion and secret-signature checks: PASS, all zero.
-- `git push -u origin research/v1-reference-system`: PASS; remote branch created at the P1 content
-  checkpoint before this closeout commit.
+- `git fetch --prune origin`: PASS; P1/base and main refs matched the approved prompt.
+- Linked-worktree/Git start checks: PASS; clean P1 state, exact base, no existing P2 branch.
+- Markdown formatting writes/check: PASS. One initial check was run from `app-demo` with root-relative
+  paths and matched no docs; rerunning from repository root passed.
+- Deterministic P2 audit: PASS after replacing a PowerShell backtick-sensitive dynamic `rg` pattern
+  with literal matching; 12 routes/jobs, five audiences, 57 fields, 39 required, all field governance.
+- `npm run verify`: PASS once at closeout (Next build 12 static surfaces, TypeScript, formatting,
+  35 token colors, six-route legacy release-surface guard).
+- `git diff --check`: PASS.
+- Application-diff, tracked-deletion, dependency/tool-install, secret-signature, fake-contact,
+  final-hex and forbidden-schema checks: PASS, all zero.
+- `git push -u origin product/v1-ia-content`: PASS; remote branch created at
+  `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7` before the closeout commit.
 
 ## Test/build results
 
-- P1 documentation/evidence integrity: PASS.
-- Existing application verification: PASS on local Node `v24.16.0`, npm `11.13.0`.
-- No application behavior was changed; Node 20 CI parity is not claimed by the local run.
+- P2 contract/integrity audit: PASS.
+- Existing application verification: PASS on the unchanged application.
+- No browser/visual QA was run because P2 contains no application or visual change.
 
 ## Unresolved findings
 
-- Live Sen mixed-content and chunk failures prevent a healthy mobile-nav/carousel reference.
-- Final logo assets, visual color roles, typography, pattern provenance, real Toplink place/material
-  evidence, authorized photography and motion intensity remain open by design.
-- Repository visibility, archive tag and all production/release decisions remain human-gated.
+- Approved service taxonomy/facts and product records have not yet been supplied; their public records
+  remain unpublished under the contract.
+- Exact Zalo, Facebook/Messenger and phone destinations, address, hours and legal identifiers remain
+  `PENDING`.
+- Actual authorized Toplink space/people/media and real consented customer stories remain unavailable.
+- Final art direction, palette, typography, pattern, media system and motion intensity remain P3/later
+  decisions by design.
+- Repository visibility, archive tag and all production/release actions remain human-gated.
 
 ## Next actor
 
-`Codex` for P2 specification execution.
+`ChatGPT Web / Human` for P2 product/IA/content contract review.
 
 ## NEXT ACTION
 
-Define the canonical product contract, audience journeys and candidate V1 route/page jobs.
+Review and approve the P2 product, IA and content contracts before authorizing P3 art-direction synthesis.
 
 ## Human gate
 

@@ -57,7 +57,6 @@ polished article cannot publish a `PENDING` fact.
 | `display_order`           | SYSTEM           | approved editorial ordering                 | APPROVED       |  R  | Use stable system order only if explicitly defined; otherwise keep out of curated order. |
 | `seo`                     | EDITORIAL/SYSTEM | approved title/summary + canonical route    | APPROVED       |  R  | Derive only allowed fields from approved content; otherwise hold publication.            |
 | `evidence_state`          | BUSINESS         | evidence register/source review             | APPROVED       |  R  | Keep record unpublished.                                                                 |
-| `editorial_lifecycle`     | EDITORIAL        | WordPress workflow                          | APPROVED       |  R  | Non-published lifecycle never appears publicly.                                          |
 
 There is no public pricing field and no hidden/null pricing slot.
 
@@ -78,7 +77,6 @@ There is no public pricing field and no hidden/null pricing slot.
 | `related_knowledge`        | SYSTEM           | approved semantic relations                | APPROVED       |  O  | Omit relations.                                   |
 | `seo`                      | EDITORIAL/SYSTEM | approved title/summary + canonical         | APPROVED       |  R  | Derive from approved content or hold publication. |
 | `evidence_state`           | BUSINESS         | evidence register/source review            | APPROVED       |  R  | Keep record unpublished.                          |
-| `editorial_lifecycle`      | EDITORIAL        | WordPress workflow                         | APPROVED       |  R  | Non-published lifecycle stays private.            |
 
 There is no price, cart, stock-commerce, purchase URL, checkout or upsell field.
 
@@ -96,16 +94,22 @@ archive/page job while all records share one domain contract.
 | `article_type`             | EDITORIAL          | editorial assignment                    | APPROVED       |  R  | Keep record unpublished.                                         |
 | `author`                   | EDITORIAL          | verified WordPress author identity      | APPROVED       |  R  | Keep record unpublished; no fake byline.                         |
 | `published_at`             | SYSTEM             | WordPress publication event             | APPROVED       |  R  | Not public before publication.                                   |
-| `updated_at`               | SYSTEM             | WordPress revision event                | APPROVED       |  R  | Omit only when no material update exists.                        |
+| `updated_at`               | SYSTEM             | WordPress revision event                | APPROVED       |  O  | Omit when no material update exists.                             |
 | `featured_media`           | MEDIA              | authorized media record                 | APPROVED       |  O  | Omit featured media.                                             |
 | `related_services`         | SYSTEM             | editorially approved semantic relations | APPROVED       |  O  | Omit relation surface.                                           |
 | `related_articles`         | SYSTEM             | editorially approved semantic relations | APPROVED       |  O  | Omit relation surface.                                           |
 | `evidence_reference_state` | EDITORIAL/BUSINESS | source review/evidence register         | APPROVED       |  R  | Keep record unpublished when claims require unresolved evidence. |
 | `seo`                      | EDITORIAL/SYSTEM   | approved title/summary + canonical      | APPROVED       |  R  | Derive from approved content or hold publication.                |
-| `editorial_lifecycle`      | EDITORIAL          | WordPress workflow                      | APPROVED       |  R  | Only `published` is public.                                      |
 
 For `customer_story`, consent, context and identity/media authorization in
 `EDITORIAL-EVIDENCE-POLICY.md` are additional required publication gates.
+
+## Editorial control metadata (not a production fact)
+
+`Service`, `Product` and `Article` records each carry `editorial_lifecycle`, owned by `EDITORIAL` and
+sourced from the WordPress workflow. Its values are exactly `draft`, `in_review`, `approved`,
+`published`; only `published` records are eligible for public normalization. This control is required
+in P5 but is not exposed as a production-facing fact and therefore does not receive a fact status.
 
 ## Media
 
