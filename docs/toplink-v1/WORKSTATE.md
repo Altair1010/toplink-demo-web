@@ -1,8 +1,8 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 20:49 +07:00  
+**Updated:** 2026-08-31 22:05 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P3B  
+**Phase:** P4  
 **Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
@@ -24,15 +24,20 @@
 **Approved P3A base SHA:** `ca1bdb4a6d1efae3a6de5241e0f7b6d9b59385dc`  
 **P3B branch start HEAD:** `ca1bdb4a6d1efae3a6de5241e0f7b6d9b59385dc`  
 **P3B content checkpoint HEAD:** `10f55be8fcdfb1e679c4a2cc3ea3cc3b631c6307`  
-**Current branch:** `design/v1-lock-c`  
+**Approved P3B base SHA:** `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b`  
+**P4 branch start HEAD:** `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b`  
+**Current branch:** `feat/v1-frontend-fixtures`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
 **Resolved P3B worktree:** `F:\Codex\yvien-v1-foundation`  
+**Resolved P4 worktree:** `F:\Codex\yvien-v1-foundation`  
+**Target V1 frontend:** `F:\Codex\yvien-v1-foundation\web`  
+**Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
 **Actor holding implementation:** None — stopped at human gate
 
-**Active route:** HUMAN REVIEW BEFORE P4 → STOP  
-**Gate state:** P3B COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P4
+**Active route:** HUMAN REVIEW BEFORE P5 → STOP  
+**Gate state:** P4 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P5
 
 ## Completed work
 
@@ -83,16 +88,34 @@
 - Re-verified both method pins and completed targeted Hallmark/Impeccable C reviews with detector
   limitation recorded truthfully.
 - Ran the bounded P3B integrity audit and unchanged application verifier successfully.
+- Verified the approved P3B/main refs and created `feat/v1-frontend-fixtures` exactly from
+  `f3bcca8c31a21eed6ab0505e9d740bbe36fa157b` in the clean linked worktree.
+- Created independent `web/` without moving, renaming or changing `app-demo/`.
+- Implemented Next 16.3.3, React 19.2.7 and strict TypeScript 5.9.3 with authored Direction C CSS,
+  licensed Vietnamese fonts and CSS/native reduced-motion behavior.
+- Defined exactly five Toplink domains, field governance and one replaceable `lib/content/` boundary.
+- Added visibly bounded `REFERENCE_ONLY` fixtures: two services, one product, three articles and one
+  settings record; no contact, address, price, health result, people or premises fact was invented.
+- Implemented the shell, accessible native mobile navigation, fail-closed media/contact surfaces and
+  all 12 P2 route patterns; `/nhuong-quyen` and the H7 process route remain absent.
+- Preserved distinct home-procession, service-chamber and knowledge-reading-hall morphologies.
+- Ran 48 route/viewport browser checks plus 200%-equivalent reflow, keyboard, reduced-motion,
+  heading-order, contrast and console checks; the final confirmation has zero failures.
+- Re-verified Hallmark/Impeccable pins and completed P4 structural/craft audits with the detector
+  limitation recorded truthfully.
+- Ran the P4 verifier and the unchanged H7 verifier successfully.
 
 ## In-progress work
 
-- None. P3B is stopped before P4.
+- None. P4 is stopped before P5.
 
 ## Blockers
 
 - Authoritative logo geometry, authentic pattern provenance, actual Toplink place/material evidence and
-  authorized/consented photography remain unavailable. They do not block P3B; P4 must use the defined
-  conditional slots and fail-closed publication behavior.
+  authorized/consented photography remain unavailable. They did not block P4; conditional slots and
+  fail-closed publication behavior remain active.
+- Approved service/product facts, exact contacts and operational facts remain unavailable; all such
+  production content stays unpublished.
 
 ## Decisions encountered
 
@@ -114,6 +137,10 @@
   locked. Asset-coupled identity colors, logo, pattern and media treatment remain conditional.
 - Impeccable static detection was degraded by unavailable optional parsers and URL detection by unavailable
   Puppeteer; no dependency was installed only to manufacture a clean result.
+- P4 uses authored CSS without Tailwind because no current utility-layer consumer justifies it; the
+  locked token/morphology authority is unchanged.
+- P4 adds one Playwright dependency because the 12 × 4 browser gate is a persistent P8 consumer.
+- P4 ran on Node 24.16.0 with a Node >=20 contract; Node-20 runtime parity is not claimed.
 
 ## Files changed
 
@@ -139,6 +166,11 @@
 - Created: `prototypes/toplink-v1/p3-direction-sprint/lock.html`, `lock.css`, `lock.js`.
 - Modified: `prototypes/toplink-v1/p3-direction-sprint/README.md`,
   `docs/toplink-v1/SOURCE-REGISTER.md`, `docs/toplink-v1/WORKSTATE.md`.
+- Created: independent `web/` frontend with routes, shell/structural/content components, five-domain
+  types, fixture/content boundary, Direction C styles and persistent verification scripts.
+- Created: `docs/toplink-v1/P4-EXECUTION-PLAN.md` and `docs/toplink-v1/p4/` implementation, route,
+  fixture, browser evidence, Hallmark, Impeccable and open-finding artifacts.
+- Modified in P4: `docs/toplink-v1/WORKSTATE.md`; no existing tracked file was deleted.
 
 ## Evidence created
 
@@ -157,6 +189,10 @@
 - P3B browser confirmation: zero overflow at 375/768/1280/1440, one H1 per surface, mobile menu open,
   reduced-motion gateway `animation-name: none`, zero console/page errors and small-label contrast
   from 5.58:1 to 8.64:1.
+- P4 browser matrix: 12 surfaces × four widths = 48 HTTP 200 results, one H1 each, zero overflow,
+  console/page error, heading skip and contrast failure.
+- Four representative surfaces passed 640 CSS-pixel reflow as the 1280px/200%-zoom equivalent.
+- Fourteen decision-relevant PNGs have SHA-256 entries in `p4/BROWSER-EVIDENCE-INDEX.md`.
 
 ## Commands and checks actually run
 
@@ -199,6 +235,23 @@
   commerce/booking and final-authority-file checks: PASS.
 - `npm run verify`: PASS once at P3A closeout on the unchanged application.
 - `git diff --check`: PASS.
+- P4 start gate: PASS; approved P3B/main SHAs matched, worktree was clean and no `web/` or P4 branch
+  conflict existed.
+- First `git switch -c`: transient `unable to write new index file`; index/free-space/adjacent-write
+  diagnostics and `git update-index --refresh` passed, then the exact retry created the branch safely.
+- `npm install`: PASS; 30 packages, zero reported vulnerabilities.
+- `npm run typecheck`: PASS on the initial typed foundation.
+- `npm run check:content`: harness-only false positive while scanning its own detector strings; the
+  production-source scope correction passed with 12 route patterns.
+- `npm run build`: PASS; 16 generated pages/surfaces including fixture detail paths.
+- First browser audit: harness counted hidden desktop links as 0×0; visible-element filtering fixed
+  the measurement and the 12 × 4 inspection passed.
+- Visual/contrast review found incorrect accent roles; semantic CSS correction and the blocker
+  confirmation ended with `npm run browser:audit`: PASS, 48/48 checks and 14 captures.
+- Impeccable detector command: UNAVAILABLE — `Error: bundled detector not found.`
+- `npm run verify` in `web/`: PASS; build, TypeScript, Prettier and content-boundary checks.
+- `npm run verify` in unchanged `app-demo/`: PASS once; build, TypeScript, Prettier, 35 token
+  colors/0 orphan classes and six legacy routes/0 release violations.
 
 ## Test/build results
 
@@ -210,6 +263,8 @@
   surface checks completed without modifying application source.
 - P3B design authority and browser evidence: PASS after one correction and one confirmation.
 - Existing application verification: PASS once at P3B closeout; application source remained unchanged.
+- P4 frontend verification: PASS; build/type/format/content-boundary and browser matrix completed.
+- H7 preservation verification: PASS; `app-demo/` has zero diff from the approved P3B base.
 
 ## Unresolved findings
 
@@ -220,8 +275,10 @@
 - Actual authorized Toplink space/people/media and real consented customer stories remain unavailable.
 - Final logo geometry, authentic ornament asset, real place/material nuance and consented photography
   remain conditional pending user evidence. Their insertion cannot reopen C morphology/hierarchy.
-- Impeccable automated detection is unavailable in the sparse pinned cache; P3B does not claim a clean
+- Impeccable automated detection is unavailable in the sparse pinned cache; P4 does not claim a clean
   detector scan.
+- Local P4 verification used Node 24.16.0 and Chromium; Node-20 parity, multi-browser and real
+  assistive-technology review remain later release gates.
 - Repository visibility, archive tag and all production/release actions remain human-gated.
 
 ## Next actor
@@ -230,9 +287,9 @@ ChatGPT Web / Human
 
 ## NEXT ACTION
 
-Review and approve the locked Direction C design authority package before authorizing P4 frontend implementation.
+Review and approve the completed fixture-driven V1 frontend before authorizing P5 WordPress foundation.
 
 ## Human gate
 
-P3B COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P4. P4, merge, deployment, repository
+P4 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P5. P5, merge, deployment, repository
 visibility change and archive-tag creation remain blocked.
