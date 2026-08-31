@@ -1,4 +1,7 @@
-import { articles, fixtureManifest, products, services, siteSettings } from "@/lib/fixtures/data";
+import { getCmsArticleBySlug, getCmsArticles } from "@/lib/cms/articles";
+import { getCmsProductBySlug, getCmsProducts } from "@/lib/cms/products";
+import { getCmsServiceBySlug, getCmsServices } from "@/lib/cms/services";
+import { getCmsSiteSettings } from "@/lib/cms/site-settings";
 import type { Article, ArticleType, Product, Service, SiteSettings } from "@/types/domain";
 
 export interface ContentSnapshot {
@@ -7,35 +10,33 @@ export interface ContentSnapshot {
 }
 
 export function getContentSnapshot(): ContentSnapshot {
-  return { fixtureOnly: fixtureManifest.fixtureOnly, source: fixtureManifest.source };
+  return { fixtureOnly: false, source: "wordpress" };
 }
 
-export function getSiteSettings(): SiteSettings {
-  return siteSettings;
+export function getSiteSettings(): Promise<SiteSettings> {
+  return getCmsSiteSettings();
 }
 
-export function getServices(): readonly Service[] {
-  return services;
+export function getServices(): Promise<readonly Service[]> {
+  return getCmsServices();
 }
 
-export function getServiceBySlug(slug: string): Service | undefined {
-  return services.find((service) => service.slug.value === slug);
+export function getServiceBySlug(slug: string): Promise<Service | undefined> {
+  return getCmsServiceBySlug(slug);
 }
 
-export function getProducts(): readonly Product[] {
-  return products;
+export function getProducts(): Promise<readonly Product[]> {
+  return getCmsProducts();
 }
 
-export function getProductBySlug(slug: string): Product | undefined {
-  return products.find((product) => product.slug.value === slug);
+export function getProductBySlug(slug: string): Promise<Product | undefined> {
+  return getCmsProductBySlug(slug);
 }
 
-export function getArticles(type?: ArticleType): readonly Article[] {
-  return type ? articles.filter((article) => article.article_type.value === type) : articles;
+export function getArticles(type?: ArticleType): Promise<readonly Article[]> {
+  return getCmsArticles(type);
 }
 
-export function getArticleBySlug(slug: string, type?: ArticleType): Article | undefined {
-  return articles.find(
-    (article) => article.slug.value === slug && (!type || article.article_type.value === type),
-  );
+export function getArticleBySlug(slug: string, type?: ArticleType): Promise<Article | undefined> {
+  return getCmsArticleBySlug(slug, type);
 }

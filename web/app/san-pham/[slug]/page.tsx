@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { Chamber } from "@/components/structural/Chamber";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
@@ -13,24 +12,23 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return getProducts().map((product) => ({ slug: product.slug.value }));
+export async function generateStaticParams() {
+  return (await getProducts()).map((product) => ({ slug: product.slug.value }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const product = getProductBySlug((await params).slug);
+  const product = await getProductBySlug((await params).slug);
   return product ? { title: product.title.value } : {};
 }
 
 export default async function ProductDetailPage({ params }: PageProps) {
-  const product = getProductBySlug((await params).slug);
+  const product = await getProductBySlug((await params).slug);
   if (!product) notFound();
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
-        eyebrow="Documentation hall · fixture"
+        eyebrow="Documentation hall · published"
         title={product.title.value}
         lead={product.safe_positioning.value}
       />
@@ -56,8 +54,15 @@ export default async function ProductDetailPage({ params }: PageProps) {
       </Threshold>
       <Release eyebrow="Knowledge bridge" title="Đọc ngữ cảnh liên quan">
         <p>Trang sản phẩm không có mua hàng hoặc upsell.</p>
-        <Link className="text-link" href="/kien-thuc/cach-doc-thong-tin-an-toan">
-          Cách đọc thông tin an toàn
+        <Link
+          className="text-link"
+          href={
+            product.related_knowledge?.value[0]
+              ? `/kien-thuc/${product.related_knowledge.value[0]}`
+              : "/kien-thuc"
+          }
+        >
+          Đọc nội dung kiến thức liên quan
         </Link>
       </Release>
     </main>

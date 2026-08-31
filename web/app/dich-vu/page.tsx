@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { RecordLink } from "@/components/content/RecordLink";
 import { Court } from "@/components/structural/Court";
 import { Gateway } from "@/components/structural/Gateway";
@@ -9,21 +8,20 @@ import { getServices } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Dịch vụ" };
 
-export default function ServiceIndexPage() {
-  const services = getServices();
+export default async function ServiceIndexPage() {
+  const services = await getServices();
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         eyebrow="Discovery court"
         title="Hiểu dịch vụ trước khi cân nhắc"
         lead="Trang này chứng minh cách các hồ sơ dịch vụ được so sánh bằng mục đích, giới hạn và nghĩa vụ thông tin — không bằng giá hoặc lời hứa kết quả."
       />
       <Court
-        eyebrow="Các hồ sơ tham chiếu"
-        title="Taxonomy thật vẫn đang chờ"
-        intro="Mỗi record dưới đây chỉ kiểm tra độ dài, thứ tự và đường discovery của frontend."
+        eyebrow="Hồ sơ đã xuất bản"
+        title="Các nhóm dịch vụ đã được phê duyệt"
+        intro="Danh sách tự giữ trống khi chưa có hồ sơ nào vượt qua đầy đủ cổng xuất bản."
       >
         <ul className="plain-list service-discovery">
           {services.map((service) => (

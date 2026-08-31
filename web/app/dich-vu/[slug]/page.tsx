@@ -3,7 +3,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { ContactDirectory } from "@/components/content/ContactDirectory";
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { MediaFigure } from "@/components/content/MediaFigure";
 import { Chamber } from "@/components/structural/Chamber";
 import { Gateway } from "@/components/structural/Gateway";
@@ -16,25 +15,24 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return getServices().map((service) => ({ slug: service.slug.value }));
+export async function generateStaticParams() {
+  return (await getServices()).map((service) => ({ slug: service.slug.value }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const service = getServiceBySlug((await params).slug);
+  const service = await getServiceBySlug((await params).slug);
   return service ? { title: service.title.value } : {};
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
-  const service = getServiceBySlug((await params).slug);
+  const service = await getServiceBySlug((await params).slug);
   if (!service) notFound();
   const media = approvedValue(service.media) ?? [];
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
-        eyebrow="Purpose gate · fixture"
+        eyebrow="Purpose gate · published"
         title={service.title.value}
         lead={service.summary.value}
       />
@@ -79,13 +77,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
       <Release eyebrow="Knowledge bridge" title="Đọc thêm trước khi quyết định">
         <p>Quan hệ kiến thức chỉ xuất hiện khi có lý do ngữ nghĩa, không phải cửa ngõ bán hàng.</p>
-        <Link className="text-link" href="/kien-thuc/cach-doc-thong-tin-an-toan">
-          Cách đọc thông tin chăm sóc sức khỏe an toàn
+        <Link
+          className="text-link"
+          href={
+            service.related_knowledge?.value[0]
+              ? `/kien-thuc/${service.related_knowledge.value[0]}`
+              : "/kien-thuc"
+          }
+        >
+          Đọc nội dung kiến thức liên quan
         </Link>
       </Release>
 
       <Release title="Trao đổi với con người khi đã hiểu rõ">
-        <ContactDirectory settings={getSiteSettings()} />
+        <ContactDirectory settings={await getSiteSettings()} />
       </Release>
     </main>
   );

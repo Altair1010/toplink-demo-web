@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | Y Viện Toplink",
   },
   description:
-    "Frontend V1 fixture-driven của Y Viện Toplink — nội dung vận hành chưa được xuất bản.",
+    "Website thông tin của Y Viện Toplink — nội dung được quản trị qua quy trình biên tập.",
   robots: { index: false, follow: false },
 };
 

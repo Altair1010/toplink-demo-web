@@ -7,8 +7,8 @@ import { approvedValue } from "@/types/domain";
 
 export const metadata: Metadata = { title: "Liên hệ" };
 
-export default function ContactPage() {
-  const settings = getSiteSettings();
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
   const address = approvedValue(settings.address);
   const hours = approvedValue(settings.opening_hours);
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
@@ -12,27 +11,26 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-const newsArticles = () =>
-  getArticles().filter((article) => article.article_type.value !== "knowledge");
+const newsArticles = async () =>
+  (await getArticles()).filter((article) => article.article_type.value !== "knowledge");
 
-export function generateStaticParams() {
-  return newsArticles().map((article) => ({ slug: article.slug.value }));
+export async function generateStaticParams() {
+  return (await newsArticles()).map((article) => ({ slug: article.slug.value }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const article = getArticleBySlug((await params).slug);
+  const article = await getArticleBySlug((await params).slug);
   return article && article.article_type.value !== "knowledge"
     ? { title: article.title.value }
     : {};
 }
 
 export default async function NewsDetailPage({ params }: PageProps) {
-  const article = getArticleBySlug((await params).slug);
+  const article = await getArticleBySlug((await params).slug);
   if (!article || article.article_type.value === "knowledge") notFound();
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         eyebrow={`${article.article_type.value} · ${article.published_at.value}`}
         title={article.title.value}

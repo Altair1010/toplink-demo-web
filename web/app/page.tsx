@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { ContactDirectory } from "@/components/content/ContactDirectory";
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { RecordLink } from "@/components/content/RecordLink";
 import { Court } from "@/components/structural/Court";
 import { Gateway } from "@/components/structural/Gateway";
@@ -24,14 +23,15 @@ const orientation = [
   ],
 ] as const;
 
-export default function HomePage() {
-  const services = getServices();
-  const knowledge = getArticles("knowledge");
-  const settings = getSiteSettings();
+export default async function HomePage() {
+  const [services, knowledge, settings] = await Promise.all([
+    getServices(),
+    getArticles("knowledge"),
+    getSiteSettings(),
+  ]);
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         variant="home"
         eyebrow="Dưỡng Thân · Tỉnh Thức"
@@ -63,7 +63,7 @@ export default function HomePage() {
       <Court
         eyebrow="Court · khám phá"
         title="Dịch vụ chỉ bắt đầu khi sự thật đã rõ"
-        intro="Các record dưới đây là fixture để kiểm tra morphology. Taxonomy và dữ liệu dịch vụ thật chưa được cung cấp."
+        intro="Chỉ các hồ sơ đã vượt qua cổng nguồn, bằng chứng và phê duyệt mới xuất hiện tại đây."
       >
         <div className="obligation-ledger">
           {services.map((service) => (
@@ -109,7 +109,7 @@ export default function HomePage() {
             <RecordLink
               key={article.slug.value}
               href={`/kien-thuc/${article.slug.value}`}
-              eyebrow="Kiến thức evergreen · fixture"
+              eyebrow="Kiến thức evergreen"
               title={article.title.value}
               summary={article.summary.value}
             />

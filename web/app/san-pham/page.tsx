@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { RecordLink } from "@/components/content/RecordLink";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
@@ -8,20 +7,19 @@ import { getProducts } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Sản phẩm" };
 
-export default function ProductIndexPage() {
-  const products = getProducts();
+export default async function ProductIndexPage() {
+  const products = await getProducts();
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         eyebrow="Informational registry"
         title="Sản phẩm được trình bày như hồ sơ thông tin"
         lead="Không giá, không tồn kho, không giỏ hàng và không nút mua. Mỗi record phải cho biết điều được hỗ trợ, giới hạn và trạng thái tài liệu."
       />
       <section className="route-frame" aria-labelledby="registry-title">
-        <p className="chapter-mark">Registry · fixture</p>
-        <h2 id="registry-title">Hồ sơ tham chiếu</h2>
+        <p className="chapter-mark">Registry · published</p>
+        <h2 id="registry-title">Hồ sơ đã được phê duyệt</h2>
         <div className="registry">
           {products.map((product) => (
             <RecordLink

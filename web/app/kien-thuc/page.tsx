@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { RecordLink } from "@/components/content/RecordLink";
 import { Court } from "@/components/structural/Court";
 import { Gateway } from "@/components/structural/Gateway";
@@ -8,12 +7,11 @@ import { getArticles } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Kiến thức" };
 
-export default function KnowledgeIndexPage() {
-  const articles = getArticles("knowledge");
+export default async function KnowledgeIndexPage() {
+  const articles = await getArticles("knowledge");
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         variant="reading"
         eyebrow="Learning gateway"
@@ -22,8 +20,8 @@ export default function KnowledgeIndexPage() {
       />
       <Court
         eyebrow="Reading halls"
-        title="Các đường đọc tham chiếu"
-        intro="Các bài dưới đây là fixture P4, không phải bài đã qua quy trình biên tập xuất bản."
+        title="Các đường đọc đã xuất bản"
+        intro="Mỗi bài xuất hiện sau khi nội dung, nguồn và trạng thái bằng chứng đã được phê duyệt."
         tone="muted"
       >
         <div className="record-list">
@@ -31,7 +29,7 @@ export default function KnowledgeIndexPage() {
             <RecordLink
               key={article.slug.value}
               href={`/kien-thuc/${article.slug.value}`}
-              eyebrow="Evergreen · fixture"
+              eyebrow="Evergreen · published"
               title={article.title.value}
               summary={article.summary.value}
               meta={<span>{article.evidence_reference_state.value}</span>}

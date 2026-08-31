@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { FixtureNotice } from "@/components/content/FixtureNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
@@ -13,17 +12,17 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-  return getArticles("knowledge").map((article) => ({ slug: article.slug.value }));
+export async function generateStaticParams() {
+  return (await getArticles("knowledge")).map((article) => ({ slug: article.slug.value }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const article = getArticleBySlug((await params).slug, "knowledge");
+  const article = await getArticleBySlug((await params).slug, "knowledge");
   return article ? { title: article.title.value } : {};
 }
 
 export default async function KnowledgeDetailPage({ params }: PageProps) {
-  const article = getArticleBySlug((await params).slug, "knowledge");
+  const article = await getArticleBySlug((await params).slug, "knowledge");
   if (!article) notFound();
 
   const chapterNames = [
@@ -35,7 +34,6 @@ export default async function KnowledgeDetailPage({ params }: PageProps) {
 
   return (
     <main id="main">
-      <FixtureNotice />
       <Gateway
         variant="reading"
         eyebrow="Knowledge detail · reading hall"
