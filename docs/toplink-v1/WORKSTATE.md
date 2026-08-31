@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 23:50 +07:00  
+**Updated:** 2026-09-01 01:48 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
 **Phase:** P6  
-**Status:** IN PROGRESS — HEADLESS INTEGRATION  
+**Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -40,10 +40,10 @@
 **Resolved P4 worktree:** `F:\Codex\yvien-v1-foundation`  
 **Target V1 frontend:** `F:\Codex\yvien-v1-foundation\web`  
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
-**Actor holding implementation:** Codex
+**Actor holding implementation:** None
 
 **Active route:** WP REST → VALIDATION → NORMALIZATION → DOMAIN → REACT  
-**Gate state:** P6 IN PROGRESS — HEADLESS INTEGRATION
+**Gate state:** P6 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P7
 
 ## Completed work
 
@@ -122,10 +122,21 @@
   Media and SiteSettings; optional non-approved facts and private governance are omitted.
 - Added idempotent nonproduction seeds and a reusable static/runtime P5 verification harness.
 - Completed V0, one same-agent V1 review, one bounded correction batch and one confirmation; P6 was not started.
+- Verified the exact approved P5 base and moved all public V1 reads to a server-only WordPress adapter.
+- Added runtime validation and normalization for exactly Service, Product, Article, Media and SiteSettings;
+  route-safe relation slugs replace WordPress IDs before React.
+- Added bounded pagination, scoped Next cache tags, signed webhook invalidation, permanent old-slug redirects
+  and an independent WordPress event emitter whose delivery failure cannot block editorial saves.
+- Added five-minute HMAC draft preview with HttpOnly state, header-only private WordPress projection,
+  no-store reads and explicit preview exit.
+- Proved publish, update, slug change, unpublish, delete, outage/cache and all-five-domain rendering using
+  only `__P6_INTEGRATION_TEST__` records; fixtures remain preserved but are not a public runtime source.
+- Completed P5 regression, P6 contract/security/runtime tests, production build, secret/deletion audit and
+  12-route x four-width CMS browser confirmation without changing `app-demo/`.
 
 ## In-progress work
 
-- P6 headless integration authorized by the current user prompt and started from the exact approved P5 SHA.
+- None. P6 is complete and stopped at the required human gate before P7.
 
 ## Blockers
 
@@ -284,6 +295,14 @@
 - `npm run verify` in unchanged fixture-driven `web/`: PASS once during P5; 16-page build, TypeScript,
   Prettier and 12-route content boundary completed.
 - `git diff --check`, deletion, forbidden/P6 token, digest pin and `web/`/`app-demo/` diff checks: PASS.
+- `wordpress/scripts/verify-p6.ps1 -Http`: PASS; P5 static/PHP/runtime gates, P6 PHP 11/11,
+  Node contracts 15/15, typecheck, format, content boundary, production build, live webhook security,
+  secret bundle scan, fixture preservation, app-demo preservation and deletion checks completed.
+- P6 lifecycle smoke: PASS; cached update propagated without restart, old slug returned permanent 308,
+  unpublish/delete returned 404, valid private preview rendered and public draft remained 404.
+- P6 outage smoke: PASS; warmed content remained 200 and uncached content returned a non-empty controlled
+  500 with zero fixture fallback while WordPress was stopped and restarted without volume deletion.
+- `P6_CMS=1 npm run browser:audit`: PASS; 12 CMS-backed routes x 375/768/1280/1440, zero reported failures.
 
 ## Test/build results
 
@@ -299,6 +318,9 @@
 - H7 preservation verification: PASS; `app-demo/` has zero diff from the approved P3B base.
 - P5 WordPress/editorial/REST contract: PASS after one bounded correction and one confirmation.
 - P4 frontend preservation in P5: PASS; application remains fixture-driven and unchanged.
+- P6 headless contract: PASS; WordPress is the public content authority and React remains domain-only.
+- P5 regression in P6: PASS; 32/32 editorial/publication assertions plus static contract and PHP lint.
+- P6 browser/security confirmation: PASS; 48 route/viewport checks, signed webhook/preview and secret scan.
 
 ## Unresolved findings
 
@@ -321,9 +343,9 @@ ChatGPT Web / Human
 
 ## NEXT ACTION
 
-Review and approve the local WordPress editorial/content-model foundation before authorizing P6 headless integration.
+Review and approve the CMS-backed V1 frontend, private preview and signed revalidation integration before authorizing P7 commercial web capabilities.
 
 ## Human gate
 
-P5 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P6. P6, merge, deployment, repository
+P6 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P7. P7, merge, deployment, repository
 visibility change and archive-tag creation remain blocked.
