@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-08-31 11:05 +07:00  
+**Updated:** 2026-08-31 12:00 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P2  
-**Status:** COMPLETE — READY FOR HUMAN REVIEW  
+**Phase:** P3A  
+**Status:** IN PROGRESS — ART DIRECTION SPRINT  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -18,13 +18,16 @@
 **Verified remote checkpoint before closeout commit:** `f05c7715a6bed44fc1d0461d04acb7762a510375`  
 **Approved P1 base SHA:** `4c93285bb1290100c388e4efe6a40879310f4393`  
 **P2 branch start HEAD:** `4c93285bb1290100c388e4efe6a40879310f4393`  
-**Current branch:** `product/v1-ia-content`  
+**Approved P2 base SHA:** `c568ff39fd640d383b84c150a3be65d1ac04c9ca`  
+**P3A branch start HEAD:** `c568ff39fd640d383b84c150a3be65d1ac04c9ca`  
+**Current branch:** `design/v1-direction`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
-**Actor holding implementation:** None — stopped at human gate
+**Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
+**Actor holding implementation:** Codex
 
-**Active route:** HUMAN GATE → STOP  
-**Gate state:** P2 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P3
+**Active route:** TOOL SETUP → DIRECTION SPRINT  
+**Gate state:** P3A IN PROGRESS
 
 ## Completed work
 
@@ -51,7 +54,8 @@
 
 ## In-progress work
 
-- None. Work is stopped before P3.
+- Fetch and verify pinned Hallmark/Impeccable method sources.
+- Prepare the same representative content and three materially distinct browser directions.
 
 ## Blockers
 
@@ -127,12 +131,12 @@
 
 ## Next actor
 
-`ChatGPT Web / Human` for P2 product/IA/content contract review.
+`Codex` until P3A reaches the human direction gate.
 
 ## NEXT ACTION
 
-Review and approve the P2 product, IA and content contracts before authorizing P3 art-direction synthesis.
+Fetch and verify the pinned Hallmark and Impeccable method sources for the P3A direction sprint.
 
 ## Human gate
 
-Required before P3, merge, deployment, repository visibility change or archive-tag creation.
+Required before selecting a direction, P3B, P4, merge, deployment, repository visibility change or archive-tag creation.

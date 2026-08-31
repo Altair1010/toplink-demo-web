@@ -21,6 +21,7 @@ build
 /dembrandt/
 /.playwright-mcp/
 /.release/
+/.toplink-tools/
 /CLAUDE.docx
 
 # Ảnh reference chụp màn hình ở ROOT — không phải asset của app
