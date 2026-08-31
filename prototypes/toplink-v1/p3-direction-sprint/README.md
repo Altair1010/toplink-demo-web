@@ -3,6 +3,18 @@
 Static comparison harness only. It does not change app-demo, define production tokens or contain
 approved service/contact facts.
 
+## P3B chosen-direction lock
+
+`lock.html` is the authoritative Direction C browser harness for P3B. It preserves the P3A A/B/C
+comparison intact while giving P4 one chosen-direction surface with no tournament UI.
+
+- Home: `lock.html?surface=home`
+- Service detail: `lock.html?surface=service`
+- Knowledge detail: `lock.html?surface=knowledge`
+
+The text identity, content and conditional material colors remain documented scaffolds, not verified
+production facts or final asset inputs.
+
 ## Run
 
 From this directory:
