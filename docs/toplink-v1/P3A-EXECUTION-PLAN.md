@@ -40,27 +40,27 @@ Playwright browser capture, Markdown evidence.
 
 ## Task 3 — Build the isolated browser sprint
 
-- [ ] Implement one accessible static harness with direction navigation and semantic page structure.
-- [ ] Implement A as axial ceremonial restraint with quiet fields and threshold framing.
-- [ ] Implement B as annotated living-apothecary knowledge system with progressive disclosure.
-- [ ] Implement C as sequential contemporary procession with compression/release chapters.
-- [ ] Add service-detail and knowledge-detail morphology probes for every direction.
-- [ ] Add semantic native/CSS motion and complete reduced-motion fallbacks; do not add GSAP.
+- [x] Implement one accessible static harness with direction navigation and semantic page structure.
+- [x] Implement A as axial ceremonial restraint with quiet fields and threshold framing.
+- [x] Implement B as annotated living-apothecary knowledge system with progressive disclosure.
+- [x] Implement C as sequential contemporary procession with compression/release chapters.
+- [x] Add service-detail and knowledge-detail morphology probes for every direction.
+- [x] Add semantic native/CSS motion and complete reduced-motion fallbacks; do not add GSAP.
 
 ## Task 4 — Produce and inspect browser evidence
 
-- [ ] Serve the prototype locally and capture first/full home views at 1440 and 375 for A/B/C.
-- [ ] Sanity-check all directions at 768 and 1280, including overflow, hierarchy and readable order.
-- [ ] Inspect console, keyboard focus, reduced motion and shared-content invariants.
-- [ ] Run Hallmark structural and Impeccable craft reviews against source, DOM and screenshots.
-- [ ] Apply one batch correction only if a fatal truth, accessibility, mobile or template issue exists.
-- [ ] Run one confirmation capture/check after any correction.
+- [x] Serve the prototype locally and capture first/full home views at 1440 and 375 for A/B/C.
+- [x] Sanity-check all directions at 768 and 1280, including overflow, hierarchy and readable order.
+- [x] Inspect console, keyboard focus, reduced motion and shared-content invariants.
+- [x] Run Hallmark structural and Impeccable craft reviews against source, DOM and screenshots.
+- [x] Apply one batch correction only if a fatal truth, accessibility, mobile or template issue exists.
+- [x] Run one confirmation capture/check after any correction.
 
 ## Task 5 — Assemble the human comparison gate
 
-- [ ] Complete audience stress test, motion comparison, blind identity critique and provisional rubric.
-- [ ] Classify all ten open visual questions without resolving missing evidence by assumption.
-- [ ] Write the scannable `DIRECTION-COMPARISON.md` with evidence locators and no winner.
+- [x] Complete audience stress test, motion comparison, blind identity critique and provisional rubric.
+- [x] Classify all ten open visual questions without resolving missing evidence by assumption.
+- [x] Write the scannable `DIRECTION-COMPARISON.md` with evidence locators and no winner.
 - [ ] Update SOURCE-REGISTER and WORKSTATE with exactly one next action.
 - [ ] Verify scope, paths, screenshots, overflow, pins, ignored tools, no app diff/deletion/secrets.
 - [ ] Run `npm run verify` once from `app-demo`, inspect full diff, commit logically and push branch.

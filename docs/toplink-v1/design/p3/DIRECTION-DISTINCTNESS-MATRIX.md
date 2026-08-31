@@ -27,3 +27,10 @@ these differences with identical content and without relying on color swaps.
 **PASS — structurally distinct on mechanism.** A is document/threshold-led, B is workbench/index-led,
 and C is processional narrative-led. No pair shares the same first-viewport topology, home rhythm,
 detail-probe model or motion purpose. Browser evidence must confirm this; the matrix alone is not proof.
+
+## Post-build confirmation
+
+**PASS.** The 12 required homepage captures and six page-type probes retain the distinctions above at
+375/768/1280/1440. A is axial/document-led, B is stateful workbench/index-led, and C is
+gateway/procession-led. None collapses to the same DOM topology or full-page silhouette after the
+shared representative content is applied.
