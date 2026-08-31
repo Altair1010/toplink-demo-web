@@ -1,0 +1,82 @@
+name: toplink-p5
+
+services:
+  db:
+    image: mariadb@sha256:2439dcd7d14010ecd1ff7a4e1c5abe8e208c34fe35290744deeeaac3569043c3
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME in .env}
+      MARIADB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER in .env}
+      MARIADB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD in .env}
+      MARIADB_ROOT_PASSWORD: ${TOPLINK_DB_ROOT_PASSWORD:?Set TOPLINK_DB_ROOT_PASSWORD in .env}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+    volumes:
+      - toplink_db_data:/var/lib/mysql
+    networks:
+      - cms
+
+  wordpress:
+    image: wordpress@sha256:5a93c470ae8220fddf71f6ebe3bc94e615ddc2ae4d9810f795b830fb11c41a17
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${TOPLINK_WP_PORT:-8085}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME in .env}
+      WORDPRESS_DB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER in .env}
+      WORDPRESS_DB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD in .env}
+      WORDPRESS_DEBUG: "0"
+    healthcheck:
+      test: ["CMD-SHELL", "php -r '$$socket=@fsockopen(\"127.0.0.1\",80); exit($$socket?0:1);'"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+    volumes:
+      - toplink_wordpress_data:/var/www/html
+      - ./plugins/toplink-content-model:/var/www/html/wp-content/plugins/toplink-content-model:ro
+    networks:
+      - cms
+
+  wpcli:
+    image: wordpress@sha256:2b5e9d4d3e51909dca1aaa4732e9f5e5bf0377c2114dbd8ff39f060bff202586
+    profiles: ["tools"]
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["wp"]
+    working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME in .env}
+      WORDPRESS_DB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER in .env}
+      WORDPRESS_DB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD in .env}
+      TOPLINK_WP_PORT: ${TOPLINK_WP_PORT:-8085}
+      TOPLINK_WP_ADMIN_USER: ${TOPLINK_WP_ADMIN_USER:?Set TOPLINK_WP_ADMIN_USER in .env}
+      TOPLINK_WP_ADMIN_PASSWORD: ${TOPLINK_WP_ADMIN_PASSWORD:?Set TOPLINK_WP_ADMIN_PASSWORD in .env}
+      TOPLINK_WP_ADMIN_EMAIL: ${TOPLINK_WP_ADMIN_EMAIL:?Set TOPLINK_WP_ADMIN_EMAIL in .env}
+      TOPLINK_WP_AUTHOR_USER: ${TOPLINK_WP_AUTHOR_USER:-p5_author}
+      TOPLINK_WP_AUTHOR_PASSWORD: ${TOPLINK_WP_AUTHOR_PASSWORD:?Set TOPLINK_WP_AUTHOR_PASSWORD in .env}
+      TOPLINK_WP_EDITOR_USER: ${TOPLINK_WP_EDITOR_USER:-p5_editor}
+      TOPLINK_WP_EDITOR_PASSWORD: ${TOPLINK_WP_EDITOR_PASSWORD:?Set TOPLINK_WP_EDITOR_PASSWORD in .env}
+    volumes:
+      - toplink_wordpress_data:/var/www/html
+      - ./plugins/toplink-content-model:/var/www/html/wp-content/plugins/toplink-content-model:ro
+      - ./scripts:/opt/toplink-scripts:ro
+      - ./tests:/opt/toplink-tests:ro
+    networks:
+      - cms
+
+volumes:
+  toplink_db_data:
+  toplink_wordpress_data:
+
+networks:
+  cms:
+    internal: false

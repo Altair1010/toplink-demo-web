@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+uploads/
+database/
+wordpress-core/
+wp-content/cache/
+*.sql
+*.log
+.playwright-cli/
+__pycache__/
+*.pyc
