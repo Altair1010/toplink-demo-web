@@ -1,8 +1,8 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-09-01 01:48 +07:00  
+**Updated:** 2026-09-01 07:49 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P6  
+**Phase:** P7  
 **Status:** COMPLETE — READY FOR HUMAN REVIEW  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
@@ -32,7 +32,9 @@
 **P5 branch start HEAD:** `74ca8f120fa6a1630d9bca16191291bd6a366afa`  
 **P5 implementation HEAD:** `71361d18ead8b84fdafeb17e8fc28856d2fa3d50`  
 **P6 branch start HEAD:** `71361d18ead8b84fdafeb17e8fc28856d2fa3d50`  
-**Current branch:** `feat/v1-headless-integration`  
+**Approved P6 base SHA:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
+**P7 branch start HEAD:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
+**Current branch:** `feat/v1-commercial-web`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
@@ -42,8 +44,8 @@
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
 **Actor holding implementation:** None
 
-**Active route:** WP REST → VALIDATION → NORMALIZATION → DOMAIN → REACT  
-**Gate state:** P6 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P7
+**Active route:** VERIFIED CONTACT → ANALYTICS → SEO → STRUCTURED DATA — COMPLETE  
+**Gate state:** P7 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P8
 
 ## Completed work
 
@@ -133,10 +135,22 @@
   only `__P6_INTEGRATION_TEST__` records; fixtures remain preserved but are not a public runtime source.
 - Completed P5 regression, P6 contract/security/runtime tests, production build, secret/deletion audit and
   12-route x four-width CMS browser confirmation without changing `app-demo/`.
+- Added APPROVED-only Zalo, Facebook/Messenger and phone actions behind centralized HTTPS/tel validation;
+  pending, rejected, reference-only and unsafe destinations remain non-actionable.
+- Added a typed vendor-neutral first-party contact event boundary with six canonical placements and no
+  destination, personal, health or content payload; no third-party analytics loader was added.
+- Added one validated public-origin boundary, server metadata, canonical/OpenGraph policies, environment-safe
+  robots, CMS-derived sitemap eligibility and fail-closed held/test/preview behavior.
+- Added semantic detail breadcrumbs and centralized safe JSON-LD for eligible BreadcrumbList, Service and
+  BlogPosting; Organization requires verified legal identity/contact facts and LocalBusiness remains absent.
+- Added the bounded Search Console/local SEO readiness contracts without DNS, ownership, deployment or
+  production indexing actions.
+- Completed one same-agent review, one correction batch and one confirmation; P5/P6/browser/app-demo and
+  preservation gates passed, with no dependency, deployment, merge or P8 work.
 
 ## In-progress work
 
-- None. P6 is complete and stopped at the required human gate before P7.
+- None. P7 is complete and stopped at the required human gate before P8.
 
 ## Blockers
 
@@ -343,9 +357,9 @@ ChatGPT Web / Human
 
 ## NEXT ACTION
 
-Review and approve the CMS-backed V1 frontend, private preview and signed revalidation integration before authorizing P7 commercial web capabilities.
+Review and approve the commercial contact, analytics and SEO layer before authorizing P8 release hardening.
 
 ## Human gate
 
-P6 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P7. P7, merge, deployment, repository
+P7 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P8. P8, merge, deployment, repository
 visibility change and archive-tag creation remain blocked.
