@@ -3,6 +3,7 @@ node_modules/
 out/
 *.tsbuildinfo
 .playwright/
+.playwright-cli/
 browser-results/
 .env
 .env.local

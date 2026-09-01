@@ -7,6 +7,7 @@ import { chromium } from "playwright";
 const port = Number(process.env.P4_PORT ?? 4180);
 const baseUrl = `http://127.0.0.1:${port}`;
 const p6Cms = process.env.P6_CMS === "1";
+const retainEvidence = process.env.P7_NO_CAPTURE !== "1";
 const evidenceDirectory = resolve(
   process.cwd(),
   p6Cms ? "../docs/toplink-v1/p6/evidence" : "../docs/toplink-v1/p4/evidence",
@@ -211,7 +212,7 @@ try {
 
       const key = `${routeName}:${width}`;
       const captureName = captures.get(key);
-      if (captureName) {
+      if (captureName && retainEvidence) {
         const path = join(evidenceDirectory, captureName);
         await page.screenshot({ path, fullPage: true });
         evidence.push({
@@ -294,15 +295,17 @@ try {
     if (target.height < 44 || target.width < 44)
       failures.push(`touch target ${target.text}: ${target.width}x${target.height}`);
   }
-  const navPath = join(evidenceDirectory, "navigation__375__open.png");
-  await interactionPage.screenshot({ path: navPath, fullPage: false });
-  evidence.push({
-    route: "/",
-    width: 375,
-    state: "navigation-open",
-    path: navPath,
-    sha256: sha256(navPath),
-  });
+  if (retainEvidence) {
+    const navPath = join(evidenceDirectory, "navigation__375__open.png");
+    await interactionPage.screenshot({ path: navPath, fullPage: false });
+    evidence.push({
+      route: "/",
+      width: 375,
+      state: "navigation-open",
+      path: navPath,
+      sha256: sha256(navPath),
+    });
+  }
   await interactionContext.close();
 
   for (const routePath of [
