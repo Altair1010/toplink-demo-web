@@ -1,12 +1,20 @@
-import type { Metadata } from "next";
-
 import { RecordLink } from "@/components/content/RecordLink";
 import { Court } from "@/components/structural/Court";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { getServices } from "@/lib/content";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { isPublicSitemapRecord } from "@/lib/seo/sitemap";
 
-export const metadata: Metadata = { title: "Dịch vụ" };
+export async function generateMetadata() {
+  const services = await getServices();
+  return createStaticPageMetadata(
+    "/dich-vu",
+    currentPublicSiteEnvironment(),
+    services.some(isPublicSitemapRecord),
+  );
+}
 
 export default async function ServiceIndexPage() {
   const services = await getServices();

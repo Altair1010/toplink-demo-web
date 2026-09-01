@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 
+import { Breadcrumbs } from "@/components/content/Breadcrumbs";
+import { JsonLd } from "@/components/content/JsonLd";
 import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
 import { getArticleBySlug, getArticles, getContentRedirect } from "@/lib/content";
+import { isPublicSeoRecord } from "@/lib/seo/eligibility";
+import { createArticleMetadata } from "@/lib/seo/metadata";
+import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { createArticleStructuredData, createBreadcrumbList } from "@/lib/seo/structured-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -22,7 +28,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const article = await getArticleBySlug((await params).slug);
   return article && article.article_type.value !== "knowledge"
-    ? { title: article.title.value }
+    ? createArticleMetadata(article, currentPublicSiteEnvironment())
     : {};
 }
 
@@ -34,10 +40,27 @@ export default async function NewsDetailPage({ params }: PageProps) {
     if (redirect?.startsWith("/tin-tuc/")) permanentRedirect(redirect);
     notFound();
   }
+  const breadcrumbItems = [
+    { name: "Trang chủ", path: "/" },
+    { name: "Tin tức", path: "/tin-tuc" },
+    { name: article.title.value, path: article.seo.value.canonicalPath },
+  ];
+  const publicOrigin = configuredPublicSiteOrigin(currentPublicSiteEnvironment());
 
   return (
     <main id="main">
+      <JsonLd
+        data={
+          publicOrigin && isPublicSeoRecord(article)
+            ? createBreadcrumbList(breadcrumbItems, publicOrigin)
+            : undefined
+        }
+      />
+      <JsonLd
+        data={publicOrigin ? createArticleStructuredData(article, publicOrigin) : undefined}
+      />
       <PreviewNotice lifecycle={article.editorial_lifecycle} />
+      <Breadcrumbs items={breadcrumbItems} />
       <Gateway
         eyebrow={`${article.article_type.value} · ${article.published_at.value}`}
         title={article.title.value}

@@ -7,6 +7,12 @@ import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
 import { getArticles, getServices, getSiteSettings } from "@/lib/content";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
+
+export function generateMetadata() {
+  return createStaticPageMetadata("/", currentPublicSiteEnvironment(), true);
+}
 
 const orientation = [
   [
@@ -140,7 +146,7 @@ export default async function HomePage() {
       </section>
 
       <Release title="Liên hệ khi đã sẵn sàng">
-        <ContactDirectory settings={settings} />
+        <ContactDirectory settings={settings} placement="footer" />
       </Release>
     </main>
   );

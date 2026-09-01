@@ -1,9 +1,11 @@
-import type { Metadata } from "next";
-
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 
-export const metadata: Metadata = { title: "Giới thiệu" };
+export function generateMetadata() {
+  return createStaticPageMetadata("/gioi-thieu", currentPublicSiteEnvironment(), true);
+}
 
 export default function AboutPage() {
   return (

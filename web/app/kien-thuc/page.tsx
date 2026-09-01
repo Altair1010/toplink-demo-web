@@ -1,11 +1,19 @@
-import type { Metadata } from "next";
-
 import { RecordLink } from "@/components/content/RecordLink";
 import { Court } from "@/components/structural/Court";
 import { Gateway } from "@/components/structural/Gateway";
 import { getArticles } from "@/lib/content";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { isPublicSitemapRecord } from "@/lib/seo/sitemap";
 
-export const metadata: Metadata = { title: "Kiến thức" };
+export async function generateMetadata() {
+  const articles = await getArticles("knowledge");
+  return createStaticPageMetadata(
+    "/kien-thuc",
+    currentPublicSiteEnvironment(),
+    articles.some(isPublicSitemapRecord),
+  );
+}
 
 export default async function KnowledgeIndexPage() {
   const articles = await getArticles("knowledge");

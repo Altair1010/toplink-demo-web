@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
-
 import { Gateway } from "@/components/structural/Gateway";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 
-export const metadata: Metadata = { title: "Không gian" };
+export function generateMetadata() {
+  return createStaticPageMetadata("/khong-gian", currentPublicSiteEnvironment(), false);
+}
 
 export default function SpacePage() {
   return (

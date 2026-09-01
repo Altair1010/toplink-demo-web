@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 
+import { Breadcrumbs } from "@/components/content/Breadcrumbs";
+import { JsonLd } from "@/components/content/JsonLd";
 import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Gateway } from "@/components/structural/Gateway";
 import { ReadingHall } from "@/components/structural/ReadingHall";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
 import { getArticleBySlug, getArticles, getContentRedirect } from "@/lib/content";
+import { isPublicSeoRecord } from "@/lib/seo/eligibility";
+import { createArticleMetadata } from "@/lib/seo/metadata";
+import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { createArticleStructuredData, createBreadcrumbList } from "@/lib/seo/structured-data";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -19,7 +25,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const article = await getArticleBySlug((await params).slug, "knowledge");
-  return article ? { title: article.title.value } : {};
+  return article ? createArticleMetadata(article, currentPublicSiteEnvironment()) : {};
 }
 
 export default async function KnowledgeDetailPage({ params }: PageProps) {
@@ -37,10 +43,27 @@ export default async function KnowledgeDetailPage({ params }: PageProps) {
     "Áp dụng có giới hạn",
     "Khi cần chuyển tiếp",
   ];
+  const breadcrumbItems = [
+    { name: "Trang chủ", path: "/" },
+    { name: "Kiến thức", path: "/kien-thuc" },
+    { name: article.title.value, path: article.seo.value.canonicalPath },
+  ];
+  const publicOrigin = configuredPublicSiteOrigin(currentPublicSiteEnvironment());
 
   return (
     <main id="main">
+      <JsonLd
+        data={
+          publicOrigin && isPublicSeoRecord(article)
+            ? createBreadcrumbList(breadcrumbItems, publicOrigin)
+            : undefined
+        }
+      />
+      <JsonLd
+        data={publicOrigin ? createArticleStructuredData(article, publicOrigin) : undefined}
+      />
       <PreviewNotice lifecycle={article.editorial_lifecycle} />
+      <Breadcrumbs items={breadcrumbItems} />
       <Gateway
         variant="reading"
         eyebrow="Knowledge detail · reading hall"

@@ -1,11 +1,19 @@
-import type { Metadata } from "next";
-
 import { RecordLink } from "@/components/content/RecordLink";
 import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { getProducts } from "@/lib/content";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { isPublicSitemapRecord } from "@/lib/seo/sitemap";
 
-export const metadata: Metadata = { title: "Sản phẩm" };
+export async function generateMetadata() {
+  const products = await getProducts();
+  return createStaticPageMetadata(
+    "/san-pham",
+    currentPublicSiteEnvironment(),
+    products.some(isPublicSitemapRecord),
+  );
+}
 
 export default async function ProductIndexPage() {
   const products = await getProducts();

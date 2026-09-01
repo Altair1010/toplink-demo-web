@@ -1,14 +1,16 @@
-import { approvedValue, type SiteSettings } from "@/types/domain";
+import { TrackedContactLink } from "@/components/content/TrackedContactLink";
+import type { ContactPlacement } from "@/lib/analytics/events";
+import { buildContactActions } from "@/lib/contact/actions";
+import type { SiteSettings } from "@/types/domain";
 
-export function ContactDirectory({ settings }: { settings: SiteSettings }) {
-  const hotline = approvedValue(settings.hotline);
-  const zalo = approvedValue(settings.zalo_destination);
-  const facebook = approvedValue(settings.facebook_destination);
-  const channels = [
-    hotline ? { label: "Điện thoại", href: `tel:${hotline}`, detail: hotline } : null,
-    zalo ? { label: "Zalo", href: zalo, detail: "Mở kênh chính thức" } : null,
-    facebook ? { label: "Facebook/Messenger", href: facebook, detail: "Mở kênh chính thức" } : null,
-  ].filter((item): item is NonNullable<typeof item> => Boolean(item));
+export function ContactDirectory({
+  settings,
+  placement,
+}: {
+  readonly settings: SiteSettings;
+  readonly placement: ContactPlacement;
+}) {
+  const channels = buildContactActions(settings);
 
   if (channels.length === 0) {
     return (
@@ -22,11 +24,11 @@ export function ContactDirectory({ settings }: { settings: SiteSettings }) {
   return (
     <ul className="contact-directory">
       {channels.map((channel) => (
-        <li key={channel.label}>
-          <a href={channel.href}>
+        <li key={channel.action}>
+          <TrackedContactLink action={channel} placement={placement}>
             <strong>{channel.label}</strong>
             <span>{channel.detail}</span>
-          </a>
+          </TrackedContactLink>
         </li>
       ))}
     </ul>

@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/shell/SiteFooter";
 import { SiteHeader } from "@/components/shell/SiteHeader";
+import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
 
 import "./globals.css";
 
@@ -21,7 +22,11 @@ const bodyFont = IBM_Plex_Sans({
   display: "swap",
 });
 
+const publicEnvironment = currentPublicSiteEnvironment();
+const metadataBase = configuredPublicSiteOrigin(publicEnvironment);
+
 export const metadata: Metadata = {
+  ...(metadataBase ? { metadataBase } : {}),
   title: {
     default: "Y Viện Toplink",
     template: "%s | Y Viện Toplink",

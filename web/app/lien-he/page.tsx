@@ -1,11 +1,19 @@
-import type { Metadata } from "next";
-
 import { ContactDirectory } from "@/components/content/ContactDirectory";
 import { Gateway } from "@/components/structural/Gateway";
 import { getSiteSettings } from "@/lib/content";
+import { buildContactActions } from "@/lib/contact/actions";
+import { createStaticPageMetadata } from "@/lib/seo/metadata";
+import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 import { approvedValue } from "@/types/domain";
 
-export const metadata: Metadata = { title: "Liên hệ" };
+export async function generateMetadata() {
+  const settings = await getSiteSettings();
+  return createStaticPageMetadata(
+    "/lien-he",
+    currentPublicSiteEnvironment(),
+    buildContactActions(settings).length > 0,
+  );
+}
 
 export default async function ContactPage() {
   const settings = await getSiteSettings();
@@ -23,7 +31,7 @@ export default async function ContactPage() {
       <section className="utility-hall" aria-labelledby="contact-directory-title">
         <p className="chapter-mark">Verified channel directory</p>
         <h2 id="contact-directory-title">Kênh liên hệ</h2>
-        <ContactDirectory settings={settings} />
+        <ContactDirectory settings={settings} placement="contact_page" />
 
         {address || hours ? (
           <dl className="definition-ledger">

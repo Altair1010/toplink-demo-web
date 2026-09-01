@@ -3,6 +3,8 @@ import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 
 import { ContactDirectory } from "@/components/content/ContactDirectory";
+import { Breadcrumbs } from "@/components/content/Breadcrumbs";
+import { JsonLd } from "@/components/content/JsonLd";
 import { MediaFigure } from "@/components/content/MediaFigure";
 import { PreviewNotice } from "@/components/content/PreviewNotice";
 import { Chamber } from "@/components/structural/Chamber";
@@ -10,6 +12,10 @@ import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
 import { getContentRedirect, getServiceBySlug, getServices, getSiteSettings } from "@/lib/content";
+import { isPublicSeoRecord } from "@/lib/seo/eligibility";
+import { createServiceMetadata } from "@/lib/seo/metadata";
+import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
+import { createBreadcrumbList, createServiceStructuredData } from "@/lib/seo/structured-data";
 import { approvedValue } from "@/types/domain";
 
 interface PageProps {
@@ -22,7 +28,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const service = await getServiceBySlug((await params).slug);
-  return service ? { title: service.title.value } : {};
+  return service ? createServiceMetadata(service, currentPublicSiteEnvironment()) : {};
 }
 
 export default async function ServiceDetailPage({ params }: PageProps) {
@@ -34,10 +40,27 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     notFound();
   }
   const media = approvedValue(service.media) ?? [];
+  const breadcrumbItems = [
+    { name: "Trang chủ", path: "/" },
+    { name: "Dịch vụ", path: "/dich-vu" },
+    { name: service.title.value, path: service.seo.value.canonicalPath },
+  ];
+  const publicOrigin = configuredPublicSiteOrigin(currentPublicSiteEnvironment());
 
   return (
     <main id="main">
+      <JsonLd
+        data={
+          publicOrigin && isPublicSeoRecord(service)
+            ? createBreadcrumbList(breadcrumbItems, publicOrigin)
+            : undefined
+        }
+      />
+      <JsonLd
+        data={publicOrigin ? createServiceStructuredData(service, publicOrigin) : undefined}
+      />
       <PreviewNotice lifecycle={service.editorial_lifecycle} />
+      <Breadcrumbs items={breadcrumbItems} />
       <Gateway
         eyebrow="Purpose gate · published"
         title={service.title.value}
@@ -97,7 +120,9 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       </Release>
 
       <Release title="Trao đổi với con người khi đã hiểu rõ">
-        <ContactDirectory settings={await getSiteSettings()} />
+        {service.editorial_lifecycle === "published" ? (
+          <ContactDirectory settings={await getSiteSettings()} placement="service_detail" />
+        ) : null}
       </Release>
     </main>
   );
