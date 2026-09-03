@@ -100,5 +100,5 @@
 ### Task 6: Close the prepared branch
 
 - [x] Run full diff, deletion, secret, test-data, Native, `app-demo/`, formatting, test and build checks.
-- [ ] Commit atomically, push only `release/v1-public-internet`, and verify remote HEAD/ahead-behind.
+- [x] Commit atomically, push only `release/v1-public-internet`, and verify remote HEAD/ahead-behind.
 - [ ] Do not merge `main`, deploy an unrelated target, enable indexing, or claim `PUBLIC_ONLINE` without hosted evidence.

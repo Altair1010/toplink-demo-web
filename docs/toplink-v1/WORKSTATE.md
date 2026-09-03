@@ -373,7 +373,8 @@
   remain conditional pending user evidence. Their insertion cannot reopen C morphology/hierarchy.
 - Real Safari, physical-device and real assistive-technology smoke were not executable in this Windows
   qualification environment and remain explicit P9 human release actions.
-- Repository visibility, archive tag and all production/release actions remain human-gated.
+- Repository visibility, archive tagging and `main` integration remain human-gated. P9 deployment is
+  authorized by the current user but cannot execute until the selected VPS is accessible.
 
 ## Next actor
 
