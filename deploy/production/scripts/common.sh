@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -euo pipefail
 
 SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 DEPLOY_DIR=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
@@ -36,12 +36,12 @@ assert_production_env() {
     die "P9 soft launch must keep TOPLINK_INDEXING_ENABLED disabled"
   fi
 
-  case ${TOPLINK_DEPLOY_SHA:-} in
-    [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]) ;;
-    *) die "TOPLINK_DEPLOY_SHA must be a full lowercase Git SHA" ;;
-  esac
-  case ${TOPLINK_PUBLIC_HOST:-} in *.*) ;; *) die "TOPLINK_PUBLIC_HOST must be a DNS hostname" ;; esac
-  case ${TOPLINK_CMS_HOST:-} in *.*) ;; *) die "TOPLINK_CMS_HOST must be a DNS hostname" ;; esac
+  printf '%s' "${TOPLINK_DEPLOY_SHA:-}" | grep -Eq '^[0-9a-f]{40}$' || die "TOPLINK_DEPLOY_SHA must be a full lowercase Git SHA"
+  printf '%s' "${TOPLINK_PUBLIC_HOST:-}" | grep -Eq '^[a-z0-9][a-z0-9.-]*\.[a-z0-9-]+$' || die "TOPLINK_PUBLIC_HOST must be a DNS hostname"
+  printf '%s' "${TOPLINK_CMS_HOST:-}" | grep -Eq '^[a-z0-9][a-z0-9.-]*\.[a-z0-9-]+$' || die "TOPLINK_CMS_HOST must be a DNS hostname"
+  printf '%s' "${TOPLINK_DB_NAME:-}" | grep -Eq '^[a-zA-Z0-9_]+$' || die "TOPLINK_DB_NAME contains unsafe characters"
+  printf '%s' "${TOPLINK_DB_USER:-}" | grep -Eq '^[a-zA-Z0-9_]+$' || die "TOPLINK_DB_USER contains unsafe characters"
+  printf '%s' "${TOPLINK_WP_ADMIN_USER:-}" | grep -Eq '^[a-zA-Z0-9_.-]+$' || die "TOPLINK_WP_ADMIN_USER contains unsafe characters"
   [ "${TOPLINK_PUBLIC_SITE_URL:-}" = "https://$TOPLINK_PUBLIC_HOST" ] || die "TOPLINK_PUBLIC_SITE_URL must exactly match the HTTPS public host"
   [ "${TOPLINK_CMS_BASE_URL:-}" = "https://$TOPLINK_CMS_HOST/wp-json/toplink/v1" ] || die "TOPLINK_CMS_BASE_URL must exactly match the HTTPS CMS host"
   [ "${TOPLINK_WEBHOOK_URL:-}" = "$TOPLINK_PUBLIC_SITE_URL/api/cms/revalidate" ] || die "TOPLINK_WEBHOOK_URL does not match the public origin"

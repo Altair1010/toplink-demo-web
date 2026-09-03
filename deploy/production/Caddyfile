@@ -5,13 +5,22 @@
 	}
 }
 
+(redacted-access-log) {
+	log {
+		output stdout
+		format filter {
+			request>uri query {
+				replace intent REDACTED
+			}
+			wrap json
+		}
+	}
+}
+
 {$TOPLINK_PUBLIC_HOST} {
 	encode zstd gzip
 	reverse_proxy web:3000
-	log {
-		output stdout
-		format json
-	}
+	import redacted-access-log
 }
 
 {$TOPLINK_CMS_HOST} {
@@ -20,8 +29,5 @@
 		max_size 32MB
 	}
 	reverse_proxy wordpress:80
-	log {
-		output stdout
-		format json
-	}
+	import redacted-access-log
 }

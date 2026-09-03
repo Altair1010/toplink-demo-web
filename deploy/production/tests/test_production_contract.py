@@ -47,11 +47,14 @@ class ProductionContractTest(unittest.TestCase):
     def test_public_contract_defaults_fail_closed(self) -> None:
         compose = (DEPLOY / "compose.yaml").read_text(encoding="utf-8")
         env = (DEPLOY / "env.example").read_text(encoding="utf-8")
+        caddy = (DEPLOY / "Caddyfile").read_text(encoding="utf-8")
         self.assertIn('TOPLINK_INDEXING_ENABLED: "0"', compose)
         self.assertNotRegex(env, r"(?im)^(TOPLINK_CONTACT|TOPLINK_PHONE|TOPLINK_ZALO|TOPLINK_FACEBOOK)")
         self.assertNotRegex(env, r"(?i)(__P[5-9]_|lorem ipsum|href=#)")
         self.assertNotIn("localhost", env.lower())
         self.assertNotIn("127.0.0.1", env)
+        self.assertEqual(caddy.count("replace intent REDACTED"), 1)
+        self.assertEqual(caddy.count("import redacted-access-log"), 2)
 
     def test_next_standalone_runtime_is_enabled(self) -> None:
         config = (ROOT / "web" / "next.config.mjs").read_text(encoding="utf-8")
@@ -72,7 +75,7 @@ class ProductionContractTest(unittest.TestCase):
             path = scripts / name
             self.assertTrue(path.is_file(), name)
             text = path.read_text(encoding="utf-8")
-            self.assertIn("set -eu", text, name)
+            self.assertIn("set -euo pipefail", text, name)
             self.assertNotIn("set -x", text, name)
 
         common = (scripts / "common.sh").read_text(encoding="utf-8")
