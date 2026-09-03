@@ -2,8 +2,8 @@
 
 **Updated:** 2026-09-03 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P8  
-**Status:** TECHNICALLY QUALIFIED — BLOCKED BY REQUIRED INPUT  
+**Phase:** P9  
+**Status:** BLOCKED_INFRA_INPUT  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -35,7 +35,7 @@
 **Approved P6 base SHA:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
 **P7 branch start HEAD:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
 **P8 branch start HEAD:** `bd71da180edef50f1313fb4b5e77bc5d09105d01`  
-**Current branch:** `release/v1-hardening`  
+**Current branch:** `release/v1-public-internet`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
@@ -45,8 +45,8 @@
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
 **Actor holding implementation:** None
 
-**Active route:** HUMAN INPUT GATE  
-**Gate state:** P8 HUMAN INPUT GATE
+**Active route:** P9 INFRASTRUCTURE INPUT GATE  
+**Gate state:** PUBLIC INTERNET DEPLOYMENT BLOCKED BEFORE TARGET MUTATION
 
 ## Completed work
 
@@ -160,18 +160,27 @@
   the canonical Impeccable detector returned no findings.
 - Classified the candidate `BLOCKED_BY_INPUT`: technical qualification is complete, but no approved real
   hotline, Zalo or Facebook/Messenger destination exists for the mandatory commercial contact gate.
+- Accepted the current user override that contact/content inputs do not block the public headless soft launch;
+  indexing remains off and all unsupported truth continues to fail closed.
+- Created `release/v1-public-internet` exactly from approved P8 SHA
+  `298b9c3834df926b243c800cba66cf6466d950e5` without merging `main`.
+- Inspected SSH/provider/GitHub/Tailscale/DNS metadata without reading secrets. No suitable VPS access or
+  provider deployment credential exists; the discovered public deployments are unrelated existing
+  `toplink.vn` WordPress and the legacy `main` GitHub Pages site.
+- Added and locally qualified a source-locked single-VPS Compose contract, Next standalone image, Caddy
+  ingress, fresh WordPress bootstrap, private MariaDB network, persistent volumes, backup/isolated restore,
+  systemd scheduling, monitoring and post-deploy verifier. No target deployment occurred.
 
 ## In-progress work
 
-- None. Technical P8 qualification is complete; the explicit real-contact input gate remains open.
+- P9 deployment configuration and truthful blocked-state evidence are prepared on
+  `release/v1-public-internet`; target provisioning and every public runtime gate await VPS access.
 
 ## Blockers
 
-- Authoritative logo geometry, authentic pattern provenance, actual Toplink place/material evidence and
-  authorized/consented photography remain unavailable. They did not block P4; conditional slots and
-  fail-closed publication behavior remain active.
-- Approved service/product facts, exact contacts and operational facts remain unavailable; all such
-  production content stays unpublished.
+- `BLOCKED_INFRA_INPUT`: Provide SSH access to the VPS to be used for Toplink.
+- Contact, content, address, hours, legal identifiers and media remain deferred non-blockers and continue
+  to render as omission/held state.
 
 ## Decisions encountered
 
@@ -368,13 +377,14 @@
 
 ## Next actor
 
-Human / ChatGPT
+Human
 
 ## NEXT ACTION
 
-Supply or explicitly resolve the remaining required production inputs listed in the release-gate matrix, then rerun only the affected delta gates.
+Provide SSH access to the VPS to be used for Toplink.
 
 ## Human gate
 
-P8 technical qualification is complete and blocked by required input. Merge, deployment, P9, repository
-visibility change and archive-tag creation remain blocked.
+P9 local preparation is complete but no production target can be mutated or verified. Do not call the
+release `PUBLIC_ONLINE`, change DNS, merge `main`, or enable indexing until the selected VPS is accessible
+and the full hosted gate has observed evidence.

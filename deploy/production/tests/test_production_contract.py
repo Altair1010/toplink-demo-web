@@ -119,6 +119,33 @@ class ProductionContractTest(unittest.TestCase):
         for marker in ("disk", "backup", "openssl s_client", "compose ps", "TOPLINK_CMS_BASE_URL"):
             self.assertIn(marker, monitor)
 
+    def test_p9_evidence_documents_report_the_actual_blocked_state(self) -> None:
+        evidence = ROOT / "docs" / "toplink-v1" / "p9"
+        required = (
+            "DEPLOYMENT-TOPOLOGY-ACTUAL.md",
+            "HOST-INVENTORY.md",
+            "ENV-CONTRACT.md",
+            "PUBLIC-URL.md",
+            "WORDPRESS-PRODUCTION-STATE.md",
+            "BACKUP-RESTORE-REPORT.md",
+            "OUTAGE-RECOVERY-REPORT.md",
+            "POST-DEPLOY-TEST-REPORT.md",
+            "ROLLBACK.md",
+            "DEFERRED-INPUTS.md",
+            "OPEN-FINDINGS.md",
+        )
+        for name in required:
+            path = evidence / name
+            self.assertTrue(path.is_file(), name)
+            self.assertGreater(len(path.read_text(encoding="utf-8")), 200, name)
+
+        public_state = (evidence / "PUBLIC-URL.md").read_text(encoding="utf-8")
+        self.assertIn("P9 public frontend: NOT AVAILABLE", public_state)
+        self.assertIn("BLOCKED_INFRA_INPUT", public_state)
+        workstate = (ROOT / "docs" / "toplink-v1" / "WORKSTATE.md").read_text(encoding="utf-8")
+        self.assertIn("**Phase:** P9", workstate)
+        self.assertIn("**Status:** BLOCKED_INFRA_INPUT", workstate)
+
 
 if __name__ == "__main__":
     unittest.main()

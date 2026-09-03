@@ -47,7 +47,7 @@
 - [x] Enable the documented Next.js standalone deployment output.
 - [x] Add the minimum image-locked production services and private networks.
 - [x] Re-run the contract test, Compose model validation and frontend standalone build to green.
-- [ ] Commit this independently reviewable deployment-foundation slice.
+- [x] Commit this independently reviewable deployment-foundation slice.
 
 ### Task 3: Add bounded operations and recovery scripts
 
@@ -62,7 +62,7 @@
 - [x] Add failing checks for fail-closed input validation, secret-safe output, backup retention, scheduled monitoring and isolated restore behavior.
 - [x] Add scripts that require explicit host values and never synthesize business facts.
 - [x] Validate script syntax and static contract behavior without needing a production target; full runtime execution remains target-dependent.
-- [ ] Commit the operations slice.
+- [x] Commit the operations slice.
 
 ### Task 4: Record actual P9 state
 
@@ -79,9 +79,9 @@
 - Create: `docs/toplink-v1/p9/OPEN-FINDINGS.md`
 - Modify: `docs/toplink-v1/WORKSTATE.md`
 
-- [ ] Record prepared versus executed state explicitly; do not pre-fill deployment evidence.
-- [ ] Document contact/content/indexing deltas and one exact infrastructure blocker.
-- [ ] Verify all requested documents are non-empty and mutually consistent.
+- [x] Record prepared versus executed state explicitly; do not pre-fill deployment evidence.
+- [x] Document contact/content/indexing deltas and one exact infrastructure blocker.
+- [x] Verify all requested documents are non-empty and mutually consistent.
 - [ ] Commit the documentation/workstate slice.
 
 ### Task 5: Deploy and qualify when the target exists
