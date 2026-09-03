@@ -1,0 +1,31 @@
+# syntax=docker/dockerfile:1.7
+FROM node:20.20.2-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 AS dependencies
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+COPY web/package.json web/package-lock.json ./
+RUN npm ci
+
+FROM node:20.20.2-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 AS builder
+WORKDIR /app
+ENV NEXT_TELEMETRY_DISABLED=1
+ARG TOPLINK_CMS_BASE_URL
+ARG TOPLINK_PUBLIC_SITE_URL
+ENV TOPLINK_CMS_BASE_URL=${TOPLINK_CMS_BASE_URL}
+ENV TOPLINK_PUBLIC_SITE_URL=${TOPLINK_PUBLIC_SITE_URL}
+ENV TOPLINK_INDEXING_ENABLED=0
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY web/ ./
+RUN npm run build \
+    && mkdir -p .next/standalone/public \
+    && cp -r .next/static .next/standalone/.next/static
+
+FROM node:20.20.2-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0 AS runtime
+WORKDIR /app
+ENV HOSTNAME=0.0.0.0
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+COPY --from=builder --chown=node:node /app/.next/standalone ./
+USER node
+EXPOSE 3000
+CMD ["node", "server.js"]

@@ -1,0 +1,149 @@
+name: toplink-production
+
+services:
+  caddy:
+    image: caddy:2.10.2-alpine@sha256:4c6e91c6ed0e2fa03efd5b44747b625fec79bc9cd06ac5235a779726618e530d
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_healthy
+      wordpress:
+        condition: service_healthy
+    environment:
+      TOPLINK_ACME_EMAIL: ${TOPLINK_ACME_EMAIL:?Set TOPLINK_ACME_EMAIL}
+      TOPLINK_PUBLIC_HOST: ${TOPLINK_PUBLIC_HOST:?Set TOPLINK_PUBLIC_HOST}
+      TOPLINK_CMS_HOST: ${TOPLINK_CMS_HOST:?Set TOPLINK_CMS_HOST}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - toplink_caddy_data:/data
+      - toplink_caddy_config:/config
+    networks:
+      - edge
+    security_opt:
+      - no-new-privileges:true
+
+  web:
+    build:
+      context: ../..
+      dockerfile: deploy/production/Dockerfile.web
+      args:
+        TOPLINK_CMS_BASE_URL: ${TOPLINK_CMS_BASE_URL:?Set TOPLINK_CMS_BASE_URL}
+        TOPLINK_PUBLIC_SITE_URL: ${TOPLINK_PUBLIC_SITE_URL:?Set TOPLINK_PUBLIC_SITE_URL}
+    image: toplink-web:${TOPLINK_DEPLOY_SHA:?Set TOPLINK_DEPLOY_SHA}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    environment:
+      TOPLINK_CMS_BASE_URL: ${TOPLINK_CMS_BASE_URL:?Set TOPLINK_CMS_BASE_URL}
+      TOPLINK_PUBLIC_SITE_URL: ${TOPLINK_PUBLIC_SITE_URL:?Set TOPLINK_PUBLIC_SITE_URL}
+      TOPLINK_WEBHOOK_SECRET: ${TOPLINK_WEBHOOK_SECRET:?Set TOPLINK_WEBHOOK_SECRET}
+      TOPLINK_PREVIEW_SECRET: ${TOPLINK_PREVIEW_SECRET:?Set TOPLINK_PREVIEW_SECRET}
+      TOPLINK_INDEXING_ENABLED: "0"
+      TOPLINK_ANALYTICS_VENDOR_ALLOWED: "0"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/').then(r=>process.exit(r.status<500?0:1)).catch(()=>process.exit(1))",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    volumes:
+      - toplink_next_cache:/app/.next/cache
+    networks:
+      - edge
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+
+  wordpress:
+    image: wordpress:7.1.0-php8.3-apache@sha256:5a93c470ae8220fddf71f6ebe3bc94e615ddc2ae4d9810f795b830fb11c41a17
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME}
+      WORDPRESS_DB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD}
+      WORDPRESS_DEBUG: "0"
+      WORDPRESS_CONFIG_EXTRA: |
+        define('DISALLOW_FILE_EDIT', true);
+        define('FORCE_SSL_ADMIN', true);
+        define('WP_ENVIRONMENT_TYPE', 'production');
+      TOPLINK_WEBHOOK_URL: ${TOPLINK_WEBHOOK_URL:?Set TOPLINK_WEBHOOK_URL}
+      TOPLINK_WEBHOOK_SECRET: ${TOPLINK_WEBHOOK_SECRET:?Set TOPLINK_WEBHOOK_SECRET}
+      TOPLINK_PREVIEW_SECRET: ${TOPLINK_PREVIEW_SECRET:?Set TOPLINK_PREVIEW_SECRET}
+      TOPLINK_PREVIEW_WEB_URL: ${TOPLINK_PREVIEW_WEB_URL:?Set TOPLINK_PREVIEW_WEB_URL}
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "php -r '$$socket=@fsockopen(\"127.0.0.1\",80); exit($$socket?0:1);'",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    volumes:
+      - toplink_wordpress_data:/var/www/html
+      - ../../wordpress/plugins/toplink-content-model:/var/www/html/wp-content/plugins/toplink-content-model:ro
+    networks:
+      - edge
+      - backend
+    security_opt:
+      - no-new-privileges:true
+
+  db:
+    image: mariadb:11.8.9@sha256:2439dcd7d14010ecd1ff7a4e1c5abe8e208c34fe35290744deeeaac3569043c3
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME}
+      MARIADB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER}
+      MARIADB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD}
+      MARIADB_ROOT_PASSWORD: ${TOPLINK_DB_ROOT_PASSWORD:?Set TOPLINK_DB_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+      start_period: 30s
+    volumes:
+      - toplink_db_data:/var/lib/mysql
+    networks:
+      - backend
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  toplink_db_data:
+    labels:
+      vn.toplink.purpose: production-database
+  toplink_wordpress_data:
+    labels:
+      vn.toplink.purpose: production-wordpress-and-uploads
+  toplink_next_cache:
+    labels:
+      vn.toplink.purpose: production-next-cache
+  toplink_caddy_data:
+    labels:
+      vn.toplink.purpose: production-certificates
+  toplink_caddy_config:
+    labels:
+      vn.toplink.purpose: production-caddy-config
+
+networks:
+  edge:
+  backend:
+    internal: true

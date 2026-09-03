@@ -1,0 +1,27 @@
+{
+	email {$TOPLINK_ACME_EMAIL}
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+{$TOPLINK_PUBLIC_HOST} {
+	encode zstd gzip
+	reverse_proxy web:3000
+	log {
+		output stdout
+		format json
+	}
+}
+
+{$TOPLINK_CMS_HOST} {
+	encode zstd gzip
+	request_body {
+		max_size 32MB
+	}
+	reverse_proxy wordpress:80
+	log {
+		output stdout
+		format json
+	}
+}

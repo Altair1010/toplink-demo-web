@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   agentRules: false,
+  output: "standalone",
   async headers() {
     return [
       {
