@@ -12,6 +12,7 @@ import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
 import { getContentRedirect, getServiceBySlug, getServices, getSiteSettings } from "@/lib/content";
+import { safeStaticSlugs } from "@/lib/cms/static-params";
 import { isPublicSeoRecord } from "@/lib/seo/eligibility";
 import { createServiceMetadata } from "@/lib/seo/metadata";
 import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
@@ -23,7 +24,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return (await getServices()).map((service) => ({ slug: service.slug.value }));
+  return safeStaticSlugs(getServices);
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

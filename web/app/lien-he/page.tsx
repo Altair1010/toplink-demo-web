@@ -6,6 +6,8 @@ import { createStaticPageMetadata } from "@/lib/seo/metadata";
 import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 import { approvedValue } from "@/types/domain";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata() {
   const settings = await getSiteSettings();
   return createStaticPageMetadata(

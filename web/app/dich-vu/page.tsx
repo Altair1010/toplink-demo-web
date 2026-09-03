@@ -7,6 +7,8 @@ import { createStaticPageMetadata } from "@/lib/seo/metadata";
 import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 import { isPublicSitemapRecord } from "@/lib/seo/sitemap";
 
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata() {
   const services = await getServices();
   return createStaticPageMetadata(

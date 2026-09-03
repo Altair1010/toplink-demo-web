@@ -10,6 +10,7 @@ import { Gateway } from "@/components/structural/Gateway";
 import { Release } from "@/components/structural/Release";
 import { Threshold } from "@/components/structural/Threshold";
 import { getContentRedirect, getProductBySlug, getProducts } from "@/lib/content";
+import { safeStaticSlugs } from "@/lib/cms/static-params";
 import { isPublicSeoRecord } from "@/lib/seo/eligibility";
 import { createProductMetadata } from "@/lib/seo/metadata";
 import { configuredPublicSiteOrigin, currentPublicSiteEnvironment } from "@/lib/seo/origin";
@@ -20,7 +21,7 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  return (await getProducts()).map((product) => ({ slug: product.slug.value }));
+  return safeStaticSlugs(getProducts);
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

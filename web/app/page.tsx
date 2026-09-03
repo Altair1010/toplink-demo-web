@@ -10,6 +10,8 @@ import { getArticles, getServices, getSiteSettings } from "@/lib/content";
 import { createStaticPageMetadata } from "@/lib/seo/metadata";
 import { currentPublicSiteEnvironment } from "@/lib/seo/origin";
 
+export const dynamic = "force-dynamic";
+
 export function generateMetadata() {
   return createStaticPageMetadata("/", currentPublicSiteEnvironment(), true);
 }
