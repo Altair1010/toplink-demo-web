@@ -1,0 +1,143 @@
+{
+  "generatedAt": "2026-09-03T12:13:22.058Z",
+  "observations": [
+    {
+      "engine": "playwright-chromium",
+      "browserVersion": "152.0.7977.8"
+    },
+    {
+      "engine": "playwright-chromium",
+      "keyboardLinkTabFocus": true,
+      "note": "Native Tab order includes links."
+    },
+    {
+      "engine": "playwright-firefox",
+      "browserVersion": "153.0"
+    },
+    {
+      "engine": "playwright-firefox",
+      "keyboardLinkTabFocus": true,
+      "note": "Native Tab order includes links."
+    },
+    {
+      "engine": "playwright-webkit",
+      "browserVersion": "26.5"
+    },
+    {
+      "engine": "playwright-webkit",
+      "keyboardLinkTabFocus": false,
+      "note": "Playwright WebKit follows Safari link-tab preference; visible focus verified directly."
+    },
+    {
+      "engine": "google-chrome",
+      "browserVersion": "152.0.7977.75"
+    },
+    {
+      "engine": "google-chrome",
+      "keyboardLinkTabFocus": true,
+      "note": "Native Tab order includes links."
+    },
+    {
+      "engine": "microsoft-edge",
+      "browserVersion": "152.0.4191.53"
+    },
+    {
+      "engine": "microsoft-edge",
+      "keyboardLinkTabFocus": true,
+      "note": "Native Tab order includes links."
+    },
+    {
+      "engine": "mobile-chromium",
+      "browserVersion": "152.0.7977.8",
+      "device": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.7977.8 Mobile Safari/537.36"
+    },
+    {
+      "engine": "mobile-webkit",
+      "browserVersion": "26.5",
+      "device": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.5 Mobile/15E148 Safari/604.1"
+    }
+  ],
+  "links": [
+    "/",
+    "/dich-vu",
+    "/dich-vu/p5-contract-test-valid-service",
+    "/dich-vu/p6-integration-test-valid-service",
+    "/gioi-thieu",
+    "/khong-gian",
+    "/kien-thuc",
+    "/kien-thuc/p5-contract-test-valid-article",
+    "/kien-thuc/p6-integration-test-valid-article",
+    "/lien-he",
+    "/san-pham",
+    "/san-pham/p5-contract-test-valid-product",
+    "/san-pham/p6-integration-test-valid-product",
+    "/tin-tuc",
+    "/tin-tuc/p5-contract-test-customer-story"
+  ],
+  "evidence": [
+    {
+      "name": "home",
+      "route": "/",
+      "width": 375,
+      "path": "docs/toplink-v1/p8/evidence/home__375.png",
+      "sha256": "6861f3bd5b37d617e1a7a4caa45cb6ce1222d93a05d7ee0fa33b355f288bb437"
+    },
+    {
+      "name": "home",
+      "route": "/",
+      "width": 1440,
+      "path": "docs/toplink-v1/p8/evidence/home__1440.png",
+      "sha256": "1dcceb873a77d60f8af7e458b7d7e42696b5ed55197079e090f9e71aa9985e5d"
+    },
+    {
+      "name": "service-detail",
+      "route": "/dich-vu/p6-integration-test-valid-service",
+      "width": 375,
+      "path": "docs/toplink-v1/p8/evidence/service-detail__375.png",
+      "sha256": "8369668ef623e9b7c67e66c7151f8e1e485093aa0117782bd369bd764fc73f36"
+    },
+    {
+      "name": "service-detail",
+      "route": "/dich-vu/p6-integration-test-valid-service",
+      "width": 1440,
+      "path": "docs/toplink-v1/p8/evidence/service-detail__1440.png",
+      "sha256": "8dc022d941b03d2b24808bec690d07098a493f8bc1bb7a149f9c714c43f1015b"
+    },
+    {
+      "name": "knowledge-detail",
+      "route": "/kien-thuc/p6-integration-test-valid-article",
+      "width": 375,
+      "path": "docs/toplink-v1/p8/evidence/knowledge-detail__375.png",
+      "sha256": "d382f49308edbe4b0734cd9b9d74c6689205d2fd4f067bc2b7d731d267915497"
+    },
+    {
+      "name": "knowledge-detail",
+      "route": "/kien-thuc/p6-integration-test-valid-article",
+      "width": 1440,
+      "path": "docs/toplink-v1/p8/evidence/knowledge-detail__1440.png",
+      "sha256": "a7cd36bbb6125826211c5df48f1b9db0e71ac5ffd381e19aa11b285ceb01b620"
+    },
+    {
+      "name": "contact-held",
+      "route": "/lien-he",
+      "width": 375,
+      "path": "docs/toplink-v1/p8/evidence/contact-held__375.png",
+      "sha256": "1e091cc1ba53906137635349c16c9bf598e323f7f8bd34d9d471703dbbc540a1"
+    },
+    {
+      "name": "space-held",
+      "route": "/khong-gian",
+      "width": 1280,
+      "path": "docs/toplink-v1/p8/evidence/space-held__1280.png",
+      "sha256": "1b6949cbcc4eeef0cb40a3dfb3b154dc5e583c75c7ff1ab35f839787228d81b7"
+    },
+    {
+      "name": "mobile-nav",
+      "route": "/",
+      "width": 375,
+      "path": "docs/toplink-v1/p8/evidence/mobile-nav__375.png",
+      "sha256": "f27263db20cea4d1aff81eea3c42d0b13ae50b9373aaec4b8c589873d7614359"
+    }
+  ],
+  "failures": []
+}

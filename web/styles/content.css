@@ -104,6 +104,12 @@
   list-style: none;
 }
 
+.breadcrumbs a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+}
+
 .breadcrumbs li:not(:last-child)::after {
   margin-inline-start: var(--space-2);
   content: "/";

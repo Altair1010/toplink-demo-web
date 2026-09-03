@@ -83,6 +83,8 @@
   z-index: 0;
   inset: 8% 5%;
   border: var(--border-hairline) solid var(--slot-identity-metal);
+  transform-origin: center;
+  will-change: transform, opacity;
   animation: gateway-release var(--motion-release) var(--ease-release) both;
 }
 

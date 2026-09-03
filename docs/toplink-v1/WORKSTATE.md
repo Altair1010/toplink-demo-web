@@ -1,9 +1,9 @@
 # WORKSTATE — Toplink V1
 
-**Updated:** 2026-09-01 07:49 +07:00  
+**Updated:** 2026-09-03 +07:00  
 **Project:** Y Viện Toplink Commercial Headless Redesign V1  
-**Phase:** P7  
-**Status:** COMPLETE — READY FOR HUMAN REVIEW  
+**Phase:** P8  
+**Status:** TECHNICALLY QUALIFIED — BLOCKED BY REQUIRED INPUT  
 **Local root:** `F:\Codex\Yvien Hotlink Website`  
 **Resolved repository path:** `F:\Codex\Yvien Hotlink Website`  
 **Application path:** `F:\Codex\Yvien Hotlink Website\app-demo`  
@@ -34,7 +34,8 @@
 **P6 branch start HEAD:** `71361d18ead8b84fdafeb17e8fc28856d2fa3d50`  
 **Approved P6 base SHA:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
 **P7 branch start HEAD:** `dac2f933f65a05417094bb4261a21e32c78d1f5a`  
-**Current branch:** `feat/v1-commercial-web`  
+**P8 branch start HEAD:** `bd71da180edef50f1313fb4b5e77bc5d09105d01`  
+**Current branch:** `release/v1-hardening`  
 **Resolved P2 worktree:** `F:\Codex\yvien-v1-foundation`  
 **P2 remote checkpoint before closeout commit:** `dcfa8fce6f2aec3aaf04506a4f45d08929db13e7`  
 **Resolved P3A worktree:** `F:\Codex\yvien-v1-foundation`  
@@ -44,8 +45,8 @@
 **Legacy preserved:** `F:\Codex\yvien-v1-foundation\app-demo`  
 **Actor holding implementation:** None
 
-**Active route:** VERIFIED CONTACT → ANALYTICS → SEO → STRUCTURED DATA — COMPLETE  
-**Gate state:** P7 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P8
+**Active route:** HUMAN INPUT GATE  
+**Gate state:** P8 HUMAN INPUT GATE
 
 ## Completed work
 
@@ -147,10 +148,22 @@
   production indexing actions.
 - Completed one same-agent review, one correction batch and one confirmation; P5/P6/browser/app-demo and
   preservation gates passed, with no dependency, deployment, merge or P8 work.
+- Froze P8 exactly from approved P7 SHA `bd71da180edef50f1313fb4b5e77bc5d09105d01` and built the
+  evidence-driven release-gate matrix before qualification.
+- Proved the final tree under host Node 24.16.0 and an actual digest-pinned Node 20.20.2 container;
+  clean install, tests, typecheck, formatting, content boundary and production build passed.
+- Added portable response headers, a Node-20-compatible test runner, composited gateway motion, bounded
+  font loading, shell-prefetch restraint and a focused multi-browser/axe/link/header release harness.
+- Confirmed P5/P6/P7 regression, CMS outage behavior, Chromium/Firefox/WebKit representative flows,
+  keyboard/reflow/reduced motion and a 15-sample Lighthouse budget without changing `app-demo/`.
+- Re-ran dependency, signature, secret, schema, analytics and exact-pinned Hallmark/Impeccable audits;
+  the canonical Impeccable detector returned no findings.
+- Classified the candidate `BLOCKED_BY_INPUT`: technical qualification is complete, but no approved real
+  hotline, Zalo or Facebook/Messenger destination exists for the mandatory commercial contact gate.
 
 ## In-progress work
 
-- None. P7 is complete and stopped at the required human gate before P8.
+- None. Technical P8 qualification is complete; the explicit real-contact input gate remains open.
 
 ## Blockers
 
@@ -335,6 +348,10 @@
 - P6 headless contract: PASS; WordPress is the public content authority and React remains domain-only.
 - P5 regression in P6: PASS; 32/32 editorial/publication assertions plus static contract and PHP lint.
 - P6 browser/security confirmation: PASS; 48 route/viewport checks, signed webhook/preview and secret scan.
+- P7 contact/SEO/analytics regression: PASS; exact contact state restored and no dormant vendor scripts.
+- P8 Node portability: PASS on actual Node 20.20.2 and Node 24.16.0.
+- P8 browser/accessibility/performance/security confirmation: PASS within documented lab and platform
+  bounds; real Safari, physical-device and real assistive-technology smoke remain P9 operations.
 
 ## Unresolved findings
 
@@ -345,21 +362,19 @@
 - Actual authorized Toplink space/people/media and real consented customer stories remain unavailable.
 - Final logo geometry, authentic ornament asset, real place/material nuance and consented photography
   remain conditional pending user evidence. Their insertion cannot reopen C morphology/hierarchy.
-- Impeccable automated detection is unavailable in the sparse pinned cache; P4 does not claim a clean
-  detector scan.
-- Local P4 verification used Node 24.16.0 and Chromium; Node-20 parity, multi-browser and real
-  assistive-technology review remain later release gates.
+- Real Safari, physical-device and real assistive-technology smoke were not executable in this Windows
+  qualification environment and remain explicit P9 human release actions.
 - Repository visibility, archive tag and all production/release actions remain human-gated.
 
 ## Next actor
 
-ChatGPT Web / Human
+Human / ChatGPT
 
 ## NEXT ACTION
 
-Review and approve the commercial contact, analytics and SEO layer before authorizing P8 release hardening.
+Supply or explicitly resolve the remaining required production inputs listed in the release-gate matrix, then rerun only the affected delta gates.
 
 ## Human gate
 
-P7 COMPLETE — AWAITING HUMAN / CHATGPT REVIEW BEFORE P8. P8, merge, deployment, repository
+P8 technical qualification is complete and blocked by required input. Merge, deployment, P9, repository
 visibility change and archive-tag creation remain blocked.

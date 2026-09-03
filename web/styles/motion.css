@@ -1,6 +1,6 @@
 @keyframes gateway-release {
   from {
-    inset: 16% 17%;
+    transform: scale(0.88);
     opacity: 0.55;
   }
 }

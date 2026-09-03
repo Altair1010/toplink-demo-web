@@ -12,7 +12,7 @@ const navigation = [
 
 function NavigationLinks() {
   return navigation.map(([label, href]) => (
-    <Link key={href} href={href}>
+    <Link key={href} href={href} prefetch={false}>
       {label}
     </Link>
   ));
@@ -21,7 +21,12 @@ function NavigationLinks() {
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link className="text-identity" href="/" aria-label="Y Viện Toplink — trang chủ">
+      <Link
+        className="text-identity"
+        href="/"
+        prefetch={false}
+        aria-label="Y Viện Toplink — trang chủ"
+      >
         <strong>Y VIỆN TOPLINK</strong>
         <span>Dưỡng Thân – Tỉnh Thức</span>
       </Link>

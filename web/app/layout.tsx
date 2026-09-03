@@ -12,14 +12,16 @@ const displayFont = Alegreya({
   variable: "--font-display-loaded",
   subsets: ["latin", "vietnamese"],
   weight: ["500", "600"],
-  display: "swap",
+  display: "optional",
+  preload: false,
 });
 
 const bodyFont = IBM_Plex_Sans({
   variable: "--font-body-loaded",
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600"],
-  display: "swap",
+  display: "optional",
+  preload: false,
 });
 
 const publicEnvironment = currentPublicSiteEnvironment();

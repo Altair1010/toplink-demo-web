@@ -10,9 +10,10 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "check:content": "node scripts/check-content-boundary.mjs",
-    "test:p6": "node --experimental-strip-types --test tests/*.test.ts",
-    "test:p7": "node --experimental-strip-types --test tests/p7-*.test.ts",
+    "test:p6": "tsx --test tests/*.test.ts",
+    "test:p7": "tsx --test tests/p7-*.test.ts",
     "test:p6:http": "node scripts/verify-p6-http.mjs",
+    "test:p8:browser": "node scripts/verify-p8-browser.mjs",
     "verify": "npm run build && npm run typecheck && npm run format:check && npm run check:content",
     "browser:audit": "node scripts/browser-audit.mjs"
   },
@@ -26,8 +27,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "axe-core": "4.10.3",
     "playwright": "1.63.0-alpha-2026-08-05",
     "prettier": "3.9.4",
+    "tsx": "4.23.13",
     "typescript": "5.9.3"
   },
   "engines": {
