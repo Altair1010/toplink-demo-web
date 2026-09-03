@@ -101,4 +101,4 @@
 
 - [x] Run full diff, deletion, secret, test-data, Native, `app-demo/`, formatting, test and build checks.
 - [x] Commit atomically, push only `release/v1-public-internet`, and verify remote HEAD/ahead-behind.
-- [ ] Do not merge `main`, deploy an unrelated target, enable indexing, or claim `PUBLIC_ONLINE` without hosted evidence.
+- [x] Do not merge `main`, deploy an unrelated target, enable indexing, or claim `PUBLIC_ONLINE` without hosted evidence.
