@@ -37,7 +37,7 @@ class ProductionContractTest(unittest.TestCase):
         compose = (DEPLOY / "compose.yaml").read_text(encoding="utf-8")
         images = re.findall(r"(?m)^    image: (.+)$", compose)
         third_party = [image for image in images if not image.startswith("toplink-web:")]
-        self.assertEqual(len(third_party), 3)
+        self.assertEqual(len(third_party), 4)
         self.assertTrue(all("@sha256:" in image for image in third_party), images)
         self.assertIn("image: toplink-web:${TOPLINK_DEPLOY_SHA:?Set TOPLINK_DEPLOY_SHA}", compose)
         for volume in ("toplink_db_data", "toplink_wordpress_data", "toplink_next_cache", "toplink_caddy_data"):
@@ -56,6 +56,68 @@ class ProductionContractTest(unittest.TestCase):
     def test_next_standalone_runtime_is_enabled(self) -> None:
         config = (ROOT / "web" / "next.config.mjs").read_text(encoding="utf-8")
         self.assertIn('output: "standalone"', config)
+
+    def test_operations_scripts_are_present_and_fail_closed(self) -> None:
+        scripts = DEPLOY / "scripts"
+        required = (
+            "common.sh",
+            "bootstrap.sh",
+            "deploy.sh",
+            "backup.sh",
+            "restore-drill.sh",
+            "verify-public.sh",
+            "monitor.sh",
+        )
+        for name in required:
+            path = scripts / name
+            self.assertTrue(path.is_file(), name)
+            text = path.read_text(encoding="utf-8")
+            self.assertIn("set -eu", text, name)
+            self.assertNotIn("set -x", text, name)
+
+        common = (scripts / "common.sh").read_text(encoding="utf-8")
+        self.assertIn("assert_production_env", common)
+        self.assertIn("TOPLINK_INDEXING_ENABLED", common)
+        self.assertIn("REPLACE_ON_SERVER", common)
+
+        bootstrap = (scripts / "bootstrap.sh").read_text(encoding="utf-8")
+        self.assertIn('repository_sha=$(git -C "$REPO_DIR" rev-parse HEAD) || die', bootstrap)
+        self.assertLess(bootstrap.index("repository_sha=$(git"), bootstrap.index('cp "$DEPLOY_DIR/env.example"'))
+
+    def test_backup_and_restore_are_bounded(self) -> None:
+        backup = (DEPLOY / "scripts" / "backup.sh").read_text(encoding="utf-8")
+        restore = (DEPLOY / "scripts" / "restore-drill.sh").read_text(encoding="utf-8")
+        self.assertIn("mariadb-dump", backup)
+        self.assertIn("wp-content/uploads", backup)
+        self.assertIn("sha256sum", backup)
+        self.assertIn("TOPLINK_BACKUP_RETENTION_DAYS", backup)
+        self.assertIn("toplink_restore_", restore)
+        self.assertIn("DROP DATABASE", restore)
+        self.assertNotRegex(restore, r"rm\s+-rf\s+[\"']?/(?:[\"']|\s|$)")
+
+    def test_public_verifier_covers_release_gates(self) -> None:
+        verifier = (DEPLOY / "scripts" / "verify-public.sh").read_text(encoding="utf-8")
+        for route in ("/", "/gioi-thieu", "/dich-vu", "/san-pham", "/kien-thuc", "/tin-tuc"):
+            self.assertIn(route, verifier)
+        for marker in ("__P5_", "__P6_", "__P7_", "__P8_", "__P9_", "Lorem ipsum"):
+            self.assertIn(marker, verifier)
+        for header in ("X-Content-Type-Options", "Referrer-Policy", "X-Frame-Options", "Permissions-Policy"):
+            self.assertIn(header, verifier)
+
+    def test_backup_and_monitoring_are_scheduled(self) -> None:
+        systemd = DEPLOY / "systemd"
+        backup_service = (systemd / "toplink-backup.service").read_text(encoding="utf-8")
+        backup_timer = (systemd / "toplink-backup.timer").read_text(encoding="utf-8")
+        monitor_service = (systemd / "toplink-monitor.service").read_text(encoding="utf-8")
+        monitor_timer = (systemd / "toplink-monitor.timer").read_text(encoding="utf-8")
+        self.assertIn("/srv/toplink/deploy/production/scripts/backup.sh", backup_service)
+        self.assertIn("OnCalendar=*-*-* 03:15:00", backup_timer)
+        self.assertIn("Persistent=true", backup_timer)
+        self.assertIn("/srv/toplink/deploy/production/scripts/monitor.sh", monitor_service)
+        self.assertIn("OnUnitActiveSec=5min", monitor_timer)
+        monitor = (DEPLOY / "scripts" / "monitor.sh").read_text(encoding="utf-8")
+        for marker in ("disk", "backup", "openssl s_client", "compose ps", "TOPLINK_CMS_BASE_URL"):
+            self.assertIn(marker, monitor)
 
 
 if __name__ == "__main__":

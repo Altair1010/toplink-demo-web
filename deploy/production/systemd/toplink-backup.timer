@@ -1,0 +1,11 @@
+[Unit]
+Description=Run the Toplink production backup daily
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+RandomizedDelaySec=15m
+Persistent=true
+Unit=toplink-backup.service
+
+[Install]
+WantedBy=timers.target

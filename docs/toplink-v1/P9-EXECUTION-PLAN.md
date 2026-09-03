@@ -59,9 +59,9 @@
 - Create: `deploy/production/scripts/verify-public.sh`
 - Modify: `deploy/production/tests/test_production_contract.py`
 
-- [ ] Add failing checks for fail-closed input validation, secret-safe output, backup retention and isolated restore behavior.
-- [ ] Add scripts that require explicit host values and never synthesize business facts.
-- [ ] Validate script syntax and contract behavior without needing a production target.
+- [x] Add failing checks for fail-closed input validation, secret-safe output, backup retention, scheduled monitoring and isolated restore behavior.
+- [x] Add scripts that require explicit host values and never synthesize business facts.
+- [x] Validate script syntax and static contract behavior without needing a production target; full runtime execution remains target-dependent.
 - [ ] Commit the operations slice.
 
 ### Task 4: Record actual P9 state

@@ -105,6 +105,31 @@ services:
     security_opt:
       - no-new-privileges:true
 
+  wpcli:
+    image: wordpress:cli-2.12.0-php8.3@sha256:2b5e9d4d3e51909dca1aaa4732e9f5e5bf0377c2114dbd8ff39f060bff202586
+    profiles: ["tools"]
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["wp"]
+    working_dir: /var/www/html
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${TOPLINK_DB_NAME:?Set TOPLINK_DB_NAME}
+      WORDPRESS_DB_USER: ${TOPLINK_DB_USER:?Set TOPLINK_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${TOPLINK_DB_PASSWORD:?Set TOPLINK_DB_PASSWORD}
+      TOPLINK_WEBHOOK_URL: ${TOPLINK_WEBHOOK_URL:?Set TOPLINK_WEBHOOK_URL}
+      TOPLINK_WEBHOOK_SECRET: ${TOPLINK_WEBHOOK_SECRET:?Set TOPLINK_WEBHOOK_SECRET}
+      TOPLINK_PREVIEW_SECRET: ${TOPLINK_PREVIEW_SECRET:?Set TOPLINK_PREVIEW_SECRET}
+      TOPLINK_PREVIEW_WEB_URL: ${TOPLINK_PREVIEW_WEB_URL:?Set TOPLINK_PREVIEW_WEB_URL}
+    volumes:
+      - toplink_wordpress_data:/var/www/html
+      - ../../wordpress/plugins/toplink-content-model:/var/www/html/wp-content/plugins/toplink-content-model:ro
+    networks:
+      - backend
+    security_opt:
+      - no-new-privileges:true
+
   db:
     image: mariadb:11.8.9@sha256:2439dcd7d14010ecd1ff7a4e1c5abe8e208c34fe35290744deeeaac3569043c3
     restart: unless-stopped

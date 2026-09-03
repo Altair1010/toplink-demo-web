@@ -1,0 +1,12 @@
+[Unit]
+Description=Check Toplink production health and recovery prerequisites
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+ConditionPathExists=/srv/toplink/deploy/production/.env
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/srv/toplink/deploy/production
+ExecStart=/srv/toplink/deploy/production/scripts/monitor.sh
